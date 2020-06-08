@@ -9,6 +9,8 @@ import createSagaMiddleware from 'redux-saga';
 import { History } from 'history';
 import reduxWebsocket from '@giantmachines/redux-websocket';
 
+import { HP_WEBSOCKET_PREFIX } from './homepanelWebsocket/hpWebsocketActionTypes';
+
 import { createReducer } from './reducers';
 
 export function configureAppStore(history?: History) {
@@ -24,9 +26,13 @@ export function configureAppStore(history?: History) {
     middlewares.push(routerMiddleware(history));
   }
 
-  // Create the middleware instance.
-  const reduxWebsocketMiddleware = reduxWebsocket();
-  middlewares.push(reduxWebsocketMiddleware);
+  // Create the Homepanel Websocket middleware instance.
+  // Note: you can create other instances of the Websocket middleware here,
+  // each with different prefix.
+  const reduxHPWebsocketMiddleware = reduxWebsocket({
+    prefix: HP_WEBSOCKET_PREFIX,
+  });
+  middlewares.push(reduxHPWebsocketMiddleware);
 
   const enhancers = [
     createInjectorsEnhancer({

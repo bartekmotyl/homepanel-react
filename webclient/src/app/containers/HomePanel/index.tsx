@@ -3,10 +3,12 @@ import { useDispatch } from 'react-redux';
 import { connect } from '@giantmachines/redux-websocket';
 import { DummyDevice } from '../../components/Devices/Dummy';
 import { useSelector } from 'react-redux';
-import { WebsocketState } from '../../../store/websocket/websocketState';
+
+import { HomepanelWebsocketDevicesState } from '../../../store/homepanelWebsocket/hpWebsocketDevicesState';
+import { HP_WEBSOCKET_PREFIX } from 'store/homepanelWebsocket/hpWebsocketActionTypes';
 
 interface RootState {
-  websocket: WebsocketState;
+  homepanel: HomepanelWebsocketDevicesState;
 }
 
 export function HomePanel() {
@@ -14,11 +16,11 @@ export function HomePanel() {
 
   const myHandler = () => {
     alert('Connecting to web socket...');
-    dispatch(connect('ws://192.168.1.111:8899'));
+    dispatch(connect('ws://192.168.1.111:8899', HP_WEBSOCKET_PREFIX));
   };
 
   const selectState = (state: RootState) => {
-    return state.websocket.connected;
+    return state.homepanel.connected;
   };
 
   const connected = useSelector(selectState);
@@ -27,8 +29,8 @@ export function HomePanel() {
     <>
       <div onClick={myHandler}>Click here to connect</div>
       <div>Connected: {JSON.stringify(connected)}</div>
-      <DummyDevice deviceId="water-meter-main-value" />
-      <DummyDevice deviceId="termostat-salon" />
+      <DummyDevice deviceId="water-meter-main-value" source="homepanel" />
+      <DummyDevice deviceId="termostat-salon" source="homepanel" />
     </>
   );
 }
