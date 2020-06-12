@@ -8,6 +8,7 @@ import { createInjectorsEnhancer, forceReducerReload } from 'redux-injectors';
 import createSagaMiddleware from 'redux-saga';
 import { History } from 'history';
 import reduxWebsocket from '@giantmachines/redux-websocket';
+import thunk from 'redux-thunk';
 
 import { HP_WEBSOCKET_PREFIX } from './homepanelWebsocket/hpWebsocketActionTypes';
 
@@ -33,6 +34,8 @@ export function configureAppStore(history?: History) {
     prefix: HP_WEBSOCKET_PREFIX,
   });
   middlewares.push(reduxHPWebsocketMiddleware);
+
+  middlewares.push(thunk);
 
   const enhancers = [
     createInjectorsEnhancer({

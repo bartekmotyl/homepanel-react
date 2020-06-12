@@ -10,6 +10,7 @@ import defaultHomepanelWebsocketDevicesState, {
   HomepanelWebsocketDevicesState,
 } from './hpWebsocketDevicesState';
 import { DeviceState } from 'store/devicesState';
+import { HomepanelDevice } from 'devices/implementations/HomepanelXiaomiTemperatureSensor';
 
 export const getConnected = (state: HomepanelWebsocketDevicesState) =>
   state.connected;
@@ -40,9 +41,18 @@ const homepanelWebsocketReducer = (
     case HP_REDUX_WEBSOCKET_MESSAGE:
       const msg = JSON.parse(action.payload.message);
       console.log(`received message for device: ${msg.device}`);
-      const dev: DeviceState = {
-        data: msg.data,
-      };
+
+      // Create new instance of the device, with updated data
+      let dev: HomepanelDevice = state.devices.get(
+        msg.device,
+      ) as HomepanelDevice;
+      if (dev) {
+        dev = dev.acceptData(msg.data);
+      } else {
+        return state;
+      }
+
+      // And create updated dictionary
       const updatedDevices = state.devices.set(msg.device, dev);
       return {
         ...state,
