@@ -31,10 +31,10 @@ const convertToFunctions = (obj: any, dict: {}, current?: string) => {
   Object.keys(obj).forEach(key => {
     const currentLookupKey = current ? `${current}.${key}` : key;
     if (typeof obj[key] === 'object') {
-      dict[key] = {};
-      convertToFunctions(obj[key], dict[key], currentLookupKey);
+      (dict as any)[key] = {};
+      convertToFunctions(obj[key], (dict as any)[key], currentLookupKey);
     } else {
-      dict[key] = () => currentLookupKey;
+      (dict as any)[key] = () => currentLookupKey;
     }
   });
 };

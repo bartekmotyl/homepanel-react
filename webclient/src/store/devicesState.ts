@@ -1,5 +1,5 @@
 import Immutable from 'immutable';
-import { Device } from '../devices/Device';
+import { IDevice } from '../devices/Device';
 import { TemperatureHumiditySensor } from 'devices/implementations/HomepanelXiaomiTemperatureSensor';
 
 export interface DeviceState {
@@ -7,7 +7,7 @@ export interface DeviceState {
 }
 
 export interface DevicesState {
-  devices: Immutable.Map<string, Device>;
+  devices: Immutable.Map<string, IDevice>;
 }
 
 const defaultDevicesState: DevicesState = {

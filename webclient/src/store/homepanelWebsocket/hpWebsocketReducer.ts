@@ -4,12 +4,12 @@ import {
   HP_REDUX_WEBSOCKET_CONNECT,
   HP_REDUX_WEBSOCKET_MESSAGE,
   HP_REDUX_WEBSOCKET_OPEN,
+  HomePanelWebsocketAction,
 } from './hpWebsocketActionTypes';
 
 import defaultHomepanelWebsocketDevicesState, {
   HomepanelWebsocketDevicesState,
 } from './hpWebsocketDevicesState';
-import { DeviceState } from 'store/devicesState';
 import { HomepanelDevice } from 'devices/implementations/HomepanelXiaomiTemperatureSensor';
 
 export const getConnected = (state: HomepanelWebsocketDevicesState) =>
@@ -17,7 +17,7 @@ export const getConnected = (state: HomepanelWebsocketDevicesState) =>
 
 const homepanelWebsocketReducer = (
   state = defaultHomepanelWebsocketDevicesState,
-  action,
+  action: HomePanelWebsocketAction,
 ): HomepanelWebsocketDevicesState => {
   switch (action.type) {
     case HP_REDUX_WEBSOCKET_CONNECT:

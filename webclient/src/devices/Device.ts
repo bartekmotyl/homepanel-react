@@ -1,1 +1,3 @@
-export abstract class Device {}
+export interface IDevice {
+  dump(): string;
+}

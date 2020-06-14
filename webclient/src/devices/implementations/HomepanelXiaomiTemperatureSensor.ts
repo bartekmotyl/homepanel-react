@@ -1,6 +1,6 @@
 import { Temperature, Humidity } from '../interfaces/device-interfaces';
 import { Record } from 'immutable';
-import { Device } from 'devices/Device';
+import { IDevice } from 'devices/Device';
 
 interface ITemperatureHumiditySensorRecord {
   temperature: number;
@@ -12,18 +12,18 @@ const TemperatureHumiditySensorRecordFactory = Record({
   humidity: 12,
 });
 
-export abstract class HomepanelDevice extends Device {
+export abstract class HomepanelDevice implements IDevice {
   abstract acceptData(data: any): HomepanelDevice;
+  abstract dump(): string;
 }
 
-export class TemperatureHumiditySensor extends Device
-  implements Temperature, Humidity {
+export class TemperatureHumiditySensor
+  implements IDevice, Temperature, Humidity {
   constructor(data = undefined) {
-    super();
     this.data = TemperatureHumiditySensorRecordFactory(data);
   }
 
-  acceptData(data: any): Device {
+  acceptData(data: any): TemperatureHumiditySensor {
     return new TemperatureHumiditySensor(data);
   }
 
@@ -34,5 +34,9 @@ export class TemperatureHumiditySensor extends Device
   }
   get H(): number | null {
     return this.data.humidity;
+  }
+
+  dump(): string {
+    return JSON.stringify(this.data);
   }
 }

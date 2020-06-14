@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux';
 
 import { HomepanelWebsocketDevicesState } from '../../../store/homepanelWebsocket/hpWebsocketDevicesState';
 import { HP_WEBSOCKET_PREFIX } from 'store/homepanelWebsocket/hpWebsocketActionTypes';
-import { TemperatureHumiditySensor } from 'devices/implementations/HomepanelXiaomiTemperatureSensor';
 import { DummyTempDevice } from 'app/components/Devices/Dummy/dummyTemp';
 import { doMock } from 'store/connectors/mockConnector/actions';
 
@@ -23,7 +22,7 @@ export function HomePanel() {
 
   const connected = useSelector(selectState);
   const myHandler = () => {
-    //dispatch(connect('ws://192.168.1.111:8899', HP_WEBSOCKET_PREFIX));
+    dispatch(connect('ws://192.168.1.111:8899', HP_WEBSOCKET_PREFIX));
     dispatch(doMock());
   };
 

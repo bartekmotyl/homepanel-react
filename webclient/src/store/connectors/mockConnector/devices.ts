@@ -1,35 +1,38 @@
-import { Device } from 'devices/Device';
-import { Record } from 'immutable';
+import { IDevice } from 'devices/Device';
 import { Temperature } from 'devices/interfaces/device-interfaces';
 
-export abstract class MockDevice extends Device {
+export abstract class MockDevice implements IDevice {
   abstract generateNextState(): MockDevice;
+  abstract dump(): string;
 }
-
-interface ITemperatureSensorRecord {
-  temp: number;
-}
-
-const MockTemperatureSensorRecordFactory = Record({
-  temp: 33,
-});
 
 export class MockTemperatureSensor extends MockDevice implements Temperature {
-  constructor(data: ITemperatureSensorRecord | undefined = undefined) {
+  temp?: number;
+
+  constructor(temp: number | undefined = undefined) {
     super();
-    this.data = MockTemperatureSensorRecordFactory(data);
+    this.temp = temp;
   }
-
   generateNextState(): MockTemperatureSensor {
-    let updated = new MockTemperatureSensor({
-      temp: 20 + Math.floor(Math.random() * 50) / 10.0,
-    });
-    return updated;
+    return new MockTemperatureSensor(
+      20 + Math.floor(Math.random() * 50) / 10.0,
+    );
   }
-
-  data: ITemperatureSensorRecord;
-
   get T(): number | null {
-    return this.data.temp;
+    return this.temp || null;
+  }
+  dump(): string {
+    return JSON.stringify(this);
   }
 }
+
+/*
+
+class MockLight extends Record({
+  name: '',
+  placeholder: '',
+  age: null as number | null,
+}) {
+  
+}
+*/

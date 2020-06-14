@@ -1,6 +1,7 @@
 import { RouterState } from 'connected-react-router';
 import { GithubRepoFormState } from 'app/containers/GithubRepoForm/types';
 import { ThemeState } from 'styles/theme/types';
+import { DevicesState } from 'store/devicesState';
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
 
 /* 
@@ -14,4 +15,6 @@ export interface RootState {
   theme?: ThemeState;
   githubRepoForm?: GithubRepoFormState;
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
+  homepanel?: DevicesState;
+  mock?: DevicesState;
 }

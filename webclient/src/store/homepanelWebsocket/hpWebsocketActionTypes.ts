@@ -17,3 +17,10 @@ export const HP_REDUX_WEBSOCKET_MESSAGE = `${HP_WEBSOCKET_PREFIX}::${WEBSOCKET_M
 export const HP_REDUX_WEBSOCKET_CONNECT = `${HP_WEBSOCKET_PREFIX}::${WEBSOCKET_CONNECT}`;
 export const HP_REDUX_WEBSOCKET_DISCONNECT = `${HP_WEBSOCKET_PREFIX}::${WEBSOCKET_DISCONNECT}`;
 export const HP_REDUX_WEBSOCKET_SEND = `${HP_WEBSOCKET_PREFIX}::${WEBSOCKET_SEND}`;
+
+export interface HomePanelWebsocketAction {
+  type: string;
+  payload: {
+    message: string;
+  };
+}

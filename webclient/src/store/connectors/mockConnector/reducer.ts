@@ -1,10 +1,10 @@
-import { GENERATE_MOCK_STATE } from './actions';
+import { GENERATE_MOCK_STATE, MockConnectorActionTypes } from './actions';
 import defaultMockDevicesState, { MockDevicesState } from './state';
 import { MockDevice } from './devices';
 
 const mockConnectorReducer = (
   state = defaultMockDevicesState,
-  action,
+  action: MockConnectorActionTypes,
 ): MockDevicesState => {
   switch (action.type) {
     case GENERATE_MOCK_STATE: {
