@@ -1,13 +1,13 @@
 export interface Temperature {
-  T: number | null;
+  getTemperature(): number | null;
 }
 
 export interface Humidity {
-  H: number | null;
+  getHumidity(): number | null;
 }
 
 export interface Light {
-  active: boolean | null;
+  getState(): boolean | null;
 }
 
 export interface Switch extends Light {
@@ -16,11 +16,52 @@ export interface Switch extends Light {
   on(): void;
 }
 
+export interface TimedSwitch extends Switch {
+  onForTime(seconds: number): void;
+}
+
 export interface PushButton {
   push(): void;
+  longPress(): void;
 }
 
 export interface BatteryOperated {
-  battery: number | undefined;
-  ok: boolean | undefined;
+  getBattery(): number | null;
+  isBatteryOk(): boolean | null;
+}
+
+export interface Gauge {
+  getGaugeValue(): number | null;
+}
+
+export interface Counter {
+  getCounterValue(): number | null;
+}
+
+export interface ProximitySensor {
+  getProximityState(): boolean | null;
+}
+
+export interface DoorSensor {
+  isClosed(): boolean | null;
+}
+
+export interface Blinds {
+  up(): void;
+  down(): void;
+  stepUp(): void;
+  stepDown(): void;
+  stop(): void;
+}
+
+export interface PositionableBlinds extends Blinds {
+  setPosition(position: number): void;
+  getPosition(): number | null;
+}
+
+export interface Dimmer {
+  more(): void;
+  less(): void;
+  on(): void;
+  off(): void;
 }

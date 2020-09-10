@@ -29,10 +29,10 @@ export class TemperatureHumiditySensor
 
   data: ITemperatureHumiditySensorRecord;
 
-  get T(): number | null {
+  getTemperature(): number | null {
     return this.data.temperature;
   }
-  get H(): number | null {
+  getHumidity(): number | null {
     return this.data.humidity;
   }
 
