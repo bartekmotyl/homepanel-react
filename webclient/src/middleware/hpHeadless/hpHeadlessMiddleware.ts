@@ -1,17 +1,25 @@
-import  * as actions from './hphWebsocket';
 import { MiddlewareAPI, Middleware } from 'redux';
 import { PayloadAction } from '@reduxjs/toolkit';
 import { DeviceUpdate } from '../../devices/Device';
+
+// Actions to be dispatched to the middleware 
+export const hphWsConnect = (url: string) => ({ type: 'HPH_WS_CONNECT', payload: url });
+export const hphWsDisconnect = () => ({ type: 'HPH_WS_DISCONNECT' });
+export const hphWsSend = (url: string) => ({ type: 'HPH_WS_SEND', payload: url });
+
+// Actons dispatched by the middleware in response to webservice events 
+export const hphWsConnected = (host: string) => ({ type: 'HPH_WS_CONNECTED', payload: host });
+export const hphWsDisconnected = () => ({ type: 'HPH_WS_DISCONNECTED' });
 
 const debug = false; 
 
 const onOpen = (store : MiddlewareAPI) => (ev: Event) => {
     console.log(`Home panel websocket: connected`)
-    store.dispatch(actions.hphWsConnected("dummy"));
+    store.dispatch(hphWsConnected("dummy"));
   };
 
   const onClose = (store : MiddlewareAPI)  => () => {
-    store.dispatch(actions.hphWsDisconnected());
+    store.dispatch(hphWsDisconnected());
   };
 
   const onMessage = (store : MiddlewareAPI)  => (event: MessageEvent) => {
