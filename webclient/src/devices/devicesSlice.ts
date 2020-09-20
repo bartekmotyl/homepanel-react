@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../app/store';
 import Immutable from 'immutable';
-import { Device, DeviceUpdate } from './device';
+import { Device, DeviceUpdate } from './Device';
 
-const debug = true; 
+const debug = false; 
 
 interface DevicesState {
   map: Immutable.Map<string, Device>;

@@ -1,7 +1,7 @@
 import  * as actions from './hphWebsocket';
 import { MiddlewareAPI, Middleware } from 'redux';
 import { PayloadAction } from '@reduxjs/toolkit';
-import { DeviceUpdate } from '../../devices/device';
+import { DeviceUpdate } from '../../devices/Device';
 
 const debug = false; 
 
@@ -22,6 +22,7 @@ const onOpen = (store : MiddlewareAPI) => (ev: Event) => {
     // "data":{"mic":"CHECKSUM","channel":1,"wind_speed":0.6,"wind_direction":90,
     // "model":"AlectoV1 Wind Sensor","time":0,"id":163,"battery":"OK","wind_gust":1.2,
     // "readingDate":"N/A"},"timestamp":"2020-09-20 11:17 AM CEST"}
+
     var payload = JSON.parse(event.data);
     if (payload.messageType === "deviceState") {
         const deviceData : DeviceUpdate = {

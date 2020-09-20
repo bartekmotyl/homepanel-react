@@ -1,7 +1,7 @@
+import React from 'react';
 import { selectDevices } from '../devices/devicesSlice';
 import { useSelector } from 'react-redux';
-import { Temperature } from '../devices/interfaces/genericDevices';
-import React from 'react';
+import { Temperature } from '../devices/interfaces/generic/genericDevices';
 
 interface Props {
     deviceId: string;
@@ -9,11 +9,12 @@ interface Props {
 
 export function TemperatureWidget({ deviceId }: Props) {
     const devices = useSelector(selectDevices);
-    const device = devices.get(deviceId) as Temperature | undefined;
-    const data = device ? device.getTemperature() : 'N/A';
+    const device = devices.get(deviceId);
+    const temperature = device as Temperature | undefined;
+    const data = temperature?.getTemperature() ?? 'N/A';
     return (
         <div>
-            {deviceId}: {data}
+            {device?.getName()}: {data}
         </div>
     );
 }
