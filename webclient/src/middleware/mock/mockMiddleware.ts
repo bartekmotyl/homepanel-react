@@ -3,15 +3,13 @@ import { PayloadAction } from '@reduxjs/toolkit';
 import { DeviceUpdate } from '../../devices/Device';
 
 // Actions to be dispatched to the middleware 
-export const mockConnect = () => ({ type: 'MOCK_CONNECT' });
-export const mockDisconnect = () => ({ type: 'MOCK_DISCONNECT' });
-export const mockSend = () => ({ type: 'MOCKS_SEND' });
+export const mockConnect = (connectorId: string) => ({ type: `connector/${connectorId}/connect` });
+export const mockDisconnect = (connectorId: string) => ({ type: `connector/${connectorId}/disconnect` });
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const debug = false;
+const debug = true;
 
-const tick = (store: MiddlewareAPI) => {
-    debug && console.log(`Mock: tick`)
+const tick = (store: MiddlewareAPI, connectorId: string) => {
+    debug && console.log(`Mock: tick ${connectorId}`)
     const deviceData : DeviceUpdate = {
         deviceId: 'mock-temperature-1',
         timestamp: new Date(),
@@ -22,19 +20,18 @@ const tick = (store: MiddlewareAPI) => {
     store.dispatch({ type: 'devices/deviceUpdate', payload: deviceData });
 };
 
-
-export const mockMiddleware: Middleware = api => next => (action: PayloadAction<string>) => {
-    switch (action.type) {
-        case 'MOCK_CONNECT':
-            console.log(`Mock connect`)
-            setInterval( () => { tick(api) }, 3000);
-            break;
-        case 'MOCK_DISCONNECT':
-            console.log(`Mock disconnect`)
-            break;
-        case 'MOCK_WS_SEND':
-            console.log(`Mock send`)
-            break;
-    }
-    return next(action);
-};
+export const mockMiddlewareFunction = (connectorId: string) => {
+    const mockMiddleware: Middleware = api => next => (action: PayloadAction<string>) => {
+        switch (action.type) {
+            case `connector/${connectorId}/connect`:
+                console.log(`Mock connect`)
+                setInterval( () => { tick(api, connectorId) }, 3000);
+                break;
+            case `connector/${connectorId}/disconnect`:
+                console.log(`Mock disconnect`)
+                break;
+        }
+        return next(action);
+    };
+    return mockMiddleware;
+}

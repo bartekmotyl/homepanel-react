@@ -7,9 +7,8 @@ export class SwitchDevice extends DeviceBase implements  Switch {
     super(connectorId, deviceId, name, data);
   }
   toggle(): void {
-    store.dispatch({ type: 'connector/switch/toggle', payload: {
+    store.dispatch({ type: `connector/${this.connectorId}/device/switch/toggle`, payload: {
       deviceId: this.deviceId,
-      connectorId: this.connectorId,
     }});
   }
   off(): void {

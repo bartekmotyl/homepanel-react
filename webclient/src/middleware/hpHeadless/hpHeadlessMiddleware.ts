@@ -3,29 +3,26 @@ import { PayloadAction } from '@reduxjs/toolkit';
 import { DeviceUpdate } from '../../devices/Device';
 
 // Actions to be dispatched to the middleware 
-export const hphWsConnect = (url: string) => ({ type: 'HPH_WS_CONNECT', payload: url });
-export const hphWsDisconnect = () => ({ type: 'HPH_WS_DISCONNECT' });
-export const hphWsSend = (url: string) => ({ type: 'HPH_WS_SEND', payload: url });
+export const hpHeadlessConnect = (connectorId: string, url: string) => ({ 
+    type: `connector/${connectorId}/connect`, payload: url});
 
-// Actons dispatched by the middleware in response to webservice events 
-export const hphWsConnected = (host: string) => ({ type: 'HPH_WS_CONNECTED', payload: host });
-export const hphWsDisconnected = () => ({ type: 'HPH_WS_DISCONNECTED' });
+export const hpHeadlessDisconnect = (connectorId: string) => ({ 
+    type: `connector/${connectorId}/disconnect` });
 
-const debug = false; 
 
-const onOpen = (store : MiddlewareAPI) => (ev: Event) => {
+const debug = false;
+
+const onOpen = (store: MiddlewareAPI) => (ev: Event) => {
     console.log(`Home panel websocket: connected`)
-    socket?.send(JSON.stringify({ messageType: "requestStateAll"}))
-    store.dispatch(hphWsConnected("dummy"));
-  };
+    socket?.send(JSON.stringify({ messageType: "requestStateAll" }))
+};
 
-  const onClose = (store : MiddlewareAPI)  => () => {
-    store.dispatch(hphWsDisconnected());
-  };
+const onClose = (store: MiddlewareAPI) => () => {
+};
 
-  const onMessage = (store : MiddlewareAPI)  => (event: MessageEvent) => {
+const onMessage = (store: MiddlewareAPI) => (event: MessageEvent) => {
     debug && console.log(`Home panel websocket message received: ${event.data}`)
-    
+
     // Sample data: 
     // {"messageType":"deviceState","device":"weather-wind-meter",
     // "data":{"mic":"CHECKSUM","channel":1,"wind_speed":0.6,"wind_direction":90,
@@ -34,54 +31,53 @@ const onOpen = (store : MiddlewareAPI) => (ev: Event) => {
 
     var payload = JSON.parse(event.data);
     if (payload.messageType === "deviceState") {
-        const deviceData : DeviceUpdate = {
-            deviceId: payload.device, 
+        const deviceData: DeviceUpdate = {
+            deviceId: payload.device,
             data: payload.data,
             timestamp: payload.timestamp,
         }
-        store.dispatch({type: 'devices/deviceUpdate', payload: deviceData});
+        store.dispatch({ type: 'devices/deviceUpdate', payload: deviceData });
     }
 
 };
 
-let socket : WebSocket | null = null;
+let socket: WebSocket | null = null;
 
-export const hphWebSocketMiddleware: Middleware =  api => next => (action: PayloadAction<any> ) => {
+export const hphWebSocketMiddlewareFunction = (connectorId: string) => {
+    const hphWebSocketMiddleware: Middleware = api => next => (action: PayloadAction<any>) => {
+        switch (action.type) {
+            case `connector/${connectorId}/connect`:
+                if (socket !== null) {
+                    socket.close();
+                }
+                console.log(`Home panel websocket: connecting to: ${action.payload}`)
 
-    //console.log(`hphWebSocketMiddleware: ${JSON.stringify(action)}`);
-    switch (action.type) {
-    case 'HPH_WS_CONNECT':
-        if (socket !== null) {
-            socket.close();
+                // connect to the remote host
+                socket = new WebSocket(action.payload);
+
+                // websocket handlers
+                socket.onmessage = onMessage(api);
+                socket.onclose = onClose(api);
+                socket.onopen = onOpen(api);
+
+                break;
+            case `connector/${connectorId}/disconnect`:
+                if (socket !== null) {
+                    socket.close();
+                }
+                socket = null;
+                break;
+
+            case `connector/${connectorId}/device/switch/toggle`:
+                const msg = JSON.stringify({
+                    messageType: 'action',
+                    deviceId: action.payload.deviceId,
+                    action: 'toggle',
+                });
+                socket?.send(msg);
+                break;
         }
-        console.log(`Home panel websocket: connecting to: ${action.payload}`)
-
-        // connect to the remote host
-        socket = new WebSocket(action.payload);
-
-        // websocket handlers
-        socket.onmessage = onMessage(api);
-        socket.onclose = onClose(api);
-        socket.onopen = onOpen(api);
-
-        break;
-    case 'HPH_WS_DISCONNECT':
-        if (socket !== null) {
-            socket.close();
-        }
-        socket = null;
-        break;
-    case 'connector/switch/toggle': 
-        const connectorId = action.payload.connectorId;
-        if (connectorId === 'homepanel') {
-            const msg = JSON.stringify({
-                messageType: 'action',
-                deviceId: action.payload.deviceId,
-                action: 'toggle',   
-            });     
-            socket?.send(msg);       
-        }
-        break;
-    }
-  return next(action);
+        return next(action);
+    };
+    return hphWebSocketMiddleware;
 };
