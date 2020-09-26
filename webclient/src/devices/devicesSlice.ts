@@ -18,22 +18,26 @@ export const devicesSlice = createSlice({
   initialState,
   reducers: {
     registerDevice: (state, action: PayloadAction<Device>) => {
-      debug && console.log(`Registering device: ${action.payload.getDeviceId()}`);
+      const deviceId = action.payload.getDeviceId();
+      const path = `${deviceId}`;
+      debug && console.log(`Registering device: ${path}`);
       // Redux Toolkit allows us to write "mutating" logic in reducers. It
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
-      state.map = state.map.set(action.payload.getDeviceId(), action.payload);
+      state.map = state.map.set(path, action.payload);
     },
     deviceUpdate:  (state, action: PayloadAction<DeviceUpdate>) => {
-      debug && console.log(`Processing update of device : ${action.payload.deviceId}`);
-      const dev = state.map.get(action.payload.deviceId);
+      const deviceId = action.payload.deviceId;
+      const path = `${deviceId}`;
+      debug && console.log(`Processing update of device : ${path}`);
+      const dev = state.map.get(path);
       if (dev) {
-        debug && console.log(`Device ${action.payload.deviceId} has been found, updating`);
+        debug && console.log(`Device ${path} has been found, updating`);
         const updatedDevice = dev.acceptData(action.payload);
-        state.map = state.map.set(dev.getDeviceId(), updatedDevice);
+        state.map = state.map.set(path, updatedDevice);
       } else {
-        debug && console.log(`Device ${action.payload.deviceId} has not been found.`);
+        debug && console.log(`Device ${path} has not been found.`);
       }
     }
   },

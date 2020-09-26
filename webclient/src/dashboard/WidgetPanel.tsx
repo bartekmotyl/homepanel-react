@@ -27,15 +27,15 @@ export function WidgetPanel({rows, columns} : Props) {
 
     const config = [
         {
-            type: 'temperatureWidget', name: 'homepanel/ble-sensor-4c65a8df7d03', position:
+            type: 'temperatureWidget', name: 'ble-sensor-4c65a8df7d03', position:
                 { colNumber: 0, rowNumber: 0, colSpan: 1, rowSpan: 1 }
         },
         {
-            type: 'temperatureWidget', name: 'mock/mock-temperature-1', position:
+            type: 'temperatureWidget', name: 'mock-temperature-1', position:
                 { colNumber: 1, rowNumber: 0, colSpan: 1, rowSpan: 1 }
         },
         {
-            type: 'switchWidget', name: 'homepanel/wiatrolap-lampa', position:
+            type: 'switchWidget', name: 'wiatrolap-lampa', position:
                 { colNumber: 2, rowNumber: 1, colSpan: 3, rowSpan: 2 }
         },
     ];
@@ -45,7 +45,7 @@ export function WidgetPanel({rows, columns} : Props) {
             { config.map((el, index) => { 
                 if (typeof components[el.type as keyof typeof components] !== "undefined") {
                     const Widget = components[el.type as keyof typeof components];
-                    return <GridEntry position={el.position}>
+                    return <GridEntry position={el.position} key={`Entry_${index}`} >
                         <Widget deviceId={el.name}  />
                     </GridEntry>
                 } else { 

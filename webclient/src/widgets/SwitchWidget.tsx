@@ -2,9 +2,9 @@ import React from 'react';
 import { selectDevices } from '../devices/devicesSlice';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLightbulb } from '@fortawesome/free-solid-svg-icons'
 import { Switch } from '../devices/interfaces/generic/genericDevices';
+import { FaLightbulb } from 'react-icons/fa';
+import { FaRegLightbulb } from 'react-icons/fa';
 
 interface Props {
     deviceId: string;
@@ -16,11 +16,18 @@ export function SwitchWidget({ deviceId }: Props) {
     const switchable =  device as Switch | undefined;;
     const state = switchable?.getState() ?? 'N/A';
 
+    const handleClick = () => {
+      switchable?.toggle();
+    }
+
     return (
-        <TableContainer>
-            <Content><FontAwesomeIcon icon={faLightbulb}/> {state}</Content> 
-            <HeaderRow>{device?.getName()}</HeaderRow>
-        </TableContainer>
+      <TableContainer onClick={handleClick}>
+          <Content> 
+            { !state && <FaRegLightbulb/>}
+            { state && <FaLightbulb/>}
+          </Content> 
+          <HeaderRow>{device?.getName()}</HeaderRow>
+      </TableContainer>
     );
 }
 const TableContainer = styled.div`
@@ -39,7 +46,7 @@ const TableContainer = styled.div`
 const HeaderRow = styled.div`
   grid-column: 1 / span 1;
   grid-row: 1 / span 1;
-  font-size: 2vmin;
+  font-size: 2vw;
   color: #A5A9B2;
 `;
 
@@ -47,6 +54,6 @@ const Content = styled.div`
   grid-column: 1 / span 1;
   grid-row: 1 / span 2;
   place-self: center;
-  font-size: 6vmin;
+  font-size: 5vw;
 `;
 

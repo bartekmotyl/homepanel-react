@@ -3,8 +3,6 @@ import { selectDevices } from '../devices/devicesSlice';
 import { useSelector } from 'react-redux';
 import { Temperature } from '../devices/interfaces/generic/genericDevices';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLightbulb } from '@fortawesome/free-solid-svg-icons'
 
 interface Props {
     deviceId: string;
@@ -38,7 +36,7 @@ const TableContainer = styled.div`
 const HeaderRow = styled.div`
   grid-column: 1 / span 1;
   grid-row: 1 / span 1;
-  font-size: 2vmin;
+  font-size: 2vw;
   color: #A5A9B2;
 `;
 
@@ -46,16 +44,6 @@ const Content = styled.div`
   grid-column: 1 / span 1;
   grid-row: 1 / span 2;
   place-self: center;
-  font-size: 6vmin;
+  font-size: 5vw;
 `;
 
-const Box = styled.div`
-  height: 300px;
-  width: 300px;
-  margin: 5px;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background-color: #383C45;
-  color: #F1F6FC;
-`;

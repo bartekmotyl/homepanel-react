@@ -15,6 +15,7 @@ const debug = false;
 
 const onOpen = (store : MiddlewareAPI) => (ev: Event) => {
     console.log(`Home panel websocket: connected`)
+    socket?.send(JSON.stringify({ messageType: "requestStateAll"}))
     store.dispatch(hphWsConnected("dummy"));
   };
 
@@ -34,21 +35,20 @@ const onOpen = (store : MiddlewareAPI) => (ev: Event) => {
     var payload = JSON.parse(event.data);
     if (payload.messageType === "deviceState") {
         const deviceData : DeviceUpdate = {
-            deviceId: 'homepanel/' + payload.device, 
+            deviceId: payload.device, 
             data: payload.data,
             timestamp: payload.timestamp,
         }
         store.dispatch({type: 'devices/deviceUpdate', payload: deviceData});
     }
 
-  };
+};
 
 let socket : WebSocket | null = null;
 
-export const hphWebSocketMiddleware: Middleware = api => next => (action: PayloadAction<string> ) => {
+export const hphWebSocketMiddleware: Middleware =  api => next => (action: PayloadAction<any> ) => {
 
-
-
+    //console.log(`hphWebSocketMiddleware: ${JSON.stringify(action)}`);
     switch (action.type) {
     case 'HPH_WS_CONNECT':
         if (socket !== null) {
@@ -71,9 +71,15 @@ export const hphWebSocketMiddleware: Middleware = api => next => (action: Payloa
         }
         socket = null;
         break;
-    case 'HPH_WS_SEND':
-        if (socket !== null) {
-            socket.send(JSON.stringify(action.payload));
+    case 'connector/switch/toggle': 
+        const connectorId = action.payload.connectorId;
+        if (connectorId === 'homepanel') {
+            const msg = JSON.stringify({
+                messageType: 'action',
+                deviceId: action.payload.deviceId,
+                action: 'toggle',   
+            });     
+            socket?.send(msg);       
         }
         break;
     }

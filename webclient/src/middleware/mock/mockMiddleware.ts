@@ -13,7 +13,7 @@ const debug = false;
 const tick = (store: MiddlewareAPI) => {
     debug && console.log(`Mock: tick`)
     const deviceData : DeviceUpdate = {
-        deviceId: 'mock/mock-temperature-1',
+        deviceId: 'mock-temperature-1',
         timestamp: new Date(),
         data: {
             temperature:  20 + Math.floor(Math.random() * 50) / 10.0,
