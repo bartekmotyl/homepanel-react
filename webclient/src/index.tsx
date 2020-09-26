@@ -6,13 +6,18 @@ import { store } from './app/store';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import { configureDevices } from './dashboard/startup';
+import "typeface-lato";
 
 configureDevices();
+
+
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <React.StrictMode>
+        <App/>
+      </React.StrictMode>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

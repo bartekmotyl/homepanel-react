@@ -1,13 +1,19 @@
 import React from 'react';
-import { TemperatureWidget } from '../widgets/TemperatureWidget';
+import styled from 'styled-components';
+import { WidgetPanel } from './WidgetPanel';
 
 export function DashboardTest() {
     return (
-        <>
-            <div>
-                <TemperatureWidget deviceId="homepanel/ble-sensor-4c65a8df7d03"  />
-                <TemperatureWidget deviceId="mock/mock-temperature-1"  />
-            </div>
-        </>
+        <Container>
+            <WidgetPanel rows={6} columns={4} />
+        </Container>
     );
 }
+
+
+const Container = styled.div`
+    width: 100vw;
+    height: 66vw;  
+    background-color: pink;
+    overflow: scroll;  
+`;

@@ -1,23 +1,24 @@
 import React from 'react';
 import { selectDevices } from '../devices/devicesSlice';
 import { useSelector } from 'react-redux';
-import { Temperature } from '../devices/interfaces/generic/genericDevices';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLightbulb } from '@fortawesome/free-solid-svg-icons'
+import { Switch } from '../devices/interfaces/generic/genericDevices';
 
 interface Props {
     deviceId: string;
 }
 
-export function TemperatureWidget({ deviceId }: Props) {
+export function SwitchWidget({ deviceId }: Props) {
     const devices = useSelector(selectDevices);
     const device = devices.get(deviceId);
-    const temperature = device as Temperature | undefined;
-    const data = temperature?.getTemperature() ?? 'N/A';
+    const switchable =  device as Switch | undefined;;
+    const state = switchable?.getState() ?? 'N/A';
+
     return (
         <TableContainer>
-            <Content>{data}<sup>c</sup></Content> 
+            <Content><FontAwesomeIcon icon={faLightbulb}/> {state}</Content> 
             <HeaderRow>{device?.getName()}</HeaderRow>
         </TableContainer>
     );
@@ -49,13 +50,3 @@ const Content = styled.div`
   font-size: 6vmin;
 `;
 
-const Box = styled.div`
-  height: 300px;
-  width: 300px;
-  margin: 5px;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background-color: #383C45;
-  color: #F1F6FC;
-`;
