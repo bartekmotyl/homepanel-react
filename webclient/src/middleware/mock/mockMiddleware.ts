@@ -6,7 +6,7 @@ import { DeviceUpdate } from '../../devices/Device';
 export const mockConnect = (connectorId: string) => ({ type: `connector/${connectorId}/connect` });
 export const mockDisconnect = (connectorId: string) => ({ type: `connector/${connectorId}/disconnect` });
 
-const debug = true;
+const debug = false;
 
 const tick = (store: MiddlewareAPI, connectorId: string) => {
     debug && console.log(`Mock: tick ${connectorId}`)

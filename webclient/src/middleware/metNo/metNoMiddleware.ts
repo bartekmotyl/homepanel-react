@@ -3,11 +3,10 @@ import { PayloadAction } from '@reduxjs/toolkit';
 import { DeviceUpdate } from '../../devices/Device';
 import axios from 'axios'
 
-// Actions to be dispatched to the middleware 
 export const metNoConnect = (connectorId: string) => ({ type: `connector/${connectorId}/connect` });
 export const metNoDisconnect = (connectorId: string) => ({ type: `connector/${connectorId}/disconnect` });
 
-const debug = true;
+const debug = false;
 
 const tick = async (store: MiddlewareAPI, connectorId: string) => {
     debug && console.log(`met.no: tick ${connectorId}`)

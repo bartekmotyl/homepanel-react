@@ -8,6 +8,8 @@ import { mockConnect } from '../middleware/mock/mockMiddleware';
 import { hphWebSocketMiddlewareFunction } from '../middleware/hpHeadless/hpHeadlessMiddleware';
 import { mockMiddlewareFunction } from '../middleware/mock/mockMiddleware';
 import { metNoMiddlewareFunction } from '../middleware/metNo/metNoMiddleware';
+import { TemperatureWidget } from '../widgets/TemperatureWidget';
+import { SwitchWidget } from '../widgets/SwitchWidget';
 
 export const connectorMiddlewares = [
     hphWebSocketMiddlewareFunction('homepanel'), 
@@ -24,4 +26,7 @@ export const configureDevices = () => {
     store.dispatch(mockConnect('mock-1'));    
     store.dispatch(mockConnect('met-no-1'));    
 }
-
+export const registeredWidgets = {
+    'temperatureWidget': TemperatureWidget,
+    'switchWidget': SwitchWidget,
+}

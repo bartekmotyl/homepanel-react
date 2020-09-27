@@ -1,13 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import { SwitchWidget } from '../widgets/SwitchWidget';
 import { TemperatureWidget } from '../widgets/TemperatureWidget';
+import { SwitchWidget } from '../widgets/SwitchWidget';
 
-
-const components = {
+const widgets  = {
     'temperatureWidget': TemperatureWidget,
     'switchWidget': SwitchWidget,
 }
+const components = widgets;
+
+
 
 interface Props {
     rows: number;
@@ -24,7 +26,6 @@ export interface WidgetPosition {
 
 
 export function WidgetPanel({rows, columns} : Props) {
-
     const config = [
         {
             type: 'temperatureWidget', name: 'ble-sensor-4c65a8df7d03', position:
@@ -40,7 +41,7 @@ export function WidgetPanel({rows, columns} : Props) {
         },
         {
             type: 'temperatureWidget', name: 'met-no-wroclaw-temperature', position:
-                { colNumber: 4, rowNumber: 2, colSpan: 1, rowSpan: 1 }
+                { colNumber: 5, rowNumber: 3, colSpan: 1, rowSpan: 1 }
         },
     ];
 
