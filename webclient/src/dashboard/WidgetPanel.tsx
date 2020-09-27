@@ -38,6 +38,10 @@ export function WidgetPanel({rows, columns} : Props) {
             type: 'switchWidget', name: 'wiatrolap-lampa', position:
                 { colNumber: 2, rowNumber: 1, colSpan: 3, rowSpan: 2 }
         },
+        {
+            type: 'temperatureWidget', name: 'met-no-wroclaw-temperature', position:
+                { colNumber: 4, rowNumber: 2, colSpan: 1, rowSpan: 1 }
+        },
     ];
 
     return (
