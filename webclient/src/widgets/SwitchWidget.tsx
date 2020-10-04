@@ -5,12 +5,14 @@ import styled from 'styled-components';
 import { Switch } from '../devices/interfaces/generic/genericDevices';
 import { FaLightbulb } from 'react-icons/fa';
 import { FaRegLightbulb } from 'react-icons/fa';
+import { WidgetFontHeadline, WidgetFontCaption, WidgetTextSize } from './widgetTexts';
 
 interface Props {
     deviceId: string;
+    textSize: WidgetTextSize,
 }
 
-export function SwitchWidget({ deviceId }: Props) {
+export function SwitchWidget({ deviceId, textSize }: Props) {
     const devices = useSelector(selectDevices);
     const device = devices.get(deviceId);
     const switchable =  device as Switch | undefined;;
@@ -22,11 +24,13 @@ export function SwitchWidget({ deviceId }: Props) {
 
     return (
       <TableContainer onClick={handleClick}>
-          <Content> 
-            { !state && <FaRegLightbulb/>}
-            { state && <FaLightbulb/>}
+          <Content>
+            <WidgetFontHeadline size={textSize}>
+              { !state && <FaRegLightbulb/>}
+              { state && <FaLightbulb/>}
+            </WidgetFontHeadline>
           </Content> 
-          <HeaderRow>{device?.getName()}</HeaderRow>
+          <HeaderRow><WidgetFontCaption size={textSize}>{device?.getName()}</WidgetFontCaption></HeaderRow>
       </TableContainer>
     );
 }

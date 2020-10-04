@@ -3,20 +3,23 @@ import { selectDevices } from '../devices/devicesSlice';
 import { useSelector } from 'react-redux';
 import { Temperature } from '../devices/interfaces/generic/genericDevices';
 import styled from 'styled-components';
+import { WidgetFontHeadline, WidgetFontCaption, WidgetTextSize } from './widgetTexts';
 
 interface Props {
     deviceId: string;
+    textSize: WidgetTextSize,
 }
 
-export function TemperatureWidget({ deviceId }: Props) {
+export function TemperatureWidget({ deviceId, textSize }: Props) {
     const devices = useSelector(selectDevices);
     const device = devices.get(deviceId);
     const temperature = device as Temperature | undefined;
-    const data = temperature?.getTemperature() ?? 'N/A';
+    const value = temperature?.getTemperature(); 
+    const data = value ? value.toFixed(1) : 'N/A';
     return (
         <TableContainer>
-            <Content>{data}<sup>c</sup></Content> 
-            <HeaderRow>{device?.getName()}</HeaderRow>
+            <Content><WidgetFontHeadline size={textSize}>{data}°</WidgetFontHeadline></Content> 
+            <HeaderRow><WidgetFontCaption size={textSize}>{device?.getName()}</WidgetFontCaption></HeaderRow>
         </TableContainer>
     );
 }
@@ -36,7 +39,8 @@ const TableContainer = styled.div`
 const HeaderRow = styled.div`
   grid-column: 1 / span 1;
   grid-row: 1 / span 1;
-  font-size: 2vw;
+  /*font-size: 1vw;*/
+  /*font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300))); */
   color: #A5A9B2;
 `;
 
@@ -44,6 +48,6 @@ const Content = styled.div`
   grid-column: 1 / span 1;
   grid-row: 1 / span 2;
   place-self: center;
-  font-size: 5vw;
+  /*font-size: 3vw;*/
 `;
 

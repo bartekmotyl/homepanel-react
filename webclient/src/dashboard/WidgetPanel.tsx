@@ -2,7 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { TemperatureWidget } from '../widgets/TemperatureWidget';
 import { SwitchWidget } from '../widgets/SwitchWidget';
+import { WidgetProperties } from '../widgets/widgets';
+import { WidgetTextSize } from '../widgets/widgetTexts';
 
+//TODO: make this array initialized dynamically basing on the actual widgets used in dashboard
 const widgets  = {
     'temperatureWidget': TemperatureWidget,
     'switchWidget': SwitchWidget,
@@ -10,10 +13,21 @@ const widgets  = {
 const components = widgets;
 
 
-
-interface Props {
+export interface WidgetPaneSize {
     rows: number;
     columns: number;
+} 
+export interface WidgetPanelProps {
+    size: WidgetPaneSize;
+    elements: WidgetPanelElement[];
+}
+
+export interface WidgetPanelElement {
+    type: string,
+    deviceId: string,
+    position: WidgetPosition;
+    properties?: WidgetProperties;
+    textSize: WidgetTextSize;
 }
 
 export interface WidgetPosition {
@@ -23,35 +37,14 @@ export interface WidgetPosition {
     rowSpan: number;
 };
 
-
-
-export function WidgetPanel({rows, columns} : Props) {
-    const config = [
-        {
-            type: 'temperatureWidget', name: 'ble-sensor-4c65a8df7d03', position:
-                { colNumber: 0, rowNumber: 0, colSpan: 1, rowSpan: 1 }
-        },
-        {
-            type: 'temperatureWidget', name: 'mock-temperature-1', position:
-                { colNumber: 1, rowNumber: 0, colSpan: 1, rowSpan: 1 }
-        },
-        {
-            type: 'switchWidget', name: 'wiatrolap-lampa', position:
-                { colNumber: 2, rowNumber: 1, colSpan: 3, rowSpan: 2 }
-        },
-        {
-            type: 'temperatureWidget', name: 'met-no-wroclaw-temperature', position:
-                { colNumber: 5, rowNumber: 3, colSpan: 1, rowSpan: 1 }
-        },
-    ];
-
+export function WidgetPanel( { config }: { config: WidgetPanelProps}) {
     return (
-        <PanelGrid>
-            { config.map((el, index) => { 
+        <PanelGrid size={config.size}>
+            { config.elements.map((el, index) => { 
                 if (typeof components[el.type as keyof typeof components] !== "undefined") {
                     const Widget = components[el.type as keyof typeof components];
                     return <GridEntry position={el.position} key={`Entry_${index}`} >
-                        <Widget deviceId={el.name}  />
+                        <Widget deviceId={el.deviceId} textSize={el.textSize} />
                     </GridEntry>
                 } else { 
                     return <></> 
@@ -62,24 +55,20 @@ export function WidgetPanel({rows, columns} : Props) {
 }
 
 
-const PanelGrid = styled.div`
+const PanelGrid = styled.div<{size: WidgetPaneSize}>`
     display: grid; 
     width: 100%; 
     height: 100%;
     background-color: #2F3239;
     box-shadow: 3px 3px 2px #28292E;
     border-radius: 4px;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(${props => props.size.columns}, 1fr);
+    grid-template-rows: repeat(${props => props.size.rows}, 1fr);
     grid-gap: 2px;
 `;
 
 
-type GridEntryProps = {
-    position: WidgetPosition,
-}
-
-const GridEntry = styled.div<GridEntryProps>`
+const GridEntry = styled.div<{position: WidgetPosition}>`
     grid-column: ${props => props.position.colNumber + 1} / span ${props => props.position.colSpan};
     grid-row: ${props => props.position.rowNumber + 1} / span ${props => props.position.rowSpan};
 `;

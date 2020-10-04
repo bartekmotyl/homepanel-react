@@ -11,5 +11,5 @@ test('renders learn react link', () => {
     </Provider>
   );
 
-  expect(getByText(/4c65a8df7d03/i)).toBeInTheDocument();
+  expect(getByText(/Wrocław/i)).toBeInTheDocument();
 });
