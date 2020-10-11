@@ -5,14 +5,14 @@ import styled from 'styled-components';
 import { Switch } from '../devices/interfaces/generic/genericDevices';
 import { FaLightbulb } from 'react-icons/fa';
 import { FaRegLightbulb } from 'react-icons/fa';
-import { WidgetFontHeadline, WidgetFontCaption, WidgetTextSize } from './widgetTexts';
+import { WidgetFontHeadline, WidgetFontCaption, WidgetSize, widgetSizeFactor } from './widgetTexts';
 
 interface Props {
     deviceId: string;
-    textSize: WidgetTextSize,
+    size: WidgetSize,
 }
 
-export function SwitchWidget({ deviceId, textSize }: Props) {
+export function SwitchWidget({ deviceId, size }: Props) {
     const devices = useSelector(selectDevices);
     const device = devices.get(deviceId);
     const switchable =  device as Switch | undefined;;
@@ -23,34 +23,31 @@ export function SwitchWidget({ deviceId, textSize }: Props) {
     }
 
     return (
-      <TableContainer onClick={handleClick}>
+      <TableContainer onClick={handleClick} size={size}>
           <Content>
-            <WidgetFontHeadline size={textSize}>
+            <WidgetFontHeadline size={size}>
               { !state && <FaRegLightbulb/>}
               { state && <FaLightbulb/>}
             </WidgetFontHeadline>
           </Content> 
-          <HeaderRow><WidgetFontCaption size={textSize}>{device?.getName()}</WidgetFontCaption></HeaderRow>
+          <HeaderRow><WidgetFontCaption size={size}>{device?.getName()}</WidgetFontCaption></HeaderRow>
       </TableContainer>
     );
 }
-const TableContainer = styled.div`
+const TableContainer = styled.div<{size: WidgetSize}>`
   background-color: #383C45;
-  width: 100%;
-  height: 100%;
-  margin: 0px;
+  width: ${props =>  `${widgetSizeFactor(props.size) * (150)}px`};
+  height: ${props =>  `${widgetSizeFactor(props.size) * (150)}px`};
   color: white;
-
   display: grid;
   grid-template-columns: auto;  
-  grid-template-rows: 50px [line1] auto;
-  grid-gap: 1rem;
+  grid-template-rows: ${props =>  `${widgetSizeFactor(props.size) * 50}px`} [line1] auto;
+  grid-gap: ${props =>  `${widgetSizeFactor(props.size) * 10}px`};
 `;
 
 const HeaderRow = styled.div`
   grid-column: 1 / span 1;
   grid-row: 1 / span 1;
-  font-size: 2vw;
   color: #A5A9B2;
 `;
 
@@ -58,6 +55,6 @@ const Content = styled.div`
   grid-column: 1 / span 1;
   grid-row: 1 / span 2;
   place-self: center;
-  font-size: 5vw;
 `;
+
 

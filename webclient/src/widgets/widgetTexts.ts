@@ -1,7 +1,7 @@
 
 import styled from "styled-components";
 
-export enum WidgetTextSize {
+export enum WidgetSize {
     XS,
     S,
     M,
@@ -9,28 +9,21 @@ export enum WidgetTextSize {
     XL,
 }
   
-
-export const WidgetFontHeadline = styled.span<{size: WidgetTextSize}>`
-    font-size: ${props =>  {
-        switch (props.size) {
-            case WidgetTextSize.XS: return "8pt";  
-            case WidgetTextSize.S: return "12pt";  
-            case WidgetTextSize.M: return "34pt";  
-            case WidgetTextSize.L: return "20pt";  
-            case WidgetTextSize.XL: return "90pt";  
-        }    
-    }}
+export const widgetSizeFactor = (size: WidgetSize) => {
+    switch (size) {
+        case WidgetSize.XS: return 0.33;  
+        case WidgetSize.S: return 0.66;  
+        case WidgetSize.M: return 1.0;  
+        case WidgetSize.L: return 1.5;  
+        case WidgetSize.XL: return 3.0;  
+    }        
+}
+ 
+export const WidgetFontHeadline = styled.span<{size: WidgetSize}>`
+    font-size: ${props =>  `${widgetSizeFactor(props.size) * 44}px`}
 `;
 
 
-export const WidgetFontCaption = styled.span<{size: WidgetTextSize}>`
-    font-size: ${props =>  {
-        switch (props.size) {
-            case WidgetTextSize.XS: return "5pt";  
-            case WidgetTextSize.S: return "9pt";  
-            case WidgetTextSize.M: return "14pt";  
-            case WidgetTextSize.L: return "16pt";  
-            case WidgetTextSize.XL: return "30pt";  
-        }    
-    }}
+export const WidgetFontCaption = styled.span<{size: WidgetSize}>`
+    font-size: ${props =>  `${widgetSizeFactor(props.size) * 20}px`}
 `;

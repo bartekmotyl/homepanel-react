@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: Lato, sans-serif;
     /* padding-top: ${StyleConstants.NAV_BAR_HEIGHT}; */
-    background-color: yellow; /* #2E2F34; */
+    background-color: #2E2F34;
   }
 
   body.fontLoaded {

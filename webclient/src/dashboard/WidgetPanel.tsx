@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { TemperatureWidget } from '../widgets/TemperatureWidget';
 import { SwitchWidget } from '../widgets/SwitchWidget';
 import { WidgetProperties } from '../widgets/widgets';
-import { WidgetTextSize } from '../widgets/widgetTexts';
+import { WidgetSize } from '../widgets/widgetTexts';
 
 //TODO: make this array initialized dynamically basing on the actual widgets used in dashboard
 const widgets  = {
@@ -27,7 +27,7 @@ export interface WidgetPanelElement {
     deviceId: string,
     position: WidgetPosition;
     properties?: WidgetProperties;
-    textSize: WidgetTextSize;
+    widgetSize: WidgetSize;
 }
 
 export interface WidgetPosition {
@@ -37,6 +37,46 @@ export interface WidgetPosition {
     rowSpan: number;
 };
 
+export function WidgetPanel( { config }: { config: WidgetPanelProps}) {
+    return (
+        <PanelFlow>
+            { config.elements.map((el, index) => { 
+                if (typeof components[el.type as keyof typeof components] !== "undefined") {
+                    const Widget = components[el.type as keyof typeof components];
+                    return <PanelElement>
+                            <Widget deviceId={el.deviceId} size={el.widgetSize} />
+                        </PanelElement>
+                } else { 
+                    return <></> 
+                }
+            })}
+        </PanelFlow>
+    );
+}
+
+const PanelElement = styled.div`
+    /*
+    margin-inline-start: 10px;
+    margin-block-start: 10px; 
+    */
+    margin-left: 2px;
+    margin-top: 2px;
+
+`;
+
+const PanelFlow = styled.div`
+    display: flex; 
+    width: 100%; 
+    height: 100%;
+    /* padding: 10px; */
+    background-color: #2F3239;
+    /* background-color: turquoise; */
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    /* margin: 5px;*/
+ `;
+
+/*
 export function WidgetPanel( { config }: { config: WidgetPanelProps}) {
     return (
         <PanelGrid size={config.size}>
@@ -72,3 +112,4 @@ const GridEntry = styled.div<{position: WidgetPosition}>`
     grid-column: ${props => props.position.colNumber + 1} / span ${props => props.position.colSpan};
     grid-row: ${props => props.position.rowNumber + 1} / span ${props => props.position.rowSpan};
 `;
+*/
