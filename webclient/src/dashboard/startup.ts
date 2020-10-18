@@ -10,6 +10,7 @@ import { mockMiddlewareFunction } from '../middleware/mock/mockMiddleware';
 import { metNoMiddlewareFunction } from '../middleware/metNo/metNoMiddleware';
 import { TemperatureWidget } from '../widgets/TemperatureWidget';
 import { SwitchWidget } from '../widgets/SwitchWidget';
+import { BlindsDevice } from '../devices/implementations/generic/Blinds';
 
 export const connectorMiddlewares = [
     hphWebSocketMiddlewareFunction('homepanel'), 
@@ -20,8 +21,10 @@ export const connectorMiddlewares = [
 export const configureDevices = () => {
     store.dispatch(registerDevice(new XiaomiTemperatureSensor('homepanel', 'ble-sensor-4c65a8df7d03', 'Living room')));
     store.dispatch(registerDevice(new SwitchDevice('homepanel', 'wiatrolap-lampa', 'Wiatrołap')));
+    store.dispatch(registerDevice(new BlindsDevice('homepanel', 'roleta-salon-lewa', 'Roleta - Salon L')));
     store.dispatch(registerDevice(new TemperatureSensor('mock-1', 'mock-temperature-1', 'Mock 1')));    
     store.dispatch(registerDevice(new TemperatureSensor('met-no-1', 'met-no-wroclaw-temperature', 'Wrocław')));    
+    
     store.dispatch(hpHeadlessConnect('homepanel', 'ws://192.168.1.111:8899'));    
     store.dispatch(mockConnect('mock-1'));    
     store.dispatch(mockConnect('met-no-1'));    

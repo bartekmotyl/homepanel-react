@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { TemperatureWidget } from '../widgets/TemperatureWidget';
 import { SwitchWidget } from '../widgets/SwitchWidget';
+import { BlindsWidget } from '../widgets/BlindsWidget';
 import { WidgetProperties } from '../widgets/widgets';
 import { WidgetSize } from '../widgets/widgetTexts';
 
@@ -9,6 +10,7 @@ import { WidgetSize } from '../widgets/widgetTexts';
 const widgets  = {
     'temperatureWidget': TemperatureWidget,
     'switchWidget': SwitchWidget,
+    'blindsWidget': BlindsWidget,
 }
 const components = widgets;
 

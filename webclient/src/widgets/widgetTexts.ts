@@ -9,6 +9,8 @@ export enum WidgetSize {
     XL,
 }
   
+
+
 export const widgetSizeFactor = (size: WidgetSize) => {
     switch (size) {
         case WidgetSize.XS: return 0.33;  

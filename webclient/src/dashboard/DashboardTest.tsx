@@ -24,6 +24,11 @@ const widgetPanelProps : WidgetPanelProps = {
         position:{ colNumber: 1, rowNumber: 0, colSpan: 1, rowSpan: 1 },
         widgetSize: widgetSize,
     }, {
+        type: 'blindsWidget', 
+        deviceId: 'roleta-salon-lewa', 
+        position: { colNumber: 2, rowNumber: 1, colSpan: 2, rowSpan: 2 },
+        widgetSize: widgetSize,
+    }, {
         type: 'switchWidget', 
         deviceId: 'wiatrolap-lampa', 
         position: { colNumber: 2, rowNumber: 1, colSpan: 2, rowSpan: 2 },

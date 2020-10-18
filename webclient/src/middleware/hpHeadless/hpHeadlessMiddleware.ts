@@ -45,6 +45,17 @@ let socket: WebSocket | null = null;
 
 export const hphWebSocketMiddlewareFunction = (connectorId: string) => {
     const hphWebSocketMiddleware: Middleware = api => next => (action: PayloadAction<any>) => {
+        
+        const sendAction = (deviceId: string, action: string) => {
+            console.log(`sending action: ${action} to ${deviceId}`)
+            const msg = JSON.stringify({
+                messageType: 'action',
+                deviceId: deviceId,
+                action: action,
+            });
+            socket?.send(msg);
+        }
+        
         switch (action.type) {
             case `connector/${connectorId}/connect`:
                 if (socket !== null) {
@@ -69,12 +80,16 @@ export const hphWebSocketMiddlewareFunction = (connectorId: string) => {
                 break;
 
             case `connector/${connectorId}/device/switch/toggle`:
-                const msg = JSON.stringify({
-                    messageType: 'action',
-                    deviceId: action.payload.deviceId,
-                    action: 'toggle',
-                });
-                socket?.send(msg);
+                sendAction(action.payload.deviceId, 'toggle');
+                break;
+            case `connector/${connectorId}/device/blinds/up`:
+                sendAction(action.payload.deviceId, 'moveUp');
+                break;
+            case `connector/${connectorId}/device/blinds/down`:
+                sendAction(action.payload.deviceId, 'moveDown');
+                break;
+            case `connector/${connectorId}/device/blinds/stop`:
+                sendAction(action.payload.deviceId, 'stopMove');
                 break;
         }
         return next(action);
