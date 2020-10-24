@@ -5,14 +5,11 @@ import styled from 'styled-components';
 import { Switch } from '../devices/interfaces/generic/genericDevices';
 import { FaLightbulb } from 'react-icons/fa';
 import { FaRegLightbulb } from 'react-icons/fa';
-import { WidgetFontHeadline, WidgetFontCaption, WidgetSize, widgetSizeFactor } from './widgetTexts';
+import { WidgetFontCaption, widgetSizeFactor, WidgetFontHeadlineIcon } from './widgetTexts';
+import { IconButton } from '@material-ui/core';
+import { WidgetProperties, WidgetSize } from './widgets';
 
-interface Props {
-    deviceId: string;
-    size: WidgetSize,
-}
-
-export function SwitchWidget({ deviceId, size }: Props) {
+export function SwitchWidget({ deviceId, size }: WidgetProperties) {
     const devices = useSelector(selectDevices);
     const device = devices.get(deviceId);
     const switchable =  device as Switch | undefined;;
@@ -23,12 +20,14 @@ export function SwitchWidget({ deviceId, size }: Props) {
     }
 
     return (
-      <TableContainer onClick={handleClick} size={size}>
+      <TableContainer size={size}>
           <Content>
-            <WidgetFontHeadline size={size}>
-              { !state && <FaRegLightbulb/>}
-              { state && <FaLightbulb/>}
-            </WidgetFontHeadline>
+              <IconButton color="inherit" onClick={handleClick}>
+                <WidgetFontHeadlineIcon size={size}>
+                  { !state && <FaRegLightbulb/>}
+                  { state && <FaLightbulb/>}
+                </WidgetFontHeadlineIcon>
+              </IconButton>
           </Content> 
           <HeaderRow><WidgetFontCaption size={size}>{device?.getName()}</WidgetFontCaption></HeaderRow>
       </TableContainer>

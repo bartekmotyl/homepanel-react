@@ -1,13 +1,8 @@
 
 import styled from "styled-components";
+import { WidgetSize } from "./widgets";
 
-export enum WidgetSize {
-    XS,
-    S,
-    M,
-    L,
-    XL,
-}
+
   
 
 
@@ -23,6 +18,10 @@ export const widgetSizeFactor = (size: WidgetSize) => {
  
 export const WidgetFontHeadline = styled.span<{size: WidgetSize}>`
     font-size: ${props =>  `${widgetSizeFactor(props.size) * 44}px`}
+`;
+
+export const WidgetFontHeadlineIcon = styled.span<{size: WidgetSize}>`
+    font-size: ${props =>  `${widgetSizeFactor(props.size) * 56}px`};
 `;
 
 

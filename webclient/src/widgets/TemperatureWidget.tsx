@@ -3,15 +3,10 @@ import { selectDevices } from '../devices/devicesSlice';
 import { useSelector } from 'react-redux';
 import { Temperature } from '../devices/interfaces/generic/genericDevices';
 import styled from 'styled-components';
-import { WidgetFontHeadline, WidgetFontCaption, WidgetSize, widgetSizeFactor } from './widgetTexts';
+import { WidgetFontHeadline, WidgetFontCaption, widgetSizeFactor } from './widgetTexts';
+import { WidgetProperties, WidgetSize } from './widgets';
 
-
-interface Props {
-    deviceId: string;
-    size: WidgetSize,
-}
-
-export function TemperatureWidget({ deviceId, size }: Props) {
+export function TemperatureWidget({ deviceId, size }: WidgetProperties) {
     const devices = useSelector(selectDevices);
     const device = devices.get(deviceId);
     const temperature = device as Temperature | undefined;

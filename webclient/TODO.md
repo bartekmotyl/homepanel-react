@@ -1,0 +1,3 @@
+- review all classes and fix formatting (4 tabs)
+- private properties in classes 
+- use properties insted of getters?
