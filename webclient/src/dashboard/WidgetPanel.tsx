@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { TemperatureWidget } from '../widgets/TemperatureWidget';
 import { SwitchWidget } from '../widgets/SwitchWidget';
 import { BlindsWidget } from '../widgets/BlindsWidget';
-import { WidgetFunction, WidgetProperties, WidgetSize } from '../widgets/widgets';
+import { WidgetSize } from '../widgets/widgets';
 import { SmallIndicatorWidget } from '../widgets/SmallIndicatorWidget';
 
 //TODO: make this array initialized dynamically basing on the actual widgets used in dashboard

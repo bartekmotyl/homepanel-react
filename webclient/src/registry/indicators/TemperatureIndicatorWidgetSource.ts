@@ -1,6 +1,4 @@
-import { useSelector } from 'react-redux';
 import { store } from '../../app/store';
-import { selectDevices } from '../../devices/devicesSlice';
 import { AsTemperature } from '../genericConverters';
 import { RegistryElement } from '../RegistryElement';
 import { IndicatorWidgetSource } from './IndicatorWidgetSource';
@@ -40,7 +38,8 @@ export class TemperatureIndicatorWidgetSource implements IndicatorWidgetSource, 
 
     public getText() : string {
         let value = this.getTemperature();
-        return value ? value.toFixed(1) + "&deg;" : "";
+        const ret =  value ? value.toFixed(1) + "&deg;" : "";
+        return ret; 
     }
 
     public getValue() : string | null{

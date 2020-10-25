@@ -11,7 +11,9 @@ import { widgetSizeFactor } from './widgetTexts';
 
 export function SmallIndicatorWidget({ deviceId, size, props }: WidgetProperties) {
     const registry = useSelector(selectRegistry);
+    
     // without using 'useSelector' content of this widget wouldn't be refreshed when device data changes 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const devices = useSelector(selectDevices);
         
     const classifierId = props.classifierId;
