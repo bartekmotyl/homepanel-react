@@ -4,12 +4,14 @@ import { RegistryElement } from '../RegistryElement';
 import { IndicatorWidgetSource } from './IndicatorWidgetSource';
 
 export class TemperatureIndicatorWidgetSource implements IndicatorWidgetSource, RegistryElement {
-    id : string
-    deviceId : string
-    temperatureConverterId : string
+    private id : string
+    private deviceId : string
+    private temperatureConverterId : string
+    private title: string
 
-    constructor(id:string, deviceId:string, temperatureConverterId:string) {
+    constructor(id:string, title: string, deviceId:string, temperatureConverterId:string) {
         this.id = id;
+        this.title = title;        
         this.deviceId = deviceId;
         this.temperatureConverterId = temperatureConverterId;
     } 
@@ -53,4 +55,8 @@ export class TemperatureIndicatorWidgetSource implements IndicatorWidgetSource, 
     public getIsUpToDate() : boolean {
         return true;
     }  
+
+    public getTitle(): string {
+        return this.title;
+    }    
 }

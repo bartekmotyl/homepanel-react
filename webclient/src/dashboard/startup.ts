@@ -17,6 +17,8 @@ import { SimpleValueDevice } from '../devices/implementations/generic/SimpleValu
 import { CompositeValueAsTemperatureConverter } from '../registry/converters/CompositeValueAsTemperatureConverter';
 import { TemperatureIndicatorWidgetSource } from '../registry/indicators/TemperatureIndicatorWidgetSource';
 import { IndoorTemperatureValueClassifier } from '../registry/classifiers/IndoorTemperatureValueClassifier';
+import { PowerMeterIndicatorWidgetSource } from '../registry/indicators/PowerMeterIndicatorWidgetSource';
+import { PowerMeterValueClassifier } from '../registry/classifiers/PowerMeterValueClassifier';
 
 export const connectorMiddlewares = [
     hphWebSocketMiddlewareFunction('homepanel'), 
@@ -30,20 +32,23 @@ export const configureDevices = () => {
     store.dispatch(registerDevice(new BlindsDevice('homepanel', 'roleta-salon-lewa', 'Roleta - Salon L')));
     store.dispatch(registerDevice(new CompositeValueDevice('homepanel', 'onewire-sensor-grunt-0', 'Grunt 0cm')));  
     store.dispatch(registerDevice(new CompositeValueDevice('homepanel', 'ble-sensor-00126fc21c10', 'Serwerownia')));  
+    store.dispatch(registerDevice(new CompositeValueDevice('homepanel', 'ble-sensor-00126f6d3a29', 'Prąd')));  
     
-        
     store.dispatch(registerDevice(new SimpleValueDevice('homepanel', 'water-meter-main-value', 'Wodomierz')));    
     store.dispatch(registerDevice(new TemperatureSensorDevice('mock-1', 'mock-temperature-1', 'Mock 1')));    
     store.dispatch(registerDevice(new TemperatureSensorDevice('met-no-1', 'met-no-wroclaw-temperature', 'Wrocław')));    
     
     store.dispatch(registerElement(new CompositeValueAsTemperatureConverter('composite-value-to-temperature', 'temperature')))
-    store.dispatch(registerElement(new TemperatureIndicatorWidgetSource('onewire-sensor-grunt-0-source-temperature', 
-        'onewire-sensor-grunt-0', 'composite-value-to-temperature')))
+    store.dispatch(registerElement(new TemperatureIndicatorWidgetSource('onewire-sensor-grunt-0-source-temperature',
+        'Grunt 0', 'onewire-sensor-grunt-0', 'composite-value-to-temperature')))
     store.dispatch(registerElement(new TemperatureIndicatorWidgetSource('ble-sensor-00126fc21c10-source-temperature', 
-        'ble-sensor-00126fc21c10', 'composite-value-to-temperature')))
+        'Serwerownia','ble-sensor-00126fc21c10', 'composite-value-to-temperature')))
+    store.dispatch(registerElement(new PowerMeterIndicatorWidgetSource('power-meter-source', 'Prąd', 'ble-sensor-00126f6d3a29')))
+
+ 
     store.dispatch(registerElement(new IndoorTemperatureValueClassifier('indoor-temperature-classifier')))
-
-
+    store.dispatch(registerElement(new PowerMeterValueClassifier('power-meter-classifier-minute', 60.0)))
+ 
     store.dispatch(hpHeadlessConnect('homepanel', 'ws://192.168.1.111:8899'));    
     store.dispatch(mockConnect('mock-1'));    
     store.dispatch(mockConnect('met-no-1'));    

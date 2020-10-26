@@ -42,6 +42,13 @@ const widgetPanelProps : WidgetPanelProps = {
         properties: {
             classifierId: 'indoor-temperature-classifier',
         },
+    }, {
+        type: 'smallIndicatorWidget', 
+        deviceId: 'power-meter-source', 
+        widgetSize: widgetSize,
+        properties: {
+            classifierId: 'power-meter-classifier-minute',
+        },
     }],
 };
 

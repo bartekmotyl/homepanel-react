@@ -5,11 +5,10 @@ import { selectRegistry } from '../registry/registrySlice';
 import { IndicatorWidgetSource } from '../registry/indicators/IndicatorWidgetSource';
 import { ValueClassifier } from '../registry/classifiers/ValueClassifier';
 import { IconType } from 'react-icons';
-import { WidgetProperties, WidgetSize } from './widgets';
+import { WidgetProperties } from './widgets';
 import { selectDevices } from '../devices/devicesSlice';
-import { widgetSizeFactor } from './widgetTexts';
 
-export function SmallIndicatorWidget({ deviceId, size, props }: WidgetProperties) {
+export function SmallIndicatorWidget({ deviceId, props }: WidgetProperties) {
     const registry = useSelector(selectRegistry);
     
     // without using 'useSelector' content of this widget wouldn't be refreshed when device data changes 
@@ -36,6 +35,9 @@ export function SmallIndicatorWidget({ deviceId, size, props }: WidgetProperties
     const getText = () : string | null => {
       return source.getText?.() || null; 
     }
+    const getTitle = () : string  => {
+      return source.getTitle(); 
+    }
 
     const getColor = () : string => {
       let color = source.getColor?.();
@@ -51,15 +53,14 @@ export function SmallIndicatorWidget({ deviceId, size, props }: WidgetProperties
   
       return  color || "#98a7b9"; 
     }
-  
+    const Icon = getMdIcon(); 
 
     return (
-        <Box size={size}>
-            <Indicator>
-              <MainContent color={ getColor() }>
-                { getMdIcon() &&  
+        <Box color={ getColor() }>
+              <MainContent>
+                { Icon &&
                   <ContentIcon>
-                    { getMdIcon() }
+                    <Icon/>
                   </ContentIcon>
                 }
                 { getText() && 
@@ -67,25 +68,23 @@ export function SmallIndicatorWidget({ deviceId, size, props }: WidgetProperties
                     <div dangerouslySetInnerHTML={ {__html: getText() ?? "" }}/>
                   </ContentText>
                 }
+                <Title dangerouslySetInnerHTML={ {__html: getTitle() }} />
+
               </MainContent>
-            { /*}
-            <div class="main-content" v-bind:style="{ color: this.color}"><span v-html="text"/><v-icon class="main-content-icon">{{this.mdIcon}}</v-icon>
-            </div>
-            <div class="indicator-title"><span v-html="title"/></div>
-            <div class="additional-info additional-info-ne" v-html="additionalInfoNE"/>
-            <div class="additional-info additional-info-nw" v-html="additionalInfoNW"/>
-            <div class="additional-info additional-info-se" v-html="additionalInfoSE"/>
-            <div class="additional-info additional-info-sw" v-html="additionalInfoSW"/>
-            */ }
-            </Indicator>
+              <AdditionalInfoNE dangerouslySetInnerHTML={ {__html: source.getExtraText1?.() ?? "" }} />
+              <AdditionalInfoNW dangerouslySetInnerHTML={ {__html: source.getExtraText2?.() ?? "" }} />
+              <AdditionalInfoSE dangerouslySetInnerHTML={ {__html: source.getExtraText3?.() ?? "" }} />
+              <AdditionalInfoSW dangerouslySetInnerHTML={ {__html: source.getExtraText4?.() ?? "" }} />              
         </Box>
     );
 }
 
-const Box = styled.div<{size: WidgetSize}>`
-  background-color: #383C45;
-  width: ${props =>  `${widgetSizeFactor(props.size) * (100)}px`};
-  height: ${props =>  `${widgetSizeFactor(props.size) * (100)}px`};
+const Box = styled.div<{color: string}>`
+  background-color: ${props =>  `${props.color}`};
+  color: white; 
+  width: 5rem;
+  height: 5rem;
+  position: relative;
 `;
 
 
@@ -93,153 +92,42 @@ const ContentIcon = styled.div`
 `;
 
 const ContentText = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+  font-weight: bold;
 `;
 
-
-const Indicator = styled.div`
-    color: #ffffff;
-    height: 100%;
-    //margin: 1em;
-    //border: 1px solid red;
-    //position: relative;
-`;
-
-const MainContent = styled.div<{color: string}>`
+const MainContent = styled.div`
   height: 100%;
-  //position: relative; 
-  //top: 50%; 
-  //width: 100%;
-  //text-align: center;
-  //transform: translateY(-50%);
-  //white-space: nowrap;
-  //font-size: 2.8em;
-  background-color: ${props =>  `${props.color}`};
-`
-/*
-@Component
-export default class SmallIndicatorWidget extends Vue {
-  @Prop() private title!: string;  
-  @Prop() private sourceId!: string;  
-  @Prop() private classifierId!: string;  
-  
-  @Getter('getRegistryElementById')
-  getRegistryElementById!: (id: string) => RegistryElement;
-
-  private getSource() : IndicatorWidgetSource {
-    return (this.getRegistryElementById(this.sourceId) as any) as IndicatorWidgetSource;
-  }
-
-  private getValueClassifier() : ValueClassifier | null {
-    if (this.classifierId === null)
-      return null; 
-    
-    return (this.getRegistryElementById(this.classifierId) as any) as ValueClassifier;
-  }
-
-  get text() : string | null {
-    return this.getSource().text || null; 
-  }
-
-  get mdIcon() : string | null {
-    return this.getSource().mdIcon || null; 
-  }
-
-  get color() : string | null {
-    let color = this.getSource().color;
-    if (color !== null)
-      return color; 
-
-    let classifier = this.getValueClassifier(); 
-    let source = this.getSource();
-    let value = source.value;
-    
-    if (value && classifier)  {
-      color = classifier.color(value);
-    } 
-
-    return  color || "#98a7b9"; 
-  }
-
-  get additionalInfoNE() : string | null {
-    return this.getSource().extraText1 || null; 
-  }
-  get additionalInfoNW() : string | null {
-    return this.getSource().extraText2 || null; 
-  }
-  get additionalInfoSE() : string | null {
-    return this.getSource().extraText3 || null; 
-  }
-  get additionalInfoSW() : string | null {
-    return this.getSource().extraText4 || null; 
-  }
-}
-</script>
-
-
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-.indicator {
-  background-color: #2f3b52;
-  width: 7em;
-  height: 7em;
-  color: #ffffff;
-  margin: 1em;
-  border-radius: 0.25em; 
-  //border: 1px solid red;
-  position: relative;
-}
-.main-content {
-  position: absolute; 
-  top: 50%; 
-  width: 100%;
   text-align: center;
-  transform: translateY(-50%);
-  white-space: nowrap;
-  font-size: 2.8em;
-}
-.main-content-icon {
-  color: inherit;
-  font-size: 1.0em;
-}
-.indicator-title {
-  position:absolute; 
-  left: 50%; 
-  transform: translateX(-50%);
-  bottom:1.0em;
-  font-size: 0.75em; 
-  margin: 0px;
-  white-space: nowrap;
-}
+  font-size: 1.8rem;
+`
 
-.additional-info {
-  position:absolute; 
-  font-size: 0.75em; 
-  padding: 0.6em; 
-  color: #657d95;
-}
+const Title = styled.div`
+  font-size: 0.7rem; 
+  white-space: nowrap;
+  font-weight: bold;
+`
 
-.additional-info-ne {
+const AdditionalInfoNE = styled.div`
+  position: absolute;
+  font-size: 0.4rem; 
   left:0px; 
   top:0px;
-}
-.additional-info-nw {
+`
+
+const AdditionalInfoNW = styled.div`
+  font-size: 0.4rem; 
   right:0px;
   top:0px; 
-}
-.additional-info-se {
-  left:0px;
-  bottom:0px; 
-}
-.additional-info-sw {
-  right:0px;
-  bottom:0px; 
-}
+`
 
-</style>
+const AdditionalInfoSE = styled.div`
+  font-size: 0.4rem; 
+  left: 0px;
+  bottom: 0px; 
+`
 
-*/
+const AdditionalInfoSW = styled.div`
+  font-size: 0.4rem; 
+  right: 0px;
+  bottom: 0px; 
+`

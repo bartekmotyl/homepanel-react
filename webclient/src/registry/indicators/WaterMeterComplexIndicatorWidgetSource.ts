@@ -6,14 +6,16 @@ import { FaWater } from 'react-icons/fa';
 import { IconType } from 'react-icons/lib';
 
 export class WaterMeterComplexIndicatorWidgetSource implements IndicatorWidgetSource, RegistryElement {
-    id : string
-    stateDeviceId : string
-    valueDeviceId : string
-    valueMinuteDeviceId : string
-    flowState : string
+    private id : string
+    private title: string
+    private stateDeviceId : string
+    private valueDeviceId : string
+    private valueMinuteDeviceId : string
+    private flowState : string
 
-    constructor(id:string, stateDeviceId:string, valueDeviceId:string, valueMinuteDeviceId:string, flowState:string) {
+    constructor(id:string, title: string, stateDeviceId:string, valueDeviceId:string, valueMinuteDeviceId:string, flowState:string) {
         this.id = id;
+        this.title = title;        
         this.stateDeviceId = stateDeviceId;
         this.valueDeviceId = valueDeviceId;
         this.valueMinuteDeviceId = valueMinuteDeviceId;
@@ -85,4 +87,9 @@ export class WaterMeterComplexIndicatorWidgetSource implements IndicatorWidgetSo
     public getIsUpToDate() : boolean {
         return true;
     }  
+
+
+    public getTitle(): string {
+        return this.title
+    }        
 }
