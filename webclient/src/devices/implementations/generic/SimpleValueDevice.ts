@@ -1,7 +1,7 @@
-import { Device, DeviceBase, DeviceUpdate } from "../../Device";
+import { Device, ConnectedDeviceBase, DeviceUpdate } from "../../Device";
 import { SimpleValue } from "../../interfaces/generic/genericDevices";
 
-export class SimpleValueDevice extends DeviceBase implements  SimpleValue {
+export class SimpleValueDevice extends ConnectedDeviceBase implements  SimpleValue {
   constructor(connectorId: string, deviceId: string, name: string, data = undefined) {
     super(connectorId, deviceId, name, data);
   }

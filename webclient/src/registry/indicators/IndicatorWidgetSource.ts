@@ -2,9 +2,6 @@ import { IconType } from "react-icons/lib";
 import { Device, DeviceBase, DeviceUpdate } from "../../devices/Device";
 
 export abstract class IndicatorWidgetSource extends DeviceBase {
-    constructor(deviceId: string, name: string, data = undefined) {
-        super('', deviceId, name, data)
-    }
     acceptData(update: DeviceUpdate): Device {
         return this
     }

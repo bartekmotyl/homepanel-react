@@ -1,8 +1,8 @@
-import { Device, DeviceBase, DeviceUpdate } from "../../Device";
+import { Device, ConnectedDeviceBase, DeviceUpdate } from "../../Device";
 import { Switch  } from "../../interfaces/generic/genericDevices";
 import { store } from '../../../app/store';
 
-export class SwitchDevice extends DeviceBase implements  Switch {
+export class SwitchDevice extends ConnectedDeviceBase implements  Switch {
   constructor(connectorId: string, deviceId: string, name: string, data = undefined) {
     super(connectorId, deviceId, name, data);
   }

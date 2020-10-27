@@ -6,7 +6,7 @@ export class CompositeValueAsTemperatureConverter extends DeviceBase implements 
     private property : string;
 
     constructor(deviceId: string, name: string, property: string  = "temperature")  {
-        super('', deviceId, name);
+        super(deviceId, name);
         this.property = property;
     }
     acceptData(update: DeviceUpdate): Device {

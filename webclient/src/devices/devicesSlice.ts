@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../app/store';
 import Immutable from 'immutable';
-import { Device, DeviceUpdate } from './Device';
+import { Device, DeviceUpdate, ConnectedDeviceBase } from './Device';
 
 const debug = false; 
 
@@ -33,9 +33,14 @@ export const devicesSlice = createSlice({
       debug && console.log(`Processing update of device : ${path}`);
       const dev = state.map.get(path);
       if (dev) {
-        debug && console.log(`Device ${path} has been found, updating`);
-        const updatedDevice = dev.acceptData(action.payload);
-        state.map = state.map.set(path, updatedDevice);
+        if (dev instanceof ConnectedDeviceBase) {
+          const connectedDevice = dev as ConnectedDeviceBase;
+          debug && console.log(`Device ${path} has been found, updating`);
+          const updatedDevice = connectedDevice.acceptData(action.payload);
+          state.map = state.map.set(path, updatedDevice);
+        } else {
+          debug && console.log(`Device ${path} has been found but is not updateable.`);
+        }
       } else {
         debug && console.log(`Device ${path} has not been found.`);
       }

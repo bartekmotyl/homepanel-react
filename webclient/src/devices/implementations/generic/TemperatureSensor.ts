@@ -1,7 +1,7 @@
-import { Device, DeviceBase, DeviceUpdate } from "../../Device";
+import { Device, ConnectedDeviceBase, DeviceUpdate } from "../../Device";
 import { Temperature } from "../../interfaces/generic/genericDevices";
 
-export class TemperatureSensorDevice extends DeviceBase implements  Temperature {
+export class TemperatureSensorDevice extends ConnectedDeviceBase implements  Temperature {
   constructor(connectorId: string, deviceId: string, name: string, data = undefined) {
     super(connectorId, deviceId, name, data);
   }

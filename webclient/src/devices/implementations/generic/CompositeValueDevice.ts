@@ -1,7 +1,7 @@
-import { Device, DeviceBase, DeviceUpdate } from "../../Device";
+import { Device, ConnectedDeviceBase, DeviceUpdate } from "../../Device";
 import { CompositeValue } from "../../interfaces/generic/genericDevices";
 
-export class CompositeValueDevice extends DeviceBase implements  CompositeValue {
+export class CompositeValueDevice extends ConnectedDeviceBase implements  CompositeValue {
   constructor(connectorId: string, deviceId: string, name: string, data = undefined) {
     super(connectorId, deviceId, name, data);
   }

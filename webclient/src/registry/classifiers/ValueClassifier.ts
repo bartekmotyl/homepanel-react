@@ -2,7 +2,7 @@ import { Device, DeviceBase, DeviceUpdate } from "../../devices/Device"
 
 export abstract class ValueClassifier extends DeviceBase {
     constructor(deviceId: string) {
-        super('', deviceId, '')
+        super(deviceId, '')
     }
     public acceptData(update: DeviceUpdate): Device {
         return this

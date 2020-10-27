@@ -1,7 +1,7 @@
-import { Device, DeviceBase, DeviceUpdate } from "../../../Device";
+import { Device, ConnectedDeviceBase, DeviceUpdate } from "../../../Device";
 import { Humidity, Temperature } from "../../../interfaces/generic/genericDevices";
 
-export class XiaomiTemperatureSensor extends DeviceBase implements  Temperature, Humidity {
+export class XiaomiTemperatureSensor extends ConnectedDeviceBase implements  Temperature, Humidity {
   constructor(connectorId: string, deviceId: string, name: string, data = undefined) {
     super(connectorId, deviceId, name, data);
   }

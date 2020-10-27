@@ -5,22 +5,41 @@ export interface DeviceUpdate {
 }
 
 export interface Device {
-    getConnectorId(): string;
     getDeviceId(): string;
     getName(): string;
-    acceptData(update: DeviceUpdate): Device;
 }
 
+export interface ConnectedDevice extends Device {
+    getConnectorId(): string;
+    acceptData(update: DeviceUpdate): Device;    
+}
+
+
 export abstract class DeviceBase implements Device {
-    protected connectorId: string;
     protected deviceId: string;
     protected name: string;
+  
+    constructor(deviceId: string, name: string) {
+        this.deviceId = deviceId;
+        this.name = name;
+    }
+    
+    getDeviceId(): string {
+        return this.deviceId;
+    }
+    getName(): string {
+        return this.name;
+    }
+}
+
+
+export abstract class ConnectedDeviceBase extends DeviceBase implements ConnectedDevice {
+    protected connectorId: string;
     protected data: any; 
   
     constructor(connectorId: string, deviceId: string, name: string, data = undefined) {
+        super(deviceId, name)
         this.connectorId = connectorId;
-        this.deviceId = deviceId;
-        this.name = name;
         this.data = data;
     }
     
@@ -29,10 +48,4 @@ export abstract class DeviceBase implements Device {
     getConnectorId(): string {
         return this.connectorId;
     }
-    getDeviceId(): string {
-        return this.deviceId;
-    }
-    getName(): string {
-        return this.name;
-    }
-  }
+}
