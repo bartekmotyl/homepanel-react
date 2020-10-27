@@ -12,7 +12,6 @@ import { TemperatureWidget } from '../widgets/TemperatureWidget';
 import { SwitchWidget } from '../widgets/SwitchWidget';
 import { BlindsDevice } from '../devices/implementations/generic/Blinds';
 import { CompositeValueDevice } from '../devices/implementations/generic/CompositeValueDevice';
-import { registerElement } from '../registry/registrySlice';
 import { SimpleValueDevice } from '../devices/implementations/generic/SimpleValueDevice';
 import { CompositeValueAsTemperatureConverter } from '../registry/converters/CompositeValueAsTemperatureConverter';
 import { TemperatureIndicatorWidgetSource } from '../registry/indicators/TemperatureIndicatorWidgetSource';
@@ -38,16 +37,16 @@ export const configureDevices = () => {
     store.dispatch(registerDevice(new TemperatureSensorDevice('mock-1', 'mock-temperature-1', 'Mock 1')));    
     store.dispatch(registerDevice(new TemperatureSensorDevice('met-no-1', 'met-no-wroclaw-temperature', 'Wrocław')));    
     
-    store.dispatch(registerElement(new CompositeValueAsTemperatureConverter('composite-value-to-temperature', 'temperature')))
-    store.dispatch(registerElement(new TemperatureIndicatorWidgetSource('onewire-sensor-grunt-0-source-temperature',
+    store.dispatch(registerDevice(new CompositeValueAsTemperatureConverter('composite-value-to-temperature', 'temperature')))
+    store.dispatch(registerDevice(new TemperatureIndicatorWidgetSource('onewire-sensor-grunt-0-source-temperature',
         'Grunt 0', 'onewire-sensor-grunt-0', 'composite-value-to-temperature')))
-    store.dispatch(registerElement(new TemperatureIndicatorWidgetSource('ble-sensor-00126fc21c10-source-temperature', 
+    store.dispatch(registerDevice(new TemperatureIndicatorWidgetSource('ble-sensor-00126fc21c10-source-temperature', 
         'Serwerownia','ble-sensor-00126fc21c10', 'composite-value-to-temperature')))
-    store.dispatch(registerElement(new PowerMeterIndicatorWidgetSource('power-meter-source', 'Prąd', 'ble-sensor-00126f6d3a29')))
+    store.dispatch(registerDevice(new PowerMeterIndicatorWidgetSource('power-meter-source', 'Prąd', 'ble-sensor-00126f6d3a29')))
 
  
-    store.dispatch(registerElement(new IndoorTemperatureValueClassifier('indoor-temperature-classifier')))
-    store.dispatch(registerElement(new PowerMeterValueClassifier('power-meter-classifier-minute', 60.0)))
+    store.dispatch(registerDevice(new IndoorTemperatureValueClassifier('indoor-temperature-classifier')))
+    store.dispatch(registerDevice(new PowerMeterValueClassifier('power-meter-classifier-minute', 60.0)))
  
     store.dispatch(hpHeadlessConnect('homepanel', 'ws://192.168.1.111:8899'));    
     store.dispatch(mockConnect('mock-1'));    

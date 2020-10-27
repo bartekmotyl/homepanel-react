@@ -5,7 +5,7 @@ import { TemperatureIndicatorWidgetSource } from './TemperatureIndicatorWidgetSo
 export class ThermostatIndicatorWidgetSource extends TemperatureIndicatorWidgetSource  {
 
     public get extraText1 () : string {
-        const device = this.getDevice() as any as RadiatorThermostatInfo;
+        const device = this.getSubDevice() as any as RadiatorThermostatInfo;
         const valve = device.getValvePosition();
         if (!valve)
             return "";
@@ -13,7 +13,7 @@ export class ThermostatIndicatorWidgetSource extends TemperatureIndicatorWidgetS
     }
 
     public get extraText2 () : string {
-        let device = this.getDevice() as any as  RadiatorThermostatInfo;
+        let device = this.getSubDevice() as any as  RadiatorThermostatInfo;
         const desiredTemperature = device.getDesiredTemperature();
         if (!desiredTemperature)
             return "";

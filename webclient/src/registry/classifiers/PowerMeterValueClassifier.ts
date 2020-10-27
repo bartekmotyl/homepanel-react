@@ -1,39 +1,30 @@
-import { ValueClassifier } from './ValueClassifier';
-import { RegistryElement } from '../RegistryElement';
+import { ValueClass, ValueClassifier } from './ValueClassifier';
 
-export class PowerMeterValueClassifier implements ValueClassifier, RegistryElement {
-    id : string
-    factor: number
-
-    constructor(id:string, factor: number) {
-        this.id = id;
-		// 1 minute -> 60.0 
-		// 60 minutes -> 1.0
+export class PowerMeterValueClassifier extends ValueClassifier {
+    private factor: number
+    constructor(deviceId: string, factor: number) {
+        super(deviceId)
+        // 1 minute -> 60.0 
+        // 60 minutes -> 1.0
         this.factor = factor;
-    }   
-    
-    getId(): string {
-        return this.id;
     }
 
-    color(value: string): string {
+    public classify(value: string): string {
         let val = Number(value);
         if (!val) {
-            return "#e0b300"; 
+            return ValueClass.Undefined
         }
-        
         val = this.normalizeValue(val);
+        if (val <= 500)
+            return ValueClass.Normal
+        else if (val <= 2000)
+            return ValueClass.Warning
+        else
+            return ValueClass.Error
+    }
 
-		if (val <= 500)
-			return "#29746d";		
-		else if (val <= 2000)
-			return "#609121";		
-		else 
-            return "#e0b300";	
+    private normalizeValue(value: number): number {
+        return value * this.factor;
     }
-	
-	private normalizeValue(value: number): number {
-		return value * this.factor;
-    }
-        
+
 }

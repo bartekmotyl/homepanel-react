@@ -1,33 +1,28 @@
 import { store } from '../../app/store';
+import { Device } from '../../devices/Device';
 import { AsTemperature } from '../genericConverters';
-import { RegistryElement } from '../RegistryElement';
 import { IndicatorWidgetSource } from './IndicatorWidgetSource';
 
-export class TemperatureIndicatorWidgetSource implements IndicatorWidgetSource, RegistryElement {
-    private id : string
-    private deviceId : string
+export class TemperatureIndicatorWidgetSource extends IndicatorWidgetSource {
     private temperatureConverterId : string
-    private title: string
+    private subDeviceId : string
 
-    constructor(id:string, title: string, deviceId:string, temperatureConverterId:string) {
-        this.id = id;
-        this.title = title;        
-        this.deviceId = deviceId;
+    constructor(deviceId: string, name: string, subDeviceId: string, temperatureConverterId: string)  {
+        super(deviceId, name);
+        this.subDeviceId = subDeviceId;
         this.temperatureConverterId = temperatureConverterId;
-    } 
-    getId(): string {
-        return this.id;
     }
-    protected getDevice() {
-        return store.getState().devices.map.get(this.deviceId);
+    
+    protected getSubDevice(): Device {
+        return store.getState().devices.map.get(this.subDeviceId)!     
     }
+
     protected getTemperatureConverter() {
-        return store.getState().registry.map.get(
-            this.temperatureConverterId) as any as AsTemperature;
+        return store.getState().devices.map.get(this.temperatureConverterId)! as any as AsTemperature;
     }
 
     protected getTemperature() : number | null {
-        let device = this.getDevice();
+        let device = this.getSubDevice();
         let converter = this.getTemperatureConverter();
 
         if (!device || !converter) {
@@ -39,24 +34,16 @@ export class TemperatureIndicatorWidgetSource implements IndicatorWidgetSource, 
     }
 
     public getText() : string {
-        let value = this.getTemperature();
+        let value = this.getTemperature()
         const ret =  value ? value.toFixed(1) + "&deg;" : "";
         return ret; 
     }
 
     public getValue() : string | null{
-        let value = this.getTemperature();
+        let value = this.getTemperature()
         if (value !== null)
             return value.toFixed(1);
         else
             return  null; 
     }
-
-    public getIsUpToDate() : boolean {
-        return true;
-    }  
-
-    public getTitle(): string {
-        return this.title;
-    }    
 }

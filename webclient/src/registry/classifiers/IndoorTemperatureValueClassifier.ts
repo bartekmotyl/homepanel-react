@@ -1,30 +1,18 @@
-import { ValueClassifier } from './ValueClassifier';
-import { RegistryElement } from '../RegistryElement';
+import { ValueClass, ValueClassifier } from './ValueClassifier';
 
-export class IndoorTemperatureValueClassifier implements ValueClassifier, RegistryElement {
-    id : string
-
-    constructor(id:string) {
-        this.id = id;
-    }   
-    
-    getId(): string {
-        return this.id;
-    }
-
-    color(value: string): string {
+export class IndoorTemperatureValueClassifier extends ValueClassifier {
+    public classify(value: string): string {
         let val = Number(value);
-
-		if (val < 20.0) {
-			return "#0078d7";
-		} else if (val <= 21.0) {
-			return "#29746d";
-		} else if (val <= 22.0) {
-			return "#107c10";
-		} else if (val <= 23.0) {
-            return "#609121"
+        if (val < 20.0) {
+            return ValueClass.VeryLowTemperature
+        } else if (val <= 21.0) {
+            return ValueClass.LowTemperature
+        } else if (val <= 22.0) {
+            return ValueClass.StandardTemperature
+        } else if (val <= 23.0) {
+            return ValueClass.HighTemperature
         } else {
-			return "#e0b300";			
-        } 
+            return ValueClass.VeryHighTemperature
+        }
     }
 }

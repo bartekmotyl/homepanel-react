@@ -1,59 +1,42 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { selectRegistry } from '../registry/registrySlice';
 import { IndicatorWidgetSource } from '../registry/indicators/IndicatorWidgetSource';
 import { ValueClassifier } from '../registry/classifiers/ValueClassifier';
-import { IconType } from 'react-icons';
 import { WidgetProperties } from './widgets';
 import { selectDevices } from '../devices/devicesSlice';
 
 export function SmallIndicatorWidget({ deviceId, props }: WidgetProperties) {
-    const registry = useSelector(selectRegistry);
-    
-    // without using 'useSelector' content of this widget wouldn't be refreshed when device data changes 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const devices = useSelector(selectDevices);
-        
     const classifierId = props.classifierId;
 
     // in case of SmallIndicatorWidget the deviceId is in fact a key in registry
-    const source = registry.get(deviceId) as any as IndicatorWidgetSource;
+    const source = devices.get(deviceId) as any as IndicatorWidgetSource;
     
     const getValueClassifier = () : ValueClassifier | null => {
       if (classifierId === null)
         return null; 
-      
-      return (registry.get(classifierId) as any) as ValueClassifier;
+      return (devices.get(classifierId) as any) as ValueClassifier;
     }
   
   
-    const getMdIcon = () : IconType | null => {
-      return source.getMdIcon?.() || null; 
-    }
-  
-    const getText = () : string | null => {
-      return source.getText?.() || null; 
-    }
-    const getTitle = () : string  => {
-      return source.getTitle(); 
-    }
-
     const getColor = () : string => {
-      let color = source.getColor?.();
+      let color = source.getColor();
       if (color)
         return color; 
   
       let classifier = getValueClassifier(); 
-      let value = source.getValue?.();
+      let value = source.getValue()
+      
       
       if (value && classifier)  {
-        color = classifier.color(value);
+        color = classifier.classify(value);
       } 
   
       return  color || "#98a7b9"; 
     }
-    const Icon = getMdIcon(); 
+    
+    const Icon = source.getMdIcon() 
 
     return (
         <Box color={ getColor() }>
@@ -63,18 +46,18 @@ export function SmallIndicatorWidget({ deviceId, props }: WidgetProperties) {
                     <Icon/>
                   </ContentIcon>
                 }
-                { getText() && 
+                { source.getText() && 
                   <ContentText>
-                    <div dangerouslySetInnerHTML={ {__html: getText() ?? "" }}/>
+                    <div dangerouslySetInnerHTML={ {__html: source.getText()! }}/>
                   </ContentText>
                 }
-                <Title dangerouslySetInnerHTML={ {__html: getTitle() }} />
+                <Title dangerouslySetInnerHTML={ {__html: source.getName() }} />
 
               </MainContent>
-              <AdditionalInfoNE dangerouslySetInnerHTML={ {__html: source.getExtraText1?.() ?? "" }} />
-              <AdditionalInfoNW dangerouslySetInnerHTML={ {__html: source.getExtraText2?.() ?? "" }} />
-              <AdditionalInfoSE dangerouslySetInnerHTML={ {__html: source.getExtraText3?.() ?? "" }} />
-              <AdditionalInfoSW dangerouslySetInnerHTML={ {__html: source.getExtraText4?.() ?? "" }} />              
+              <AdditionalInfoNE dangerouslySetInnerHTML={ {__html: source.getExtraText1() ?? "" }} />
+              <AdditionalInfoNW dangerouslySetInnerHTML={ {__html: source.getExtraText2() ?? "" }} />
+              <AdditionalInfoSE dangerouslySetInnerHTML={ {__html: source.getExtraText3() ?? "" }} />
+              <AdditionalInfoSW dangerouslySetInnerHTML={ {__html: source.getExtraText4() ?? "" }} />              
         </Box>
     );
 }

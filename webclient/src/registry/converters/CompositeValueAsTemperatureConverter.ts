@@ -1,21 +1,17 @@
-import { Device } from '../../devices/Device';
+import { Device, DeviceBase, DeviceUpdate } from '../../devices/Device';
 import { CompositeValue } from '../../devices/interfaces/generic/genericDevices';
 import { AsTemperature } from '../genericConverters';
-import { RegistryElement } from '../RegistryElement';
 
-export class CompositeValueAsTemperatureConverter implements RegistryElement, AsTemperature {
+export class CompositeValueAsTemperatureConverter extends DeviceBase implements  AsTemperature {
     private property : string;
-    private id : string;
 
-    constructor(id:string, property: string  = "temperature") {
-        this.id = id;
+    constructor(deviceId: string, name: string, property: string  = "temperature")  {
+        super('', deviceId, name);
         this.property = property;
     }
-
-    getId(): string {
-        return this.id;
+    acceptData(update: DeviceUpdate): Device {
+        return this
     }
-
     getTemperature(device: Device): number | null {
         let value = (device as any as CompositeValue).getValue(this.property);
         return value || null;

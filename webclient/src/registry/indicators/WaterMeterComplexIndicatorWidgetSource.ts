@@ -1,31 +1,24 @@
 import { store } from '../../app/store';
 import { SimpleValue } from '../../devices/interfaces/generic/genericDevices';
-import { RegistryElement } from '../RegistryElement';
 import { IndicatorWidgetSource } from './IndicatorWidgetSource';
 import { FaWater } from 'react-icons/fa';
 import { IconType } from 'react-icons/lib';
 
-export class WaterMeterComplexIndicatorWidgetSource implements IndicatorWidgetSource, RegistryElement {
-    private id : string
-    private title: string
+export class WaterMeterComplexIndicatorWidgetSource extends IndicatorWidgetSource {
     private stateDeviceId : string
     private valueDeviceId : string
     private valueMinuteDeviceId : string
-    private flowState : string
+    private stateDeviceActveValue: string
 
-    constructor(id:string, title: string, stateDeviceId:string, valueDeviceId:string, valueMinuteDeviceId:string, flowState:string) {
-        this.id = id;
-        this.title = title;        
+    constructor(deviceId: string, name: string, stateDeviceId: string, valueDeviceId:string, valueMinuteDeviceId: string,
+         stateDeviceActveValue: string)  {
+        super(deviceId, name);
         this.stateDeviceId = stateDeviceId;
         this.valueDeviceId = valueDeviceId;
         this.valueMinuteDeviceId = valueMinuteDeviceId;
-        this.flowState = flowState;
-    }    
-
-    public getId(): string {
-        return this.id;
+        this.stateDeviceActveValue = stateDeviceActveValue
     }
-    
+
     private getDevice(deviceId: string): SimpleValue {
         return store.getState().devices.map.get(deviceId) as any as SimpleValue;     
     }
@@ -36,7 +29,7 @@ export class WaterMeterComplexIndicatorWidgetSource implements IndicatorWidgetSo
             return null;
         if (stateDevice.getValue() === null)
             return null; 
-        return  stateDevice.getValue() === this.flowState;
+        return  stateDevice.getValue() === this.stateDeviceActveValue;
     }
 
     private getCurrentValue() : number | null {
@@ -84,12 +77,4 @@ export class WaterMeterComplexIndicatorWidgetSource implements IndicatorWidgetSo
             return null; 
     }
 
-    public getIsUpToDate() : boolean {
-        return true;
-    }  
-
-
-    public getTitle(): string {
-        return this.title
-    }        
 }
