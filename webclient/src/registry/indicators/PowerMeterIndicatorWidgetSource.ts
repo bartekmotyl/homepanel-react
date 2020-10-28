@@ -33,7 +33,7 @@ export class PowerMeterIndicatorWidgetSource extends IndicatorWidgetSource {
     }
 
 
-    public getTitle(): string {
-        return `${this.getName()}<br/>${this.getValue() || '?'} W`
+    public getName(): string {
+        return `${super.getName()}<br/>${this.getValue() || '?'} W`
     }
 }

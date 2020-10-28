@@ -7,9 +7,6 @@ import { WidgetSize } from '../widgets/widgets';
 import { SmallIndicatorWidget } from '../widgets/SmallIndicatorWidget';
 
 //TODO: make this array initialized dynamically basing on the actual widgets used in dashboard
-
-
-
 const widgets = {
     'temperatureWidget': TemperatureWidget,
     'switchWidget': SwitchWidget,

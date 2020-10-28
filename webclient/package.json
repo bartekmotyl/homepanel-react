@@ -22,6 +22,7 @@
     "axios": "^0.20.0",
     "babel-plugin-styled-components": "^1.11.1",
     "immutable": "^4.0.0-rc.12",
+    "local-storage": "^2.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet-async": "^1.0.7",
