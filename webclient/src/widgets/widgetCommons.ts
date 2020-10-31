@@ -21,10 +21,24 @@ export const WidgetContainerSquare = styled.div`
   color: white;
   display: grid;
   grid-template-columns: auto;  
-  grid-template-rows: 50px [line1] auto;
-  grid-gap: 10px;
+  grid-template-rows: 9rem [line1] auto;
+  grid-gap: 1rem;
 `;
 
 export const WidgetContainerRect = styled(WidgetContainerSquare)`
   width: 12rem;
+`;
+
+
+
+export const WidgetHeaderRow = styled.div`
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 1;
+  color: #A5A9B2;
+`;
+
+export const WidgetContent = styled.div`
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 2;
+  place-self: center;
 `;

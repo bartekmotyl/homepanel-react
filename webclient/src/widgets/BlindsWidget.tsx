@@ -8,7 +8,7 @@ import { CgArrowDownR } from 'react-icons/cg';
 import { IconButton } from '@material-ui/core';
 import useLongPress from '../hooks/useLongpress';
 import { WidgetProperties } from './widgets';
-import { WidgetContainerRect, WidgetFontCaption, WidgetFontHeadlineIcon } from './widgetCommons';
+import { WidgetContainerRect, WidgetContent, WidgetFontCaption, WidgetFontHeadlineIcon, WidgetHeaderRow } from './widgetCommons';
 
 export function BlindsWidget({ deviceId }: WidgetProperties) {
     const devices = useSelector(selectDevices);
@@ -31,7 +31,7 @@ export function BlindsWidget({ deviceId }: WidgetProperties) {
 
     return (
       <WidgetContainerRect onClick={handleClick}>
-          <Content>
+          <WidgetContent>
               <StyledIconButton color="inherit" {...longPressDown}>
                 <WidgetFontHeadlineIcon>
                   <CgArrowDownR/>
@@ -42,33 +42,17 @@ export function BlindsWidget({ deviceId }: WidgetProperties) {
                   <CgArrowUpR/>
                 </WidgetFontHeadlineIcon>
               </StyledIconButton>
-          </Content> 
-          <HeaderRow><WidgetFontCaption>{device?.getName()}</WidgetFontCaption></HeaderRow>
+          </WidgetContent> 
+          <WidgetHeaderRow><WidgetFontCaption>{device?.getName()}</WidgetFontCaption></WidgetHeaderRow>
       </WidgetContainerRect>
     );
 }
-
-
 
 const StyledIconButton = styled(IconButton)`
   vertical-align: middle;
   .mat-icon {
      vertical-align: middle;
   }
-`;
-
-
-const HeaderRow = styled.div`
-  grid-column: 1 / span 1;
-  grid-row: 1 / span 1;
-  color: #A5A9B2;
-`;
-
-const Content = styled.div`
-  grid-column: 1 / span 1;
-  grid-row: 1 / span 2;
-  vertical-align: middle;
-  place-self: center;
 `;
 
 

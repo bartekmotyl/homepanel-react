@@ -48,23 +48,15 @@ export function WidgetPanel( { config }: { config: WidgetPanelProps}) {
 }
 
 const PanelElement = styled.div`
-    /*
-    margin-inline-start: 10px;
-    margin-block-start: 10px; 
-    */
-    margin-left: 2px;
-    margin-top: 2px;
-
+    margin-left: 0.2rem;
+    margin-top: 0.2rem;
 `;
 
 const PanelFlow = styled.div`
     display: flex; 
     width: 100%; 
     height: 100%;
-    /* padding: 10px; */
     background-color: #2F3239;
-    /* background-color: turquoise; */
     flex-wrap: wrap;
     justify-content: flex-start;
-    /* margin: 5px;*/
  `;
