@@ -6,35 +6,45 @@ import { DashboardTab, DashboardTabs } from './DashboardTabs';
 const widgetPanelProps1 : WidgetPanelProps = {
     elements: [{
         type: 'temperatureWidget', 
-        deviceId: 'met-no-wroclaw-temperature', 
+        properties: {
+            deviceId: 'met-no-wroclaw-temperature', 
+        },        
     }, {
         type: 'temperatureWidget', 
-        deviceId: 'ble-sensor-4c65a8df7d03', 
+        properties: {
+            deviceId: 'ble-sensor-4c65a8df7d03', 
+        },        
     }, {
         type: 'temperatureWidget', 
-        deviceId: 'mock-temperature-1', 
+        properties: {
+            deviceId: 'mock-temperature-1', 
+        },        
     }, {
         type: 'blindsWidget', 
-        deviceId: 'roleta-salon-lewa', 
+        properties: {
+            deviceId: 'roleta-salon-lewa', 
+        },        
     }, {
         type: 'switchWidget', 
-        deviceId: 'wiatrolap-lampa', 
+        properties: {
+            deviceId: 'wiatrolap-lampa', 
+        },        
     }, {
         type: 'smallIndicatorWidget', 
-        deviceId: 'onewire-sensor-grunt-0-source-temperature', 
         properties: {
+            deviceId: 'onewire-sensor-grunt-0-source-temperature', 
             classifierId: 'indoor-temperature-classifier',
         },
     }, {
         type: 'smallIndicatorWidget', 
-        deviceId: 'ble-sensor-00126fc21c10-source-temperature', 
         properties: {
+            deviceId: 'ble-sensor-00126fc21c10-source-temperature', 
             classifierId: 'indoor-temperature-classifier',
         },
     }, {
         type: 'smallIndicatorWidget', 
-        deviceId: 'power-meter-source', 
         properties: {
+            deviceId: 'power-meter-source', 
             classifierId: 'power-meter-classifier-minute',
         },
     }],
@@ -43,7 +53,9 @@ const widgetPanelProps1 : WidgetPanelProps = {
 const widgetPanelProps2 : WidgetPanelProps = {
     elements: [{
         type: 'temperatureWidget', 
-        deviceId: 'met-no-wroclaw-temperature', 
+        properties: {
+            deviceId: 'met-no-wroclaw-temperature', 
+        },        
     }],
 };
 
@@ -69,7 +81,6 @@ const ContainerStyled = styled.div`
     width: 100vw;
     height: 100vh;  
     background-color: #2E2F34;
-    /* background-color: pink; */
 `;
 
 const DashboardTabsStyled = styled(DashboardTabs)`

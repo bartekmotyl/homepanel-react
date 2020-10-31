@@ -16,17 +16,13 @@ const widgets = {
 const components = widgets;
 
 
-export interface WidgetPaneSize {
-    rows: number;
-    columns: number;
-} 
+
 export interface WidgetPanelProps {
     elements: WidgetPanelElement[];
 }
 
 export interface WidgetPanelElement {
     type: string,
-    deviceId: string,
     properties?: any;
 }
 
@@ -36,8 +32,8 @@ export function WidgetPanel( { config }: { config: WidgetPanelProps}) {
             { config.elements.map((el, index) => { 
                 if (typeof components[el.type as keyof typeof components] !== "undefined") {
                     const Widget = components[el.type as keyof typeof components];
-                    return <PanelElement key={ `PanelElement_${el.deviceId}`} >
-                            <Widget deviceId={el.deviceId} props={el.properties}/>
+                    return <PanelElement key={`PanelElement_${index}`} >
+                            <Widget props={el.properties}/>
                         </PanelElement>
                 } else { 
                     return <></> 

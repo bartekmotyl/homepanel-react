@@ -6,7 +6,8 @@ import { ValueClassifier } from '../registry/classifiers/ValueClassifier';
 import { WidgetProperties } from './widgets';
 import { selectDevices } from '../devices/devicesSlice';
 
-export function SmallIndicatorWidget({ deviceId, props }: WidgetProperties) {
+export function SmallIndicatorWidget({ props }: WidgetProperties) {
+    const deviceId = props.deviceId;
     const devices = useSelector(selectDevices);
     const classifierId = props.classifierId;
 

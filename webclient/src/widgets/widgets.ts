@@ -1,5 +1,4 @@
 export interface WidgetProperties {
-    deviceId: string,
     props?: any,
 }
 

@@ -8,7 +8,8 @@ import { WidgetContainerSquare, WidgetContent, WidgetFontCaption, WidgetFontHead
 import { IconButton } from '@material-ui/core';
 import { WidgetProperties  } from './widgets';
 
-export function SwitchWidget({ deviceId }: WidgetProperties) {
+export function SwitchWidget({ props }: WidgetProperties) {
+    const deviceId = props.deviceId;
     const devices = useSelector(selectDevices);
     const device = devices.get(deviceId);
     const switchable =  device as Switch | undefined;;

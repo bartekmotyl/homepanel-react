@@ -5,7 +5,8 @@ import { Temperature } from '../devices/interfaces/generic/genericDevices';
 import { WidgetFontHeadline, WidgetFontCaption, WidgetContainerSquare, WidgetContent, WidgetHeaderRow } from './widgetCommons';
 import { WidgetProperties } from './widgets';
 
-export function TemperatureWidget({ deviceId }: WidgetProperties) {
+export function TemperatureWidget({ props }: WidgetProperties) {
+    const deviceId = props.deviceId;
     const devices = useSelector(selectDevices);
     const device = devices.get(deviceId);
     const temperature = device as Temperature | undefined;

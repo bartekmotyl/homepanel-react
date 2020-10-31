@@ -10,7 +10,8 @@ import useLongPress from '../hooks/useLongpress';
 import { WidgetProperties } from './widgets';
 import { WidgetContainerRect, WidgetContent, WidgetFontCaption, WidgetFontHeadlineIcon, WidgetHeaderRow } from './widgetCommons';
 
-export function BlindsWidget({ deviceId }: WidgetProperties) {
+export function BlindsWidget({ props }: WidgetProperties) {
+    const deviceId = props.deviceId;
     const devices = useSelector(selectDevices);
     const device = devices.get(deviceId);
     const blinds =  device as Blinds | undefined;;
