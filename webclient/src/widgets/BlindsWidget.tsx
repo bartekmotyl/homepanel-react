@@ -5,12 +5,12 @@ import styled from 'styled-components';
 import { Blinds } from '../devices/interfaces/generic/genericDevices';
 import { CgArrowUpR } from 'react-icons/cg';
 import { CgArrowDownR } from 'react-icons/cg';
-import { WidgetFontCaption, widgetSizeFactor, WidgetFontHeadlineIcon } from './widgetTexts';
 import { IconButton } from '@material-ui/core';
 import useLongPress from '../hooks/useLongpress';
-import { WidgetProperties, WidgetSize } from './widgets';
+import { WidgetProperties } from './widgets';
+import { WidgetContainerRect, WidgetFontCaption, WidgetFontHeadlineIcon } from './widgetCommons';
 
-export function BlindsWidget({ deviceId, size }: WidgetProperties) {
+export function BlindsWidget({ deviceId }: WidgetProperties) {
     const devices = useSelector(selectDevices);
     const device = devices.get(deviceId);
     const blinds =  device as Blinds | undefined;;
@@ -30,23 +30,25 @@ export function BlindsWidget({ deviceId, size }: WidgetProperties) {
     const longPressDown = useLongPress(moveDown, moveStop, defaultOptions);
 
     return (
-      <TableContainer onClick={handleClick} size={size}>
+      <WidgetContainerRect onClick={handleClick}>
           <Content>
               <StyledIconButton color="inherit" {...longPressDown}>
-                <WidgetFontHeadlineIcon size={size}>
+                <WidgetFontHeadlineIcon>
                   <CgArrowDownR/>
                 </WidgetFontHeadlineIcon>
               </StyledIconButton>
               <StyledIconButton color="inherit" {...longPressUp}>
-                <WidgetFontHeadlineIcon size={size}>
+                <WidgetFontHeadlineIcon>
                   <CgArrowUpR/>
                 </WidgetFontHeadlineIcon>
               </StyledIconButton>
           </Content> 
-          <HeaderRow><WidgetFontCaption size={size}>{device?.getName()}</WidgetFontCaption></HeaderRow>
-      </TableContainer>
+          <HeaderRow><WidgetFontCaption>{device?.getName()}</WidgetFontCaption></HeaderRow>
+      </WidgetContainerRect>
     );
 }
+
+
 
 const StyledIconButton = styled(IconButton)`
   vertical-align: middle;
@@ -55,16 +57,6 @@ const StyledIconButton = styled(IconButton)`
   }
 `;
 
-const TableContainer = styled.div<{size: WidgetSize}>`
-  background-color: #383C45;
-  width: ${props =>  `${widgetSizeFactor(props.size) * (200)}px`};
-  height: ${props =>  `${widgetSizeFactor(props.size) * (150)}px`};
-  color: white;
-  display: grid;
-  grid-template-columns: auto;  
-  grid-template-rows: ${props =>  `${widgetSizeFactor(props.size) * 50}px`} [line1] auto;
-  grid-gap: ${props =>  `${widgetSizeFactor(props.size) * 10}px`};
-`;
 
 const HeaderRow = styled.div`
   grid-column: 1 / span 1;

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { TemperatureWidget } from '../widgets/TemperatureWidget';
 import { SwitchWidget } from '../widgets/SwitchWidget';
 import { BlindsWidget } from '../widgets/BlindsWidget';
-import { WidgetSize } from '../widgets/widgets';
 import { SmallIndicatorWidget } from '../widgets/SmallIndicatorWidget';
 
 //TODO: make this array initialized dynamically basing on the actual widgets used in dashboard
@@ -22,14 +21,12 @@ export interface WidgetPaneSize {
     columns: number;
 } 
 export interface WidgetPanelProps {
-    size: WidgetPaneSize;
     elements: WidgetPanelElement[];
 }
 
 export interface WidgetPanelElement {
     type: string,
     deviceId: string,
-    widgetSize: WidgetSize;
     properties?: any;
 }
 
@@ -40,7 +37,7 @@ export function WidgetPanel( { config }: { config: WidgetPanelProps}) {
                 if (typeof components[el.type as keyof typeof components] !== "undefined") {
                     const Widget = components[el.type as keyof typeof components];
                     return <PanelElement key={ `PanelElement_${el.deviceId}`} >
-                            <Widget deviceId={el.deviceId} size={el.widgetSize} props={el.properties}/>
+                            <Widget deviceId={el.deviceId} props={el.properties}/>
                         </PanelElement>
                 } else { 
                     return <></> 
