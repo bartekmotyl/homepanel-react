@@ -3,8 +3,10 @@ import { SwitchWidget } from '../widgets/SwitchWidget';
 import { BlindsWidget } from '../widgets/BlindsWidget';
 import { SmallIndicatorWidget } from '../widgets/SmallIndicatorWidget';
 import { WidgetConfiguration, WidgetProperties } from './widgets';
+import { PanelWidget } from './containers/PanelWidget';
 
 const widgetTypes = {
+    'panelWidget': PanelWidget,
     'temperatureWidget': TemperatureWidget,
     'switchWidget': SwitchWidget,
     'blindsWidget': BlindsWidget,

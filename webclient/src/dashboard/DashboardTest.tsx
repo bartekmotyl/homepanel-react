@@ -1,72 +1,80 @@
 import React from 'react';
 import styled from 'styled-components';
-import { WidgetPanel } from './WidgetPanel';
 import { DashboardTab, DashboardTabs } from './DashboardTabs';
 import { WidgetConfiguration } from '../widgets/widgets';
+import { PanelWidget } from '../widgets/containers/PanelWidget';
 
-const widgetPanelProps1 : WidgetConfiguration[] = [{
-    type: 'temperatureWidget', 
+const widgetPanel1Config: WidgetConfiguration = {
+    type: 'panelWidget',
     properties: {
-        deviceId: 'met-no-wroclaw-temperature', 
-    },        
-}, {
-    type: 'temperatureWidget', 
-    properties: {
-        deviceId: 'ble-sensor-4c65a8df7d03', 
-    },        
-}, {
-    type: 'temperatureWidget', 
-    properties: {
-        deviceId: 'mock-temperature-1', 
-    },        
-}, {
-    type: 'blindsWidget', 
-    properties: {
-        deviceId: 'roleta-salon-lewa', 
-    },        
-}, {
-    type: 'switchWidget', 
-    properties: {
-        deviceId: 'wiatrolap-lampa', 
-    },        
-}, {
-    type: 'smallIndicatorWidget', 
-    properties: {
-        deviceId: 'onewire-sensor-grunt-0-source-temperature', 
-        classifierId: 'indoor-temperature-classifier',
-    },
-}, {
-    type: 'smallIndicatorWidget', 
-    properties: {
-        deviceId: 'ble-sensor-00126fc21c10-source-temperature', 
-        classifierId: 'indoor-temperature-classifier',
-    },
-}, {
-    type: 'smallIndicatorWidget', 
-    properties: {
-        deviceId: 'power-meter-source', 
-        classifierId: 'power-meter-classifier-minute',
-    },
-}];
+        widgets: [{
+            type: 'temperatureWidget', 
+            properties: {
+                deviceId: 'met-no-wroclaw-temperature', 
+            },        
+        }, {
+            type: 'temperatureWidget', 
+            properties: {
+                deviceId: 'ble-sensor-4c65a8df7d03', 
+            },        
+        }, {
+            type: 'temperatureWidget', 
+            properties: {
+                deviceId: 'mock-temperature-1', 
+            },        
+        }, {
+            type: 'blindsWidget', 
+            properties: {
+                deviceId: 'roleta-salon-lewa', 
+            },        
+        }, {
+            type: 'switchWidget', 
+            properties: {
+                deviceId: 'wiatrolap-lampa', 
+            },        
+        }, {
+            type: 'smallIndicatorWidget', 
+            properties: {
+                deviceId: 'onewire-sensor-grunt-0-source-temperature', 
+                classifierId: 'indoor-temperature-classifier',
+            },
+        }, {
+            type: 'smallIndicatorWidget', 
+            properties: {
+                deviceId: 'ble-sensor-00126fc21c10-source-temperature', 
+                classifierId: 'indoor-temperature-classifier',
+            },
+        }, {
+            type: 'smallIndicatorWidget', 
+            properties: {
+                deviceId: 'power-meter-source', 
+                classifierId: 'power-meter-classifier-minute',
+            },
+        }],
+    }
+}
 
-const widgetPanelProps2 : WidgetConfiguration[] = [{
-    type: 'temperatureWidget', 
+const widgetPanel2Config : WidgetConfiguration =  {
+    type: 'panelWidget',
     properties: {
-        deviceId: 'met-no-wroclaw-temperature', 
-    },        
-}];
-
-
+        widgets: [{
+            type: 'temperatureWidget', 
+            properties: {
+                deviceId: 'met-no-wroclaw-temperature', 
+            },  
+        }],
+    },      
+}
 
 export function DashboardTest() {
     return (
         <ContainerStyled id="container1"> 
             <DashboardTabsStyled>
                 <DashboardTab label="aaa">
-                    <WidgetPanel elements={widgetPanelProps1} />
+                    <PanelWidget props={widgetPanel1Config.properties}/>
                 </DashboardTab>
                 <DashboardTab label="bbb">
-                    <WidgetPanel elements={widgetPanelProps2} />
+                    <PanelWidget props={widgetPanel2Config.properties}/>
                 </DashboardTab>  
             </DashboardTabsStyled>
         

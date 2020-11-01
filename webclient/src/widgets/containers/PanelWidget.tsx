@@ -1,10 +1,10 @@
 import React from 'react';
+import { getWidgetFunction } from '../widgetsFactory';
+import { WidgetConfiguration, WidgetProperties } from '../widgets';
 import styled from 'styled-components';
-import { WidgetConfiguration } from '../widgets/widgets';
-import { getWidgetFunction } from '../widgets/widgetsFactory';
 
-
-export function WidgetPanel({elements}: {elements: WidgetConfiguration[]} ) {
+export function PanelWidget({ props }: WidgetProperties) {
+    let elements = props.widgets as WidgetConfiguration[]
     return (
         <PanelFlow>
             { elements.map((el, index) => { 
