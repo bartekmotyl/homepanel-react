@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { Switch } from '../devices/interfaces/generic/genericDevices';
 import { FaLightbulb } from 'react-icons/fa';
 import { FaRegLightbulb } from 'react-icons/fa';
-import { WidgetContainerSquare, WidgetContent, WidgetFontCaption, WidgetFontHeadlineIcon, WidgetHeaderRow } from './widgetCommons';
+import { WidgetContainerSquare, WidgetContent, WidgetFontCaption, WidgetFontHeadlineIcon, WidgetHeaderRow } from './widgetUiCommons';
 import { IconButton } from '@material-ui/core';
 import { WidgetProperties  } from './widgets';
 

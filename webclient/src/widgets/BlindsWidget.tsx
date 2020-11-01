@@ -8,7 +8,7 @@ import { CgArrowDownR } from 'react-icons/cg';
 import { IconButton } from '@material-ui/core';
 import useLongPress from '../hooks/useLongpress';
 import { WidgetProperties } from './widgets';
-import { WidgetContainerRect, WidgetContent, WidgetFontCaption, WidgetFontHeadlineIcon, WidgetHeaderRow } from './widgetCommons';
+import { WidgetContainerRect, WidgetContent, WidgetFontCaption, WidgetFontHeadlineIcon, WidgetHeaderRow } from './widgetUiCommons';
 
 export function BlindsWidget({ props }: WidgetProperties) {
     const deviceId = props.deviceId;

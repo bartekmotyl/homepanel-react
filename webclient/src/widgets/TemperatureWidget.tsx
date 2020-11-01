@@ -2,7 +2,7 @@ import React from 'react';
 import { selectDevices } from '../devices/devicesSlice';
 import { useSelector } from 'react-redux';
 import { Temperature } from '../devices/interfaces/generic/genericDevices';
-import { WidgetFontHeadline, WidgetFontCaption, WidgetContainerSquare, WidgetContent, WidgetHeaderRow } from './widgetCommons';
+import { WidgetFontHeadline, WidgetFontCaption, WidgetContainerSquare, WidgetContent, WidgetHeaderRow } from './widgetUiCommons';
 import { WidgetProperties } from './widgets';
 
 export function TemperatureWidget({ props }: WidgetProperties) {
