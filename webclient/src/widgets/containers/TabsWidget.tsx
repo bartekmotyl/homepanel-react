@@ -1,7 +1,7 @@
 import React from 'react';
 import { getWidgetFunction } from '../widgetsFactory';
 import { WidgetConfiguration, WidgetProperties } from '../widgets';
-import { DashboardTab, DashboardTabs } from '../../dashboard/DashboardTabs';
+import { DashboardTab, DashboardTabs } from './DashboardTabs';
 import styled from 'styled-components';
 
 interface PageConfiguration {

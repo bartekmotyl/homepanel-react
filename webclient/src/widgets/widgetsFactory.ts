@@ -8,6 +8,7 @@ import React from 'react';
 import { TabsWidget } from './containers/TabsWidget';
 import { ContainerWidget } from './containers/ContainerWidget';
 
+// TODO: is it possible to fill this map automatically from all widgets availabel in this folder?
 const widgetTypes = {
     'panelWidget': PanelWidget,
     'tabsWidget': TabsWidget,

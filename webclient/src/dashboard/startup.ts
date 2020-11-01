@@ -42,8 +42,6 @@ const knownTypes: any = {
 }
 
 
-
-
 let config = getLS('devices') as DeviceConfiguration[]
 if (!config) {
     config = defaultDevicesConfiguration;

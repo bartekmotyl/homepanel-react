@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
-import { DashboardTest } from './dashboard/DashboardTest';
 import { GlobalStyle } from './styles/global-styles';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { ContainerWidget } from './widgets/containers/ContainerWidget';
+import { dashboardConfig } from './dashboard/dashboardConfig';
 
 const theme = createMuiTheme({
   palette: {
@@ -23,7 +24,7 @@ function App() {
       <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />                
       <header className="App-header">
         <ThemeProvider theme={theme}>        
-          <DashboardTest />
+          <ContainerWidget props={dashboardConfig.properties}/> 
         </ThemeProvider>
       </header>
     </div>
@@ -31,3 +32,4 @@ function App() {
 }
 
 export default App;
+
