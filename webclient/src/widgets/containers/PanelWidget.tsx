@@ -4,18 +4,16 @@ import { WidgetConfiguration, WidgetProperties } from '../widgets';
 import styled from 'styled-components';
 
 export function PanelWidget({ props }: WidgetProperties) {
-    let elements = props.widgets as WidgetConfiguration[]
+    let widgets = props.widgets as WidgetConfiguration[]
     return (
         <PanelFlow>
-            { elements.map((el, index) => { 
+            { widgets.map((el, index) => { 
                 const Widget = getWidgetFunction(el)
-                if (Widget) {
-                    return <PanelElement key={`PanelElement_${index}`} >
-                            <Widget props={el.properties}/>
-                        </PanelElement>
-                } else { 
-                    return <></> 
-                }
+                return (
+                    <PanelElement key={`PanelElement_${index}`} >
+                        <Widget props={el.properties}/>
+                    </PanelElement>
+                )
             })}
         </PanelFlow>
     );

@@ -3,10 +3,9 @@ import React, { ReactElement } from "react";
 import Tabs from '@material-ui/core/Tabs';
 import { Tab } from "@material-ui/core";
 
-export interface DashboardTabsProps {
+interface DashboardTabsProps {
     children: ReactElement<DashboardTabProps> []
 }
-
 
 export const DashboardTabs : React.FunctionComponent<DashboardTabsProps> = props => {
     const [value, setValue] = React.useState(0);
@@ -46,7 +45,7 @@ const StyledTab = styled(Tab)`
     }
 `; 
 
-export interface DashboardTabProps {
+interface DashboardTabProps {
     label : string,
     children: ReactElement | ReactElement[],
 }

@@ -1,8 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
-import { DashboardTab, DashboardTabs } from './DashboardTabs';
 import { WidgetConfiguration } from '../widgets/widgets';
-import { PanelWidget } from '../widgets/containers/PanelWidget';
+import { ContainerWidget } from '../widgets/containers/ContainerWidget';
 
 const widgetPanel1Config: WidgetConfiguration = {
     type: 'panelWidget',
@@ -66,28 +64,29 @@ const widgetPanel2Config : WidgetConfiguration =  {
     },      
 }
 
+const tabs1Config : WidgetConfiguration = {
+    type: 'tabsWidget',
+    properties: {
+        pages: [{
+            title: 'Page A',
+            widgets: [ widgetPanel1Config ]
+        }, {
+            title: 'Page B',
+            widgets: [ widgetPanel2Config ]
+        }],
+    }
+}
+
+const containerConfig : WidgetConfiguration = {
+    type: 'containerWidget',
+    properties: {
+        widgets: [tabs1Config],
+    }
+}
+
 export function DashboardTest() {
     return (
-        <ContainerStyled id="container1"> 
-            <DashboardTabsStyled>
-                <DashboardTab label="aaa">
-                    <PanelWidget props={widgetPanel1Config.properties}/>
-                </DashboardTab>
-                <DashboardTab label="bbb">
-                    <PanelWidget props={widgetPanel2Config.properties}/>
-                </DashboardTab>  
-            </DashboardTabsStyled>
-        
-        </ContainerStyled>
+        <ContainerWidget props={containerConfig.properties}/> 
     );
 }
 
-const ContainerStyled = styled.div`
-    width: 100vw;
-    height: 100vh;  
-    background-color: #2E2F34;
-`;
-
-const DashboardTabsStyled = styled(DashboardTabs)`
-    width: 100%;
-`;
