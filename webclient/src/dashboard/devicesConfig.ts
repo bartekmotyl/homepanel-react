@@ -1,10 +1,12 @@
+import { get as getLS, set as setLS }  from 'local-storage';
 
 export interface  DeviceConfiguration {
     deviceClass: string, 
     args: any[],
 }
 
-export const defaultDevicesConfiguration: DeviceConfiguration[] = [{
+
+const defaultDevicesConfiguration: DeviceConfiguration[] = [{
     deviceClass: 'XiaomiTemperatureSensor', 
     args: ['homepanel', 'ble-sensor-4c65a8df7d03', 'Living room',]
 }, {
@@ -50,3 +52,12 @@ export const defaultDevicesConfiguration: DeviceConfiguration[] = [{
     deviceClass: 'PowerMeterValueClassifier', 
     args: ['power-meter-classifier-minute', 60.0]
 }]
+
+
+let configDevices = getLS('devices') as DeviceConfiguration[]
+if (!configDevices) {
+    configDevices = defaultDevicesConfiguration;
+    setLS('devices', configDevices);
+}
+
+export const getDevicesConfig = (): DeviceConfiguration[] => configDevices;

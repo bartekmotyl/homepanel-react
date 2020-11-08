@@ -1,5 +1,5 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import { connectorMiddlewares } from '../dashboard/startup';
+import { connectorMiddlewares } from '../dashboard/connectorsConfig';
 import devicesReducer from '../devices/devicesSlice';
 
 export const store = configureStore({

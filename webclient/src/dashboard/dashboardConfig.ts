@@ -1,78 +1,38 @@
+import { fetchJsonAsync } from '../utils/fetchUtils';
 import { WidgetConfiguration } from '../widgets/widgets';
 
-export const dashboardConfig : WidgetConfiguration = {
+export const minimalWidgetConfiguration : WidgetConfiguration = {
     type: 'containerWidget',
     properties: {
         widgets: [{
-            type: 'tabsWidget',
+            type: 'linkWidget',
             properties: {
-                pages: [{
-                    title: 'Page A',
-                    widgets: [ {
-                        type: 'panelWidget',
-                        properties: {
-                            widgets: [{
-                                type: 'temperatureWidget', 
-                                properties: {
-                                    deviceId: 'met-no-wroclaw-temperature', 
-                                },        
-                            }, {
-                                type: 'temperatureWidget', 
-                                properties: {
-                                    deviceId: 'ble-sensor-4c65a8df7d03', 
-                                },        
-                            }, {
-                                type: 'temperatureWidget', 
-                                properties: {
-                                    deviceId: 'mock-temperature-1', 
-                                },        
-                            }, {
-                                type: 'blindsWidget', 
-                                properties: {
-                                    deviceId: 'roleta-salon-lewa', 
-                                },        
-                            }, {
-                                type: 'switchWidget', 
-                                properties: {
-                                    deviceId: 'wiatrolap-lampa', 
-                                },        
-                            }, {
-                                type: 'smallIndicatorWidget', 
-                                properties: {
-                                    deviceId: 'onewire-sensor-grunt-0-source-temperature', 
-                                    classifierId: 'indoor-temperature-classifier',
-                                },
-                            }, {
-                                type: 'smallIndicatorWidget', 
-                                properties: {
-                                    deviceId: 'ble-sensor-00126fc21c10-source-temperature', 
-                                    classifierId: 'indoor-temperature-classifier',
-                                },
-                            }, {
-                                type: 'smallIndicatorWidget', 
-                                properties: {
-                                    deviceId: 'power-meter-source', 
-                                    classifierId: 'power-meter-classifier-minute',
-                                },
-                            }],
-                        }
-                    } ]
-                }, {
-                    title: 'Page B',
-                    widgets: [ {
-                        type: 'panelWidget',
-                        properties: {
-                            widgets: [{
-                                type: 'temperatureWidget', 
-                                properties: {
-                                    deviceId: 'met-no-wroclaw-temperature', 
-                                },  
-                            }],
-                        },      
-                    } ]
-                }],
+                text: 'Config',
+                href: '/config',
             }
-        }],
-    }
+        }]
+    },
 }
-
+const url = "dashboard.json"
+let configDashboard : WidgetConfiguration | undefined
+/*
+;(async function() {
+    try {
+        let json = await fetchJsonAsync(url);
+        configDashboard = JSON.parse(json) as WidgetConfiguration
+    } catch (err) {
+        console.error(`Config file cannot be fetched: ${url}`)
+    }
+}());
+*/
+export const getDashboardConfig = async (): Promise<WidgetConfiguration> => { 
+    if (!configDashboard) {
+        try {
+            configDashboard = await fetchJsonAsync<WidgetConfiguration>(url);
+        } catch (err) {
+            console.error(`Config file cannot be fetched: ${url}: ${err}`)
+            configDashboard = minimalWidgetConfiguration
+        }
+    }
+    return configDashboard
+}

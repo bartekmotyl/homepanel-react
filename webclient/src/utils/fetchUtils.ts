@@ -1,0 +1,1 @@
+export const fetchJsonAsync = async <T>(url: string): Promise<T> => (await fetch(url)).json()

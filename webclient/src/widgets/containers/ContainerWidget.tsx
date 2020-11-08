@@ -4,7 +4,7 @@ import { WidgetConfiguration, WidgetProperties } from '../widgets';
 import styled from 'styled-components';
 
 export function ContainerWidget({ props }: WidgetProperties) {
-    let widgets = props.widgets as WidgetConfiguration[]
+    let widgets = (props.widgets ?? []) as WidgetConfiguration[]
     return (
         <ContainerStyled>
             { widgets.map((el, index) => { 

@@ -7,8 +7,9 @@ import { PanelWidget } from './containers/PanelWidget';
 import React from 'react';
 import { TabsWidget } from './containers/TabsWidget';
 import { ContainerWidget } from './containers/ContainerWidget';
+import { LinkWidget } from './LinkWidget';
 
-// TODO: is it possible to fill this map automatically from all widgets availabel in this folder?
+//TODO: is it possible to fill this map automatically from all widgets available in this folder/subfolders?
 const widgetTypes = {
     'panelWidget': PanelWidget,
     'tabsWidget': TabsWidget,
@@ -17,6 +18,7 @@ const widgetTypes = {
     'switchWidget': SwitchWidget,
     'blindsWidget': BlindsWidget,
     'smallIndicatorWidget': SmallIndicatorWidget,
+    'linkWidget': LinkWidget,
 }
 
 type WidgetTypeKey = keyof typeof widgetTypes
