@@ -75,6 +75,18 @@
                         "properties": {
                           "deviceId": "lazienka-pietro-window-source"
                         }
+                      },
+                      {
+                        "type": "smallIndicatorWidget",
+                        "properties": {
+                          "deviceId": "water-meter-main-source"
+                        }
+                      },
+                      {
+                        "type": "smallIndicatorWidget",
+                        "properties": {
+                          "deviceId": "sypialnia-termostat-source"
+                        }
                       }
                     ]
                   }

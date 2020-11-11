@@ -94,25 +94,32 @@ const Title = styled.div`
 
 const AdditionalInfoNE = styled.div`
   position: absolute;
+  padding: 0.05rem;
   font-size: 0.4rem; 
-  left:0px; 
-  top:0px;
+  left: 0; 
+  top: 0;
 `
 
 const AdditionalInfoNW = styled.div`
+  position: absolute;
+  padding: 0.05rem;
   font-size: 0.4rem; 
-  right:0px;
-  top:0px; 
+  right:0;
+  top:0; 
 `
 
 const AdditionalInfoSE = styled.div`
+  position: absolute;
+  padding: 0.05rem;
   font-size: 0.4rem; 
-  left: 0px;
-  bottom: 0px; 
+  left: 0;
+  bottom: 0; 
 `
 
 const AdditionalInfoSW = styled.div`
+  position: absolute;
   font-size: 0.4rem; 
-  right: 0px;
-  bottom: 0px; 
+  padding: 0.05rem;
+  right: 0;
+  bottom: 0; 
 `

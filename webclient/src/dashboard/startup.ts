@@ -1,14 +1,16 @@
 import { store } from '../app/store';
 
 import { registerDevice } from '../devices/devicesSlice';
-import { XiaomiTemperatureSensor } from '../devices/implementations/custom/homepanel/XiaomiTemperatureSensor';
+import { XiaomiTemperatureSensorDevice } from '../devices/implementations/custom/homepanel/XiaomiTemperatureSensorDevice';
 import { SwitchDevice } from '../devices/implementations/generic/SwitchDevice';
-import { TemperatureSensorDevice } from '../devices/implementations/generic/TemperatureSensor';
-import { BlindsDevice } from '../devices/implementations/generic/Blinds';
+import { TemperatureSensorDevice } from '../devices/implementations/generic/TemperatureSensorDevice';
+import { BlindsDevice } from '../devices/implementations/generic/BlindsDevice';
 import { CompositeValueDevice } from '../devices/implementations/generic/CompositeValueDevice';
 import { SimpleValueDevice } from '../devices/implementations/generic/SimpleValueDevice';
 import { DoorSensorDevice } from '../devices/implementations/generic/DoorSensorDevice';
+import { HPRadiatorThermostatDevice } from '../devices/implementations/custom/homepanel/HPRadiatorThermostatDevice';
 import { CompositeValueAsTemperatureConverter } from '../registry/converters/CompositeValueAsTemperatureConverter';
+import { ThermostatAsTemperatureConverter } from '../registry/converters/ThermostatAsTemperatureConverter';
 import { TemperatureIndicatorWidgetSource } from '../registry/indicators/TemperatureIndicatorWidgetSource';
 import { IndoorTemperatureValueClassifier } from '../registry/classifiers/IndoorTemperatureValueClassifier';
 import { PowerMeterIndicatorWidgetSource } from '../registry/indicators/PowerMeterIndicatorWidgetSource';
@@ -18,22 +20,28 @@ import { Device } from '../devices/Device';
 import { getDevicesConfig } from './devicesConfig';
 import { initializeConnectors } from './connectorsConfig';
 import { DoorSensorIndicatorWidgetSource } from '../registry/indicators/DoorSensorIndicatorWidgetSource';
+import { WaterMeterIndicatorWidgetSource } from '../registry/indicators/WaterMeterIndicatorWidgetSource';
+import { ThermostatIndicatorWidgetSource } from '../registry/indicators/ThermostatIndicatorWidgetSource';
 
 
 
 
 const knownTypes: any = {
-    XiaomiTemperatureSensor, 
+    XiaomiTemperatureSensorDevice, 
     SwitchDevice,
     BlindsDevice,
     CompositeValueDevice,
     SimpleValueDevice,
     TemperatureSensorDevice,
     DoorSensorDevice,
+    HPRadiatorThermostatDevice,
     CompositeValueAsTemperatureConverter,
+    ThermostatAsTemperatureConverter,
     TemperatureIndicatorWidgetSource,
     PowerMeterIndicatorWidgetSource,
     DoorSensorIndicatorWidgetSource,
+    WaterMeterIndicatorWidgetSource,
+    ThermostatIndicatorWidgetSource,
     IndoorTemperatureValueClassifier,
     PowerMeterValueClassifier,
 }
