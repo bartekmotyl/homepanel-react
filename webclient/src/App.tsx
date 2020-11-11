@@ -23,7 +23,7 @@ const theme = createMuiTheme({
 
 function App() {
   const state = useAsync(async () => {
-    await new Promise(r => setTimeout(r, 5000))
+    await new Promise(r => setTimeout(r, 1000))
     const dashboardConfig = await getDashboardConfig()
     return dashboardConfig
   }, [minimalWidgetConfiguration]);

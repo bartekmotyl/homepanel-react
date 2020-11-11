@@ -87,8 +87,9 @@ const MainContent = styled.div`
 
 const Title = styled.div`
   font-size: 0.7rem; 
-  white-space: nowrap;
+  white-space: normal;
   font-weight: bold;
+
 `
 
 const AdditionalInfoNE = styled.div`

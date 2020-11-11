@@ -63,6 +63,18 @@
                           "deviceId": "power-meter-source",
                           "classifierId": "power-meter-classifier-minute"
                         }
+                      },
+                      {
+                        "type": "smallIndicatorWidget",
+                        "properties": {
+                          "deviceId": "gabinet-window-source"
+                        }
+                      },
+                      {
+                        "type": "smallIndicatorWidget",
+                        "properties": {
+                          "deviceId": "lazienka-pietro-window-source"
+                        }
                       }
                     ]
                   }
