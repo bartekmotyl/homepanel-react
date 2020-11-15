@@ -1,7 +1,10 @@
+import { clone } from "lodash";
+
 export interface DeviceUpdate {
     deviceId: string, 
     data: any,
     timestamp: Date,
+    upToDate: boolean,
 }
 
 export interface Device {
@@ -11,7 +14,8 @@ export interface Device {
 
 export interface ConnectedDevice extends Device {
     getConnectorId(): string;
-    acceptData(update: DeviceUpdate): Device;    
+    acceptData(update: DeviceUpdate): Device;   
+    isUpToDate(): boolean; 
 }
 
 
@@ -36,16 +40,30 @@ export abstract class DeviceBase implements Device {
 export abstract class ConnectedDeviceBase extends DeviceBase implements ConnectedDevice {
     protected connectorId: string;
     protected data: any; 
+    protected upToDate: boolean;
   
-    constructor(connectorId: string, deviceId: string, name: string, data = undefined) {
+    constructor(connectorId: string, deviceId: string, name: string) {
         super(deviceId, name)
         this.connectorId = connectorId;
-        this.data = data;
+        this.upToDate = false;
     }
     
-    abstract acceptData(update: DeviceUpdate): Device;
+    acceptData(update: DeviceUpdate): Device {
+        this.upToDate = update.upToDate
+        return this.acceptDataIntneral(update)
+    }
+
+    acceptDataIntneral(update: DeviceUpdate): Device {
+        const cloned = clone(this)
+        cloned.data = update.data
+        return cloned
+    }
 
     getConnectorId(): string {
         return this.connectorId;
+    }
+
+    public isUpToDate(): boolean {
+        return this.upToDate
     }
 }

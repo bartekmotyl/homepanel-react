@@ -1,5 +1,5 @@
 import { store } from '../../app/store';
-import { Device } from '../../devices/Device';
+import { ConnectedDevice } from '../../devices/Device';
 import { AsTemperature } from '../genericConverters';
 import { IndicatorWidgetSource } from './IndicatorWidgetSource';
 
@@ -13,8 +13,8 @@ export class TemperatureIndicatorWidgetSource extends IndicatorWidgetSource {
         this.temperatureConverterId = temperatureConverterId;
     }
     
-    protected getSubDevice(): Device {
-        return store.getState().devices.map.get(this.subDeviceId)!     
+    protected getSubDevice(): ConnectedDevice {
+        return store.getState().devices.map.get(this.subDeviceId)! as ConnectedDevice     
     }
 
     protected getTemperatureConverter() {
@@ -45,5 +45,9 @@ export class TemperatureIndicatorWidgetSource extends IndicatorWidgetSource {
             return value.toFixed(1);
         else
             return  null; 
+    }
+
+    public getIsUpToDate() : boolean { 
+        return  this.getSubDevice().isUpToDate()
     }
 }

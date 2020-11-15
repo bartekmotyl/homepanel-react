@@ -85,7 +85,8 @@
                       {
                         "type": "smallIndicatorWidget",
                         "properties": {
-                          "deviceId": "sypialnia-termostat-source"
+                          "deviceId": "sypialnia-termostat-source",
+                          "classifierId": "indoor-temperature-classifier"
                         }
                       }
                     ]

@@ -3,6 +3,7 @@ import { store } from '../../app/store';
 import { CompositeValue } from '../../devices/interfaces/generic/genericDevices';
 import { IndicatorWidgetSource } from './IndicatorWidgetSource';
 import { ImPower } from 'react-icons/im';
+import { ConnectedDevice } from '../../devices/Device';
 
 export class PowerMeterIndicatorWidgetSource extends IndicatorWidgetSource {
     private subDeviceId: string
@@ -12,8 +13,12 @@ export class PowerMeterIndicatorWidgetSource extends IndicatorWidgetSource {
         this.subDeviceId = subDeviceId;
     }
 
+    private getDevice(): ConnectedDevice {
+        return store.getState().devices.map.get(this.subDeviceId)! as ConnectedDevice
+    }
+
     private getCompositeValue(): CompositeValue {
-        return store.getState().devices.map.get(this.subDeviceId)! as any as CompositeValue;     
+        return this.getDevice() as any as CompositeValue;     
     }
 
 
@@ -35,5 +40,9 @@ export class PowerMeterIndicatorWidgetSource extends IndicatorWidgetSource {
 
     public getName(): string {
         return `${super.getName()}<br/>${this.getValue() || '?'} W`
+    }
+
+    public getIsUpToDate() : boolean { 
+        return  this.getDevice().isUpToDate()
     }
 }

@@ -1,11 +1,8 @@
-import { Device, ConnectedDeviceBase, DeviceUpdate } from "../../Device";
+import { ConnectedDeviceBase } from "../../Device";
 import { Switch  } from "../../interfaces/generic/genericDevices";
 import { store } from '../../../app/store';
 
 export class SwitchDevice extends ConnectedDeviceBase implements  Switch {
-  constructor(connectorId: string, deviceId: string, name: string, data = undefined) {
-    super(connectorId, deviceId, name, data);
-  }
   toggle(): void {
     store.dispatch({ type: `connector/${this.connectorId}/device/switch/toggle`, payload: {
       deviceId: this.deviceId,
@@ -17,8 +14,5 @@ export class SwitchDevice extends ConnectedDeviceBase implements  Switch {
   }
   getState(): boolean | null {
     return this.data?.state;
-  }
-  acceptData(update: DeviceUpdate): Device {
-    return new SwitchDevice(this.connectorId, this.deviceId, this.name, update.data);
   }
 }

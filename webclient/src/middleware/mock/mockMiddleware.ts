@@ -15,7 +15,8 @@ const tick = (store: MiddlewareAPI, connectorId: string) => {
         timestamp: new Date(),
         data: {
             temperature:  20 + Math.floor(Math.random() * 50) / 10.0,
-        }
+        },
+        upToDate: true,
     }
     store.dispatch({ type: 'devices/deviceUpdate', payload: deviceData });
 };

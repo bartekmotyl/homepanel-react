@@ -4,6 +4,7 @@ import { DoorSensor } from '../../devices/interfaces/generic/genericDevices';
 import { IndicatorWidgetSource } from './IndicatorWidgetSource';
 import { AiTwotoneLock, AiTwotoneUnlock } from 'react-icons/ai';
 import { ValueClass } from '../classifiers/ValueClassifier';
+import { ConnectedDevice } from '../../devices/Device';
 
 export class DoorSensorIndicatorWidgetSource extends IndicatorWidgetSource {
     private subDeviceId: string
@@ -13,8 +14,11 @@ export class DoorSensorIndicatorWidgetSource extends IndicatorWidgetSource {
         this.subDeviceId = subDeviceId;
     }
 
+    private getDevice(): ConnectedDevice {
+        return store.getState().devices.map.get(this.subDeviceId)! as ConnectedDevice
+    }
     private getDoorSensor(): DoorSensor {
-        return store.getState().devices.map.get(this.subDeviceId)! as any as DoorSensor;     
+        return this.getDevice() as any as DoorSensor;     
     }
 
     public getMdIcon() : IconType {
@@ -27,4 +31,9 @@ export class DoorSensorIndicatorWidgetSource extends IndicatorWidgetSource {
         else 
             return ValueClass.Error; 
     }    
+
+    public getIsUpToDate() : boolean { 
+        return  this.getDevice().isUpToDate()
+    }
+
 }

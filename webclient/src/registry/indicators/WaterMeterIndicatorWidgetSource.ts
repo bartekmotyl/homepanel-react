@@ -4,6 +4,7 @@ import { IndicatorWidgetSource } from './IndicatorWidgetSource';
 import { GiTap } from 'react-icons/gi';
 import { IconType } from 'react-icons/lib';
 import { ValueClass } from '../classifiers/ValueClassifier';
+import { ConnectedDevice } from '../../devices/Device';
 
 export class WaterMeterIndicatorWidgetSource extends IndicatorWidgetSource {
     private subDeviceId : string
@@ -12,9 +13,13 @@ export class WaterMeterIndicatorWidgetSource extends IndicatorWidgetSource {
         super(deviceId, name);
         this.subDeviceId = subDeviceId;
     }
+    
+    private getDevice(): ConnectedDevice {
+        return store.getState().devices.map.get(this.subDeviceId)! as ConnectedDevice
+    }
 
     private getCompositeValue(): CompositeValue {
-        return store.getState().devices.map.get(this.subDeviceId) as any as CompositeValue;     
+        return this.getDevice() as any as CompositeValue;     
     }
 
     private getState() : boolean | null{
@@ -54,6 +59,10 @@ export class WaterMeterIndicatorWidgetSource extends IndicatorWidgetSource {
             return ValueClass.Warning;
         else 
             return ValueClass.Normal; 
+    }
+
+    public getIsUpToDate() : boolean { 
+        return  this.getDevice().isUpToDate()
     }
 
 }

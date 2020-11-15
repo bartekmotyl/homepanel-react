@@ -16,7 +16,8 @@ const tick = async (store: MiddlewareAPI, connectorId: string) => {
         timestamp: new Date(),
         data: {
             temperature:  temperature,
-        }
+        },
+        upToDate: true,
     }
     store.dispatch({ type: 'devices/deviceUpdate', payload: deviceData });
 };

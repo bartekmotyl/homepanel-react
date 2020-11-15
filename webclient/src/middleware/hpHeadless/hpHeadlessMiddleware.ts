@@ -35,6 +35,7 @@ const onMessage = (store: MiddlewareAPI) => (event: MessageEvent) => {
             deviceId: payload.device,
             data: payload.data,
             timestamp: payload.timestamp,
+            upToDate: payload.activeAttributes.length > 0,
         }
         store.dispatch({ type: 'devices/deviceUpdate', payload: deviceData });
     }

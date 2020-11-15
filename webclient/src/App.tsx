@@ -7,6 +7,7 @@ import { getDashboardConfig, minimalWidgetConfiguration } from './dashboard/dash
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Configuration } from './configuration/Configuration';
 import useAsync from 'react-use/lib/useAsync';
+//import { useTimeout } from 'react-use';
 
 const theme = createMuiTheme({
   palette: {
@@ -26,6 +27,9 @@ function App() {
     const dashboardConfig = await getDashboardConfig()
     return dashboardConfig
   }, [minimalWidgetConfiguration]);
+
+  //const ms = 5000;
+  //const [isReady, cancel] = useTimeout(ms);
 
   //const [config, setConfig] = useState<WidgetConfiguration|undefined>();
   /*useEffect(() => {

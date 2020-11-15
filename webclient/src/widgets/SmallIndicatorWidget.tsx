@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { IndicatorWidgetSource } from '../registry/indicators/IndicatorWidgetSource';
-import { ValueClassifier } from '../registry/classifiers/ValueClassifier';
+import { ValueClass, ValueClassifier } from '../registry/classifiers/ValueClassifier';
 import { WidgetProperties } from './widgets';
 import { selectDevices } from '../devices/devicesSlice';
 
@@ -22,6 +22,10 @@ export function SmallIndicatorWidget({ props }: WidgetProperties) {
   
   
     const getColor = () : string => {
+      if (source.getIsUpToDate() === false) {
+        return ValueClass.Undefined
+      }
+
       let color = source.getColor();
       if (color)
         return color; 

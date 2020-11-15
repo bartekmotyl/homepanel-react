@@ -27,8 +27,9 @@ const PanelElement = styled.div`
 const PanelFlow = styled.div`
     display: flex; 
     width: 100%; 
-    height: 100%;
+    //height: 100%;
     //background-color: #2F3239;
     flex-wrap: wrap;
     justify-content: flex-start;
+    align-items: flex-start; 
  `;

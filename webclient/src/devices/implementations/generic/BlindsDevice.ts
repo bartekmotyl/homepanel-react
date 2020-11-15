@@ -1,12 +1,8 @@
-import { ConnectedDeviceBase, Device, DeviceUpdate } from "../../Device";
+import { ConnectedDeviceBase } from "../../Device";
 import { Blinds } from "../../interfaces/generic/genericDevices";
 import { store } from '../../../app/store';
 
 export class BlindsDevice extends ConnectedDeviceBase implements  Blinds {
-  constructor(connectorId: string, deviceId: string, name: string, data = undefined) {
-    super(connectorId, deviceId, name, data);
-  }
-  
   _dispatchMove(type: string): void {
     store.dispatch({ type: `connector/${this.connectorId}/device/blinds/${type}`, payload: {
       deviceId: this.deviceId,
@@ -27,8 +23,5 @@ export class BlindsDevice extends ConnectedDeviceBase implements  Blinds {
   }
   stop(): void{
     this._dispatchMove("stop");
-  }
-  acceptData(update: DeviceUpdate): Device {
-    return new BlindsDevice(this.connectorId, this.deviceId, this.name, update.data);
   }
 }
