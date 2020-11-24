@@ -5,137 +5,176 @@
       {
         "type": "tabsWidget",
         "properties": {
-          "pages": [
-            {
-              "title": "Page A",
-              "widgets": [
+            "tabsVisible": false,
+            "pages": [
                 {
-                  "type": "panelWidget",
-                  "properties": {
+                    "title": "Hidden A",
                     "widgets": [
                       {
-                        "type": "temperatureWidget",
+                        "type": "tabsWidget",
                         "properties": {
-                          "deviceId": "met-no-wroclaw-temperature"
-                        }
-                      },
-                      {
-                        "type": "temperatureWidget",
-                        "properties": {
-                          "deviceId": "ble-sensor-4c65a8df7d03"
-                        }
-                      },
-                      {
-                        "type": "temperatureWidget",
-                        "properties": {
-                          "deviceId": "mock-temperature-1"
-                        }
-                      },
-                      {
-                        "type": "blindsWidget",
-                        "properties": {
-                          "deviceId": "roleta-salon-lewa"
-                        }
-                      },
-                      {
-                        "type": "switchWidget",
-                        "properties": {
-                          "deviceId": "wiatrolap-lampa"
-                        }
-                      },
-                      {
-                        "type": "smallIndicatorWidget",
-                        "properties": {
-                          "deviceId": "onewire-sensor-grunt-0-source-temperature",
-                          "classifierId": "indoor-temperature-classifier"
-                        }
-                      },
-                      {
-                        "type": "smallIndicatorWidget",
-                        "properties": {
-                          "deviceId": "ble-sensor-00126fc21c10-source-temperature",
-                          "classifierId": "indoor-temperature-classifier"
-                        }
-                      },
-                      {
-                        "type": "smallIndicatorWidget",
-                        "properties": {
-                          "deviceId": "power-meter-source",
-                          "classifierId": "power-meter-classifier-minute"
-                        }
-                      },
-                      {
-                        "type": "smallIndicatorWidget",
-                        "properties": {
-                          "deviceId": "gabinet-window-source"
-                        }
-                      },
-                      {
-                        "type": "smallIndicatorWidget",
-                        "properties": {
-                          "deviceId": "lazienka-pietro-window-source"
-                        }
-                      },
-                      {
-                        "type": "smallIndicatorWidget",
-                        "properties": {
-                          "deviceId": "water-meter-main-source"
-                        }
-                      },
-                      {
-                        "type": "smallIndicatorWidget",
-                        "properties": {
-                          "deviceId": "sypialnia-termostat-source",
-                          "classifierId": "indoor-temperature-classifier"
+                          "tabsVisible": true,
+                          "pages": [
+                            {
+                              "title": "Page A",
+                              "widgets": [
+                                {
+                                  "type": "panelWidget",
+                                  "properties": {
+                                    "widgets": [
+                                      {
+                                        "type": "temperatureWidget",
+                                        "properties": {
+                                          "deviceId": "met-no-wroclaw-temperature"
+                                        }
+                                      },
+                                      {
+                                        "type": "temperatureWidget",
+                                        "properties": {
+                                          "deviceId": "ble-sensor-4c65a8df7d03"
+                                        }
+                                      },
+                                      {
+                                        "type": "temperatureWidget",
+                                        "properties": {
+                                          "deviceId": "mock-temperature-1"
+                                        }
+                                      },
+                                      {
+                                        "type": "blindsWidget",
+                                        "properties": {
+                                          "deviceId": "roleta-salon-lewa"
+                                        }
+                                      },
+                                      {
+                                        "type": "switchWidget",
+                                        "properties": {
+                                          "deviceId": "wiatrolap-lampa"
+                                        }
+                                      },
+                                      {
+                                        "type": "smallIndicatorWidget",
+                                        "properties": {
+                                          "deviceId": "onewire-sensor-grunt-0-source-temperature",
+                                          "classifierId": "indoor-temperature-classifier"
+                                        }
+                                      },
+                                      {
+                                        "type": "smallIndicatorWidget",
+                                        "properties": {
+                                          "deviceId": "ble-sensor-00126fc21c10-source-temperature",
+                                          "classifierId": "indoor-temperature-classifier"
+                                        }
+                                      },
+                                      {
+                                        "type": "smallIndicatorWidget",
+                                        "properties": {
+                                          "deviceId": "ble-sensor-4c65a8df6a72-source-temperature",
+                                          "classifierId": "indoor-temperature-classifier"
+                                        }
+                                      },
+                                      {
+                                        "type": "smallIndicatorWidget",
+                                        "properties": {
+                                          "deviceId": "power-meter-source",
+                                          "classifierId": "power-meter-classifier-minute"
+                                        }
+                                      },
+                                      {
+                                        "type": "smallIndicatorWidget",
+                                        "properties": {
+                                          "deviceId": "gabinet-window-source"
+                                        }
+                                      },
+                                      {
+                                        "type": "smallIndicatorWidget",
+                                        "properties": {
+                                          "deviceId": "lazienka-pietro-window-source"
+                                        }
+                                      },
+                                      {
+                                        "type": "smallIndicatorWidget",
+                                        "properties": {
+                                          "deviceId": "water-meter-main-source"
+                                        }
+                                      },
+                                      {
+                                        "type": "smallIndicatorWidget",
+                                        "properties": {
+                                          "deviceId": "sypialnia-termostat-source",
+                                          "classifierId": "indoor-temperature-classifier"
+                                        }
+                                      },
+                                      {
+                                        "type": "smallIndicatorWidget",
+                                        "properties": {
+                                          "deviceId": "ble-sensor-00126fc21c3e-source-temperature",
+                                          "classifierId": "outdoor-temperature-classifier"
+                                        }
+                                      },
+                                      {
+                                        "type": "smallIndicatorWidget",
+                                        "properties": {
+                                          "deviceId": "owire-sensor-co-zasilanie-as-temperature",
+                                          "classifierId": "heatwater-temperature-classifier"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "title": "Page B",
+                              "widgets": [
+                                {
+                                  "type": "panelWidget",
+                                  "properties": {
+                                    "widgets": [
+                                      {
+                                        "type": "temperatureWidget",
+                                        "properties": {
+                                          "deviceId": "met-no-wroclaw-temperature"
+                                        }
+                                      },
+                                      {
+                                        "type": "linkWidget",
+                                        "properties": {
+                                          "text": "Config",
+                                          "href": "/config"
+                                        }
+                                      },
+                                      {
+                                        "type": "linkWidget",
+                                        "properties": {
+                                          "text": "Config",
+                                          "href": "/config"
+                                        }
+                                      },
+                                      {
+                                        "type": "linkWidget",
+                                        "properties": {
+                                          "text": "Config",
+                                          "href": "/config"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          ]
                         }
                       }
                     ]
-                  }
-                }
-              ]
-            },
-            {
-              "title": "Page B",
-              "widgets": [
+                },
                 {
-                  "type": "panelWidget",
-                  "properties": {
-                    "widgets": [
-                      {
-                        "type": "temperatureWidget",
-                        "properties": {
-                          "deviceId": "met-no-wroclaw-temperature"
-                        }
-                      },
-                      {
-                        "type": "linkWidget",
-                        "properties": {
-                          "text": "Config",
-                          "href": "/config"
-                        }
-                      },
-                      {
-                        "type": "linkWidget",
-                        "properties": {
-                          "text": "Config",
-                          "href": "/config"
-                        }
-                      },
-                      {
-                        "type": "linkWidget",
-                        "properties": {
-                          "text": "Config",
-                          "href": "/config"
-                        }
-                      }
-                    ]
-                  }
+                  "title": "Hidden B",
+                  "widgets": []
                 }
               ]
             }
-          ]
-        }
-      }
+          }
     ]
   }
 }

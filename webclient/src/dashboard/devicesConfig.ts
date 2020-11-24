@@ -9,6 +9,9 @@ const defaultDevicesConfiguration: DeviceConfiguration[] = [
         deviceClass: 'XiaomiTemperatureSensorDevice', 
         args: ['homepanel', 'ble-sensor-4c65a8df7d03', 'Living room',]
     }, {
+        deviceClass: 'XiaomiTemperatureSensorDevice', 
+        args: ['homepanel', 'ble-sensor-4c65a8df6a72', 'Jadalnia',]
+    }, {
         deviceClass: 'SwitchDevice', 
         args: ['homepanel', 'wiatrolap-lampa', 'Wiatrołap',]
     }, {
@@ -42,6 +45,12 @@ const defaultDevicesConfiguration: DeviceConfiguration[] = [
         deviceClass: 'HPRadiatorThermostatDevice', 
         args: ['homepanel', 'termostat-sypialnia', 'Termostat sypialnia']
     }, { 
+        deviceClass: 'CompositeValueDevice', 
+        args: ['homepanel', 'ble-sensor-00126fc21c3e', 'Na dworze']
+    }, { 
+        deviceClass: 'CompositeValueDevice', 
+        args: ['homepanel', 'owire-sensor-co-zasilanie', 'CO zasilanie']
+    }, { 
         deviceClass: 'TemperatureSensorDevice', 
         args: ['mock-1', 'mock-temperature-1', 'Mock 1',]
     }, {
@@ -59,6 +68,9 @@ const defaultIndicatorWidgetSources: DeviceConfiguration[] = [
         deviceClass: 'TemperatureIndicatorWidgetSource', 
         args: ['ble-sensor-00126fc21c10-source-temperature', 'Serwerownia', 'ble-sensor-00126fc21c10', 'composite-value-to-temperature']
     }, {
+        deviceClass: 'TemperatureIndicatorWidgetSource', 
+        args: ['ble-sensor-4c65a8df6a72-source-temperature', 'Jadalnia', 'ble-sensor-4c65a8df6a72', null]
+    }, {
         deviceClass: 'PowerMeterIndicatorWidgetSource', 
         args: ['power-meter-source', 'Prąd', 'ble-sensor-00126f6d3a29',]
     }, {
@@ -73,7 +85,15 @@ const defaultIndicatorWidgetSources: DeviceConfiguration[] = [
     }, {
         deviceClass: 'ThermostatIndicatorWidgetSource', 
         args: ['sypialnia-termostat-source', 'Sypialnia grzejnik (okno)', 'termostat-sypialnia', 'thermostat-to-temperature']
+    }, {
+        deviceClass: 'TemperatureIndicatorWidgetSource', 
+        args: ['ble-sensor-00126fc21c3e-source-temperature', 'Na dworze', 'ble-sensor-00126fc21c3e', 'composite-value-to-temperature']
+    }, {
+        deviceClass: 'TemperatureIndicatorWidgetSource', 
+        args: ['owire-sensor-co-zasilanie-as-temperature', 'CO zasilanie', 'owire-sensor-co-zasilanie', 'composite-value-to-temperature']
     }
+
+    
 ]
 
 
@@ -82,9 +102,17 @@ const defaultValueClassifiers: DeviceConfiguration[] = [
         deviceClass: 'IndoorTemperatureValueClassifier', 
         args: ['indoor-temperature-classifier',]
     }, {
+        deviceClass: 'OutdoorTemperatureValueClassifier', 
+        args: ['outdoor-temperature-classifier',]
+    }, {
+        deviceClass: 'HeatWaterTemperatureValueClassifier', 
+        args: ['heatwater-temperature-classifier',]
+    }, {
         deviceClass: 'PowerMeterValueClassifier', 
         args: ['power-meter-classifier-minute', 60.0]
     }
+
+    
 ]
 
 

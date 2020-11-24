@@ -4,6 +4,8 @@ import Tabs from '@material-ui/core/Tabs';
 import { Tab } from "@material-ui/core";
 
 interface DashboardTabsProps {
+    tabsVisible: boolean,
+    selectedTab: number,
     children: ReactElement<DashboardTabProps> []
 }
 
@@ -15,13 +17,15 @@ export const DashboardTabs : React.FunctionComponent<DashboardTabsProps> = props
 
     return (
         <OuterContainer>
-            <StyledTabs value={value} onChange={handleChange} variant="scrollable"> 
-                { props.children && props.children.map((el, index) => { 
-                    return <StyledTab value={index} label={el.props.label} key={index}/>
-                    }) 
-                } 
-            </StyledTabs>
-            { props.children[value] }
+            { props.tabsVisible && 
+                <StyledTabs value={value} onChange={handleChange} variant="scrollable"> 
+                    { props.children && props.children.map((el, index) => { 
+                        return <StyledTab value={index} label={el.props.label} key={index}/>
+                        }) 
+                    } 
+                </StyledTabs>
+            }
+            { props.children[props.tabsVisible ? value : props.selectedTab] }
        </OuterContainer>
     );
 }

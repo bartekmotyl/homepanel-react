@@ -1930,6 +1930,13 @@
     "@types/history" "*"
     "@types/react" "*"
 
+"@types/react-swipeable@^5.2.0":
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/@types/react-swipeable/-/react-swipeable-5.2.0.tgz#69d6088819f0c03b13eb3fd98bfe995ef311c105"
+  integrity sha512-aQMubLpV45W8fTQufnm5j8yxYVEp/d3JJkqpPr9xcRPQ6Q6MSJUdNpsaR2uogILSIFzrAisC8AqdR1JlvjuZMA==
+  dependencies:
+    react-swipeable "*"
+
 "@types/react-transition-group@^4.2.0":
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/@types/react-transition-group/-/react-transition-group-4.4.0.tgz#882839db465df1320e4753e6e9f70ca7e9b4d46d"
@@ -9428,6 +9435,11 @@ react-scripts@3.4.3:
     workbox-webpack-plugin "4.3.1"
   optionalDependencies:
     fsevents "2.1.2"
+
+react-swipeable@*, react-swipeable@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/react-swipeable/-/react-swipeable-6.0.0.tgz#356ec39d28d6ea19fd27dfee1d5fab5d59d1d060"
+  integrity sha512-0YqtZ6+wQFkii4g9hThPTk5Uof6sbJevUMyr07VwXQux+0mX4n7HJVVizp73+s8ABlxnG0eJiZ8L3BPOjUyF1w==
 
 react-transition-group@^4.4.0:
   version "4.4.1"

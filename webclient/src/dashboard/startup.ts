@@ -22,6 +22,8 @@ import { initializeConnectors } from './connectorsConfig';
 import { DoorSensorIndicatorWidgetSource } from '../registry/indicators/DoorSensorIndicatorWidgetSource';
 import { WaterMeterIndicatorWidgetSource } from '../registry/indicators/WaterMeterIndicatorWidgetSource';
 import { ThermostatIndicatorWidgetSource } from '../registry/indicators/ThermostatIndicatorWidgetSource';
+import { OutdoorTemperatureValueClassifier } from '../registry/classifiers/OutdoorTemperatureValueClassifier';
+import { HeatWaterTemperatureValueClassifier } from '../registry/classifiers/HeatWaterTemperatureValueClassifier';
 
 
 
@@ -43,7 +45,9 @@ const knownTypes: any = {
     WaterMeterIndicatorWidgetSource,
     ThermostatIndicatorWidgetSource,
     IndoorTemperatureValueClassifier,
+    OutdoorTemperatureValueClassifier,
     PowerMeterValueClassifier,
+    HeatWaterTemperatureValueClassifier,
 }
 
 
