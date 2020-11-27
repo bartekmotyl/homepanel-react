@@ -118,6 +118,20 @@
                                           "deviceId": "owire-sensor-co-zasilanie-as-temperature",
                                           "classifierId": "heatwater-temperature-classifier"
                                         }
+                                      },
+                                      {
+                                        "type": "smallIndicatorWidget",
+                                        "properties": {
+                                          "deviceId": "pmsensor-25-source-number",
+                                          "classifierId": "pmsensor-25-value-classifier"
+                                        }
+                                      },
+                                      {
+                                        "type": "smallIndicatorWidget",
+                                        "properties": {
+                                          "deviceId": "pmsensor-10-source-number",
+                                          "classifierId": "pmsensor-10-value-classifier"
+                                        }
                                       }
                                     ]
                                   }

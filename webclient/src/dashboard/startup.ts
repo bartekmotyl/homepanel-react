@@ -11,6 +11,8 @@ import { DoorSensorDevice } from '../devices/implementations/generic/DoorSensorD
 import { HPRadiatorThermostatDevice } from '../devices/implementations/custom/homepanel/HPRadiatorThermostatDevice';
 import { CompositeValueAsTemperatureConverter } from '../registry/converters/CompositeValueAsTemperatureConverter';
 import { ThermostatAsTemperatureConverter } from '../registry/converters/ThermostatAsTemperatureConverter';
+import { CompositeValueAsNumberConverter } from '../registry/converters/CompositeValueAsNumberConverter';
+
 import { TemperatureIndicatorWidgetSource } from '../registry/indicators/TemperatureIndicatorWidgetSource';
 import { IndoorTemperatureValueClassifier } from '../registry/classifiers/IndoorTemperatureValueClassifier';
 import { PowerMeterIndicatorWidgetSource } from '../registry/indicators/PowerMeterIndicatorWidgetSource';
@@ -22,8 +24,11 @@ import { initializeConnectors } from './connectorsConfig';
 import { DoorSensorIndicatorWidgetSource } from '../registry/indicators/DoorSensorIndicatorWidgetSource';
 import { WaterMeterIndicatorWidgetSource } from '../registry/indicators/WaterMeterIndicatorWidgetSource';
 import { ThermostatIndicatorWidgetSource } from '../registry/indicators/ThermostatIndicatorWidgetSource';
+import { NumberIndicatorWidgetSource } from '../registry/indicators/NumberIndicatorWidgetSource';
 import { OutdoorTemperatureValueClassifier } from '../registry/classifiers/OutdoorTemperatureValueClassifier';
 import { HeatWaterTemperatureValueClassifier } from '../registry/classifiers/HeatWaterTemperatureValueClassifier';
+import { AirQualityPM2_5ValueClassifier } from '../registry/classifiers/AirQualityPM2_5ValueClassifier';
+import { AirQualityPM10ValueClassifier } from '../registry/classifiers/AirQualityPM10ValueClassifier';
 
 
 
@@ -38,16 +43,20 @@ const knownTypes: any = {
     DoorSensorDevice,
     HPRadiatorThermostatDevice,
     CompositeValueAsTemperatureConverter,
+    CompositeValueAsNumberConverter,
     ThermostatAsTemperatureConverter,
     TemperatureIndicatorWidgetSource,
     PowerMeterIndicatorWidgetSource,
     DoorSensorIndicatorWidgetSource,
     WaterMeterIndicatorWidgetSource,
     ThermostatIndicatorWidgetSource,
+    NumberIndicatorWidgetSource,
     IndoorTemperatureValueClassifier,
     OutdoorTemperatureValueClassifier,
     PowerMeterValueClassifier,
     HeatWaterTemperatureValueClassifier,
+    AirQualityPM2_5ValueClassifier,
+    AirQualityPM10ValueClassifier
 }
 
 

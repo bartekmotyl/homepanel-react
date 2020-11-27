@@ -51,6 +51,9 @@ const defaultDevicesConfiguration: DeviceConfiguration[] = [
         deviceClass: 'CompositeValueDevice', 
         args: ['homepanel', 'owire-sensor-co-zasilanie', 'CO zasilanie']
     }, { 
+        deviceClass: 'CompositeValueDevice', 
+        args: ['homepanel', 'pmsensor', 'Sensor PM']
+    }, { 
         deviceClass: 'TemperatureSensorDevice', 
         args: ['mock-1', 'mock-temperature-1', 'Mock 1',]
     }, {
@@ -91,9 +94,13 @@ const defaultIndicatorWidgetSources: DeviceConfiguration[] = [
     }, {
         deviceClass: 'TemperatureIndicatorWidgetSource', 
         args: ['owire-sensor-co-zasilanie-as-temperature', 'CO zasilanie', 'owire-sensor-co-zasilanie', 'composite-value-to-temperature']
+    }, {
+        deviceClass: 'NumberIndicatorWidgetSource', 
+        args: ['pmsensor-25-source-number', 'PM Sensor 2.5', 'pmsensor', 'pmsensor-25-as-number']
+    }, {
+        deviceClass: 'NumberIndicatorWidgetSource', 
+        args: ['pmsensor-10-source-number', 'PM Sensor 10', 'pmsensor', 'pmsensor-10-as-number']
     }
-
-    
 ]
 
 
@@ -109,7 +116,13 @@ const defaultValueClassifiers: DeviceConfiguration[] = [
         args: ['heatwater-temperature-classifier',]
     }, {
         deviceClass: 'PowerMeterValueClassifier', 
-        args: ['power-meter-classifier-minute', 60.0]
+        args: ['power-meter-classifier-minute', 1.0]
+    }, {
+        deviceClass: 'AirQualityPM2_5ValueClassifier', 
+        args: ['pmsensor-25-value-classifier',]
+    }, {
+        deviceClass: 'AirQualityPM10ValueClassifier', 
+        args: ['pmsensor-10-value-classifier',]
     }
 
     
@@ -119,10 +132,16 @@ const defaultValueClassifiers: DeviceConfiguration[] = [
 const defaultConverters: DeviceConfiguration[] = [
     {
         deviceClass: 'CompositeValueAsTemperatureConverter', 
-        args: ['composite-value-to-temperature', 'temperature', ]
+        args: ['composite-value-to-temperature', '[noname]', 'temperature', ]
     }, {
         deviceClass: 'ThermostatAsTemperatureConverter', 
-        args: ['thermostat-to-temperature']
+        args: ['thermostat-to-temperature', '[noname]']
+    }, {
+        deviceClass: 'CompositeValueAsNumberConverter', 
+        args: ['pmsensor-25-as-number', '[noname]', 'pm2_5_std']
+    }, {
+        deviceClass: 'CompositeValueAsNumberConverter', 
+        args: ['pmsensor-10-as-number', '[noname]', 'pm10_std']
     }, 
 
     

@@ -1,15 +1,15 @@
 import { Device, DeviceBase } from '../../devices/Device';
 import { CompositeValue } from '../../devices/interfaces/generic/genericDevices';
-import { AsTemperature } from '../genericConverters';
+import { AsNumber } from '../genericConverters';
 
-export class CompositeValueAsTemperatureConverter extends DeviceBase implements  AsTemperature {
+export class CompositeValueAsNumberConverter extends DeviceBase implements  AsNumber {
     private property : string;
 
-    constructor(deviceId: string, name: string, property: string  = "temperature")  {
+    constructor(deviceId: string, name: string, property: string  = "value")  {
         super(deviceId, name);
         this.property = property;
     }
-    getTemperature(device: Device): number | null {
+    getNumber(device: Device): number | null {
         let value = (device as any as CompositeValue).getValue(this.property);
         return value || null;
     }

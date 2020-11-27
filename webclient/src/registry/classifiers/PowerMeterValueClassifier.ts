@@ -18,6 +18,8 @@ export class PowerMeterValueClassifier extends ValueClassifier {
         if (val <= 500)
             return ValueClass.Normal
         else if (val <= 2000)
+            return ValueClass.LowTemperature
+        else if (val <= 4000)
             return ValueClass.Warning
         else
             return ValueClass.Error
