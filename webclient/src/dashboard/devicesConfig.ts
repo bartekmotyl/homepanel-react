@@ -30,9 +30,6 @@ const defaultDevicesConfiguration: DeviceConfiguration[] = [
         deviceClass: 'CompositeValueDevice', 
         args: ['homepanel', 'water-meter-main', 'Wodomierz główny',]
     }, {
-        deviceClass: 'SimpleValueDevice', 
-        args: ['homepanel', 'water-meter-main-value', 'Wodomierz',]
-    }, {
         deviceClass: 'DoorSensorDevice', 
         args: ['homepanel', 'kontaktron-lazienka-pietro-okno', 'Łazienka piętro okno',]
     }, {
@@ -53,6 +50,9 @@ const defaultDevicesConfiguration: DeviceConfiguration[] = [
     }, { 
         deviceClass: 'CompositeValueDevice', 
         args: ['homepanel', 'pmsensor', 'Sensor PM']
+    }, { 
+        deviceClass: 'SimpleValueDevice', 
+        args: ['homepanel', 'heating-status', 'Piec grzanie']
     }, { 
         deviceClass: 'TemperatureSensorDevice', 
         args: ['mock-1', 'mock-temperature-1', 'Mock 1',]
@@ -100,6 +100,9 @@ const defaultIndicatorWidgetSources: DeviceConfiguration[] = [
     }, {
         deviceClass: 'NumberIndicatorWidgetSource', 
         args: ['pmsensor-10-source-number', 'PM Sensor 10', 'pmsensor', 'pmsensor-10-as-number']
+    }, {
+        deviceClass: 'WarningIndicatorWidgetSource', 
+        args: ['heating-status-source', 'Piec grzanie', 'heating-status', 'heating-status-as-boolean']
     }
 ]
 
@@ -142,10 +145,10 @@ const defaultConverters: DeviceConfiguration[] = [
     }, {
         deviceClass: 'CompositeValueAsNumberConverter', 
         args: ['pmsensor-10-as-number', '[noname]', 'pm10_std']
+    }, {
+        deviceClass: 'SimpleValueAsBooleanConverter', 
+        args: ['heating-status-as-boolean', '[noname]', 'grzac', true]
     }, 
-
-    
-
 ]
 
 let configDevices = [

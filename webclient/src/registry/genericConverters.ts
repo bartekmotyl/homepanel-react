@@ -8,3 +8,7 @@ export interface AsTemperature {
 export interface AsNumber {
     getNumber(device: Device): number | null;
 }
+
+export interface AsBoolean {
+    getBoolean(device: Device): boolean | null;
+}

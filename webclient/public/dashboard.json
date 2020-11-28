@@ -132,6 +132,12 @@
                                           "deviceId": "pmsensor-10-source-number",
                                           "classifierId": "pmsensor-10-value-classifier"
                                         }
+                                      },
+                                      {
+                                        "type": "smallIndicatorWidget",
+                                        "properties": {
+                                          "deviceId": "heating-status-source"
+                                        }
                                       }
                                     ]
                                   }

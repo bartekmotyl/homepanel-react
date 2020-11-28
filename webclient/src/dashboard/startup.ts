@@ -29,6 +29,8 @@ import { OutdoorTemperatureValueClassifier } from '../registry/classifiers/Outdo
 import { HeatWaterTemperatureValueClassifier } from '../registry/classifiers/HeatWaterTemperatureValueClassifier';
 import { AirQualityPM2_5ValueClassifier } from '../registry/classifiers/AirQualityPM2_5ValueClassifier';
 import { AirQualityPM10ValueClassifier } from '../registry/classifiers/AirQualityPM10ValueClassifier';
+import { SimpleValueAsBooleanConverter } from '../registry/converters/SimpleValueAsBooleanConverter';
+import { WarningIndicatorWidgetSource } from '../registry/indicators/WarningIndicatorWidgetSource';
 
 
 
@@ -45,12 +47,14 @@ const knownTypes: any = {
     CompositeValueAsTemperatureConverter,
     CompositeValueAsNumberConverter,
     ThermostatAsTemperatureConverter,
+    SimpleValueAsBooleanConverter,
     TemperatureIndicatorWidgetSource,
     PowerMeterIndicatorWidgetSource,
     DoorSensorIndicatorWidgetSource,
     WaterMeterIndicatorWidgetSource,
     ThermostatIndicatorWidgetSource,
     NumberIndicatorWidgetSource,
+    WarningIndicatorWidgetSource,
     IndoorTemperatureValueClassifier,
     OutdoorTemperatureValueClassifier,
     PowerMeterValueClassifier,

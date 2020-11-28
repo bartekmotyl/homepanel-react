@@ -4,6 +4,7 @@ import { Temperature } from '../../devices/interfaces/generic/genericDevices';
 import { AsTemperature } from '../genericConverters';
 import { IndicatorWidgetSource } from './IndicatorWidgetSource';
 
+
 export class TemperatureIndicatorWidgetSource extends IndicatorWidgetSource {
     private temperatureConverterId : string
     private subDeviceId : string
