@@ -40,7 +40,7 @@ export class WaterMeterIndicatorWidgetSource extends IndicatorWidgetSource {
 
     public getExtraText1() : string {
         let value = this.getCurrentValue();
-        if (value !== null)
+        if (value !== null && typeof value === 'number')
             return value.toFixed();
         else 
             return "";  
@@ -48,7 +48,7 @@ export class WaterMeterIndicatorWidgetSource extends IndicatorWidgetSource {
 
     public getExtraText2() : string {
         let valueMinute = this.getValueMinute();
-        if (valueMinute !== null)
+        if (valueMinute !== null && typeof valueMinute === 'number')
             return valueMinute.toFixed();
         else 
             return "";  

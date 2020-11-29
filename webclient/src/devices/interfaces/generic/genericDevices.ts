@@ -79,3 +79,7 @@ export interface RadiatorThermostatInfo  {
   getDesiredTemperature() : number | null;
   getValvePosition(): number | null;
 }
+
+export interface AvailabilityChecker {
+  isAvailable(): boolean | null;
+}

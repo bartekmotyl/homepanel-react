@@ -9,6 +9,7 @@ import { CompositeValueDevice } from '../devices/implementations/generic/Composi
 import { SimpleValueDevice } from '../devices/implementations/generic/SimpleValueDevice';
 import { DoorSensorDevice } from '../devices/implementations/generic/DoorSensorDevice';
 import { HPRadiatorThermostatDevice } from '../devices/implementations/custom/homepanel/HPRadiatorThermostatDevice';
+import { PingDevice } from '../devices/implementations/custom/homepanel/PingDevice';
 import { CompositeValueAsTemperatureConverter } from '../registry/converters/CompositeValueAsTemperatureConverter';
 import { ThermostatAsTemperatureConverter } from '../registry/converters/ThermostatAsTemperatureConverter';
 import { CompositeValueAsNumberConverter } from '../registry/converters/CompositeValueAsNumberConverter';
@@ -31,7 +32,7 @@ import { AirQualityPM2_5ValueClassifier } from '../registry/classifiers/AirQuali
 import { AirQualityPM10ValueClassifier } from '../registry/classifiers/AirQualityPM10ValueClassifier';
 import { SimpleValueAsBooleanConverter } from '../registry/converters/SimpleValueAsBooleanConverter';
 import { WarningIndicatorWidgetSource } from '../registry/indicators/WarningIndicatorWidgetSource';
-
+import { AvailabilityIndicatorWidgetSource } from '../registry/indicators/AvailabilityIndicatorWidgetSource';
 
 
 
@@ -44,6 +45,7 @@ const knownTypes: any = {
     TemperatureSensorDevice,
     DoorSensorDevice,
     HPRadiatorThermostatDevice,
+    PingDevice,
     CompositeValueAsTemperatureConverter,
     CompositeValueAsNumberConverter,
     ThermostatAsTemperatureConverter,
@@ -55,6 +57,7 @@ const knownTypes: any = {
     ThermostatIndicatorWidgetSource,
     NumberIndicatorWidgetSource,
     WarningIndicatorWidgetSource,
+    AvailabilityIndicatorWidgetSource,
     IndoorTemperatureValueClassifier,
     OutdoorTemperatureValueClassifier,
     PowerMeterValueClassifier,

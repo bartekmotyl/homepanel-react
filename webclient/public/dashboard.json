@@ -138,6 +138,12 @@
                                         "properties": {
                                           "deviceId": "heating-status-source"
                                         }
+                                      },
+                                      {
+                                        "type": "smallIndicatorWidget",
+                                        "properties": {
+                                          "deviceId": "pings-essentail-source"
+                                        }
                                       }
                                     ]
                                   }

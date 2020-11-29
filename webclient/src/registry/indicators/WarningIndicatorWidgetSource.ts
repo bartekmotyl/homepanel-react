@@ -9,18 +9,12 @@ import { AiOutlineWarning } from 'react-icons/ai';
 export class WarningIndicatorWidgetSource extends IndicatorWidgetSource {
     private subDeviceId: string
     private converterId : string
-    private icon: IconType;
 
 
-    constructor(deviceId: string, name: string, subDeviceId: string, converterId : string, iconId: string)  {
+    constructor(deviceId: string, name: string, subDeviceId: string, converterId : string)  {
         super(deviceId, name);
         this.subDeviceId = subDeviceId;
         this.converterId = converterId;
-        if (iconId) {
-            this.icon = require(`react-icons/ai/${iconId}`).default
-        } else {
-            this.icon = AiOutlineWarning;
-        }
     }
 
     private getDevice(): ConnectedDevice {
@@ -46,7 +40,7 @@ export class WarningIndicatorWidgetSource extends IndicatorWidgetSource {
     }
 
     public getMdIcon() : IconType {
-        return this.icon;
+        return AiOutlineWarning;
     }
 
     public getColor() : string | null{

@@ -54,6 +54,9 @@ const defaultDevicesConfiguration: DeviceConfiguration[] = [
         deviceClass: 'SimpleValueDevice', 
         args: ['homepanel', 'heating-status', 'Piec grzanie']
     }, { 
+        deviceClass: 'PingDevice', 
+        args: ['homepanel', 'ping-bartek-galaxy', 'Ping Bartek Galaxy']
+    }, { 
         deviceClass: 'TemperatureSensorDevice', 
         args: ['mock-1', 'mock-temperature-1', 'Mock 1',]
     }, {
@@ -103,6 +106,9 @@ const defaultIndicatorWidgetSources: DeviceConfiguration[] = [
     }, {
         deviceClass: 'WarningIndicatorWidgetSource', 
         args: ['heating-status-source', 'Piec grzanie', 'heating-status', 'heating-status-as-boolean']
+    }, {
+        deviceClass: 'AvailabilityIndicatorWidgetSource', 
+        args: ['pings-essentail-source', 'Ping ważne', ['ping-bartek-galaxy'] ]
     }
 ]
 
@@ -150,6 +156,8 @@ const defaultConverters: DeviceConfiguration[] = [
         args: ['heating-status-as-boolean', '[noname]', 'grzac', true]
     }, 
 ]
+
+
 
 let configDevices = [
     ...defaultDevicesConfiguration, 
