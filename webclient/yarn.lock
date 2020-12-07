@@ -9441,6 +9441,11 @@ react-swipeable@*, react-swipeable@^6.0.0:
   resolved "https://registry.yarnpkg.com/react-swipeable/-/react-swipeable-6.0.0.tgz#356ec39d28d6ea19fd27dfee1d5fab5d59d1d060"
   integrity sha512-0YqtZ6+wQFkii4g9hThPTk5Uof6sbJevUMyr07VwXQux+0mX4n7HJVVizp73+s8ABlxnG0eJiZ8L3BPOjUyF1w==
 
+react-ticker@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/react-ticker/-/react-ticker-1.2.2.tgz#12cda5ff8266c6fe90ffcd8c58e12ba1596ddf24"
+  integrity sha512-PXUujoPJvajxwOfosuuujlrBUrjgGp4FB4haWFOI25ujhMppW4SuLkiOdQ9AylrWN3yTHWdk2kbQWe3n9SjFGA==
+
 react-transition-group@^4.4.0:
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.4.1.tgz#63868f9325a38ea5ee9535d828327f85773345c9"

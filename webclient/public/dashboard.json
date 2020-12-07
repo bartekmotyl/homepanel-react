@@ -200,7 +200,47 @@
                 }
               ]
             }
-          }
+          }, 
+      {
+        "type": "tickerWidget",
+        "properties": {
+          "width": "300px",
+          "widgets": [
+            {
+              "type": "smallIndicatorWidget",
+              "properties": {
+                "deviceId": "owire-sensor-co-zasilanie-as-temperature",
+                "classifierId": "heatwater-temperature-classifier"
+              }
+            }, {
+              "type": "smallIndicatorWidget",
+              "properties": {
+                "deviceId": "pings-essentail-source"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "tickerWidget",
+        "properties": {
+          "width": "500px",
+          "widgets": [
+            {
+              "type": "smallIndicatorWidget",
+              "properties": {
+                "deviceId": "owire-sensor-co-zasilanie-as-temperature",
+                "classifierId": "heatwater-temperature-classifier"
+              }
+            }, {
+              "type": "smallIndicatorWidget",
+              "properties": {
+                "deviceId": "pings-essentail-source"
+              }
+            }
+          ]
+        }
+      }      
     ]
   }
 }

@@ -28,7 +28,11 @@ export class PowerMeterIndicatorWidgetSource extends IndicatorWidgetSource {
 
     public getExtraText1() : string {
         let cv = this.getCompositeValue();
-        return cv.getValue("total")?.toFixed();
+        let value = cv.getValue("total")
+        if (value !== null && typeof value === 'number')
+            return value.toFixed();
+        else 
+            return value;  
     }
 
     public getValue(): number {

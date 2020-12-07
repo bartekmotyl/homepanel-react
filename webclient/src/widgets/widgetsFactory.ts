@@ -8,6 +8,7 @@ import React from 'react';
 import { TabsWidget } from './containers/TabsWidget';
 import { ContainerWidget } from './containers/ContainerWidget';
 import { LinkWidget } from './LinkWidget';
+import { TickerWidget } from './containers/TickerWidget';
 
 //TODO: is it possible to fill this map automatically from all widgets available in this folder/subfolders?
 const widgetTypes = {
@@ -19,6 +20,7 @@ const widgetTypes = {
     'blindsWidget': BlindsWidget,
     'smallIndicatorWidget': SmallIndicatorWidget,
     'linkWidget': LinkWidget,
+    'tickerWidget': TickerWidget,
 }
 
 type WidgetTypeKey = keyof typeof widgetTypes
