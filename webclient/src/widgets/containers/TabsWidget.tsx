@@ -12,6 +12,7 @@ interface PageConfiguration {
 }
 
 export function TabsWidget({ props }: WidgetProperties) {
+    
     let pages = props.pages as PageConfiguration[]
 
     const [selectedTab, setSelectedTab] = useState(0);
@@ -28,7 +29,7 @@ export function TabsWidget({ props }: WidgetProperties) {
     })
 
     return (
-        <div {...handlers}>
+        <ContainerStyled {...handlers} width={props.width ?? '100%'}>
             <DashboardTabsStyled tabsVisible={props.tabsVisible} selectedTab={selectedTab}>
                 { pages.map((page, pageIndex) => { 
                     return ( 
@@ -43,9 +44,13 @@ export function TabsWidget({ props }: WidgetProperties) {
                     )
                 })}
             </DashboardTabsStyled>
-        </div>
+        </ContainerStyled>
     );
 }
+
+const ContainerStyled = styled.div<{ width: string }>`
+    width: ${props =>  `${props.width}`};
+`;
 
 const DashboardTabsStyled = styled(DashboardTabs)`
     width: 100%;

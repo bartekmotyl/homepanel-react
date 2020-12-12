@@ -40,7 +40,7 @@ const StyledTabs = styled(Tabs)`
 
 const StyledTab = styled(Tab)` 
   && { 
-
+    min-width: 1rem;
     background-color: #2E2F34; 
     ${props => props.selected && `
          background-color: #383C45;

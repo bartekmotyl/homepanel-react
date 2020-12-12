@@ -30,14 +30,35 @@ const defaultDevicesConfiguration: DeviceConfiguration[] = [
         deviceClass: 'CompositeValueDevice', 
         args: ['homepanel', 'water-meter-main', 'Wodomierz główny',]
     }, {
+        deviceClass: 'CompositeValueDevice', 
+        args: ['homepanel', 'water-meter-garden', 'Wodomierz ogród',]
+    }, {
         deviceClass: 'DoorSensorDevice', 
         args: ['homepanel', 'kontaktron-lazienka-pietro-okno', 'Łazienka piętro okno',]
+    }, {
+        deviceClass: 'DoorSensorDevice', 
+        args: ['homepanel', 'kontaktron-brama-garazowa', 'Brama garażwa',]
+    }, {
+        deviceClass: 'DoorSensorDevice', 
+        args: ['homepanel', 'kontaktron-brama-ogrodzenia', 'Brama ogrodzenia',]
     }, {
         deviceClass: 'DoorSensorDevice', 
         args: ['homepanel', 'kontaktron-gabinet-okno', 'Gabinet okno',]
     }, {
         deviceClass: 'DoorSensorDevice', 
-        args: ['homepanel', 'kontaktron-lazienka-pietro-okno', 'Łazieka piętro okno',]
+        args: ['homepanel', 'kontaktron-sypialnia-okno', 'Sypialnia okno',]
+    }, {
+        deviceClass: 'DoorSensorDevice', 
+        args: ['homepanel', 'kontaktron-nina-okno', 'Mały pokój okno',]
+    }, {
+        deviceClass: 'DoorSensorDevice', 
+        args: ['homepanel', 'kontaktron-goscinny-okno', 'Duży pokój okno',]
+    }, {
+        deviceClass: 'DoorSensorDevice', 
+        args: ['homepanel', 'kontaktron-gabinet-okno-polaciowe', 'Gabinet okno połąciowe',]
+    }, {
+        deviceClass: 'DoorSensorDevice', 
+        args: ['homepanel', 'kontaktron-garderoba-okno-polaciowe', 'Garderoba okno połąciowe',]
     }, { 
         deviceClass: 'HPRadiatorThermostatDevice', 
         args: ['homepanel', 'termostat-sypialnia', 'Termostat sypialnia']
@@ -47,6 +68,21 @@ const defaultDevicesConfiguration: DeviceConfiguration[] = [
     }, { 
         deviceClass: 'CompositeValueDevice', 
         args: ['homepanel', 'owire-sensor-co-zasilanie', 'CO zasilanie']
+    }, { 
+        deviceClass: 'CompositeValueDevice', 
+        args: ['homepanel', 'owire-sensor-co-powrot', 'CO powrót']
+    }, { 
+        deviceClass: 'CompositeValueDevice', 
+        args: ['homepanel', 'owire-sensor-co-powrot-dol', 'CO powrót dół']
+    }, { 
+        deviceClass: 'CompositeValueDevice', 
+        args: ['homepanel', 'owire-sensor-co-powrot-gora', 'CO powrót góra']
+    }, { 
+        deviceClass: 'CompositeValueDevice', 
+        args: ['homepanel', 'owire-sensor-cwu-zasilanie', 'CWU zasilanie']
+    }, { 
+        deviceClass: 'CompositeValueDevice', 
+        args: ['homepanel', 'owire-sensor-cwu-powrot', 'CWU powrót']
     }, { 
         deviceClass: 'CompositeValueDevice', 
         args: ['homepanel', 'pmsensor', 'Sensor PM']
@@ -81,13 +117,37 @@ const defaultIndicatorWidgetSources: DeviceConfiguration[] = [
         args: ['power-meter-source', 'Prąd', 'ble-sensor-00126f6d3a29',]
     }, {
         deviceClass: 'DoorSensorIndicatorWidgetSource', 
-        args: ['gabinet-window-source', 'Gabinet', 'kontaktron-gabinet-okno']
+        args: ['kontaktron-lazienka-pietro-okno-door-source', 'Łazienka piętro', 'kontaktron-lazienka-pietro-okno']
     }, {
         deviceClass: 'DoorSensorIndicatorWidgetSource', 
-        args: ['lazienka-pietro-window-source', 'Łazienka piętro okno', 'kontaktron-lazienka-pietro-okno']
+        args: ['kontaktron-sypialnia-okno-door-source', 'Sypialnia', 'kontaktron-sypialnia-okno']
+    }, {
+        deviceClass: 'DoorSensorIndicatorWidgetSource', 
+        args: ['kontaktron-nina-okno-door-source', 'Mały pokój', 'kontaktron-nina-okno']
+    }, {
+        deviceClass: 'DoorSensorIndicatorWidgetSource', 
+        args: ['kontaktron-goscinny-okno-door-source', 'Duży pokój', 'kontaktron-goscinny-okno']
+    }, {
+        deviceClass: 'DoorSensorIndicatorWidgetSource', 
+        args: ['kontaktron-gabinet-okno-door-source', 'Gabinet', 'kontaktron-gabinet-okno']
+    }, {
+        deviceClass: 'DoorSensorIndicatorWidgetSource', 
+        args: ['kontaktron-gabinet-okno-polaciowe-door-source', 'Gabinet połaciowe', 'kontaktron-gabinet-okno-polaciowe']
+    }, {
+        deviceClass: 'DoorSensorIndicatorWidgetSource', 
+        args: ['kontaktron-garderoba-okno-polaciowe-door-source', 'Garderoba połaciowe', 'kontaktron-garderoba-okno-polaciowe']
+    }, {
+        deviceClass: 'DoorSensorIndicatorWidgetSource', 
+        args: ['brama-garazowa-door-source', 'Garaż', 'kontaktron-brama-garazowa']
+    }, {
+        deviceClass: 'DoorSensorIndicatorWidgetSource', 
+        args: ['brama-ogrodzenia-door-source', 'Ogrodzenie', 'kontaktron-brama-ogrodzenia']
     }, {
         deviceClass: 'WaterMeterIndicatorWidgetSource', 
         args: ['water-meter-main-source', 'Wodomierz główny', 'water-meter-main']
+    }, {
+        deviceClass: 'WaterMeterIndicatorWidgetSource', 
+        args: ['water-meter-garden-source', 'Wodomierz ogród', 'water-meter-garden']
     }, {
         deviceClass: 'ThermostatIndicatorWidgetSource', 
         args: ['sypialnia-termostat-source', 'Sypialnia grzejnik (okno)', 'termostat-sypialnia', 'thermostat-to-temperature']
@@ -97,6 +157,21 @@ const defaultIndicatorWidgetSources: DeviceConfiguration[] = [
     }, {
         deviceClass: 'TemperatureIndicatorWidgetSource', 
         args: ['owire-sensor-co-zasilanie-as-temperature', 'CO zasilanie', 'owire-sensor-co-zasilanie', 'composite-value-to-temperature']
+    }, {
+        deviceClass: 'TemperatureIndicatorWidgetSource', 
+        args: ['owire-sensor-co-powrot-as-temperature', 'CO powrót', 'owire-sensor-co-powrot', 'composite-value-to-temperature']
+    }, {
+        deviceClass: 'TemperatureIndicatorWidgetSource', 
+        args: ['owire-sensor-co-powrot-dol-as-temperature', 'CO powrót dół', 'owire-sensor-co-powrot-dol', 'composite-value-to-temperature']
+    }, {
+        deviceClass: 'TemperatureIndicatorWidgetSource', 
+        args: ['owire-sensor-co-powrot-gora-as-temperature', 'CO powrót góra', 'owire-sensor-co-powrot-gora', 'composite-value-to-temperature']
+    }, {
+        deviceClass: 'TemperatureIndicatorWidgetSource', 
+        args: ['owire-sensor-cwu-zasilanie-as-temperature', 'CWU zasilanie', 'owire-sensor-cwu-zasilanie', 'composite-value-to-temperature']
+    }, {
+        deviceClass: 'TemperatureIndicatorWidgetSource', 
+        args: ['owire-sensor-cwu-powrot-as-temperature', 'CWU powrót', 'owire-sensor-cwu-powrot', 'composite-value-to-temperature']
     }, {
         deviceClass: 'NumberIndicatorWidgetSource', 
         args: ['pmsensor-25-source-number', 'PM Sensor 2.5', 'pmsensor', 'pmsensor-25-as-number']
@@ -109,6 +184,9 @@ const defaultIndicatorWidgetSources: DeviceConfiguration[] = [
     }, {
         deviceClass: 'AvailabilityIndicatorWidgetSource', 
         args: ['pings-essentail-source', 'Ping ważne', ['ping-bartek-galaxy'] ]
+    }, {
+        deviceClass: 'AvailabilityIndicatorWidgetSource', 
+        args: ['pings-bartek-galaxy-source', 'Ping Bartek Galaxy', ['ping-bartek-galaxy'] ]
     }
 ]
 

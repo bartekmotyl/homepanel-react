@@ -1,4 +1,4 @@
-import { fetchJsonAsync } from '../utils/fetchUtils';
+import { fetchTextAsync } from '../utils/fetchUtils';
 import { WidgetConfiguration } from '../widgets/widgets';
 
 export const minimalWidgetConfiguration : WidgetConfiguration = {
@@ -13,7 +13,8 @@ export const minimalWidgetConfiguration : WidgetConfiguration = {
         }]
     },
 }
-const url = "dashboard.json"
+//const url = "dashboard.json"
+const url = "dashboard.config.js"
 let configDashboard : WidgetConfiguration | undefined
 /*
 ;(async function() {
@@ -28,7 +29,11 @@ let configDashboard : WidgetConfiguration | undefined
 export const getDashboardConfig = async (): Promise<WidgetConfiguration> => { 
     if (!configDashboard) {
         try {
-            configDashboard = await fetchJsonAsync<WidgetConfiguration>(url);
+            //configDashboard = await fetchJsonAsync<WidgetConfiguration>(url);
+            const configDashboardJs = await fetchTextAsync(url);
+            console.log('config: ', configDashboardJs)
+            // eslint-disable-next-line no-eval
+            configDashboard = eval(configDashboardJs) as WidgetConfiguration 
         } catch (err) {
             console.error(`Config file cannot be fetched: ${url}: ${err}`)
             configDashboard = minimalWidgetConfiguration

@@ -5,7 +5,8 @@
       {
         "type": "tabsWidget",
         "properties": {
-            "tabsVisible": false,
+            "tabsVisible": true,
+            "width": "600px", 
             "pages": [
                 {
                     "title": "Hidden A",
@@ -202,45 +203,53 @@
             }
           }, 
       {
-        "type": "tickerWidget",
+        "type": "panelWidget",
         "properties": {
-          "width": "300px",
           "widgets": [
             {
-              "type": "smallIndicatorWidget",
+              "type": "tickerWidget",
               "properties": {
-                "deviceId": "owire-sensor-co-zasilanie-as-temperature",
-                "classifierId": "heatwater-temperature-classifier"
+                "width": "300px",
+                "speed": 2,
+                "widgets": [
+                  {
+                    "type": "smallIndicatorWidget",
+                    "properties": {
+                      "deviceId": "owire-sensor-co-zasilanie-as-temperature",
+                      "classifierId": "heatwater-temperature-classifier"
+                    }
+                  }, {
+                    "type": "smallIndicatorWidget",
+                    "properties": {
+                      "deviceId": "pings-essentail-source"
+                    }
+                  }
+                ]
               }
-            }, {
-              "type": "smallIndicatorWidget",
-              "properties": {
-                "deviceId": "pings-essentail-source"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "type": "tickerWidget",
-        "properties": {
-          "width": "500px",
-          "widgets": [
+            },
             {
-              "type": "smallIndicatorWidget",
+              "type": "tickerWidget",
               "properties": {
-                "deviceId": "owire-sensor-co-zasilanie-as-temperature",
-                "classifierId": "heatwater-temperature-classifier"
+                "width": "500px",
+                "widgets": [
+                  {
+                    "type": "smallIndicatorWidget",
+                    "properties": {
+                      "deviceId": "owire-sensor-co-zasilanie-as-temperature",
+                      "classifierId": "heatwater-temperature-classifier"
+                    }
+                  }, {
+                    "type": "smallIndicatorWidget",
+                    "properties": {
+                      "deviceId": "pings-essentail-source"
+                    }
+                  }
+                ]
               }
-            }, {
-              "type": "smallIndicatorWidget",
-              "properties": {
-                "deviceId": "pings-essentail-source"
-              }
-            }
+            }      
           ]
         }
-      }      
+      }
     ]
   }
 }

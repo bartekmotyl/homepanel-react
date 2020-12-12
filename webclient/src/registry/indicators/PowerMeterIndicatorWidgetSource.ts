@@ -30,7 +30,7 @@ export class PowerMeterIndicatorWidgetSource extends IndicatorWidgetSource {
         let cv = this.getCompositeValue();
         let value = cv.getValue("total")
         if (value !== null && typeof value === 'number')
-            return value.toFixed();
+            return (value /1000).toFixed() ;
         else 
             return value;  
     }

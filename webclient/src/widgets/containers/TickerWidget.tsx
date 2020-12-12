@@ -9,7 +9,7 @@ export function TickerWidget({ props }: WidgetProperties) {
     console.log('width: ', props.width)
     return (
         <ContainerStyled width={props.width ?? '100vw'}>
-            <Ticker mode="chain">
+            <Ticker mode="chain" speed={props.speed ?? 5}>
                 {({ index }) => {
                     const el = widgets[index % widgets.length]
                     const Widget = getWidgetFunction(el)
