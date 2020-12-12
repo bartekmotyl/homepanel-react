@@ -19,23 +19,24 @@
         }         
     }
 
-    const containerWidget = (widgets) => {
+    const panelWidget = (props, widgets) => {
         return {
-            "type": "containerWidget",
+            "type": "panelWidget",
             "properties": {
+              ...props,
               "widgets": widgets,
             }
         }
     }
 
-    const panelWidget = (widgets) => {
+    const sideBySideWidget = (widgets) => {
         return {
-            "type": "panelWidget",
+            "type": "sideBySideWidget",
             "properties": {
               "widgets": widgets,
             }
         }
-    }
+    }    
 
     const tabsWidget = (props, pages) => {
         return {
@@ -52,7 +53,7 @@
         return {
             "title": title,
             "widgets": [
-                panelWidget(widgets)
+                panelWidget({height: "300px", "background-color": "inherit"}, widgets)
             ]
         }        
     }
@@ -98,7 +99,7 @@
             siWidget('pings-essentail-source'),             
         ]),
     ])
-
+    /*
     const dashboard = {
         "type": "containerWidget",
         "properties": {
@@ -110,6 +111,17 @@
             ]
         }
     }       
+    */
+    const dashboard = {
+        properties: {
+            widgets: [
+                sideBySideWidget([
+                    leftSideTabs, 
+                    rightSideTabs,
+                ])
+            ],
+        }
+    }
 
     return dashboard 
 }())

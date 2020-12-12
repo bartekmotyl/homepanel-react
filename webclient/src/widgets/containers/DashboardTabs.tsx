@@ -31,7 +31,8 @@ export const DashboardTabs : React.FunctionComponent<DashboardTabsProps> = props
 }
 
 const OuterContainer = styled.div`
-    height: calc(100% - 48px);
+    bleed: initial;
+    height: 100%;
     background-color: #2E2F34;
 `; 
 const StyledTabs = styled(Tabs)`
@@ -56,10 +57,13 @@ interface DashboardTabProps {
 
 export const DashboardTab : React.FunctionComponent<DashboardTabProps> = props => {
     return (
-        <>
+        <Content>
             { props.children }
-        </>
+        </Content>
     );
 }
 
+const Content = styled.div`
+    height: calc(100% - 48px);
+`;
 

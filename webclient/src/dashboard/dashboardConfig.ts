@@ -31,7 +31,7 @@ export const getDashboardConfig = async (): Promise<WidgetConfiguration> => {
         try {
             //configDashboard = await fetchJsonAsync<WidgetConfiguration>(url);
             const configDashboardJs = await fetchTextAsync(url);
-            console.log('config: ', configDashboardJs)
+            //console.log('config: ', configDashboardJs)
             // eslint-disable-next-line no-eval
             configDashboard = eval(configDashboardJs) as WidgetConfiguration 
         } catch (err) {

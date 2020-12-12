@@ -33,14 +33,14 @@ export function TabsWidget({ props }: WidgetProperties) {
             <DashboardTabsStyled tabsVisible={props.tabsVisible} selectedTab={selectedTab}>
                 { pages.map((page, pageIndex) => { 
                     return ( 
-                        <DashboardTab label={page.title} key={`page_${pageIndex}`}>
+                        <DashboardTabStyled label={page.title} key={`page_${pageIndex}`}>
                             { page.widgets.map((el, widgetIndex) => { 
                                 const Widget = getWidgetFunction(el)
                                 return (
                                     <Widget props={el.properties} key={`widget_${pageIndex}_${widgetIndex}`}/>
                                 )
                             })}
-                        </DashboardTab>
+                        </DashboardTabStyled>
                     )
                 })}
             </DashboardTabsStyled>
@@ -50,8 +50,19 @@ export function TabsWidget({ props }: WidgetProperties) {
 
 const ContainerStyled = styled.div<{ width: string }>`
     width: ${props =>  `${props.width}`};
+    height: 100%;
+    background-color: darkgoldenrod
 `;
 
 const DashboardTabsStyled = styled(DashboardTabs)`
     width: 100%;
+    height: 100%;
+    //background-color: pink
 `;
+
+
+const DashboardTabStyled = styled(DashboardTab)`
+    height: calc(100% - 48px);
+    background-color: fuchsia;
+    overflow: auto
+ `;

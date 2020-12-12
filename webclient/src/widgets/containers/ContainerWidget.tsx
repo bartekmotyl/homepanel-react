@@ -19,6 +19,7 @@ export function ContainerWidget({ props }: WidgetProperties) {
 
 const ContainerStyled = styled.div`
     width: 100vw;
+    max-height: 100vh;  
     height: 100vh;  
-    background-color: #2E2F34;
+    //background-color: #2E2F34;
 `;

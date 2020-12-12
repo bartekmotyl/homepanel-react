@@ -3,7 +3,7 @@ import { getWidgetFunction } from '../widgetsFactory';
 import { WidgetConfiguration, WidgetProperties } from '../widgets';
 import styled from 'styled-components';
 
-export function PanelWidget({ props }: WidgetProperties) {
+export function SideBySideWidget({ props }: WidgetProperties) {
     let widgets = props.widgets as WidgetConfiguration[]
     return (
         <PanelFlow>
@@ -20,8 +20,7 @@ export function PanelWidget({ props }: WidgetProperties) {
 }
 
 const PanelElement = styled.div`
-    margin-left: 0.2rem;
-    margin-top: 0.2rem;
+    height: 100%;
 `;
 
 const PanelFlow = styled.div`
