@@ -58,6 +58,15 @@
         }        
     }
 
+    const widget = (type, id) =>  {
+        return {
+            "type": type,
+            "properties": {
+              "deviceId": id
+            }
+        }
+    }
+
     const leftSideTabs = tabsWidget({ width: "22rem", tabsVisible: true }, [
         page('Główne', [
             siWidget('power-meter-source', 'power-meter-classifier-minute'),
@@ -68,6 +77,7 @@
             siWidget('pings-essentail-source'),             
             siWidget('ble-sensor-00126fc21c3e-source-temperature', 'outdoor-temperature-classifier'),             
             siWidget('heating-status-source'),             
+            siWidget('owire-sensor-co-zasilanie-as-temperature', 'heatwater-temperature-classifier'),            
             siWidget('pmsensor-25-source-number', 'pmsensor-25-value-classifier'),             
             siWidget('pmsensor-10-source-number', 'pmsensor-10-value-classifier'),    
             siWidget('kontaktron-lazienka-pietro-okno-door-source'),
@@ -91,11 +101,13 @@
         ]),
     ])
     const rightSideTabs = tabsWidget({ width: "calc(100vw - 30rem)", tabsVisible: true }, [
-        page('Page R1', [
-            siWidget('power-meter-source', 'power-meter-classifier-minute'),
-            siWidget('pings-essentail-source'),             
+        page('Parter', [
+            widget('blindsWidget', 'roleta-salon-lewa'),
+            widget('blindsWidget', 'roleta-salon-prawa'),
+            widget('blindsWidget', 'rolety-grupa-salon'),
+                        
         ]),
-        page('Page R2', [
+        page('Piętro', [
             siWidget('pings-essentail-source'),             
         ]),
     ])

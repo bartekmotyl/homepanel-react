@@ -27,7 +27,6 @@ export abstract class DeviceBase implements Device {
         this.deviceId = deviceId;
         this.name = name;
     }
-    
     getDeviceId(): string {
         return this.deviceId;
     }

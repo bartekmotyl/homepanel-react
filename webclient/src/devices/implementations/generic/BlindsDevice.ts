@@ -8,7 +8,6 @@ export class BlindsDevice extends ConnectedDeviceBase implements  Blinds {
       deviceId: this.deviceId,
     }});
   }
-
   up(): void {
     this._dispatchMove("up");
   }

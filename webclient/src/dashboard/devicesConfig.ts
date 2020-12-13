@@ -16,7 +16,10 @@ const defaultDevicesConfiguration: DeviceConfiguration[] = [
         args: ['homepanel', 'wiatrolap-lampa', 'Wiatrołap',]
     }, {
         deviceClass: 'BlindsDevice', 
-        args: ['homepanel', 'roleta-salon-lewa', 'Roleta - Salon L',]
+        args: ['homepanel', 'roleta-salon-lewa', 'Salon lewa',]
+    }, {
+        deviceClass: 'BlindsDevice', 
+        args: ['homepanel', 'roleta-salon-prawa', 'Salon prawa',]
     }, {
         deviceClass: 'CompositeValueDevice', 
         args: ['homepanel', 'onewire-sensor-grunt-0', 'Grunt 0cm',]
@@ -98,6 +101,11 @@ const defaultDevicesConfiguration: DeviceConfiguration[] = [
     }, {
         deviceClass: 'TemperatureSensorDevice', 
         args: ['met-no-1', 'met-no-wroclaw-temperature', 'Wrocław',]
+    }, {
+        deviceClass: 'BlindsGroupDevice',
+        args: ['rolety-grupa-salon', 'Salon (obie)', [
+            'roleta-salon-lewa', 'roleta-salon-prawa' 
+        ]]
     }
 ]
 

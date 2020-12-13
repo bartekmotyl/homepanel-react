@@ -5,6 +5,7 @@ import { XiaomiTemperatureSensorDevice } from '../devices/implementations/custom
 import { SwitchDevice } from '../devices/implementations/generic/SwitchDevice';
 import { TemperatureSensorDevice } from '../devices/implementations/generic/TemperatureSensorDevice';
 import { BlindsDevice } from '../devices/implementations/generic/BlindsDevice';
+import { BlindsGroupDevice } from '../devices/implementations/generic/BlindsGroupDevice';
 import { CompositeValueDevice } from '../devices/implementations/generic/CompositeValueDevice';
 import { SimpleValueDevice } from '../devices/implementations/generic/SimpleValueDevice';
 import { DoorSensorDevice } from '../devices/implementations/generic/DoorSensorDevice';
@@ -46,6 +47,7 @@ const knownTypes: any = {
     DoorSensorDevice,
     HPRadiatorThermostatDevice,
     PingDevice,
+    BlindsGroupDevice,
     CompositeValueAsTemperatureConverter,
     CompositeValueAsNumberConverter,
     ThermostatAsTemperatureConverter,

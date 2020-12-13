@@ -70,8 +70,8 @@ export function SmallIndicatorWidget({ props }: WidgetProperties) {
 const Box = styled.div<{color: string}>`
   background-color: ${props =>  `${props.color}`};
   color: white; 
-  width: 7rem;
-  height: 7rem;
+  width: 6rem;
+  height: 6rem;
   position: relative;
 `;
 
@@ -86,44 +86,37 @@ const ContentText = styled.div`
 const MainContent = styled.div`
   height: 100%;
   text-align: center;
-  font-size: 2.7rem;
+  font-size: 2.3rem;
 `
 
 const Title = styled.div`
-  font-size: 0.9rem; 
+  font-size: 0.85rem; 
   white-space: normal;
   font-weight: bold;
 
 `
 
-const AdditionalInfoNE = styled.div`
+const AdditionalInfo = styled.div`
   position: absolute;
   padding: 0.05rem;
-  font-size: 0.7rem; 
+  font-size: 0.5rem; 
+`
+const AdditionalInfoNE = styled(AdditionalInfo)`
   left: 0; 
   top: 0;
 `
 
-const AdditionalInfoNW = styled.div`
-  position: absolute;
-  padding: 0.05rem;
-  font-size: 0.7rem; 
+const AdditionalInfoNW = styled(AdditionalInfo)`
   right:0;
   top:0; 
 `
 
-const AdditionalInfoSE = styled.div`
-  position: absolute;
-  padding: 0.05rem;
-  font-size: 0.7rem; 
+const AdditionalInfoSE = styled(AdditionalInfo)`
   left: 0;
   bottom: 0; 
 `
 
-const AdditionalInfoSW = styled.div`
-  position: absolute;
-  font-size: 0.7rem; 
-  padding: 0.05rem;
+const AdditionalInfoSW = styled(AdditionalInfo)`
   right: 0;
   bottom: 0; 
 `
