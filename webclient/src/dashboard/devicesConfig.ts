@@ -4,6 +4,19 @@ export interface  DeviceConfiguration {
 }
 
 
+
+const createDevice = (clazz: string, args: any[]) => {
+    return {
+        deviceClass: clazz, 
+        args: args,
+    }
+}
+
+const createDeviceBlinds = (args: any[]) => {
+    return createDevice('BlindsDevice', args)
+}
+
+
 const defaultDevicesConfiguration: DeviceConfiguration[] = [
     {
         deviceClass: 'XiaomiTemperatureSensorDevice', 
@@ -14,13 +27,63 @@ const defaultDevicesConfiguration: DeviceConfiguration[] = [
     }, {
         deviceClass: 'SwitchDevice', 
         args: ['homepanel', 'wiatrolap-lampa', 'Wiatrołap',]
-    }, {
-        deviceClass: 'BlindsDevice', 
-        args: ['homepanel', 'roleta-salon-lewa', 'Salon lewa',]
-    }, {
-        deviceClass: 'BlindsDevice', 
-        args: ['homepanel', 'roleta-salon-prawa', 'Salon prawa',]
-    }, {
+    }, 
+    createDeviceBlinds(['homepanel', 'roleta-kuchnia', 'Kuchnia']),
+    createDeviceBlinds(['homepanel', 'roleta-jadalnia-drzwi', 'Jadalnia (drzw)']),
+    createDeviceBlinds(['homepanel', 'roleta-jadalnia-lewa', 'Jadalnia (lewa)']),
+    createDeviceBlinds(['homepanel', 'roleta-jadalnia-prawa', 'Jadalnia (prawa)']),
+    createDeviceBlinds(['homepanel', 'roleta-salon-lewa', 'Salon (lewa)']),
+    createDeviceBlinds(['homepanel', 'roleta-salon-prawa', 'Salon (prawa)']),
+    createDeviceBlinds(['homepanel', 'roleta-gabinet', 'Gabinet']),
+    createDeviceBlinds(['homepanel', 'roleta-goscinny', 'Duży pokój']),
+    createDeviceBlinds(['homepanel', 'roleta-dziecko', 'Mały pokój']),
+    createDeviceBlinds(['homepanel', 'roleta-sypialnia', 'Sypialnia']),
+    createDeviceBlinds(['homepanel', 'roleta-lazienka', 'Łazienka']),
+    createDeviceBlinds(['homepanel', 'roleta-polaciowa-dziecko', 'Mały pokój (połaciowa)']),
+    createDeviceBlinds(['homepanel', 'roleta-polaciowa-sypialnia-lozko', 'Sypialnia (połaciowa)']),
+    createDeviceBlinds(['homepanel', 'roleta-polaciowa-sypialnia-garderoba', 'Garderoba (połaciowa)']),
+    createDeviceBlinds(['homepanel', 'roleta-polaciowa-gabinet-lewa', 'Gabinet (połaciowa lewa)']),
+    createDeviceBlinds(['homepanel', 'roleta-polaciowa-gabinet-prawa', 'Gabinet (połaciowa prawa)']),
+    createDeviceBlinds(['homepanel', 'roleta-polaciowa-goscinny-lewa', 'Duży pokój (połaciowa lewa)']),
+    createDeviceBlinds(['homepanel', 'roleta-polaciowa-goscinny-prawa', 'Duży pokój (połaciowa prawa)']),  
+    {
+        deviceClass: 'BlindsGroupDevice',
+        args: ['rolety-grupa-salon', 'Salon (obie)', [
+            'roleta-salon-lewa', 'roleta-salon-prawa' 
+        ]]
+    },  
+    {
+        deviceClass: 'BlindsGroupDevice',
+        args: ['rolety-grupa-parter', 'Parter', [
+            'roleta-salon-lewa', 
+            'roleta-salon-prawa',
+            'roleta-jadalnia-lewa', 
+            'roleta-jadalnia-prawa', 
+            'roleta-salon-lewa', 
+            'roleta-kuchnia', 
+            'roleta-jadalnia-drzwi', 
+        ]]
+    },     
+    {
+        deviceClass: 'BlindsGroupDevice',
+        args: ['rolety-grupa-pietro-okna-sypialnie', 'Sypialnie + łazienka', [
+            'roleta-goscinny', 
+            'roleta-dziecko',
+            'roleta-sypialnia',
+            'roleta-lazienka',
+
+            createDeviceBlinds(['homepanel', '', 'Jadalnia (lewa)']),
+            createDeviceBlinds(['homepanel', '', 'Jadalnia (prawa)']),
+            createDeviceBlinds(['homepanel', '', 'Salon (lewa)']),
+            createDeviceBlinds(['homepanel', 'roleta-salon-prawa', 'Salon (prawa)']),
+            createDeviceBlinds(['homepanel', 'roleta-gabinet', 'Gabinet']),
+            createDeviceBlinds(['homepanel', '', 'Duży pokój']),
+            createDeviceBlinds(['homepanel', '', 'Mały pokój']),
+            createDeviceBlinds(['homepanel', '', 'Sypialnia']),
+            createDeviceBlinds(['homepanel', '', 'Łazienka']),            
+        ]]
+    },      
+    {
         deviceClass: 'CompositeValueDevice', 
         args: ['homepanel', 'onewire-sensor-grunt-0', 'Grunt 0cm',]
     }, {
@@ -101,12 +164,8 @@ const defaultDevicesConfiguration: DeviceConfiguration[] = [
     }, {
         deviceClass: 'TemperatureSensorDevice', 
         args: ['met-no-1', 'met-no-wroclaw-temperature', 'Wrocław',]
-    }, {
-        deviceClass: 'BlindsGroupDevice',
-        args: ['rolety-grupa-salon', 'Salon (obie)', [
-            'roleta-salon-lewa', 'roleta-salon-prawa' 
-        ]]
-    }
+    }, 
+
 ]
 
 

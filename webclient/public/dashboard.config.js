@@ -105,10 +105,10 @@
             widget('blindsWidget', 'roleta-salon-lewa'),
             widget('blindsWidget', 'roleta-salon-prawa'),
             widget('blindsWidget', 'rolety-grupa-salon'),
-                        
+            widget('blindsWidget', 'rolety-grupa-parter'),
         ]),
         page('Piętro', [
-            siWidget('pings-essentail-source'),             
+            widget('blindsWidget', 'rolety-grupa-pietro-okna-sypialnie'),
         ]),
     ])
     /*
