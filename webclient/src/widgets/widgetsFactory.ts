@@ -10,6 +10,7 @@ import { ContainerWidget } from './containers/ContainerWidget';
 import { LinkWidget } from './LinkWidget';
 import { TickerWidget } from './containers/TickerWidget';
 import { SideBySideWidget } from './containers/SideBySideWidget';
+import { RemoteImageWidget } from './RemoteImageWidget';
 
 //TODO: is it possible to fill this map automatically from all widgets available in this folder/subfolders?
 const widgetTypes = {
@@ -23,6 +24,7 @@ const widgetTypes = {
     'linkWidget': LinkWidget,
     'tickerWidget': TickerWidget,
     'sideBySideWidget': SideBySideWidget,
+    'remoteImageWidget': RemoteImageWidget,
 }
 
 type WidgetTypeKey = keyof typeof widgetTypes

@@ -58,11 +58,12 @@
         }        
     }
 
-    const widget = (type, id) =>  {
+    const widget = (type, id, props) =>  {
         return {
             "type": type,
             "properties": {
-              "deviceId": id
+                ...props,                
+                "deviceId": id
             }
         }
     }
@@ -99,8 +100,9 @@
         page('Pingi', [
             siWidget('pings-bartek-galaxy-source'),             
         ]),
+
     ])
-    const rightSideTabs = tabsWidget({ width: "calc(100vw - 30rem)", tabsVisible: true }, [
+    const rightSideTabs = tabsWidget({ width: "calc(100vw - 23rem)", tabsVisible: true }, [
         page('Parter', [
             widget('blindsWidget', 'roleta-salon-lewa'),
             widget('blindsWidget', 'roleta-salon-prawa'),
@@ -110,6 +112,9 @@
         page('Piętro', [
             widget('blindsWidget', 'rolety-grupa-pietro-okna-sypialnie'),
         ]),
+        page('Galeria', [
+            widget('remoteImageWidget', 'remote-image-gallery', { src: 'http://192.168.1.111/bartek/photo-feed/photo-feed.php'})
+        ]),        
     ])
     /*
     const dashboard = {
