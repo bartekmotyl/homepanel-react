@@ -19,11 +19,10 @@
         }         
     }
 
-    const panelWidget = (props, widgets) => {
+    const panelWidget = (widgets) => {
         return {
             "type": "panelWidget",
             "properties": {
-              ...props,
               "widgets": widgets,
             }
         }
@@ -53,7 +52,7 @@
         return {
             "title": title,
             "widgets": [
-                panelWidget({height: "300px", "background-color": "inherit"}, widgets)
+                widgets.length === 1 ? widgets[0] : panelWidget(widgets)
             ]
         }        
     }
@@ -115,20 +114,32 @@
         page('Galeria', [
             widget('remoteImageWidget', 'remote-image-gallery', { src: 'http://192.168.1.111/bartek/photo-feed/photo-feed.php'})
         ]),        
+        /*
+        page('Parter Plan', [
+            widget('remoteImageWidget', 'remote-image-gallery', { src: 'floor-plan-parter.svg'})
+        ]),
+        */
+        page('Kamery', [
+            tabsWidget({ width: "100%", tabsVisible: true }, [
+                page('Ulica', [
+                    widget('remoteImageWidget', 'remote-image-gallery', { src: 'http://192.168.55.103/tmpfs/snap.jpg?usr=admin&pwd=admin'})
+                ]),
+                page('Ogródek', [
+                    widget('remoteImageWidget', 'remote-image-gallery', { src: 'http://192.168.55.102/tmpfs/snap.jpg?usr=admin&pwd=admin'})
+                ]),
+                page('Garaż', [
+                    widget('remoteImageWidget', 'remote-image-gallery', { src: 'http://192.168.55.101/cgi-bin/snapshot.cgi?usr=admin&pwd=123456'})
+                ]),
+                page('Kotłownia', [
+                    widget('remoteImageWidget', 'remote-image-gallery', { src: 'http://192.168.55.104/cgi-bin/snapshot.cgi?usr=admin&pwd=123456'})
+                ]),
+                page('Domek', [
+                    widget('remoteImageWidget', 'remote-image-gallery', { src: 'http://192.168.1.54:8088/?action=snapshot'})
+                ]),
+            ]),        
+        ]),        
     ])
-    /*
-    const dashboard = {
-        "type": "containerWidget",
-        "properties": {
-            "widgets": [
-                panelWidget([
-                    leftSideTabs, 
-                    rightSideTabs,
-                ])
-            ]
-        }
-    }       
-    */
+
     const dashboard = {
         properties: {
             widgets: [
