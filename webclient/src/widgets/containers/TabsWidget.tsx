@@ -51,18 +51,16 @@ export function TabsWidget({ props }: WidgetProperties) {
 const ContainerStyled = styled.div<{ width: string }>`
     width: ${props =>  `${props.width}`};
     height: 100%;
-    background-color: darkgoldenrod
 `;
 
 const DashboardTabsStyled = styled(DashboardTabs)`
     width: 100%;
     height: 100%;
+    overflow: auto;
     //background-color: pink
 `;
 
 
 const DashboardTabStyled = styled(DashboardTab)`
-    height: calc(100% - 48px);
-    background-color: fuchsia;
     overflow: auto
  `;

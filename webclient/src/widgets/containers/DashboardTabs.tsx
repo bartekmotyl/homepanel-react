@@ -65,5 +65,6 @@ export const DashboardTab : React.FunctionComponent<DashboardTabProps> = props =
 
 const Content = styled.div`
     height: calc(100% - 48px);
+    overflow: auto;
 `;
 
