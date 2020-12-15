@@ -71,16 +71,6 @@ const defaultDevicesConfiguration: DeviceConfiguration[] = [
             'roleta-dziecko',
             'roleta-sypialnia',
             'roleta-lazienka',
-
-            createDeviceBlinds(['homepanel', '', 'Jadalnia (lewa)']),
-            createDeviceBlinds(['homepanel', '', 'Jadalnia (prawa)']),
-            createDeviceBlinds(['homepanel', '', 'Salon (lewa)']),
-            createDeviceBlinds(['homepanel', 'roleta-salon-prawa', 'Salon (prawa)']),
-            createDeviceBlinds(['homepanel', 'roleta-gabinet', 'Gabinet']),
-            createDeviceBlinds(['homepanel', '', 'Duży pokój']),
-            createDeviceBlinds(['homepanel', '', 'Mały pokój']),
-            createDeviceBlinds(['homepanel', '', 'Sypialnia']),
-            createDeviceBlinds(['homepanel', '', 'Łazienka']),            
         ]]
     },      
     {
