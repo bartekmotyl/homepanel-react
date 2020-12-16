@@ -1,0 +1,131 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 26/06/2017 13:27
+  	*/
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: Flaticon;
+        font-size: 20px;
+font-style: normal;
+margin-left: 20px;
+}
+
+.flaticon-001-light-bulb-3:before { content: "\f100"; }
+.flaticon-002-cctv-2:before { content: "\f101"; }
+.flaticon-003-cctv-1:before { content: "\f102"; }
+.flaticon-004-cctv:before { content: "\f103"; }
+.flaticon-005-phone-1:before { content: "\f104"; }
+.flaticon-006-phone:before { content: "\f105"; }
+.flaticon-007-freezer-1:before { content: "\f106"; }
+.flaticon-008-freezer:before { content: "\f107"; }
+.flaticon-009-water-1:before { content: "\f108"; }
+.flaticon-010-water:before { content: "\f109"; }
+.flaticon-011-fire-1:before { content: "\f10a"; }
+.flaticon-012-fire:before { content: "\f10b"; }
+.flaticon-013-plug-1:before { content: "\f10c"; }
+.flaticon-014-plug:before { content: "\f10d"; }
+.flaticon-015-kettle-1:before { content: "\f10e"; }
+.flaticon-016-kettle:before { content: "\f10f"; }
+.flaticon-017-shower-1:before { content: "\f110"; }
+.flaticon-018-shower:before { content: "\f111"; }
+.flaticon-019-window-4:before { content: "\f112"; }
+.flaticon-020-window-3:before { content: "\f113"; }
+.flaticon-021-window-2:before { content: "\f114"; }
+.flaticon-022-window-1:before { content: "\f115"; }
+.flaticon-023-window:before { content: "\f116"; }
+.flaticon-024-loudspeaker-3:before { content: "\f117"; }
+.flaticon-025-loudspeaker-2:before { content: "\f118"; }
+.flaticon-026-loudspeaker-1:before { content: "\f119"; }
+.flaticon-027-loudspeaker:before { content: "\f11a"; }
+.flaticon-028-home-5:before { content: "\f11b"; }
+.flaticon-029-home-4:before { content: "\f11c"; }
+.flaticon-030-home-3:before { content: "\f11d"; }
+.flaticon-031-radiator-3:before { content: "\f11e"; }
+.flaticon-032-radiator-2:before { content: "\f11f"; }
+.flaticon-033-radiator-1:before { content: "\f120"; }
+.flaticon-034-radiator:before { content: "\f121"; }
+.flaticon-035-oven-3:before { content: "\f122"; }
+.flaticon-036-oven-2:before { content: "\f123"; }
+.flaticon-037-oven-1:before { content: "\f124"; }
+.flaticon-038-oven:before { content: "\f125"; }
+.flaticon-039-tap-1:before { content: "\f126"; }
+.flaticon-040-tap:before { content: "\f127"; }
+.flaticon-041-usb-port-1:before { content: "\f128"; }
+.flaticon-042-usb-port:before { content: "\f129"; }
+.flaticon-043-socket-5:before { content: "\f12a"; }
+.flaticon-044-socket-4:before { content: "\f12b"; }
+.flaticon-045-socket-3:before { content: "\f12c"; }
+.flaticon-046-socket-2:before { content: "\f12d"; }
+.flaticon-047-socket-1:before { content: "\f12e"; }
+.flaticon-048-socket:before { content: "\f12f"; }
+.flaticon-049-roomba-1:before { content: "\f130"; }
+.flaticon-050-roomba:before { content: "\f131"; }
+.flaticon-051-cleaner-2:before { content: "\f132"; }
+.flaticon-052-cleaner-1:before { content: "\f133"; }
+.flaticon-053-cleaner:before { content: "\f134"; }
+.flaticon-054-alarm:before { content: "\f135"; }
+.flaticon-055-fire-alarm:before { content: "\f136"; }
+.flaticon-056-computer:before { content: "\f137"; }
+.flaticon-057-mobile-phone:before { content: "\f138"; }
+.flaticon-058-home-2:before { content: "\f139"; }
+.flaticon-059-light-bulb-2:before { content: "\f13a"; }
+.flaticon-060-dvd-3:before { content: "\f13b"; }
+.flaticon-061-dvd-2:before { content: "\f13c"; }
+.flaticon-062-dvd-1:before { content: "\f13d"; }
+.flaticon-063-dvd:before { content: "\f13e"; }
+.flaticon-064-television-2:before { content: "\f13f"; }
+.flaticon-065-television-1:before { content: "\f140"; }
+.flaticon-066-television:before { content: "\f141"; }
+.flaticon-067-washing-machine-4:before { content: "\f142"; }
+.flaticon-068-washing-machine-3:before { content: "\f143"; }
+.flaticon-069-coffee-machine-4:before { content: "\f144"; }
+.flaticon-070-coffee-machine-3:before { content: "\f145"; }
+.flaticon-071-light-bulb-1:before { content: "\f146"; }
+.flaticon-072-light-bulb:before { content: "\f147"; }
+.flaticon-073-temperature-1:before { content: "\f148"; }
+.flaticon-074-washing-machine-2:before { content: "\f149"; }
+.flaticon-075-washing-machine-1:before { content: "\f14a"; }
+.flaticon-076-washing-machine:before { content: "\f14b"; }
+.flaticon-077-coffee-machine-2:before { content: "\f14c"; }
+.flaticon-078-coffee-machine-1:before { content: "\f14d"; }
+.flaticon-079-coffee-machine:before { content: "\f14e"; }
+.flaticon-080-lamp-3:before { content: "\f14f"; }
+.flaticon-081-lamp-2:before { content: "\f150"; }
+.flaticon-082-garage-3:before { content: "\f151"; }
+.flaticon-083-garage-2:before { content: "\f152"; }
+.flaticon-084-garage-1:before { content: "\f153"; }
+.flaticon-085-garage:before { content: "\f154"; }
+.flaticon-086-home-1:before { content: "\f155"; }
+.flaticon-087-home:before { content: "\f156"; }
+.flaticon-088-temperature-hot:before { content: "\f157"; }
+.flaticon-089-temperature:before { content: "\f158"; }
+.flaticon-090-connection:before { content: "\f159"; }
+.flaticon-091-thermostat:before { content: "\f15a"; }
+.flaticon-092-lamp-1:before { content: "\f15b"; }
+.flaticon-093-lamp:before { content: "\f15c"; }
+.flaticon-094-doorbell-1:before { content: "\f15d"; }
+.flaticon-095-doorbell:before { content: "\f15e"; }
+.flaticon-096-door-1:before { content: "\f15f"; }
+.flaticon-097-door:before { content: "\f160"; }
+.flaticon-098-camera-2:before { content: "\f161"; }
+.flaticon-099-camera-1:before { content: "\f162"; }
+.flaticon-100-camera:before { content: "\f163"; }
