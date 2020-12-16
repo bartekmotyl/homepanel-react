@@ -1,4 +1,3 @@
-import { IconType } from "react-icons/lib";
 import { Device, DeviceBase, DeviceUpdate } from "../../devices/Device";
 
 export abstract class IndicatorWidgetSource extends DeviceBase {
@@ -17,7 +16,7 @@ export abstract class IndicatorWidgetSource extends DeviceBase {
     getText() : string | null { 
         return null 
     }
-    getMdIcon() : IconType | null {
+    getMdIcon() : string |  null {
         return null
     }
     getExtraText1() : string | null {

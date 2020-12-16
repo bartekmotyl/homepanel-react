@@ -1122,6 +1122,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.12.5":
+  version "7.12.5"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
+  integrity sha512-plcc+hbExy3McchJCEQG3knOsuh3HH+Prx1P6cLIkET/0dLuQDEnrT+s27Axgc9bqfsmNUNHfscgMUdBpC9xfg==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/template@^7.10.4", "@babel/template@^7.4.0", "@babel/template@^7.8.6":
   version "7.10.4"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.10.4.tgz#3251996c4200ebc71d1a8fc405fba940f36ba278"
@@ -1636,6 +1643,15 @@
     "@svgr/plugin-jsx" "^4.3.3"
     "@svgr/plugin-svgo" "^4.3.1"
     loader-utils "^1.2.3"
+
+"@tanem/svg-injector@^8.2.0":
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-8.2.0.tgz#ae44af69c843e2de5325c326483c3c3343fd63fe"
+  integrity sha512-PTiUF9im6kwn5Rt7w5CcHgBXFvDiLO1SOW8AYbWarJ7EVPV2ZR/4UcgLlOPNBNs8gYgEEwdJA2Nx2t9fO/U1/g==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    content-type "^1.0.4"
+    tslib "^2.0.3"
 
 "@testing-library/dom@*":
   version "7.24.3"
@@ -3569,7 +3585,7 @@ content-disposition@0.5.3:
   dependencies:
     safe-buffer "5.1.2"
 
-content-type@~1.0.4:
+content-type@^1.0.4, content-type@~1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/content-type/-/content-type-1.0.4.tgz#e138cc75e040c727b1966fe5e5f8c9aee256fe3b"
   integrity sha512-hIP3EEPs8tB9AT1L+NUqtwOAps4mk2Zob89MWXMHjHWg9milF/j4osnnQLXBCBFBk/tvIG/tUc9mOUJiPBhPXA==
@@ -4831,6 +4847,11 @@ execa@^1.0.0:
     p-finally "^1.0.0"
     signal-exit "^3.0.0"
     strip-eof "^1.0.0"
+
+exenv@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/exenv/-/exenv-1.2.2.tgz#2ae78e85d9894158670b03d47bec1f03bd91bb9d"
+  integrity sha1-KueOhdmJQVhnCwPUe+wfA72Ru50=
 
 exit@^0.1.2:
   version "0.1.2"
@@ -9327,6 +9348,11 @@ react-fast-compare@^3.2.0:
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
   integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
 
+react-from-dom@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/react-from-dom/-/react-from-dom-0.5.1.tgz#5ab82944209059aded60dc26abf43f8989126fa2"
+  integrity sha512-ki6OGVgSjDCF0Gt4SMl2cUNBA9ZB8g59bwv9ZiSEXQ37Cw9ZGY0s7EgfPFQYDvaiVx22jto7/dYgQeS+Qw1Mfw==
+
 react-helmet-async@^1.0.7:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/react-helmet-async/-/react-helmet-async-1.0.7.tgz#b988fbc3abdc4b704982bb74b9cb4a08fcf062c1"
@@ -9344,6 +9370,14 @@ react-icons@*, react-icons@^3.11.0:
   integrity sha512-JRgiI/vdF6uyBgyZhVyYJUZAop95Sy4XDe/jmT3R/bKliFWpO/uZBwvSjWEdxwzec7SYbEPNPck0Kff2tUGM2Q==
   dependencies:
     camelcase "^5.0.0"
+
+react-inlinesvg@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/react-inlinesvg/-/react-inlinesvg-2.2.2.tgz#b43ac35ed9d0b6f60274b93049a5d091fd4384b6"
+  integrity sha512-5uXTB0yL9LiRLbN5FhTnL1IK9mLg93kspY2HnKUftzoJDEqZrlscuZxzXStbMBZpNyO359U7QDspM3AqUYUrog==
+  dependencies:
+    exenv "^1.2.2"
+    react-from-dom "^0.5.1"
 
 react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.9.0:
   version "16.13.1"
@@ -9449,6 +9483,15 @@ react-scripts@3.4.3:
     workbox-webpack-plugin "4.3.1"
   optionalDependencies:
     fsevents "2.1.2"
+
+react-svg@^11.2.0:
+  version "11.2.0"
+  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-11.2.0.tgz#c06fa9bb974193cf6eb8317d541ef990de3e9cf6"
+  integrity sha512-Av00b/MBBooZepVsM19gGq5pWtOQJ1qLwcRLb1w2Q4IhYuv8Le3AWF4oKOIMTQYvmxsamN8sWXXWwqth9xA/tA==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    "@tanem/svg-injector" "^8.2.0"
+    prop-types "^15.7.2"
 
 react-swipeable@*, react-swipeable@^6.0.0:
   version "6.0.0"
@@ -11025,7 +11068,7 @@ tslib@^1.10.0, tslib@^1.8.1, tslib@^1.9.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.13.0.tgz#c881e13cc7015894ed914862d276436fa9a47043"
   integrity sha512-i/6DQjL8Xf3be4K/E6Wgpekn5Qasl1usyw++dAA35Ue5orEn65VIxOA+YvNNl9HV3qv70T7CNwjODHZrLwvd1Q==
 
-tslib@^2.0.0:
+tslib@^2.0.0, tslib@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.0.3.tgz#8e0741ac45fc0c226e58a17bfc3e64b9bc6ca61c"
   integrity sha512-uZtkfKblCEQtZKBF6EBXVZeQNl82yqtDQdv+eck8u7tdPxjLu2/lp5/uPW+um2tpuxINHWy3GhiccY7QgEaVHQ==

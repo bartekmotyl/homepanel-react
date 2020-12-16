@@ -1,8 +1,6 @@
-import { IconType } from 'react-icons/lib';
 import { store } from '../../app/store';
 import { IndicatorWidgetSource } from './IndicatorWidgetSource';
 import { ValueClass } from '../classifiers/ValueClassifier';
-import { FaNetworkWired } from 'react-icons/fa';
 import { AvailabilityChecker } from '../../devices/interfaces/generic/genericDevices';
 
 export class AvailabilityIndicatorWidgetSource extends IndicatorWidgetSource {
@@ -24,8 +22,8 @@ export class AvailabilityIndicatorWidgetSource extends IndicatorWidgetSource {
         const result = devices.every(dev => dev.isAvailable()); 
         return result; 
     }
-    public getMdIcon() : IconType {
-        return FaNetworkWired;
+    public getMdIcon() : string {
+        return "svg/small/905-warning.svg"
     }
     public getColor() : string | null{
         if (this.getAggregateState())

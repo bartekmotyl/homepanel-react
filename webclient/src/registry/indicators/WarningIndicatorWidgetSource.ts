@@ -1,20 +1,19 @@
-import { IconType } from 'react-icons/lib';
 import { store } from '../../app/store';
 import { IndicatorWidgetSource } from './IndicatorWidgetSource';
 import { ValueClass } from '../classifiers/ValueClassifier';
 import { ConnectedDevice } from '../../devices/Device';
 import { AsBoolean } from '../genericConverters';
-import { AiOutlineWarning } from 'react-icons/ai';
 
 export class WarningIndicatorWidgetSource extends IndicatorWidgetSource {
     private subDeviceId: string
     private converterId : string
+    private svgUrl? : string
 
-
-    constructor(deviceId: string, name: string, subDeviceId: string, converterId : string)  {
+    constructor(deviceId: string, name: string, subDeviceId: string, converterId : string, svgUrl?: string)  {
         super(deviceId, name);
         this.subDeviceId = subDeviceId;
         this.converterId = converterId;
+        this.svgUrl = svgUrl
     }
 
     private getDevice(): ConnectedDevice {
@@ -39,8 +38,8 @@ export class WarningIndicatorWidgetSource extends IndicatorWidgetSource {
         return value;
     }
 
-    public getMdIcon() : IconType {
-        return AiOutlineWarning;
+    public getMdIcon() : string {
+        return this.svgUrl ?? "svg/small/905-warning.svg"
     }
 
     public getColor() : string | null{

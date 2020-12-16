@@ -1,8 +1,6 @@
-import { IconType } from 'react-icons/lib';
 import { store } from '../../app/store';
 import { CompositeValue } from '../../devices/interfaces/generic/genericDevices';
 import { IndicatorWidgetSource } from './IndicatorWidgetSource';
-import { ImPower } from 'react-icons/im';
 import { ConnectedDevice } from '../../devices/Device';
 
 export class PowerMeterIndicatorWidgetSource extends IndicatorWidgetSource {
@@ -22,8 +20,8 @@ export class PowerMeterIndicatorWidgetSource extends IndicatorWidgetSource {
     }
 
 
-    public getMdIcon() : IconType {
-        return ImPower;
+    public getMdIcon() : string {
+        return "svg/small/014-plug.svg"
     }
 
     public getExtraText1() : string {

@@ -237,7 +237,7 @@ const defaultIndicatorWidgetSources: DeviceConfiguration[] = [
         args: ['pmsensor-10-source-number', 'PM Sensor 10', 'pmsensor', 'pmsensor-10-as-number']
     }, {
         deviceClass: 'WarningIndicatorWidgetSource', 
-        args: ['heating-status-source', 'Piec grzanie', 'heating-status', 'heating-status-as-boolean']
+        args: ['heating-status-source', 'Piec grzanie', 'heating-status', 'heating-status-as-boolean', 'svg/small/034-radiator.svg']
     }, {
         deviceClass: 'AvailabilityIndicatorWidgetSource', 
         args: ['pings-essentail-source', 'Ping ważne', ['ping-bartek-galaxy'] ]

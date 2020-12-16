@@ -5,6 +5,8 @@ import { IndicatorWidgetSource } from '../registry/indicators/IndicatorWidgetSou
 import { ValueClass, ValueClassifier } from '../registry/classifiers/ValueClassifier';
 import { WidgetProperties } from './widgets';
 import { selectDevices } from '../devices/devicesSlice';
+import { Icon } from '@material-ui/core';
+import SVG from "react-inlinesvg";
 
 export function SmallIndicatorWidget({ props }: WidgetProperties) {
     const deviceId = props.deviceId;
@@ -41,15 +43,15 @@ export function SmallIndicatorWidget({ props }: WidgetProperties) {
       return  color || "#98a7b9"; 
     }
     
-    const Icon = source.getMdIcon() 
+    const svgUrl: string | null = typeof source.getMdIcon() === "string" ? source.getMdIcon() as string : null
 
     return (
         <Box color={ getColor() }>
               <MainContent>
-                { Icon &&
-                  <ContentIcon>
-                    <Icon/>
-                  </ContentIcon>
+                { svgUrl &&
+                  <Icon>
+                    <StyledSVG src={svgUrl}/>
+                  </Icon>
                 }
                 { source.getText() && 
                   <ContentText>
@@ -73,11 +75,17 @@ const Box = styled.div<{color: string}>`
   width: 6rem;
   height: 6rem;
   position: relative;
+  padding: 0.5rem;
 `;
 
-
-const ContentIcon = styled.div`
+const StyledSVG = styled(SVG)`
+  width: 3.5rem;
+  height: 3.5rem;
+  & path {
+    fill: white;
+  }
 `;
+
 
 const ContentText = styled.div`
   font-weight: bold;

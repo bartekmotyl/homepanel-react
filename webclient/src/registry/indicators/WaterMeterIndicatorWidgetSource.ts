@@ -1,8 +1,6 @@
 import { store } from '../../app/store';
 import { CompositeValue } from '../../devices/interfaces/generic/genericDevices';
 import { IndicatorWidgetSource } from './IndicatorWidgetSource';
-import { GiTap } from 'react-icons/gi';
-import { IconType } from 'react-icons/lib';
 import { ValueClass } from '../classifiers/ValueClassifier';
 import { ConnectedDevice } from '../../devices/Device';
 
@@ -34,8 +32,8 @@ export class WaterMeterIndicatorWidgetSource extends IndicatorWidgetSource {
         return this.getCompositeValue()?.getValue("minute");
     }
     
-    public getMdIcon() : IconType {
-        return GiTap;
+    public getMdIcon() : string {
+        return "svg/small/010-water.svg"
     }
 
     public getExtraText1() : string {

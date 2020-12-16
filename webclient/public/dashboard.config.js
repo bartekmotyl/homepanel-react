@@ -114,10 +114,10 @@
         page('Galeria', [
             widget('remoteImageWidget', 'remote-image-gallery', { src: 'http://192.168.1.111/bartek/photo-feed/photo-feed.php'})
         ]),        
-        /*
         page('Parter Plan', [
             widget('remoteImageWidget', 'remote-image-gallery', { src: 'floor-plan-parter.svg'})
         ]),
+        /*
         */
         page('Kamery', [
             tabsWidget({ width: "100%", tabsVisible: true }, [
@@ -144,7 +144,7 @@
         properties: {
             widgets: [
                 sideBySideWidget([
-                    leftSideTabs, 
+                   leftSideTabs, 
                     rightSideTabs,
                 ])
             ],

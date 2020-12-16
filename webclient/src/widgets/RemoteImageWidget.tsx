@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { WidgetProperties } from './widgets';
 import styled from 'styled-components';
 import {useInterval} from 'react-use';
-import Image from 'material-ui-image'
+//import Image from 'material-ui-image'
 
 export function RemoteImageWidget({ props }: WidgetProperties) {
     const [hash, setHash] = useState(Date.now())
@@ -15,8 +15,7 @@ export function RemoteImageWidget({ props }: WidgetProperties) {
     const imgUrl = props.src.includes('?') ? `${props.src}&hash=${hash}` : `${props.src}?hash=${hash}` 
 
     return (
-        <StyledImage src={`${imgUrl}`} alt='' onClick={handleClick}  
-        />
+      <StyledImage src={`${imgUrl}`} alt='' onClick={handleClick} />
     )
 }
 
