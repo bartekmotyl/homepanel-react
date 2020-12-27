@@ -111,10 +111,10 @@
      inkscape:window-width="1920"
      showgrid="false"
      inkscape:document-rotation="0"
-     inkscape:current-layer="g1661"
+     inkscape:current-layer="g1227"
      inkscape:document-units="mm"
-     inkscape:cy="259.46896"
-     inkscape:cx="283.32333"
+     inkscape:cy="322.67636"
+     inkscape:cx="204.93706"
      inkscape:zoom="1.3986784"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0"
@@ -390,11 +390,6 @@
              id="path1365"
              transform="translate(5.4538347e-7)" />
           <path
-             d="m 348.40395,1258.7141 h 9.44882"
-             style="fill:none;stroke:#ffffff;stroke-dasharray:48, 24;stroke-opacity:1"
-             id="path1367"
-             transform="translate(5.4538347e-7)" />
-          <path
              d="m 357.85277,1256.8243 v 1.8898"
              style="fill:none;stroke:#ffffff;stroke-linecap:round;stroke-opacity:1"
              id="path1369"
@@ -403,11 +398,6 @@
              d="m 348.40395,1375.8795 v -79.3701"
              style="fill:none;stroke:#ffffff;stroke-linecap:round;stroke-opacity:1"
              id="path1371"
-             transform="translate(5.4538347e-7)" />
-          <path
-             d="m 348.40395,1296.5094 h 9.44882"
-             style="fill:none;stroke:#ffffff;stroke-linecap:round;stroke-opacity:1"
-             id="path1373"
              transform="translate(5.4538347e-7)" />
           <path
              d="m 512.8134,1188.0369 h -9.44882"
@@ -705,34 +695,9 @@
              id="path1503"
              transform="translate(5.4538347e-7)" />
           <path
-             d="m 348.40395,1046.8844 h 4.13664"
-             style="fill:none;stroke:#ffffff;stroke-linecap:round;stroke-opacity:1"
-             id="path1505"
-             transform="translate(5.4538347e-7)" />
-          <path
-             d="m 352.54059,1046.8844 v -10.9606"
-             style="fill:none;stroke:#ffffff;stroke-linecap:round;stroke-opacity:1"
-             id="path1507"
-             transform="translate(5.4538347e-7)" />
-          <path
-             d="m 352.54059,1035.9238 h -4.13664"
-             style="fill:none;stroke:#ffffff;stroke-linecap:round;stroke-opacity:1"
-             id="path1509"
-             transform="translate(5.4538347e-7)" />
-          <path
              d="m 503.36458,1299.1551 h -5.66929"
              style="fill:none;stroke:#ffffff;stroke-linecap:round;stroke-opacity:1"
              id="path1511"
-             transform="translate(5.4538347e-7)" />
-          <path
-             d="m 499.58505,1299.1551 v 40.8189"
-             style="fill:none;stroke:#ffffff;stroke-linecap:round;stroke-opacity:1"
-             id="path1513"
-             transform="translate(5.4538347e-7)" />
-          <path
-             d="m 499.58505,1339.974 h 3.77953"
-             style="fill:none;stroke:#ffffff;stroke-linecap:round;stroke-opacity:1"
-             id="path1515"
              transform="translate(5.4538347e-7)" />
           <path
              d="m 216.12049,1426.0683 v -12.8503 h 12.85039 v 12.8503 z"
@@ -749,6 +714,34 @@
              style="fill:none;stroke:#ffffff;stroke-width:0.893533;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
              id="path1487-1-8"
              transform="translate(5.4538347e-7)" />
+          <rect
+             style="color:#000000;overflow:visible;opacity:0.996;fill:none;stroke:#ffffff;stroke-width:1.13385828;stroke-miterlimit:4;stroke-dasharray:none"
+             id="rect1244"
+             width="34.258781"
+             height="4.2453303"
+             x="264.36838"
+             y="1003.0716" />
+          <rect
+             style="color:#000000;overflow:visible;opacity:0.996;fill:none;stroke:#ffffff;stroke-width:1.13385828;stroke-miterlimit:4;stroke-dasharray:none"
+             id="rect1244-6"
+             width="94.488174"
+             height="4.2453127"
+             x="233.12836"
+             y="1379.9839" />
+          <rect
+             style="color:#000000;overflow:visible;opacity:0.996;fill:none;stroke:#ffffff;stroke-width:1.13385828;stroke-miterlimit:4;stroke-dasharray:none"
+             id="rect1244-4"
+             width="37.795269"
+             height="4.2453251"
+             x="594.07324"
+             y="1078.6051" />
+          <rect
+             style="color:#000000;overflow:visible;opacity:0.996;fill:none;stroke:#ffffff;stroke-width:1.13386;stroke-miterlimit:4;stroke-dasharray:none"
+             id="rect1244-4-7"
+             width="37.79528"
+             height="4.2453074"
+             x="389.97876"
+             y="1380.1133" />
         </g>
       </g>
     </g>
