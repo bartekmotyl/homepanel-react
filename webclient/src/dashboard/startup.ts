@@ -2,6 +2,7 @@ import { store } from '../app/store';
 
 import { registerDevice } from '../devices/devicesSlice';
 import { XiaomiTemperatureSensorDevice } from '../devices/implementations/custom/homepanel/XiaomiTemperatureSensorDevice';
+import { INodeTemperatureSensorDevice } from '../devices/implementations/custom/homepanel/INodeTemperatureSensorDevice';
 import { SwitchDevice } from '../devices/implementations/generic/SwitchDevice';
 import { TemperatureSensorDevice } from '../devices/implementations/generic/TemperatureSensorDevice';
 import { BlindsDevice } from '../devices/implementations/generic/BlindsDevice';
@@ -39,6 +40,7 @@ import { AvailabilityIndicatorWidgetSource } from '../registry/indicators/Availa
 
 const knownTypes: any = {
     XiaomiTemperatureSensorDevice, 
+    INodeTemperatureSensorDevice,
     SwitchDevice,
     BlindsDevice,
     CompositeValueDevice,

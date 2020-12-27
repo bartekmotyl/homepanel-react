@@ -66,6 +66,44 @@
             }
         }
     }
+    const floorPlanElementLocation = (x, y, width, height) => {
+        return {
+            x, 
+            y, 
+            width, 
+            height, 
+        }        
+    }
+
+    const floorPlanTemperature = (rect, deviceId, converterId, classifierId) => {
+        return {
+            rect, 
+            deviceId, 
+            converterId, 
+            classifierId,
+        }
+    }
+
+    const floorPlanWidget = (src, temperatures, props) => {
+        return {
+            "type": 'floorPlanWidget',
+            "properties": {
+                ...props,
+                "src": src,
+                "temperatures": temperatures,
+            }
+        }
+    }
+
+    const floorPlanTemperatureSimpleSensor = (device, x, y, classifier, converter) => {
+        return floorPlanTemperature(
+            floorPlanElementLocation(x, y, 0.05, 0.05),
+            device, 
+            converter,
+            classifier ?? 'indoor-temperature-classifier',
+        )
+    } 
+
 
     const leftSideTabs = tabsWidget({ width: "22rem", tabsVisible: true }, [
         page('Główne', [
@@ -115,7 +153,21 @@
             widget('remoteImageWidget', 'remote-image-gallery', { src: 'http://192.168.1.111/bartek/photo-feed/photo-feed.php'})
         ]),        
         page('Parter Plan', [
-            widget('remoteImageWidget', 'remote-image-gallery', { src: 'floor-plan-parter.svg'})
+            floorPlanWidget('floor-plan-parter.svg', [
+                floorPlanTemperatureSimpleSensor('owire-sensor-cwu-zasilanie', 0.268, 0.132, 
+                    'heatwater-temperature-classifier', 'composite-value-to-temperature'), // CWU zasilanie
+                floorPlanTemperatureSimpleSensor('owire-sensor-co-zasilanie', 0.268, 0.210, 
+                    'heatwater-temperature-classifier', 'composite-value-to-temperature'), // CO zasilanie
+                floorPlanTemperatureSimpleSensor('ble-sensor-4c65a8df7d03', 0.536, 0.259), // Salon
+                floorPlanTemperatureSimpleSensor('ble-sensor-582d34364ee7', 0.155, 0.733), // Garaż
+                floorPlanTemperatureSimpleSensor('ble-sensor-4c65a8df6a72', 0.718, 0.558), // Jadalnia
+                floorPlanTemperatureSimpleSensor('ble-sensor-00126fc21ca1', 0.402, 0.764), // Wiatrołap
+                floorPlanTemperatureSimpleSensor('ble-sensor-00126fc21bb7', 0.565, 0.801), // Łazienka parter
+                floorPlanTemperatureSimpleSensor('ble-sensor-582d34364f04', 0.057, 0.188), // Drukarka 3D
+                floorPlanTemperatureSimpleSensor('ble-sensor-00126fc21b0a', 0.162, 0.265), // Kotłownia
+                floorPlanTemperatureSimpleSensor('ble-sensor-00126fc21c10', 0.365, 0.530), // Serwerownia
+                floorPlanTemperatureSimpleSensor('ble-sensor-00126fc21c3e', 0.774, 0.904), // Na dworze
+            ])
         ]),
         /*
         */
@@ -146,7 +198,8 @@
                 sideBySideWidget([
                    leftSideTabs, 
                     rightSideTabs,
-                ])
+                ]),
+                widget('dummyClockLabelWidget')
             ],
         }
     }
