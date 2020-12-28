@@ -66,7 +66,7 @@
             }
         }
     }
-    const floorPlanElementLocation = (x, y, width, height) => {
+    const floorPlanElementRect = (x, y, width, height) => {
         return {
             x, 
             y, 
@@ -75,29 +75,43 @@
         }        
     }
 
-    const floorPlanTemperature = (rect, deviceId, converterId, classifierId) => {
+    const floorPlanElementLocation = (x, y) => {
         return {
-            rect, 
+            x, 
+            y, 
+        }        
+    }
+
+    const floorPlanWidget = (src, temperatures, blinds) => {
+        return {
+            "type": 'floorPlanWidget',
+            "properties": {
+                "src": src,
+                "temperatures": temperatures,
+                'blinds': blinds,  
+            }
+        }
+    }
+    const floorPlanTemperature = (location, deviceId, converterId, classifierId) => {
+        return {
+            location, 
             deviceId, 
             converterId, 
             classifierId,
         }
     }
 
-    const floorPlanWidget = (src, temperatures, props) => {
+    const floorPlanBlinds = (deviceId, x, y, groups, ) => {
         return {
-            "type": 'floorPlanWidget',
-            "properties": {
-                ...props,
-                "src": src,
-                "temperatures": temperatures,
-            }
+            location: floorPlanElementLocation(x, y),
+            deviceId, 
+            groups, 
         }
     }
 
     const floorPlanTemperatureSimpleSensor = (device, x, y, classifier, converter) => {
         return floorPlanTemperature(
-            floorPlanElementLocation(x, y, 0.05, 0.05),
+            floorPlanElementLocation(x, y),
             device, 
             converter,
             classifier ?? 'indoor-temperature-classifier',
@@ -154,19 +168,26 @@
         ]),        
         page('Parter Plan', [
             floorPlanWidget('floor-plan-parter.svg', [
-                floorPlanTemperatureSimpleSensor('owire-sensor-cwu-zasilanie', 0.268, 0.132, 
+                floorPlanTemperatureSimpleSensor('owire-sensor-cwu-zasilanie', 0.248, 0.112, 
                     'heatwater-temperature-classifier', 'composite-value-to-temperature'), // CWU zasilanie
-                floorPlanTemperatureSimpleSensor('owire-sensor-co-zasilanie', 0.268, 0.210, 
+                floorPlanTemperatureSimpleSensor('owire-sensor-co-zasilanie', 0.248, 0.190, 
                     'heatwater-temperature-classifier', 'composite-value-to-temperature'), // CO zasilanie
-                floorPlanTemperatureSimpleSensor('ble-sensor-4c65a8df7d03', 0.536, 0.259), // Salon
-                floorPlanTemperatureSimpleSensor('ble-sensor-582d34364ee7', 0.155, 0.733), // Garaż
-                floorPlanTemperatureSimpleSensor('ble-sensor-4c65a8df6a72', 0.718, 0.558), // Jadalnia
-                floorPlanTemperatureSimpleSensor('ble-sensor-00126fc21ca1', 0.402, 0.764), // Wiatrołap
-                floorPlanTemperatureSimpleSensor('ble-sensor-00126fc21bb7', 0.565, 0.801), // Łazienka parter
-                floorPlanTemperatureSimpleSensor('ble-sensor-582d34364f04', 0.057, 0.188), // Drukarka 3D
-                floorPlanTemperatureSimpleSensor('ble-sensor-00126fc21b0a', 0.162, 0.265), // Kotłownia
-                floorPlanTemperatureSimpleSensor('ble-sensor-00126fc21c10', 0.365, 0.530), // Serwerownia
-                floorPlanTemperatureSimpleSensor('ble-sensor-00126fc21c3e', 0.774, 0.904), // Na dworze
+                floorPlanTemperatureSimpleSensor('ble-sensor-4c65a8df7d03', 0.516, 0.239), // Salon
+                floorPlanTemperatureSimpleSensor('ble-sensor-582d34364ee7', 0.135, 0.713), // Garaż
+                floorPlanTemperatureSimpleSensor('ble-sensor-4c65a8df6a72', 0.698, 0.538), // Jadalnia
+                floorPlanTemperatureSimpleSensor('ble-sensor-00126fc21ca1', 0.382, 0.724), // Wiatrołap
+                floorPlanTemperatureSimpleSensor('ble-sensor-00126fc21bb7', 0.545, 0.781), // Łazienka parter
+                floorPlanTemperatureSimpleSensor('ble-sensor-582d34364f04', 0.037, 0.168), // Drukarka 3D
+                floorPlanTemperatureSimpleSensor('ble-sensor-00126fc21b0a', 0.142, 0.245), // Kotłownia
+                floorPlanTemperatureSimpleSensor('ble-sensor-00126fc21c10', 0.345, 0.510), // Serwerownia
+                floorPlanTemperatureSimpleSensor('ble-sensor-00126fc21c3e', 0.754, 0.884), // Na dworze
+            ], [
+                floorPlanBlinds('roleta-salon-lewa', 0.537, 0.039, ['rolety-salon', 'rolety-parter']),
+                floorPlanBlinds('roleta-salon-prawa', 0.669, 0.039, ['rolety-salon', 'rolety-parter']),
+                floorPlanBlinds('roleta-kuchnia', 0.790, 0.733, ['rolety-kuchnia-i-jadalnia', 'rolety-parter']),
+                floorPlanBlinds('roleta-jadalnia-lewa', 0.849, 0.330, ['rolety-kuchnia-i-jadalnia', 'rolety-parter', 'rolety-jadalnia']),
+                floorPlanBlinds('roleta-jadalnia-prawa', 0.849, 0.450, ['rolety-kuchnia-i-jadalnia', 'rolety-parter', 'rolety-jadalnia']),
+                floorPlanBlinds('roleta-jadalnia-drzwi', 0.849, 0.172, ['rolety-kuchnia-i-jadalnia', 'rolety-parter']),
             ])
         ]),
         /*
