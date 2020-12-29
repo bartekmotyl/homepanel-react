@@ -168,9 +168,9 @@
         ]),        
         page('Parter Plan', [
             floorPlanWidget('floor-plan-parter.svg', [
-                floorPlanTemperatureSimpleSensor('owire-sensor-cwu-zasilanie', 0.248, 0.112, 
+                floorPlanTemperatureSimpleSensor('owire-sensor-cwu-zasilanie', 0.228, 0.112, 
                     'heatwater-temperature-classifier', 'composite-value-to-temperature'), // CWU zasilanie
-                floorPlanTemperatureSimpleSensor('owire-sensor-co-zasilanie', 0.248, 0.190, 
+                floorPlanTemperatureSimpleSensor('owire-sensor-co-zasilanie', 0.228, 0.190, 
                     'heatwater-temperature-classifier', 'composite-value-to-temperature'), // CO zasilanie
                 floorPlanTemperatureSimpleSensor('ble-sensor-4c65a8df7d03', 0.516, 0.239), // Salon
                 floorPlanTemperatureSimpleSensor('ble-sensor-582d34364ee7', 0.135, 0.713), // Garaż
@@ -182,12 +182,12 @@
                 floorPlanTemperatureSimpleSensor('ble-sensor-00126fc21c10', 0.345, 0.510), // Serwerownia
                 floorPlanTemperatureSimpleSensor('ble-sensor-00126fc21c3e', 0.754, 0.884), // Na dworze
             ], [
-                floorPlanBlinds('roleta-salon-lewa', 0.537, 0.039, ['rolety-salon', 'rolety-parter']),
-                floorPlanBlinds('roleta-salon-prawa', 0.669, 0.039, ['rolety-salon', 'rolety-parter']),
-                floorPlanBlinds('roleta-kuchnia', 0.790, 0.733, ['rolety-kuchnia-i-jadalnia', 'rolety-parter']),
-                floorPlanBlinds('roleta-jadalnia-lewa', 0.849, 0.330, ['rolety-kuchnia-i-jadalnia', 'rolety-parter', 'rolety-jadalnia']),
-                floorPlanBlinds('roleta-jadalnia-prawa', 0.849, 0.450, ['rolety-kuchnia-i-jadalnia', 'rolety-parter', 'rolety-jadalnia']),
-                floorPlanBlinds('roleta-jadalnia-drzwi', 0.849, 0.172, ['rolety-kuchnia-i-jadalnia', 'rolety-parter']),
+                floorPlanBlinds('roleta-salon-lewa', 0.430, 0.039, ['rolety-salon', 'rolety-parter']),
+                floorPlanBlinds('roleta-salon-prawa', 0.610, 0.039, ['rolety-salon', 'rolety-parter']),
+                floorPlanBlinds('roleta-kuchnia', 0.755, 0.733, ['rolety-kuchnia-i-jadalnia', 'rolety-parter']),
+                floorPlanBlinds('roleta-jadalnia-lewa', 0.800, 0.330, ['rolety-kuchnia-i-jadalnia', 'rolety-parter', 'rolety-jadalnia']),
+                floorPlanBlinds('roleta-jadalnia-prawa', 0.800, 0.450, ['rolety-kuchnia-i-jadalnia', 'rolety-parter', 'rolety-jadalnia']),
+                floorPlanBlinds('roleta-jadalnia-drzwi', 0.823, 0.150, ['rolety-kuchnia-i-jadalnia', 'rolety-parter']),
             ])
         ]),
         /*

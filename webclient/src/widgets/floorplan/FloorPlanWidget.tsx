@@ -10,6 +10,9 @@ import { Blinds, Temperature } from '../../devices/interfaces/generic/genericDev
 import SVG from 'react-inlinesvg';
 import { CgArrowUpR  } from 'react-icons/cg';
 import { CgArrowDownR } from 'react-icons/cg';
+import { ImMakeGroup } from 'react-icons/im';
+import { BsCommand } from 'react-icons/bs';
+
 import { IconButton } from '@material-ui/core';
 import useLongPress from '../../hooks/useLongpress';
 
@@ -84,6 +87,7 @@ export function FloorPlanWidget({ props }: WidgetProperties) {
 
     const [bcrSvgGroup, setBcrSvgGroup] = React.useState<DOMRect>(new DOMRect());
     const [bcrContainer, setBcrContainer] = React.useState<DOMRect>(new DOMRect());
+    const [currentBlindsGroup, setCurrentBlindsGroup] = React.useState<string|null>(null);
 
     const offsetPoint = (point: Point) => {
         return {
@@ -110,7 +114,7 @@ export function FloorPlanWidget({ props }: WidgetProperties) {
         const svgRect = svgGroupElement?.getBoundingClientRect()!
         const posX = event.clientX - svgRect.x
         const posY = event.clientY - svgRect.y
-        alert(`[${(posX / svgRect.width).toFixed(3)}, ${(posY / svgRect.height).toFixed(3)}]`)
+        //alert(`[${(posX / svgRect.width).toFixed(3)}, ${(posY / svgRect.height).toFixed(3)}]`)
     }
 
     const defaultOptions = {
@@ -118,19 +122,59 @@ export function FloorPlanWidget({ props }: WidgetProperties) {
         delay: 500,
     };
 
-    const getBlindsIndexFromLongPressEvent = (target: any) => {
+    const getBlindsIndexFromLongPressEvent = (target: any): number => {
         const blindsBox = target.closest('div[data-blinds-index]')
         const index = parseInt(blindsBox.getAttribute('data-blinds-index'))        
         return index
     }
 
-    const moveUp = (ev: any, target: any) => getBlinds(getBlindsIndexFromLongPressEvent(target))?.up();
-    const moveDown = (ev: any, target: any) => getBlinds(getBlindsIndexFromLongPressEvent(target))?.down();
-    const moveStop = (ev: any, target: any) => getBlinds(getBlindsIndexFromLongPressEvent(target))?.stop()
+    const performBlindsAction = (index: number, action: ((blinds: Blinds) => void)) => {
+        let devices: string[] = [ blinds[index].deviceId ]
+        if (currentBlindsGroup) {
+            devices = blinds.filter( b=>b.groups?.includes(currentBlindsGroup)).map(b=>b.deviceId)
+        }      
+        devices.forEach(deviceId=>{
+            const blinds = getDevice(deviceId) as any as Blinds
+            if (blinds) {
+                action(blinds)
+            }
+        })
+    }
+
+    const moveUp = (ev: any, target: any) => performBlindsAction(getBlindsIndexFromLongPressEvent(target), (blinds) => blinds.up())
+    const moveDown = (ev: any, target: any) => performBlindsAction(getBlindsIndexFromLongPressEvent(target), (blinds) => blinds.down())
+    const moveStop = (ev: any, target: any) => performBlindsAction(getBlindsIndexFromLongPressEvent(target), (blinds) => blinds.stop())
 
     const longPressUp = useLongPress(moveUp, moveStop, defaultOptions);
     const longPressDown = useLongPress(moveDown, moveStop, defaultOptions);
 
+    const blindsGroupClick = (event: any, index: number) => {
+        console.log(`blindsGroupClick: ${index}`)
+        let groupIndex = -1
+        const groups = blinds[index].groups
+        if (currentBlindsGroup) {
+            groupIndex = groups.indexOf(currentBlindsGroup) // -1 returned when not found is ok
+        }
+        let newGroup: string | null = null
+        let newGroupIndex: number|null = groupIndex + 1
+        if (newGroupIndex < groups.length) {
+            newGroup  = groups[newGroupIndex]
+        } 
+        setCurrentBlindsGroup(newGroup)
+        console.log(`newGroupIndex: ${newGroup}`)
+    }
+
+    const getBlindsButtonColor = (index: number) => {
+        const groups = blinds[index].groups
+        if (currentBlindsGroup) {
+            if (groups.includes(currentBlindsGroup)) {
+                return '#AEDC84'
+            } else {
+                return 'gray'
+            }
+        }
+        return 'white'
+    } 
 
     return (
         <Container ref={refContainer}>
@@ -141,11 +185,13 @@ export function FloorPlanWidget({ props }: WidgetProperties) {
                         {
                             left: getTemperatureLocation(index).x,
                             top: getTemperatureLocation(index).y,
+                            width: 0.05 * bcrSvgGroup.width ?? 0,
+                            height: 0.05 * bcrSvgGroup.height ?? 0,
                         }
                     }>
                         <TemperatureIconInner src="svg/small/073-temperature-inner.svg" color={getTemperatureColor(temp)} />
                         <TemperatureIconOutline src="svg/small/073-temperature-1.svg" />
-                        <TemperatureIconTitle dangerouslySetInnerHTML={{ __html: getTemperatureValueText(temp) }} />
+                        <TemperatureIconTitle referenceWidth={bcrSvgGroup.width} dangerouslySetInnerHTML={{ __html: getTemperatureValueText(temp) }} />
                     </TemperatureBox>
                 )
             })}
@@ -157,12 +203,15 @@ export function FloorPlanWidget({ props }: WidgetProperties) {
                             top: getBlindsLocation(index).y,
                         }
                     } data-blinds-index={index}>
-                        <StyledIconButton color='inherit' {...longPressDown}>
-                            <StyledIcon><CgArrowDownR/></StyledIcon>
-                        </StyledIconButton>                        
-                        <StyledIconButton color='inherit' {...longPressUp}>
-                            <StyledIcon><CgArrowUpR/></StyledIcon>
-                        </StyledIconButton>                        
+                        <BlindsButton referenceWidth={bcrSvgGroup.width} color='inherit' {...longPressDown}>
+                            <ButtonIconBlinds referenceWidth={bcrSvgGroup.width} color={getBlindsButtonColor(index)}><CgArrowDownR/></ButtonIconBlinds>
+                        </BlindsButton>                        
+                        <BlindsGroupButton referenceWidth={bcrSvgGroup.width} color='secondary' onClick={(ev) => blindsGroupClick(ev, index)}>
+                            <ButtonIconBlindsGroup referenceWidth={bcrSvgGroup.width}><BsCommand/></ButtonIconBlindsGroup>
+                        </BlindsGroupButton>                        
+                        <BlindsButton referenceWidth={bcrSvgGroup.width} color='inherit'>
+                            <ButtonIconBlinds referenceWidth={bcrSvgGroup.width} color={getBlindsButtonColor(index)}><CgArrowUpR/></ButtonIconBlinds>
+                        </BlindsButton>                        
                     </BlindsBox>
                 )
             })}                
@@ -180,16 +229,12 @@ const Container = styled.div`
 
 const TemperatureBox = styled.div`
     position: absolute;
-    width: 4%;
-    height: 4%;
+    //width: 5%;
+    //height: 5%;
     //background-color: rgba(128, 128, 128, .25)
 `
 const BlindsBox = styled.div`
     position: absolute;
-    //width: 100px;
-    //height: 100px;
-    //background-color: fuchsia;
-    color: white;
 `
 
 const TemperatureIconOutline = styled(SVG)`
@@ -208,13 +253,14 @@ const TemperatureIconInner = styled(SVG) <{ color: string }>`
         fill: ${props => `${props.color}`};
     }
 `
-const TemperatureIconTitle = styled.div`
+const TemperatureIconTitle = styled.div<{ referenceWidth: number }>`
     position: absolute;
-    top: 100%;
+    top: calc(100% );
     text-align: center;
     color: white;
-    font-size: 1rem;
+    font-size: ${props =>  `${props.referenceWidth * 0.025}px`};
     width: 100%;
+    //height: 100%;
 `
 
 
@@ -225,18 +271,23 @@ const StyledSVG = styled(SVG)`
     max-height: 100%;
 `
 
-const StyledIcon = styled.span`
-    font-size: 2rem;
+const ButtonIconBlinds = styled.span<{ referenceWidth: number, color: string }>`
+    font-size: ${props =>  `${props.referenceWidth * 0.05}px`};
+    color:  ${props =>  `${props.color}`};
 `
 
-const StyledIconButton = styled(IconButton)`
-    vertical-align: middle;
-    .mat-icon {
-        vertical-align: middle;
-    }
-    
+const ButtonIconBlindsGroup = styled.span<{ referenceWidth: number }>`
+    font-size: ${props =>  `${props.referenceWidth * 0.03}px`};
+    color:  #85929e ;
+`
+
+const BlindsButton = styled(IconButton)<{ referenceWidth: number }>`
     && {
-        padding: 0.2rem;
+        padding:  ${props =>  `${props.referenceWidth * 0.005}px`};
     }
-  
+`
+const BlindsGroupButton = styled(IconButton)<{ referenceWidth: number }>`
+    && {
+        padding: ${props =>  `${props.referenceWidth * 0.005}px`};
+    }
 `
