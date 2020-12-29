@@ -161,7 +161,7 @@ export function FloorPlanWidget({ props }: WidgetProperties) {
     const longPressDown = useLongPress(moveDown, moveStop, defaultOptions);
 
     const blindsGroupClick = (event: any, index: number) => {
-        console.log(`blindsGroupClick: ${index}`)
+        //console.log(`blindsGroupClick: ${index}`)
         let groupIndex = -1
         const groups = blinds[index].groups
         if (currentBlindsGroup) {
@@ -173,7 +173,7 @@ export function FloorPlanWidget({ props }: WidgetProperties) {
             newGroup  = groups[newGroupIndex]
         } 
         setCurrentBlindsGroup(newGroup)
-        console.log(`newGroupIndex: ${newGroup}`)
+        //console.log(`newGroupIndex: ${newGroup}`)
         resetTimerClearCurrentBlindsGroup()
     }
 
