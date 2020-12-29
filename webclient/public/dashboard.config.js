@@ -184,10 +184,10 @@
             ], [
                 floorPlanBlinds('roleta-salon-lewa', 0.430, 0.039, ['rolety-salon', 'rolety-parter']),
                 floorPlanBlinds('roleta-salon-prawa', 0.610, 0.039, ['rolety-salon', 'rolety-parter']),
-                floorPlanBlinds('roleta-kuchnia', 0.755, 0.733, ['rolety-kuchnia-i-jadalnia', 'rolety-parter']),
-                floorPlanBlinds('roleta-jadalnia-lewa', 0.800, 0.330, ['rolety-kuchnia-i-jadalnia', 'rolety-parter', 'rolety-jadalnia']),
-                floorPlanBlinds('roleta-jadalnia-prawa', 0.800, 0.450, ['rolety-kuchnia-i-jadalnia', 'rolety-parter', 'rolety-jadalnia']),
-                floorPlanBlinds('roleta-jadalnia-drzwi', 0.823, 0.150, ['rolety-kuchnia-i-jadalnia', 'rolety-parter']),
+                floorPlanBlinds('roleta-kuchnia', 0.755, 0.733, ['rolety-jadalnia-i-kuchnia', 'rolety-kuchnia-i-jadalnia-plus-drzwi', 'rolety-parter']),
+                floorPlanBlinds('roleta-jadalnia-lewa', 0.800, 0.330, ['rolety-jadalnia', 'rolety-jadalnia-i-kuchnia', 'rolety-kuchnia-i-jadalnia-plus-drzwi', 'rolety-parter', ]),
+                floorPlanBlinds('roleta-jadalnia-prawa', 0.800, 0.450, ['rolety-jadalnia', 'rolety-jadalnia-i-kuchnia', 'rolety-kuchnia-i-jadalnia-plus-drzwi', 'rolety-parter']),
+                floorPlanBlinds('roleta-jadalnia-drzwi', 0.823, 0.150, ['rolety-kuchnia-i-jadalnia-plus-drzwi', 'rolety-parter']),
             ])
         ]),
         /*

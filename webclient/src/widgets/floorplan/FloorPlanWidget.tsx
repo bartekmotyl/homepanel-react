@@ -10,11 +10,12 @@ import { Blinds, Temperature } from '../../devices/interfaces/generic/genericDev
 import SVG from 'react-inlinesvg';
 import { CgArrowUpR  } from 'react-icons/cg';
 import { CgArrowDownR } from 'react-icons/cg';
-import { ImMakeGroup } from 'react-icons/im';
-import { BsCommand } from 'react-icons/bs';
+import { BsBoundingBox } from 'react-icons/bs';
+
 
 import { IconButton } from '@material-ui/core';
 import useLongPress from '../../hooks/useLongpress';
+import { useTimeoutFn } from 'react-use';
 
 interface Point {
     x: number,
@@ -47,11 +48,12 @@ export function FloorPlanWidget({ props }: WidgetProperties) {
     const getDevice = (id: string): Device | null => {
         return (devices.get(id) as any) as Device;
     }
+    /*
     const getBlinds = (index: number): Blinds | null => {
         const id = blinds[index]?.deviceId
         return (devices.get(id) as any) as Blinds;
     }
-
+    */
     const getTemperatureValue = (temp: FloorPlanTemperature) => {
         const device = getDevice(temp.deviceId)!
         const converter = temp.converterId ? getDevice(temp.converterId) as any as AsTemperature : undefined
@@ -110,12 +112,20 @@ export function FloorPlanWidget({ props }: WidgetProperties) {
     }
 
     const clickOnSVG = (event: React.MouseEvent<SVGElement, MouseEvent>) => {
-        const svgGroupElement = refSVGElement.current?.getElementsByTagName('g')[0]
-        const svgRect = svgGroupElement?.getBoundingClientRect()!
-        const posX = event.clientX - svgRect.x
-        const posY = event.clientY - svgRect.y
+        //const svgGroupElement = refSVGElement.current?.getElementsByTagName('g')[0]
+        //const svgRect = svgGroupElement?.getBoundingClientRect()!
+        //const posX = event.clientX - svgRect.x
+        //const posY = event.clientY - svgRect.y
         //alert(`[${(posX / svgRect.width).toFixed(3)}, ${(posY / svgRect.height).toFixed(3)}]`)
     }
+    const clearCurrentBlindsGroup = () => {
+        setCurrentBlindsGroup(null)
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [_isReadyClearCurrentBlindsGroup, _cancelClearCurrentBlindsGroup, 
+        resetTimerClearCurrentBlindsGroup] = useTimeoutFn(clearCurrentBlindsGroup, 5000);
+
 
     const defaultOptions = {
         shouldPreventDefault: true,
@@ -139,7 +149,9 @@ export function FloorPlanWidget({ props }: WidgetProperties) {
                 action(blinds)
             }
         })
+        resetTimerClearCurrentBlindsGroup()
     }
+
 
     const moveUp = (ev: any, target: any) => performBlindsAction(getBlindsIndexFromLongPressEvent(target), (blinds) => blinds.up())
     const moveDown = (ev: any, target: any) => performBlindsAction(getBlindsIndexFromLongPressEvent(target), (blinds) => blinds.down())
@@ -162,6 +174,7 @@ export function FloorPlanWidget({ props }: WidgetProperties) {
         } 
         setCurrentBlindsGroup(newGroup)
         console.log(`newGroupIndex: ${newGroup}`)
+        resetTimerClearCurrentBlindsGroup()
     }
 
     const getBlindsButtonColor = (index: number) => {
@@ -191,7 +204,7 @@ export function FloorPlanWidget({ props }: WidgetProperties) {
                     }>
                         <TemperatureIconInner src="svg/small/073-temperature-inner.svg" color={getTemperatureColor(temp)} />
                         <TemperatureIconOutline src="svg/small/073-temperature-1.svg" />
-                        <TemperatureIconTitle referenceWidth={bcrSvgGroup.width} dangerouslySetInnerHTML={{ __html: getTemperatureValueText(temp) }} />
+                        <TemperatureIconTitle $referenceWidth={bcrSvgGroup.width} dangerouslySetInnerHTML={{ __html: getTemperatureValueText(temp) }} />
                     </TemperatureBox>
                 )
             })}
@@ -203,14 +216,14 @@ export function FloorPlanWidget({ props }: WidgetProperties) {
                             top: getBlindsLocation(index).y,
                         }
                     } data-blinds-index={index}>
-                        <BlindsButton referenceWidth={bcrSvgGroup.width} color='inherit' {...longPressDown}>
-                            <ButtonIconBlinds referenceWidth={bcrSvgGroup.width} color={getBlindsButtonColor(index)}><CgArrowDownR/></ButtonIconBlinds>
+                        <BlindsButton $referenceWidth={bcrSvgGroup.width} color='inherit' {...longPressDown}>
+                            <ButtonIconBlinds $referenceWidth={bcrSvgGroup.width} $color={getBlindsButtonColor(index)}><CgArrowDownR/></ButtonIconBlinds>
                         </BlindsButton>                        
-                        <BlindsGroupButton referenceWidth={bcrSvgGroup.width} color='secondary' onClick={(ev) => blindsGroupClick(ev, index)}>
-                            <ButtonIconBlindsGroup referenceWidth={bcrSvgGroup.width}><BsCommand/></ButtonIconBlindsGroup>
+                        <BlindsGroupButton $referenceWidth={bcrSvgGroup.width} color='secondary' onClick={(ev) => blindsGroupClick(ev, index)}>
+                            <ButtonIconBlindsGroup $referenceWidth={bcrSvgGroup.width}><BsBoundingBox/></ButtonIconBlindsGroup>
                         </BlindsGroupButton>                        
-                        <BlindsButton referenceWidth={bcrSvgGroup.width} color='inherit'>
-                            <ButtonIconBlinds referenceWidth={bcrSvgGroup.width} color={getBlindsButtonColor(index)}><CgArrowUpR/></ButtonIconBlinds>
+                        <BlindsButton $referenceWidth={bcrSvgGroup.width} color='inherit' {...longPressUp}>
+                            <ButtonIconBlinds $referenceWidth={bcrSvgGroup.width} $color={getBlindsButtonColor(index)}><CgArrowUpR/></ButtonIconBlinds>
                         </BlindsButton>                        
                     </BlindsBox>
                 )
@@ -253,12 +266,12 @@ const TemperatureIconInner = styled(SVG) <{ color: string }>`
         fill: ${props => `${props.color}`};
     }
 `
-const TemperatureIconTitle = styled.div<{ referenceWidth: number }>`
+const TemperatureIconTitle = styled.div<{ $referenceWidth: number }>`
     position: absolute;
     top: calc(100% );
     text-align: center;
     color: white;
-    font-size: ${props =>  `${props.referenceWidth * 0.025}px`};
+    font-size: ${props =>  `${props.$referenceWidth * 0.025}px`};
     width: 100%;
     //height: 100%;
 `
@@ -271,23 +284,23 @@ const StyledSVG = styled(SVG)`
     max-height: 100%;
 `
 
-const ButtonIconBlinds = styled.span<{ referenceWidth: number, color: string }>`
-    font-size: ${props =>  `${props.referenceWidth * 0.05}px`};
-    color:  ${props =>  `${props.color}`};
+const ButtonIconBlinds = styled.span<{ $referenceWidth: number, $color: string }>`
+    font-size: ${props =>  `${props.$referenceWidth * 0.05}px`};
+    color:  ${props =>  `${props.$color}`};
 `
 
-const ButtonIconBlindsGroup = styled.span<{ referenceWidth: number }>`
-    font-size: ${props =>  `${props.referenceWidth * 0.03}px`};
+const ButtonIconBlindsGroup = styled.span<{ $referenceWidth: number }>`
+    font-size: ${props =>  `${props.$referenceWidth * 0.03}px`};
     color:  #85929e ;
 `
 
-const BlindsButton = styled(IconButton)<{ referenceWidth: number }>`
+const BlindsButton = styled(IconButton)<{ $referenceWidth: number }>`
     && {
-        padding:  ${props =>  `${props.referenceWidth * 0.005}px`};
+        padding:  ${props =>  `${props.$referenceWidth * 0.005}px`};
     }
 `
-const BlindsGroupButton = styled(IconButton)<{ referenceWidth: number }>`
+const BlindsGroupButton = styled(IconButton)<{ $referenceWidth: number }>`
     && {
-        padding: ${props =>  `${props.referenceWidth * 0.005}px`};
+        padding: ${props =>  `${props.$referenceWidth * 0.005}px`};
     }
 `
