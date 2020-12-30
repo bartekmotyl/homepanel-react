@@ -31,20 +31,19 @@ export enum ValueClass {
 */
 
 export enum ValueClass {
-    // https://mena.brightery.com/wp-content/uploads/2019/09/one-1.jpg
-    
-    Normal = "#b4c540",
-    Information = "#f9ac67",
-    Warning = "#fcaf58",
-    Error = "#ee6a59",
-    Critical = "#f95335",
-    Disaster = "#674a40",
+    // https://htmlcolorcodes.com/
+    Normal = "#28b463",
+    Information = "#d4ac0d",
+    Warning = "#d68910",
+    Error = "#ba4a00",
+    Critical = "#cb4335",
+    Disaster = "#a93226",
 
-    VeryLowTemperature = "#577590",
-    LowTemperature = "#43AA8B",
-    StandardTemperature = "#90BE6D",
-    HighTemperature = "#F8961E",
-    VeryHighTemperature = "#F3722C",
+    VeryLowTemperature = "#2471a3",
+    LowTemperature = "#138d75",
+    StandardTemperature = "#28b463",
+    HighTemperature = "#d68910",
+    VeryHighTemperature = "#ba4a00",
  
-    Undefined = "Gray",
+    Undefined = "#707b7c",
 }

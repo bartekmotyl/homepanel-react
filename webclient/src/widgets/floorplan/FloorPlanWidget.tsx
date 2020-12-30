@@ -77,7 +77,7 @@ export function FloorPlanWidget({ props }: WidgetProperties) {
     const getTemperatureColor = (temp: FloorPlanTemperature) => {
         const value = getTemperatureValue(temp)
         const classifier = temp.classifierId ? getDevice(temp.classifierId) as ValueClassifier : undefined
-        let color = "gray"
+        let color = "#707b7c"
         if (value && classifier) {
             color = classifier.classify(value.toFixed())!;
         }
@@ -183,7 +183,7 @@ export function FloorPlanWidget({ props }: WidgetProperties) {
             if (groups.includes(currentBlindsGroup)) {
                 return '#AEDC84'
             } else {
-                return 'gray'
+                return '#707b7c'
             }
         }
         return 'white'
