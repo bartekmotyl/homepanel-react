@@ -210,7 +210,12 @@
                     widget('remoteImageWidget', 'remote-image-gallery', { src: 'http://192.168.1.54:8088/?action=snapshot'})
                 ]),
             ]),        
-        ]),        
+        ]), 
+        
+        page('Inne', [
+            widget('reloadWidget', 'reload-widget-1'),
+        ]),
+        
     ])
 
     const dashboard = {
