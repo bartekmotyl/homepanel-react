@@ -1,12 +1,10 @@
 import React, { } from 'react';
 import { WidgetProperties } from '../widgets';
 import styled from 'styled-components';
-import { ValueClassifier } from '../../registry/classifiers/ValueClassifier';
 import { useSelector } from 'react-redux';
 import { selectDevices } from '../../devices/devicesSlice';
 import { Device } from '../../devices/Device';
-import { AsTemperature } from '../../registry/genericConverters';
-import { Blinds, Temperature } from '../../devices/interfaces/generic/genericDevices';
+import { Blinds } from '../../devices/interfaces/generic/genericDevices';
 import SVG from 'react-inlinesvg';
 import { CgArrowUpR  } from 'react-icons/cg';
 import { CgArrowDownR } from 'react-icons/cg';
@@ -16,22 +14,23 @@ import { BsBoundingBox } from 'react-icons/bs';
 import { IconButton } from '@material-ui/core';
 import useLongPress from '../../hooks/useLongpress';
 import { useTimeoutFn } from 'react-use';
+import { FloorPlanTemperatures, FloorPlanTemperaturesConfig } from './FloorPlanTemperatures';
 
-interface Point {
+export interface FloorPlanPoint {
     x: number,
     y: number,
 }
 
 
-interface FloorPlanTemperature {
-    location: Point,
+export interface FloorPlanTemperature {
+    location: FloorPlanPoint,
     deviceId: string,
     converterId?: string,
     classifierId?: string
 }
 
-interface FloorPlanBlinds {
-    location: Point,
+export interface FloorPlanBlinds {
+    location: FloorPlanPoint,
     deviceId: string,
     groups: string[],
 }
@@ -54,35 +53,8 @@ export function FloorPlanWidget({ props }: WidgetProperties) {
         return (devices.get(id) as any) as Blinds;
     }
     */
-    const getTemperatureValue = (temp: FloorPlanTemperature) => {
-        const device = getDevice(temp.deviceId)!
-        const converter = temp.converterId ? getDevice(temp.converterId) as any as AsTemperature : undefined
 
-        if (converter) {
-            return converter.getTemperature(device)
-        } else {
-            const tempDevice = device as any as Temperature
-            if (tempDevice.getTemperature === undefined) {
-                debugger
-            }
-            return tempDevice.getTemperature()
-        }
-    }
 
-    const getTemperatureValueText = (temp: FloorPlanTemperature) => {
-        const value = getTemperatureValue(temp)
-        return value ? value.toFixed(1) + "&deg;" : ""
-    }
-
-    const getTemperatureColor = (temp: FloorPlanTemperature) => {
-        const value = getTemperatureValue(temp)
-        const classifier = temp.classifierId ? getDevice(temp.classifierId) as ValueClassifier : undefined
-        let color = "#707b7c"
-        if (value && classifier) {
-            color = classifier.classify(value.toFixed())!;
-        }
-        return color || "#98a7b9";
-    }
     const refSVG = React.useRef<SVG>(null)
     const refSVGElement = React.useRef<SVGElement>(null)
     const refContainer = React.useRef<HTMLDivElement>(null)
@@ -91,16 +63,24 @@ export function FloorPlanWidget({ props }: WidgetProperties) {
     const [bcrContainer, setBcrContainer] = React.useState<DOMRect>(new DOMRect());
     const [currentBlindsGroup, setCurrentBlindsGroup] = React.useState<string|null>(null);
 
-    const offsetPoint = (point: Point) => {
+    const offsetPoint = (point: FloorPlanPoint) => {
         return {
             x: (bcrSvgGroup.x - bcrContainer.x) + point.x * bcrSvgGroup.width,
             y: (bcrSvgGroup.y - bcrContainer.y) + point.y * bcrSvgGroup.height,
         };
     }
 
-    const getTemperatureLocation = (i: number) => {
-        return offsetPoint(temperatures[i].location)
+
+    const getFloorPlanTemperaturesConfig = (): FloorPlanTemperaturesConfig => {
+        return {
+            temperatures,
+            offsetX: bcrSvgGroup.x - bcrContainer.x,
+            offsetY: bcrSvgGroup.y - bcrContainer.y,
+            referenceWidth: bcrSvgGroup.width,
+            referenceHeight: bcrSvgGroup.height,
+        }
     }
+
     const getBlindsLocation = (i: number) => {
         return offsetPoint(blinds[i].location)
     }
@@ -192,22 +172,7 @@ export function FloorPlanWidget({ props }: WidgetProperties) {
     return (
         <Container ref={refContainer}>
             <StyledSVG onClick={clickOnSVG} ref={refSVG} innerRef={refSVGElement} onLoad={svgLoaded} src={props.src} preserveAspectRatio='xMidYMid meet' />
-            { temperatures && temperatures.map((temp, index) => {
-                return (
-                    <TemperatureBox key={`temp_${temp.deviceId}_box`} style={
-                        {
-                            left: getTemperatureLocation(index).x,
-                            top: getTemperatureLocation(index).y,
-                            width: 0.05 * bcrSvgGroup.width ?? 0,
-                            height: 0.05 * bcrSvgGroup.height ?? 0,
-                        }
-                    }>
-                        <TemperatureIconInner src="svg/small/073-temperature-inner.svg" color={getTemperatureColor(temp)} />
-                        <TemperatureIconOutline src="svg/small/073-temperature-1.svg" />
-                        <TemperatureIconTitle $referenceWidth={bcrSvgGroup.width} dangerouslySetInnerHTML={{ __html: getTemperatureValueText(temp) }} />
-                    </TemperatureBox>
-                )
-            })}
+            <FloorPlanTemperatures {...getFloorPlanTemperaturesConfig()} />
             { blinds && blinds.map((b, index) => {
                 return (                
                     <BlindsBox key={`blinds_${b.deviceId}_box`} style={
@@ -239,43 +204,9 @@ const Container = styled.div`
     text-align: left;
 `
 
-
-const TemperatureBox = styled.div`
-    position: absolute;
-    //width: 5%;
-    //height: 5%;
-    //background-color: rgba(128, 128, 128, .25)
-`
 const BlindsBox = styled.div`
     position: absolute;
 `
-
-const TemperatureIconOutline = styled(SVG)`
-    position: absolute;
-    top: 0;
-    left: 0;
-    & path {
-        fill: "#98a7b9"; 
-    }
-`
-const TemperatureIconInner = styled(SVG) <{ color: string }>`
-    position: absolute;
-    top: 0;
-    left: 0;
-    & path {
-        fill: ${props => `${props.color}`};
-    }
-`
-const TemperatureIconTitle = styled.div<{ $referenceWidth: number }>`
-    position: absolute;
-    top: calc(100% );
-    text-align: center;
-    color: white;
-    font-size: ${props =>  `${props.$referenceWidth * 0.025}px`};
-    width: 100%;
-    //height: 100%;
-`
-
 
 const StyledSVG = styled(SVG)`
     height: 100%;
