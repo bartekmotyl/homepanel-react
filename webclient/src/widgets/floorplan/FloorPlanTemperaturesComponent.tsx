@@ -17,7 +17,7 @@ export interface FloorPlanTemperaturesConfig {
     referenceHeight: number,
 }
 
-export const FloorPlanTemperatures : React.FunctionComponent<FloorPlanTemperaturesConfig> = props => {
+export const FloorPlanTemperaturesComponent : React.FunctionComponent<FloorPlanTemperaturesConfig> = props => {
     const temperatures = props.temperatures
 
     const offsetPoint = (point: FloorPlanPoint) => {
@@ -114,5 +114,4 @@ const TemperatureIconTitle = styled.div<{ $referenceWidth: number }>`
     color: white;
     font-size: ${props =>  `${props.$referenceWidth * 0.025}px`};
     width: 100%;
-    //height: 100%;
 `
