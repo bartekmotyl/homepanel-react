@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import SVG from 'react-inlinesvg';
 import { FloorPlanTemperaturesComponent, FloorPlanTemperaturesConfig } from './FloorPlanTemperaturesComponent';
 import { FloorPlanBlindsComponent, FloorPlanBlindsConfig } from './FloorPlanBlindsComponent';
+import { FloorPlanLightsComponent, FloorPlanLightsConfig } from './FloorPlanLightsComponent';
 
 export interface FloorPlanPoint {
     x: number,
@@ -24,11 +25,17 @@ export interface FloorPlanBlinds {
     groups: string[],
 }
 
+export interface FloorPlanLight {
+    location: FloorPlanPoint,
+    deviceId: string,
+    switchable: boolean,
+}
 
 export function FloorPlanWidget({ props }: WidgetProperties) {
 
     const temperatures: FloorPlanTemperature[] = props.temperatures
     const blinds: FloorPlanBlinds[] = props.blinds 
+    const lights: FloorPlanLight[] = props.lights 
 
     const refSVG = React.useRef<SVG>(null)
     const refSVGElement = React.useRef<SVGElement>(null)
@@ -57,7 +64,15 @@ export function FloorPlanWidget({ props }: WidgetProperties) {
         }
     }
 
-
+    const getFloorPlanLightsConfig = (): FloorPlanLightsConfig => {
+        return {
+            lights,
+            offsetX: bcrSvgGroup.x - bcrContainer.x,
+            offsetY: bcrSvgGroup.y - bcrContainer.y,
+            referenceWidth: bcrSvgGroup.width,
+            referenceHeight: bcrSvgGroup.height,
+        }
+    }
 
     const svgLoaded = () => {
         const svgGroupElement = refSVGElement.current?.getElementsByTagName('g')[0]
@@ -66,11 +81,13 @@ export function FloorPlanWidget({ props }: WidgetProperties) {
     }
 
     const clickOnSVG = (event: React.MouseEvent<SVGElement, MouseEvent>) => {
-        //const svgGroupElement = refSVGElement.current?.getElementsByTagName('g')[0]
-        //const svgRect = svgGroupElement?.getBoundingClientRect()!
-        //const posX = event.clientX - svgRect.x
-        //const posY = event.clientY - svgRect.y
-        //alert(`[${(posX / svgRect.width).toFixed(3)}, ${(posY / svgRect.height).toFixed(3)}]`)
+        if (event.altKey) {
+            const svgGroupElement = refSVGElement.current?.getElementsByTagName('g')[0]
+            const svgRect = svgGroupElement?.getBoundingClientRect()!
+            const posX = event.clientX - svgRect.x
+            const posY = event.clientY - svgRect.y
+            console.log(`[${(posX / svgRect.width).toFixed(3)}, ${(posY / svgRect.height).toFixed(3)}]`)
+        }
     }
 
     return (
@@ -78,6 +95,7 @@ export function FloorPlanWidget({ props }: WidgetProperties) {
             <StyledSVG onClick={clickOnSVG} ref={refSVG} innerRef={refSVGElement} onLoad={svgLoaded} src={props.src} preserveAspectRatio='xMidYMid meet' />
             <FloorPlanTemperaturesComponent {...getFloorPlanTemperaturesConfig()} />
             <FloorPlanBlindsComponent {...getFloorPlanBlindsConfig()} />
+            <FloorPlanLightsComponent {...getFloorPlanLightsConfig()} />
         </Container>
     );
 }

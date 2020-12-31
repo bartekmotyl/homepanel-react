@@ -29,6 +29,21 @@ const defaultDevicesConfiguration: DeviceConfiguration[] = [
     createDevice('INodeTemperatureSensorDevice', ['homepanel', 'ble-sensor-00126fc21c10', 'Serwerownia']),
 
     createDevice('SwitchDevice', ['homepanel', 'wiatrolap-lampa', 'Wiatrołap']),
+    createDevice('SwitchDevice', ['homepanel', 'hall-parter-lampa', 'Hall']),
+    createDevice('SwitchDevice', ['homepanel', 'schody-lampa', 'Schody']),
+    createDevice('SwitchDevice', ['homepanel', 'kuchnia-lampa', 'Kuchnia']),
+    createDevice('SwitchDevice', ['homepanel', 'jadalnia-lampa', 'Jadalnia']),
+    createDevice('SwitchDevice', ['homepanel', 'salon-led', 'Salon LED']),
+    createDevice('SwitchDevice', ['homepanel', 'salon-tv', 'Salon TV']),
+    createDevice('SwitchDevice', ['homepanel', 'salon-kominek', 'Salon kominek']),
+    createDevice('SwitchDevice', ['homepanel', 'salon-kinkiety', 'Salon kinkiety']),
+    createDevice('SwitchDevice', ['homepanel', 'salon-halogeny-okno', 'Salon halogeny okno']),
+    createDevice('SwitchDevice', ['homepanel', 'salon-halogeny-tyl', 'Salon halogeny tył']),
+    createDevice('SwitchDevice', ['homepanel', 'garaz-lampa', 'Garaż']),
+    createDevice('SwitchDevice', ['homepanel', 'kuchnia-kinkiet', 'Kuchnia kinkiet']),
+    createDevice('SwitchDevice', ['homepanel', 'hall-parter-kinkiet', 'Hall parter kinkiet']),
+    
+
 
     createDeviceBlinds(['homepanel', 'roleta-kuchnia', 'Kuchnia']),
     createDeviceBlinds(['homepanel', 'roleta-jadalnia-drzwi', 'Jadalnia (drzwi)']),

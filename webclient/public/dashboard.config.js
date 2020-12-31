@@ -66,14 +66,6 @@
             }
         }
     }
-    const floorPlanElementRect = (x, y, width, height) => {
-        return {
-            x, 
-            y, 
-            width, 
-            height, 
-        }        
-    }
 
     const floorPlanElementLocation = (x, y) => {
         return {
@@ -82,13 +74,14 @@
         }        
     }
 
-    const floorPlanWidget = (src, temperatures, blinds) => {
+    const floorPlanWidget = (src, temperatures, blinds, lights) => {
         return {
-            "type": 'floorPlanWidget',
-            "properties": {
-                "src": src,
-                "temperatures": temperatures,
+            'type': 'floorPlanWidget',
+            'properties': {
+                'src': src,
+                'temperatures': temperatures,
                 'blinds': blinds,  
+                'lights': lights,
             }
         }
     }
@@ -118,6 +111,13 @@
         )
     } 
 
+    const floorPlanLight = (deviceId, x, y, switchable) => {
+        return {
+            location: floorPlanElementLocation(x, y),
+            deviceId, 
+            switchable, 
+        }
+    }    
 
     const leftSideTabs = tabsWidget({ width: "22rem", tabsVisible: true }, [
         page('Główne', [
@@ -188,6 +188,23 @@
                 floorPlanBlinds('roleta-jadalnia-lewa', 0.800, 0.330, ['rolety-jadalnia', 'rolety-jadalnia-i-kuchnia', 'rolety-kuchnia-i-jadalnia-plus-drzwi', 'rolety-parter', ]),
                 floorPlanBlinds('roleta-jadalnia-prawa', 0.800, 0.450, ['rolety-jadalnia', 'rolety-jadalnia-i-kuchnia', 'rolety-kuchnia-i-jadalnia-plus-drzwi', 'rolety-parter']),
                 floorPlanBlinds('roleta-jadalnia-drzwi', 0.823, 0.150, ['rolety-kuchnia-i-jadalnia-plus-drzwi', 'rolety-parter']),
+            ], [
+                floorPlanLight('wiatrolap-lampa', 0.389, 0.648, true),
+                floorPlanLight('salon-led', 0.360, 0.055, true),
+                floorPlanLight('salon-kinkiety', 0.361, 0.332, true),
+                floorPlanLight('hall-parter-lampa', 0.546, 0.508, true),
+                floorPlanLight('salon-kominek', 0.619, 0.341, true),
+                floorPlanLight('salon-tv', 0.722, 0.166, true),
+                floorPlanLight('salon-halogeny-okno', 0.518, 0.135, true),
+                floorPlanLight('salon-halogeny-tyl', 0.399, 0.197, true),
+                floorPlanLight('jadalnia-lampa', 0.720, 0.401, true),
+                floorPlanLight('kuchnia-lampa', 0.778, 0.636, true),
+                floorPlanLight('kuchnia-kinkiet', 0.883, 0.627, true),
+
+                floorPlanLight('schody-lampa', 0.348, 0.445, true),
+                floorPlanLight('garaz-lampa', 0.157, 0.542, true),
+                
+                
             ])
         ]),
         /*
