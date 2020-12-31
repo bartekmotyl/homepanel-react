@@ -42,8 +42,9 @@ const defaultDevicesConfiguration: DeviceConfiguration[] = [
     createDevice('SwitchDevice', ['homepanel', 'garaz-lampa', 'Garaż']),
     createDevice('SwitchDevice', ['homepanel', 'kuchnia-kinkiet', 'Kuchnia kinkiet']),
     createDevice('SwitchDevice', ['homepanel', 'hall-parter-kinkiet', 'Hall parter kinkiet']),
+    createDevice('SwitchDevice', ['homepanel', 'lazienka-parter-sufit', 'Łazienka parter sufit']),
+    createDevice('SwitchDevice', ['homepanel', 'lazienka-parter-lustro', 'Łazienka parter lustro']),
     
-
 
     createDeviceBlinds(['homepanel', 'roleta-kuchnia', 'Kuchnia']),
     createDeviceBlinds(['homepanel', 'roleta-jadalnia-drzwi', 'Jadalnia (drzwi)']),

@@ -176,7 +176,7 @@
                 floorPlanTemperatureSimpleSensor('ble-sensor-582d34364ee7', 0.135, 0.713), // Garaż
                 floorPlanTemperatureSimpleSensor('ble-sensor-4c65a8df6a72', 0.698, 0.538), // Jadalnia
                 floorPlanTemperatureSimpleSensor('ble-sensor-00126fc21ca1', 0.382, 0.724), // Wiatrołap
-                floorPlanTemperatureSimpleSensor('ble-sensor-00126fc21bb7', 0.545, 0.781), // Łazienka parter
+                floorPlanTemperatureSimpleSensor('ble-sensor-00126fc21bb7', 0.570, 0.800), // Łazienka parter
                 floorPlanTemperatureSimpleSensor('ble-sensor-582d34364f04', 0.037, 0.168), // Drukarka 3D
                 floorPlanTemperatureSimpleSensor('ble-sensor-00126fc21b0a', 0.142, 0.245), // Kotłownia
                 floorPlanTemperatureSimpleSensor('ble-sensor-00126fc21c10', 0.345, 0.510), // Serwerownia
@@ -192,7 +192,8 @@
                 floorPlanLight('wiatrolap-lampa', 0.389, 0.648, true),
                 floorPlanLight('salon-led', 0.360, 0.055, true),
                 floorPlanLight('salon-kinkiety', 0.361, 0.332, true),
-                floorPlanLight('hall-parter-lampa', 0.546, 0.508, true),
+                floorPlanLight('hall-parter-lampa', 0.518, 0.471, true),
+                floorPlanLight('hall-parter-kinkiet', 0.576, 0.559, true),
                 floorPlanLight('salon-kominek', 0.619, 0.341, true),
                 floorPlanLight('salon-tv', 0.722, 0.166, true),
                 floorPlanLight('salon-halogeny-okno', 0.518, 0.135, true),
@@ -200,6 +201,11 @@
                 floorPlanLight('jadalnia-lampa', 0.720, 0.401, true),
                 floorPlanLight('kuchnia-lampa', 0.778, 0.636, true),
                 floorPlanLight('kuchnia-kinkiet', 0.883, 0.627, true),
+
+                floorPlanLight('lazienka-parter-lustro', 0.514, 0.760, true),
+                floorPlanLight('lazienka-parter-sufit', 0.580, 0.745, true),
+                
+                
 
                 floorPlanLight('schody-lampa', 0.348, 0.445, true),
                 floorPlanLight('garaz-lampa', 0.157, 0.542, true),
