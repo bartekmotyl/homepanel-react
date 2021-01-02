@@ -213,9 +213,9 @@
         /*
         */
         page('Inne', [
-            tabsWidget({ width: "100%", tabsVisible: true }, [
+            tabsWidget({ tabsVisible: true }, [
                 page('Timery', [
-                    widget('localTimerWidget', 'timer-1-minute', {title: '2 minuty'}),
+                    widget('localTimerWidget', 'timer-1-minute', {title: '1 minuta'}),
                     widget('localTimerWidget', 'timer-2-minute', {title: '2 minuty'}),
                     widget('localTimerWidget', 'timer-3-minute', {title: '3 minuty'}),
                     widget('localTimerWidget', 'timer-4-minute', {title: '4 minuty'}),
@@ -238,7 +238,7 @@
                 ]),
               
                 page('Kamery', [
-                    tabsWidget({ width: "100%", tabsVisible: true }, [
+                    tabsWidget({ tabsVisible: true }, [
                         page('Ulica', [
                             widget('remoteImageWidget', 'remote-image-gallery', { src: 'http://192.168.55.103/tmpfs/snap.jpg?usr=admin&pwd=admin'})
                         ]),
@@ -259,7 +259,7 @@
             ]),            
         ]),
         page('Muzyka', [
-            tabsWidget({ width: "100%", tabsVisible: true }, [
+            tabsWidget({ tabsVisible: true }, [
                 page('Kuchnia', [
                     widget('iframeWidget', 'nodev-volumio-kuchnia-iframe', { url: 'http://192.168.1.59'}),
                 ]),
@@ -277,7 +277,8 @@
                    leftSideTabs, 
                     rightSideTabs,
                 ]),
-                widget('dummyClockLabelWidget')
+                widget('dummyClockLabelWidget'),
+                widget('localTimerWidgetSound'),
             ],
         }
     }

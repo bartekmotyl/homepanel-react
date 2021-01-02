@@ -16,6 +16,7 @@ import { DummyClockLabelWidget } from './DummyClockLabelWidget';
 import { ReloadWidget } from './ReloadWidget';
 import { IframeWidget } from './IframeWidget';
 import { LocalTimerWidget } from './LocalTimerWidget';
+import { LocalTimerWidgetSound } from './LocalTimerWidgetSound';
 
 //TODO: is it possible to fill this map automatically from all widgets available in this folder/subfolders?
 const widgetTypes = {
@@ -35,6 +36,7 @@ const widgetTypes = {
     'reloadWidget': ReloadWidget,
     'iframeWidget': IframeWidget,
     'localTimerWidget': LocalTimerWidget,
+    'localTimerWidgetSound': LocalTimerWidgetSound,
 }
 
 type WidgetTypeKey = keyof typeof widgetTypes
