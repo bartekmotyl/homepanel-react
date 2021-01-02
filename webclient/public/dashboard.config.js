@@ -237,6 +237,16 @@
         
         page('Inne', [
             widget('reloadWidget', 'reload-widget-1'),
+            widget('timerWidget', 'timer-1-minute', {duration: 'PT1M', title: '1 minuta'}),
+            widget('timerWidget', 'timer-5-seconds', {duration: 'PT5S', title: '5 sekund'}),
+        ]),
+
+        page('Muzyka', [
+            tabsWidget({ width: "calc(100vw - 23rem)", tabsVisible: true }, [
+                page('Kuchnia', [
+                    widget('iframeWidget', 'volumio-kuchnia', { url: 'http://192.168.1.59'}),
+                ]),
+            ])
         ]),
         
     ])
