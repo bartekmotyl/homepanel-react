@@ -163,9 +163,6 @@
         page('Piętro', [
             widget('blindsWidget', 'rolety-grupa-pietro-okna-sypialnie'),
         ]),
-        page('Galeria', [
-            widget('remoteImageWidget', 'remote-image-gallery', { src: 'http://192.168.1.111/bartek/photo-feed/photo-feed.php'})
-        ]),        
         page('Parter Plan', [
             floorPlanWidget('floor-plan-parter.svg', [
                 floorPlanTemperatureSimpleSensor('owire-sensor-cwu-zasilanie', 0.228, 0.112, 
@@ -215,40 +212,62 @@
         ]),
         /*
         */
-        page('Kamery', [
-            tabsWidget({ width: "100%", tabsVisible: true }, [
-                page('Ulica', [
-                    widget('remoteImageWidget', 'remote-image-gallery', { src: 'http://192.168.55.103/tmpfs/snap.jpg?usr=admin&pwd=admin'})
-                ]),
-                page('Ogródek', [
-                    widget('remoteImageWidget', 'remote-image-gallery', { src: 'http://192.168.55.102/tmpfs/snap.jpg?usr=admin&pwd=admin'})
-                ]),
-                page('Garaż', [
-                    widget('remoteImageWidget', 'remote-image-gallery', { src: 'http://192.168.55.101/cgi-bin/snapshot.cgi?usr=admin&pwd=123456'})
-                ]),
-                page('Kotłownia', [
-                    widget('remoteImageWidget', 'remote-image-gallery', { src: 'http://192.168.55.104/cgi-bin/snapshot.cgi?usr=admin&pwd=123456'})
-                ]),
-                page('Domek', [
-                    widget('remoteImageWidget', 'remote-image-gallery', { src: 'http://192.168.1.54:8088/?action=snapshot'})
-                ]),
-            ]),        
-        ]), 
-        
         page('Inne', [
-            widget('reloadWidget', 'reload-widget-1'),
-            widget('timerWidget', 'timer-1-minute', {duration: 'PT1M', title: '1 minuta'}),
-            widget('timerWidget', 'timer-5-seconds', {duration: 'PT5S', title: '5 sekund'}),
+            tabsWidget({ width: "100%", tabsVisible: true }, [
+                page('Timery', [
+                    widget('localTimerWidget', 'timer-1-minute', {title: '2 minuty'}),
+                    widget('localTimerWidget', 'timer-2-minute', {title: '2 minuty'}),
+                    widget('localTimerWidget', 'timer-3-minute', {title: '3 minuty'}),
+                    widget('localTimerWidget', 'timer-4-minute', {title: '4 minuty'}),
+                    widget('localTimerWidget', 'timer-5-minute', {title: '5 minut'}),
+                    widget('localTimerWidget', 'timer-8-minute', {title: '8 minut'}),
+                    widget('localTimerWidget', 'timer-9-minute', {title: '9 minut'}),
+                    widget('localTimerWidget', 'timer-10-minute', {title: '10 minut'}),
+                    widget('localTimerWidget', 'timer-10a-minute', {title: '10 minut'}),
+                    widget('localTimerWidget', 'timer-12-minute', {title: '12 minut'}),
+                    widget('localTimerWidget', 'timer-15-minute', {title: '15 minut'}),
+                    widget('localTimerWidget', 'timer-20-minute', {title: '20 minut'}),
+                    widget('localTimerWidget', 'timer-30-minute', {title: '30 minut'}),
+                    widget('localTimerWidget', 'timer-60-minute', {title: '60 minut'}),
+                    widget('localTimerWidget', 'timer-90-minute', {title: '90 minut'}),
+                    widget('localTimerWidget', 'timer-120-minute', {title: '120 minut'}),
+                    widget('localTimerWidget', 'timer-180-minute', {title: '190 minut'}),
+                ]),
+                page('Narzędzia', [
+                    widget('reloadWidget', 'nodev-reload-widget-1'),
+                ]),
+              
+                page('Kamery', [
+                    tabsWidget({ width: "100%", tabsVisible: true }, [
+                        page('Ulica', [
+                            widget('remoteImageWidget', 'remote-image-gallery', { src: 'http://192.168.55.103/tmpfs/snap.jpg?usr=admin&pwd=admin'})
+                        ]),
+                        page('Ogródek', [
+                            widget('remoteImageWidget', 'remote-image-gallery', { src: 'http://192.168.55.102/tmpfs/snap.jpg?usr=admin&pwd=admin'})
+                        ]),
+                        page('Garaż', [
+                            widget('remoteImageWidget', 'remote-image-gallery', { src: 'http://192.168.55.101/cgi-bin/snapshot.cgi?usr=admin&pwd=123456'})
+                        ]),
+                        page('Kotłownia', [
+                            widget('remoteImageWidget', 'remote-image-gallery', { src: 'http://192.168.55.104/cgi-bin/snapshot.cgi?usr=admin&pwd=123456'})
+                        ]),
+                        page('Domek', [
+                            widget('remoteImageWidget', 'remote-image-gallery', { src: 'http://192.168.1.54:8088/?action=snapshot'})
+                        ]),
+                    ]),        
+                ]),  
+            ]),            
         ]),
-
         page('Muzyka', [
-            tabsWidget({ width: "calc(100vw - 23rem)", tabsVisible: true }, [
+            tabsWidget({ width: "100%", tabsVisible: true }, [
                 page('Kuchnia', [
-                    widget('iframeWidget', 'volumio-kuchnia', { url: 'http://192.168.1.59'}),
+                    widget('iframeWidget', 'nodev-volumio-kuchnia-iframe', { url: 'http://192.168.1.59'}),
                 ]),
             ])
         ]),
-        
+        page('Galeria', [
+            widget('remoteImageWidget', 'nodev-remote-image-gallery', { src: 'http://192.168.1.111/bartek/photo-feed/photo-feed.php'})
+        ]),
     ])
 
     const dashboard = {

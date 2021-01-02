@@ -17,6 +17,12 @@ const createDeviceBlinds = (args: any[]) => {
 }
 
 
+const createDeviceTimer = (connectorId: string, deviceId: string, name: string, duration: string) => {
+    return createDevice('TimerDevice', [connectorId, deviceId, name, duration])
+}
+
+
+
 const defaultDevicesConfiguration: DeviceConfiguration[] = [
     createDevice('XiaomiTemperatureSensorDevice', ['homepanel', 'ble-sensor-4c65a8df7d03', 'Salon']),
     createDevice('XiaomiTemperatureSensorDevice', ['homepanel', 'ble-sensor-4c65a8df6a72', 'Jadalnia']),
@@ -45,6 +51,23 @@ const defaultDevicesConfiguration: DeviceConfiguration[] = [
     createDevice('SwitchDevice', ['homepanel', 'lazienka-parter-sufit', 'Łazienka parter sufit']),
     createDevice('SwitchDevice', ['homepanel', 'lazienka-parter-lustro', 'Łazienka parter lustro']),
     
+    createDeviceTimer('timers', 'timer-1-minute', '1 minuta', 'PT1M'),
+    createDeviceTimer('timers', 'timer-2-minute', '2 minuty', 'PT2M'),
+    createDeviceTimer('timers', 'timer-3-minute', '3 minuty', 'PT3M'),
+    createDeviceTimer('timers', 'timer-4-minute', '4 minuty', 'PT4M'),
+    createDeviceTimer('timers', 'timer-5-minute', '5 minut', 'PT5M'),
+    createDeviceTimer('timers', 'timer-8-minute', '8 minut', 'PT8M'),
+    createDeviceTimer('timers', 'timer-9-minute', '9 minut', 'PT9M'),
+    createDeviceTimer('timers', 'timer-10-minute', '10 minut', 'PT10M'),
+    createDeviceTimer('timers', 'timer-10a-minute', '10 minut', 'PT10M'),
+    createDeviceTimer('timers', 'timer-12-minute', '12 minut', 'PT12M'),
+    createDeviceTimer('timers', 'timer-15-minute', '15 minut', 'PT15M'),
+    createDeviceTimer('timers', 'timer-20-minute', '20 minut', 'PT20M'),
+    createDeviceTimer('timers', 'timer-30-minute', '30 minut', 'PT30M'),
+    createDeviceTimer('timers', 'timer-60-minute', '60 minut', 'PT60M'),
+    createDeviceTimer('timers', 'timer-90-minute', '90 minut', 'PT90M'),
+    createDeviceTimer('timers', 'timer-120-minute', '120 minut', 'PT120M'),
+    createDeviceTimer('timers', 'timer-180-minute', '180 minut', 'PT180M'),
 
     createDeviceBlinds(['homepanel', 'roleta-kuchnia', 'Kuchnia']),
     createDeviceBlinds(['homepanel', 'roleta-jadalnia-drzwi', 'Jadalnia (drzwi)']),

@@ -10,6 +10,7 @@ import { BlindsGroupDevice } from '../devices/implementations/generic/BlindsGrou
 import { CompositeValueDevice } from '../devices/implementations/generic/CompositeValueDevice';
 import { SimpleValueDevice } from '../devices/implementations/generic/SimpleValueDevice';
 import { DoorSensorDevice } from '../devices/implementations/generic/DoorSensorDevice';
+import { TimerDevice } from '../devices/implementations/generic/TimerDevice';
 import { HPRadiatorThermostatDevice } from '../devices/implementations/custom/homepanel/HPRadiatorThermostatDevice';
 import { PingDevice } from '../devices/implementations/custom/homepanel/PingDevice';
 import { CompositeValueAsTemperatureConverter } from '../registry/converters/CompositeValueAsTemperatureConverter';
@@ -50,6 +51,7 @@ const knownTypes: any = {
     HPRadiatorThermostatDevice,
     PingDevice,
     BlindsGroupDevice,
+    TimerDevice,
     CompositeValueAsTemperatureConverter,
     CompositeValueAsNumberConverter,
     ThermostatAsTemperatureConverter,

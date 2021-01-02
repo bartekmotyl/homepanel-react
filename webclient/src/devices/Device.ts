@@ -16,6 +16,7 @@ export interface ConnectedDevice extends Device {
     getConnectorId(): string;
     acceptData(update: DeviceUpdate): Device;   
     isUpToDate(): boolean; 
+    getRawData(): any;
 }
 
 
@@ -52,7 +53,7 @@ export abstract class ConnectedDeviceBase extends DeviceBase implements Connecte
         return this.acceptDataIntneral(update)
     }
 
-    acceptDataIntneral(update: DeviceUpdate): Device {
+    protected acceptDataIntneral(update: DeviceUpdate): Device {
         const cloned = clone(this)
         cloned.data = update.data
         return cloned
@@ -60,6 +61,10 @@ export abstract class ConnectedDeviceBase extends DeviceBase implements Connecte
 
     getConnectorId(): string {
         return this.connectorId;
+    }
+
+    getRawData(): any {
+        return this.data;
     }
 
     public isUpToDate(): boolean {

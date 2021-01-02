@@ -39,6 +39,8 @@ export const FloorPlanLightsComponent : React.FunctionComponent<FloorPlanLightsC
         const devLight = getDevice(light.deviceId)! as any as Light
         return devLight.getState()
     }
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const getLightTitle = (light: FloorPlanLight) => {
         const devLight = getDevice(light.deviceId)!
         return devLight.getName()
@@ -98,6 +100,7 @@ const LightIconOff = styled(SVG)`
         fill: white;
     }
 `
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const LightIconTitle = styled.div<{ $referenceWidth: number }>`
     position: absolute;
     top: calc(100% );
