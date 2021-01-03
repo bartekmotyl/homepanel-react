@@ -210,6 +210,36 @@
                 
             ])
         ]),
+
+        page('Piętro Plan', [
+            floorPlanWidget('floor-plan-pietro.svg', [
+                floorPlanTemperatureSimpleSensor('ble-sensor-4c65a8d95832', 0.184, 0.394), // Sypialnia
+                floorPlanTemperatureSimpleSensor('ble-sensor-4c65a8d94592', 0.595, 0.163), // Mały pokój / Daniel
+                floorPlanTemperatureSimpleSensor('ble-sensor-00126fd655c4', 0.038, 0.265), // Garderoba
+                floorPlanTemperatureSimpleSensor('ble-sensor-4c65a8d07cad', 0.704, 0.243), // Dyży pokój/ Nina
+                floorPlanTemperatureSimpleSensor('ble-sensor-4c65a8d0349f', 0.346, 0.727), // Łazienka piętro
+                floorPlanTemperatureSimpleSensor('ble-sensor-4c65a8d9497b', 0.664, 0.652), // Gabinet
+            ], [
+                floorPlanBlinds('roleta-dziecko', 0.500, 0.043, ['rolety-dziecko-wszystkie', 'rolety-okna-sypialnie', 'rolety-okna-pietro', 'rolety-wszystkie-pietro']),
+                floorPlanBlinds('roleta-goscinny', 0.690, 0.043, ['rolety-goscinny-wszystkie', 'rolety-okna-sypialnie', 'rolety-okna-pietro', 'rolety-wszystkie-pietro']),
+                floorPlanBlinds('roleta-gabinet', 0.708, 0.800, ['rolety-okna-pietro', 'rolety-wszystkie-pietro']),
+                floorPlanBlinds('roleta-lazienka', 0.456, 0.800, ['rolety-okna-sypialnie', 'rolety-okna-pietro', 'rolety-wszystkie-pietro']),
+                floorPlanBlinds('roleta-sypialnia', 0.030, 0.500, ['rolety-okna-sypialnie', 'rolety-okna-pietro', 'rolety-wszystkie-pietro']),
+                floorPlanBlinds('roleta-polaciowa-dziecko', 0.336, 0.105, ['rolety-dziecko-wszystkie', 'rolety-polaciowe', 'rolety-wszystkie-pietro']),
+                floorPlanBlinds('roleta-polaciowa-goscinny-lewa', 0.800, 0.185, ['rolety-polaciowe-goscinny', 'rolety-goscinny-wszystkie', 'rolety-polaciowe', 'rolety-wszystkie-pietro']),
+                floorPlanBlinds('roleta-polaciowa-goscinny-prawa', 0.800, 0.265, ['rolety-polaciowe-goscinny', 'rolety-goscinny-wszystkie', 'rolety-polaciowe', 'rolety-wszystkie-pietro']),
+                floorPlanBlinds('roleta-polaciowa-gabinet-lewa', 0.800, 0.545, ['rolety-polaciowe-gabinet', 'rolety-polaciowe', 'rolety-wszystkie-pietro']),
+                floorPlanBlinds('roleta-polaciowa-gabinet-prawa', 0.800, 0.625, ['rolety-polaciowe-gabinet', 'rolety-polaciowe', 'rolety-wszystkie-pietro']),
+                floorPlanBlinds('roleta-polaciowa-sypialnia-lozko', 0.065, 0.800, ['rolety-polaciowe-sypialnia', 'rolety-polaciowe', 'rolety-wszystkie-pietro']),
+                floorPlanBlinds('roleta-polaciowa-sypialnia-garderoba', 0.065, 0.200, ['rolety-polaciowe-sypialnia', 'rolety-polaciowe', 'rolety-wszystkie-pietro']),
+            ], [
+                floorPlanLight('gabinet-lampa-lewa', 0.740, 0.570, true),
+                floorPlanLight('gabinet-lampa-prawa', 0.740, 0.700, true),
+                floorPlanLight('sypialnia-kinkiet-lewy', 0.240, 0.500, true),
+                floorPlanLight('sypialnia-kinkiet-prawy', 0.240, 0.700, true),
+            ]),
+        ]),
+
         /*
         */
         page('Inne', [
@@ -255,6 +285,9 @@
                             widget('remoteImageWidget', 'remote-image-gallery', { src: 'http://192.168.1.54:8088/?action=snapshot'})
                         ]),
                     ]),        
+                ]),  
+                page('Grafana', [
+                    widget('iframeWidget', 'nodev-grafana-iframe', { url: 'http://192.168.1.111:3000/d/o2Hg8TAmk/temperatury?orgId=1'}),
                 ]),  
             ]),            
         ]),

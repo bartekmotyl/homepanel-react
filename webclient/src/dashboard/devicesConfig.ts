@@ -34,6 +34,13 @@ const defaultDevicesConfiguration: DeviceConfiguration[] = [
     createDevice('INodeTemperatureSensorDevice', ['homepanel', 'ble-sensor-00126fc21c3e', 'Na dworze']),
     createDevice('INodeTemperatureSensorDevice', ['homepanel', 'ble-sensor-00126fc21c10', 'Serwerownia']),
 
+    createDevice('XiaomiTemperatureSensorDevice', ['homepanel', 'ble-sensor-4c65a8d95832', 'Sypialnia']),
+    createDevice('XiaomiTemperatureSensorDevice', ['homepanel', 'ble-sensor-4c65a8d94592', 'Mały pokój (Daniel)']),
+    createDevice('XiaomiTemperatureSensorDevice', ['homepanel', 'ble-sensor-4c65a8d07cad', 'Duży pokój (Nina)']),
+    createDevice('XiaomiTemperatureSensorDevice', ['homepanel', 'ble-sensor-4c65a8d9497b', 'Gabinet']),
+    createDevice('XiaomiTemperatureSensorDevice', ['homepanel', 'ble-sensor-4c65a8d0349f', 'Łazienka pętro']),
+    createDevice('INodeTemperatureSensorDevice', ['homepanel', 'ble-sensor-00126fd655c4', 'Garderoba']),
+
     createDevice('SwitchDevice', ['homepanel', 'wiatrolap-lampa', 'Wiatrołap']),
     createDevice('SwitchDevice', ['homepanel', 'hall-parter-lampa', 'Hall']),
     createDevice('SwitchDevice', ['homepanel', 'schody-lampa', 'Schody']),
@@ -50,6 +57,11 @@ const defaultDevicesConfiguration: DeviceConfiguration[] = [
     createDevice('SwitchDevice', ['homepanel', 'hall-parter-kinkiet', 'Hall parter kinkiet']),
     createDevice('SwitchDevice', ['homepanel', 'lazienka-parter-sufit', 'Łazienka parter sufit']),
     createDevice('SwitchDevice', ['homepanel', 'lazienka-parter-lustro', 'Łazienka parter lustro']),
+    
+    createDevice('SwitchDevice', ['homepanel', 'sypialnia-kinkiet-lewy', 'Sypialnia kinkiet lewy']),
+    createDevice('SwitchDevice', ['homepanel', 'sypialnia-kinkiet-prawy', 'Sypialnia kinkiet prawy']),
+    createDevice('SwitchDevice', ['homepanel', 'gabinet-lampa-lewa', 'Gabinet lampa lewa']),
+    createDevice('SwitchDevice', ['homepanel', 'gabinet-lampa-prawa', 'Gabinet lampa prawa']),
     
     createDeviceTimer('timers', 'timer-1-minute', '1 minuta', 'PT1M'),
     createDeviceTimer('timers', 'timer-2-minute', '2 minuty', 'PT2M'),
