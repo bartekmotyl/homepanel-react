@@ -40,7 +40,7 @@ Connectors act as bridges between homepanel-react and external system that we in
 
 Simplest example of a connector is a module that periodically fetches temperature from weather-forecast page (or API) and makes it available in homepanel-react.  
 
-More complex example can be [FHEM] (https://fhem.de/) connector that exposes FHEM devices in homepanel-react.
+More complex example can be [FHEM](https://fhem.de/) connector that exposes FHEM devices in homepanel-react.
 
 Connectors are implemented as react (redux) middlewares and it is possible to write own connectors easily. 
 
@@ -86,7 +86,7 @@ It is of course possible to extend it by new connectors, devices and widgets (I 
 
 
 # History
-The whole *homepanel* story started when I installed in my house some elements of home automation based on [Loxone](https://www.loxone.com) and [Homematic](https://www.eq-3.com/products/homematic.html) controlled by [FHEM] (https://fhem.de/). As these were separate systems there was no simple way to integrate them in a nice UI, preferably touch enale. I wanted to have a dashboard (panel) with active elements to control devices from these systems in a unified way. 
+The whole *homepanel* story started when I installed in my house some elements of home automation based on [Loxone](https://www.loxone.com) and [Homematic](https://www.eq-3.com/products/homematic.html) controlled by [FHEM](https://fhem.de/). As these were separate systems there was no simple way to integrate them in a nice UI, preferably touch enale. I wanted to have a dashboard (panel) with active elements to control devices from these systems in a unified way. 
 At that time home-automation solutions that used touch panels were extremely expensive.
 On the other hand, simple android tablets were relatively cheap, so I decided to write my own solution as an android app with [libgdx](https://libgdx.badlogicgames.com/).
 The app was written in java and also used connectors, devices and widgets. 
