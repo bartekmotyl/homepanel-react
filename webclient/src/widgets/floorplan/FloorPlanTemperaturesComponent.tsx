@@ -45,21 +45,18 @@ export const FloorPlanTemperaturesComponent : React.FunctionComponent<FloorPlanT
             return converter.getTemperature(device)
         } else {
             const tempDevice = device as any as Temperature
-            if (tempDevice.getTemperature === undefined) {
-                debugger
-            }
             return tempDevice.getTemperature()
         }
     }
     const getTemperatureValueText = (temp: FloorPlanTemperature) => {
         const value = getTemperatureValue(temp)
-        return value ? value.toFixed(1) + "&deg;" : ""
+        return value  && typeof value === 'number' ? value.toFixed(1) + "&deg;" : "N/A"
     }
     const getTemperatureColor = (temp: FloorPlanTemperature) => {
         const value = getTemperatureValue(temp)
         const classifier = temp.classifierId ? getDevice(temp.classifierId) as ValueClassifier : undefined
         let color = "#707b7c"
-        if (value && classifier) {
+        if (value && classifier && typeof value === 'number') {
             color = classifier.classify(value.toFixed())!;
         }
         return color || "#98a7b9";

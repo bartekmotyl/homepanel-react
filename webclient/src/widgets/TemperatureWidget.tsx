@@ -11,7 +11,7 @@ export function TemperatureWidget({ props }: WidgetProperties) {
     const device = devices.get(deviceId);
     const temperature = device as Temperature | undefined;
     const value = temperature?.getTemperature(); 
-    const data = value ? value.toFixed(1) : 'N/A';
+    const data = value && typeof value === 'number' ? value.toFixed(1) : 'N/A';
     return (
       <WidgetContainerSquare>
           <WidgetContent><WidgetFontHeadline>{data}°</WidgetFontHeadline></WidgetContent> 
