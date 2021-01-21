@@ -9,9 +9,9 @@ const knownTypes: any = {
 
 
 
-export const createConnectorDynamically = (clazz: string): IConnector => {
+export const createConnectorDynamically = (clazz: string, id: string): IConnector => {
     if (knownTypes[clazz] === undefined || knownTypes[clazz] === null) {
         throw new Error(`Class type of '${clazz}' is not known.`);
     }
-    return new knownTypes[clazz]();    
+    return new knownTypes[clazz](id);    
 }

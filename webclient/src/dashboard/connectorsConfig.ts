@@ -1,6 +1,7 @@
 import { createConnectorDynamically } from "../middleware/connectorsFactory";
 import { MiddlewareAPI } from "@reduxjs/toolkit";
 import { fetchTextAsync } from "../utils/fetchUtils";
+import { registerConnector } from "../middleware/connectorsMiddleware";
 
 export interface  ConnectorConfiguration {
     type: string, 
@@ -14,7 +15,8 @@ export const configureConnectors = async (store: MiddlewareAPI) => {
     // eslint-disable-next-line no-eval
     const configConnectors = eval(configConnectorsJs) as ConnectorConfiguration[]
     configConnectors.forEach(cfg => {
-        const connector = createConnectorDynamically(cfg.type)
+        const connector = createConnectorDynamically(cfg.type, cfg.id)
+        registerConnector(connector)
         connector.connect(store, cfg.arg)
     })
 }

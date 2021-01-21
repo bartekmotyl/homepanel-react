@@ -19,7 +19,8 @@ export const connectorsMiddleware: Middleware = api => next => (action: PayloadA
     const parts = action.type.split('/')
     if (parts.length > 2 && parts[0] === 'connector') {
         const connectorId = parts[1]
-        connectors.get(connectorId)?.processAction(api, action)
+        const connector = connectors.get(connectorId)
+        connector?.processAction(api, action)
     }
     return next(action);
 };

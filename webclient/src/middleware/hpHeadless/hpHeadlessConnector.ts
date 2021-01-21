@@ -3,50 +3,11 @@ import { PayloadAction } from '@reduxjs/toolkit';
 import { DeviceUpdate } from '../../devices/Device';
 import { IConnector } from '../connectorsMiddleware';
 
-// Actions to be dispatched to the middleware 
-export const hpHeadlessConnect = (connectorId: string, url: string) => ({ 
-    type: `connector/${connectorId}/connect`, payload: url});
-
-export const hpHeadlessDisconnect = (connectorId: string) => ({ 
-    type: `connector/${connectorId}/disconnect` });
-
-
 const debug = false;
-
-const onOpen = (store: MiddlewareAPI) => (ev: Event) => {
-    console.log(`Home panel websocket: connected`)
-    socket?.send(JSON.stringify({ messageType: "requestStateAll" }))
-};
-
-const onClose = (store: MiddlewareAPI) => () => {
-};
-
-const onMessage = (store: MiddlewareAPI) => (event: MessageEvent) => {
-    debug && console.log(`Home panel websocket message received: ${event.data}`)
-
-    // Sample data: 
-    // {"messageType":"deviceState","device":"weather-wind-meter",
-    // "data":{"mic":"CHECKSUM","channel":1,"wind_speed":0.6,"wind_direction":90,
-    // "model":"AlectoV1 Wind Sensor","time":0,"id":163,"battery":"OK","wind_gust":1.2,
-    // "readingDate":"N/A"},"timestamp":"2020-09-20 11:17 AM CEST"}
-
-    var payload = JSON.parse(event.data);
-    if (payload.messageType === "deviceState") {
-        const deviceData: DeviceUpdate = {
-            deviceId: payload.device,
-            data: payload.data,
-            timestamp: payload.timestamp,
-            upToDate: payload.activeAttributes.length > 0,
-        }
-        store.dispatch({ type: 'devices/deviceUpdate', payload: deviceData });
-    }
-
-};
-
-let socket: WebSocket | null = null;
 
 export class HPWebSocketConnector implements IConnector {
     private connectorId: string 
+    private socket: WebSocket | null = null;
 
     public constructor(connectorId: string) {
         this.connectorId = connectorId
@@ -57,27 +18,28 @@ export class HPWebSocketConnector implements IConnector {
     }
 
     public connect(store: MiddlewareAPI, config?: any) {
-        if (socket !== null) {
-            socket.close();
+        if (this.socket !== null) {
+            this.socket.close();
         }
         console.log(`Home panel websocket: connecting to: ${config}`)
 
         // connect to the remote host
-        socket = new WebSocket(config);
+        this.socket = new WebSocket(config);
 
         // websocket handlers
-        socket.onmessage = onMessage(store);
-        socket.onclose = onClose(store);
-        socket.onopen = onOpen(store);
+        this.socket.onmessage = this.onMessage(store);
+        this.socket.onclose = this.onClose(store);
+        this.socket.onopen = this.onOpen(store);
     }
     public disconnect() {
-        if (socket !== null) {
-            socket.close();
+        if (this.socket !== null) {
+            this.socket.close();
         }
-        socket = null;
+        this.socket = null;
     }
 
     public processAction(store: MiddlewareAPI, action: PayloadAction<any>): void {
+
         switch (action.type) {
             case `connector/${this.connectorId}/device/switch/toggle`:
                 this.sendAction(action.payload.deviceId, 'toggle');
@@ -102,6 +64,42 @@ export class HPWebSocketConnector implements IConnector {
             deviceId: deviceId,
             action: action,
         });
-        socket?.send(msg);
+        this.socket?.send(msg);
     }
+
+    private onOpen (store: MiddlewareAPI) {
+        return (ev: Event) => {
+            console.log(`Home panel websocket: connected`)
+            this.socket?.send(JSON.stringify({ messageType: "requestStateAll" }))
+        }
+    };
+    
+    private onClose(store: MiddlewareAPI) { 
+        return () => {
+        }
+    };
+    
+    private onMessage(store: MiddlewareAPI) {
+
+        return  (event: MessageEvent) => {
+            debug && console.log(`Home panel websocket message received: ${event.data}`)
+        
+            // Sample data: 
+            // {"messageType":"deviceState","device":"weather-wind-meter",
+            // "data":{"mic":"CHECKSUM","channel":1,"wind_speed":0.6,"wind_direction":90,
+            // "model":"AlectoV1 Wind Sensor","time":0,"id":163,"battery":"OK","wind_gust":1.2,
+            // "readingDate":"N/A"},"timestamp":"2020-09-20 11:17 AM CEST"}
+        
+            var payload = JSON.parse(event.data);
+            if (payload.messageType === "deviceState") {
+                const deviceData: DeviceUpdate = {
+                    deviceId: payload.device,
+                    data: payload.data,
+                    timestamp: payload.timestamp,
+                    upToDate: payload.activeAttributes.length > 0,
+                }
+                store.dispatch({ type: 'devices/deviceUpdate', payload: deviceData });
+            }
+        }
+    };    
 };
