@@ -2,4 +2,4 @@ This middleware is an example of middleware that consumes WebSocket service (in 
 The connection is kept open and in case of receiving updates from remote service appropriate updates are dispatched 
 to the store (caught later by proper device).
 
-This middleware also support sending data (i.e. execute actons on remote service). 
+This middleware also support sending data (i.e. execute actions on remote service). 

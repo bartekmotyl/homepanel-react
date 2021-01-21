@@ -7,10 +7,13 @@ import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import { configureDevices } from './dashboard/startup';
 import "typeface-lato";
+import { configureConnectors } from './dashboard/connectorsConfig';
 
-configureDevices();
-
-
+(async () => {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    await configureDevices()
+    await configureConnectors(store)
+})();
 
 ReactDOM.render(
   <React.StrictMode>

@@ -24,7 +24,6 @@ import { PowerMeterValueClassifier } from '../registry/classifiers/PowerMeterVal
 
 import { Device } from '../devices/Device';
 import { getDevicesConfig } from './devicesConfig';
-import { initializeConnectors } from './connectorsConfig';
 import { DoorSensorIndicatorWidgetSource } from '../registry/indicators/DoorSensorIndicatorWidgetSource';
 import { WaterMeterIndicatorWidgetSource } from '../registry/indicators/WaterMeterIndicatorWidgetSource';
 import { ThermostatIndicatorWidgetSource } from '../registry/indicators/ThermostatIndicatorWidgetSource';
@@ -81,14 +80,13 @@ const createDeviceDynamically = (deviceClass: string, args: any) => {
     return new knownTypes[deviceClass](...args);    
 }
 
-export const configureDevices = () => {
+export const configureDevices = async () => {
 
-    const configDevices = getDevicesConfig()
+    const configDevices = await getDevicesConfig()
     const dynamicDevices = configDevices.map(devCfg => createDeviceDynamically(devCfg.deviceClass, devCfg.args) as Device)
 
     dynamicDevices.forEach(dev => {
         store.dispatch(registerDevice(dev));
     })
-    initializeConnectors()
 }
 

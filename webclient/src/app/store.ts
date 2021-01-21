@@ -1,13 +1,15 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import { connectorMiddlewares } from '../dashboard/connectorsConfig';
 import devicesReducer from '../devices/devicesSlice';
+import { connectorsMiddleware } from '../middleware/connectorsMiddleware';
+
 
 export const store = configureStore({
   reducer: {
     devices: devicesReducer,
   },
-  middleware: connectorMiddlewares,
+  middleware: [connectorsMiddleware]
 });
+
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppThunk<ReturnType = void> = ThunkAction<
@@ -16,3 +18,7 @@ export type AppThunk<ReturnType = void> = ThunkAction<
   unknown,
   Action<string>
 >;
+
+export const getStore = () => {
+    return store
+} 

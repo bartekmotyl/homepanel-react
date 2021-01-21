@@ -1,19 +1,20 @@
-import { hpHeadlessConnect, hphWebSocketMiddlewareFunction } from "../middleware/hpHeadless/hpHeadlessMiddleware";
-import { metNoConnect, metNoMiddlewareFunction } from "../middleware/metNo/metNoMiddleware";
-import { mockConnect, mockMiddlewareFunction } from "../middleware/mock/mockMiddleware";
-import { store } from '../app/store';
-import { timersConnect, timersMiddlewareFunction } from "../middleware/timers/timersMiddleware";
+import { createConnectorDynamically } from "../middleware/connectorsFactory";
+import { MiddlewareAPI } from "@reduxjs/toolkit";
+import { fetchTextAsync } from "../utils/fetchUtils";
 
-export const connectorMiddlewares = [
-    hphWebSocketMiddlewareFunction('homepanel'), 
-    mockMiddlewareFunction('mock-1'),
-    metNoMiddlewareFunction('met-no-1'),
-    timersMiddlewareFunction('timers')
-];
+export interface  ConnectorConfiguration {
+    type: string, 
+    id: string, 
+    arg: any,
+}
 
-export const initializeConnectors = () => {
-    store.dispatch(hpHeadlessConnect('homepanel', 'ws://192.168.1.111:8899'));    
-    store.dispatch(mockConnect('mock-1'));    
-    store.dispatch(metNoConnect('met-no-1'));    
-    store.dispatch(timersConnect('timers'));    
+export const configureConnectors = async (store: MiddlewareAPI) => { 
+    const url = "connectors.config.js"
+    const configConnectorsJs = await fetchTextAsync(url);
+    // eslint-disable-next-line no-eval
+    const configConnectors = eval(configConnectorsJs) as ConnectorConfiguration[]
+    configConnectors.forEach(cfg => {
+        const connector = createConnectorDynamically(cfg.type)
+        connector.connect(store, cfg.arg)
+    })
 }

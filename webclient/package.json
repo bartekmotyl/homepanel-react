@@ -31,6 +31,7 @@
     "@types/styled-components": "^5.1.4",
     "@types/testing-library__react": "^10.2.0",
     "axios": "^0.20.0",
+    "axios-request-handler": "^1.0.4",
     "babel-plugin-styled-components": "^1.11.1",
     "immutable": "^4.0.0-rc.12",
     "local-storage": "^2.0.0",
@@ -56,6 +57,7 @@
     "react-ticker": "^1.2.2",
     "react-use": "^15.3.4",
     "react-with-dimensions": "^1.1.0",
+    "redux-dynamic-middlewares": "^2.0.0",
     "styled-components": "^5.2.0",
     "typeface-lato": "^0.0.75",
     "typescript": "~3.8.2"
