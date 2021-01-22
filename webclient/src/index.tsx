@@ -5,9 +5,9 @@ import App from './App';
 import { store } from './app/store';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
-import { configureDevices } from './dashboard/startup';
+import { configureDevices } from './configuration/startup';
 import "typeface-lato";
-import { configureConnectors } from './dashboard/connectorsConfig';
+import { configureConnectors } from './configuration/connectorsConfig';
 
 (async () => {
     await new Promise(resolve => setTimeout(resolve, 1000));

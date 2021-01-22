@@ -6,7 +6,7 @@ export interface  DeviceConfiguration {
 }
 
 export const getDevicesConfig = async (): Promise<DeviceConfiguration[]> => {
-    const url = "devices.config.js"
+    const url = "config/devices.config.js"
     const configDevicesJs = await fetchTextAsync(url);
     // eslint-disable-next-line no-eval
     const configDevices = eval(configDevicesJs) as DeviceConfiguration[]     

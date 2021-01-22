@@ -5,15 +5,11 @@ export const minimalWidgetConfiguration : WidgetConfiguration = {
     type: 'containerWidget',
     properties: {
         widgets: [{
-            type: 'linkWidget',
-            properties: {
-                text: 'Config',
-                href: '/config',
-            }
+            type: 'dummyClockLabelWidget',
         }]
     },
 }
-const url = "dashboard.config.js"
+const url = "config/dashboard.config.js"
 let configDashboard : WidgetConfiguration | undefined
 
 export const getDashboardConfig = async (): Promise<WidgetConfiguration> => { 

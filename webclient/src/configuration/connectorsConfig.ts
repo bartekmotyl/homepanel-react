@@ -10,7 +10,7 @@ export interface  ConnectorConfiguration {
 }
 
 export const configureConnectors = async (store: MiddlewareAPI) => { 
-    const url = "connectors.config.js"
+    const url = "config/connectors.config.js"
     const configConnectorsJs = await fetchTextAsync(url);
     // eslint-disable-next-line no-eval
     const configConnectors = eval(configConnectorsJs) as ConnectorConfiguration[]

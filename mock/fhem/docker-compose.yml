@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+    fhem:
+        restart: always
+        ports:
+            - "8083:8083"
+            - "7072:7072"
+        image: fhem/fhem:latest
+        volumes:
+            - ./fhem/:/opt/fhem/
+        networks:
+            - fhem-network
+        environment:
+            FHEM_UID: 1000
+            FHEM_GID: 1000
+            TIMEOUT: 10
+            RESTART: 1
+            TELNETPORT: 7072
+            TZ: Europe/Berlin
+
+networks:
+    fhem-network:
+        driver: bridge

@@ -3,11 +3,9 @@ import './App.css';
 import { GlobalStyle } from './styles/global-styles';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { ContainerWidget } from './widgets/containers/ContainerWidget';
-import { getDashboardConfig, minimalWidgetConfiguration } from './dashboard/dashboardConfig';
+import { getDashboardConfig, minimalWidgetConfiguration } from './configuration/dashboardConfig';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Configuration } from './configuration/Configuration';
 import useAsync from 'react-use/lib/useAsync';
-//import { useTimeout } from 'react-use';
 
 const theme = createMuiTheme({
   palette: {
@@ -28,21 +26,6 @@ function App() {
     return dashboardConfig
   }, [minimalWidgetConfiguration]);
 
-  //const ms = 5000;
-  //const [isReady, cancel] = useTimeout(ms);
-
-  //const [config, setConfig] = useState<WidgetConfiguration|undefined>();
-  /*useEffect(() => {
-    if (!config) {
-      getConfig()
-    }
-  });
-
-  const getConfig = async () => {
-    const dashboardConfig = await getDashboardConfig()
-    setConfig(dashboardConfig);
-  };
-*/
   return (
     <div className="App">
       <GlobalStyle />
@@ -51,9 +34,6 @@ function App() {
         <ThemeProvider theme={theme}>
           <Router>
             <Switch>
-              <Route path="/config">
-                <Configuration />
-              </Route>
               <Route path="/">
                 <ContainerWidget props={state.value?.properties ?? minimalWidgetConfiguration}/>
               </Route>
