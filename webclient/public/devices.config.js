@@ -118,6 +118,27 @@
             ]]
         },      
         {
+            deviceClass: 'BlindsGroupDevice',
+            args: ['rolety-jadalnia', 'Jadalnia (obie)', [
+                'roleta-jadalnia-lewa', 'roleta-jadalnia-prawa' 
+            ]]
+        },  
+        {
+            deviceClass: 'BlindsGroupDevice',
+            args: ['rolety-podcien-i-salon', 'Podcień i salon', [
+                'roleta-salon-lewa', 
+                'roleta-salon-prawa',
+                'roleta-jadalnia-drzwi',                 
+            ]]
+        },  
+        {
+            deviceClass: 'BlindsGroupDevice',
+            args: ['rolety-jadalnia-i-kuchnia', 'Jadalnia i kuchnia', [
+                'roleta-jadalnia-lewa', 'roleta-jadalnia-prawa', 'roleta-kuchnia'
+            ]]
+        },  
+
+        {
             deviceClass: 'CompositeValueDevice', 
             args: ['homepanel', 'onewire-sensor-grunt-0', 'Grunt 0cm',]
         }, {

@@ -155,10 +155,13 @@
     ])
     const rightSideTabs = tabsWidget({ width: "calc(100vw - 23rem)", tabsVisible: true }, [
         page('Parter', [
-            widget('blindsWidget', 'roleta-salon-lewa'),
-            widget('blindsWidget', 'roleta-salon-prawa'),
             widget('blindsWidget', 'rolety-grupa-salon'),
             widget('blindsWidget', 'rolety-grupa-parter'),
+            widget('blindsWidget', 'rolety-jadalnia'),
+            widget('blindsWidget', 'rolety-podcien-i-salon'),
+            widget('blindsWidget', 'rolety-jadalnia-i-kuchnia'),
+            widget('blindsWidget', 'roleta-salon-lewa'),
+            widget('blindsWidget', 'roleta-salon-prawa'),            
         ]),
         page('Piętro', [
             widget('blindsWidget', 'rolety-grupa-pietro-okna-sypialnie'),
