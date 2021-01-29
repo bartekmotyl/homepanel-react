@@ -33,6 +33,7 @@
     "axios": "^0.20.0",
     "axios-request-handler": "^1.0.4",
     "babel-plugin-styled-components": "^1.11.1",
+    "cors": "^2.8.5",
     "immutable": "^4.0.0-rc.12",
     "local-storage": "^2.0.0",
     "lodash": "^4.17.20",
@@ -86,5 +87,6 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "."
+  "homepage": ".",
+  "proxy": "https://localhost:8083"
 }

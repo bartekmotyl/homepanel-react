@@ -6,8 +6,8 @@ export class SimpleValueAsBooleanConverter extends DeviceBase implements  AsBool
     private trueValue : string;
     private reversed : boolean; 
 
-    constructor(deviceId: string, name: string, trueValue: string  = "true", reversed: boolean = true)  {
-        super(deviceId, name);
+    constructor(deviceClass: string, deviceId: string, name: string, trueValue: string  = "true", reversed: boolean = true)  {
+        super(deviceClass, deviceId, name);
         this.trueValue = trueValue;
         this.reversed = reversed;
     }

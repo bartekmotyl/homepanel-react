@@ -1,5 +1,6 @@
 import { fetchTextAsync } from '../utils/fetchUtils';
 import { WidgetConfiguration } from '../widgets/widgets';
+import { configFolderPath } from './startup';
 
 export const minimalWidgetConfiguration : WidgetConfiguration = {
     type: 'containerWidget',
@@ -9,7 +10,7 @@ export const minimalWidgetConfiguration : WidgetConfiguration = {
         }]
     },
 }
-const url = "config/dashboard.config.js"
+const url = `${configFolderPath}/dashboard.config.js`
 let configDashboard : WidgetConfiguration | undefined
 
 export const getDashboardConfig = async (): Promise<WidgetConfiguration> => { 

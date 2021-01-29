@@ -9,8 +9,8 @@ export class TemperatureIndicatorWidgetSource extends IndicatorWidgetSource {
     private temperatureConverterId : string
     private subDeviceId : string
 
-    constructor(deviceId: string, name: string, subDeviceId: string, temperatureConverterId: string)  {
-        super(deviceId, name);
+    constructor(deviceClass: string, deviceId: string, name: string, subDeviceId: string, temperatureConverterId: string)  {
+        super(deviceClass, deviceId, name);
         this.subDeviceId = subDeviceId;
         this.temperatureConverterId = temperatureConverterId;
     }

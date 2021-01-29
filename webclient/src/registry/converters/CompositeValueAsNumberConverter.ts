@@ -5,8 +5,8 @@ import { AsNumber } from '../genericConverters';
 export class CompositeValueAsNumberConverter extends DeviceBase implements  AsNumber {
     private property : string;
 
-    constructor(deviceId: string, name: string, property: string  = "value")  {
-        super(deviceId, name);
+    constructor(deviceClass: string, deviceId: string, name: string, property: string  = "value")  {
+        super(deviceClass, deviceId, name);
         this.property = property;
     }
     getNumber(device: Device): number | null {

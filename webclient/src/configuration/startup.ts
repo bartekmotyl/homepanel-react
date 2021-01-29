@@ -71,13 +71,13 @@ const knownTypes: any = {
     AirQualityPM10ValueClassifier
 }
 
-
+export const configFolderPath = process.env.REACT_APP_CONFIG_FOLDER_PATH ?? 'config'
 
 const createDeviceDynamically = (deviceClass: string, args: any) => {
     if (knownTypes[deviceClass] === undefined || knownTypes[deviceClass] === null) {
         throw new Error(`Class type of '${deviceClass}' is not known.`);
     }
-    return new knownTypes[deviceClass](...args);    
+    return new knownTypes[deviceClass](...[deviceClass, ...args]);    
 }
 
 export const configureDevices = async () => {
@@ -89,4 +89,5 @@ export const configureDevices = async () => {
         store.dispatch(registerDevice(dev));
     })
 }
+
 

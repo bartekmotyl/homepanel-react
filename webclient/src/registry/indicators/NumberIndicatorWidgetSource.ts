@@ -7,8 +7,8 @@ export class NumberIndicatorWidgetSource extends IndicatorWidgetSource {
     private converterId : string
     private subDeviceId : string
 
-    constructor(deviceId: string, name: string, subDeviceId: string, converterId: string)  {
-        super(deviceId, name);
+    constructor(deviceClass: string, deviceId: string, name: string, subDeviceId: string, converterId: string)  {
+        super(deviceClass, deviceId, name);
         this.subDeviceId = subDeviceId;
         this.converterId = converterId;
     }

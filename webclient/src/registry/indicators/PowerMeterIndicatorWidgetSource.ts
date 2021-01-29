@@ -6,8 +6,8 @@ import { ConnectedDevice } from '../../devices/Device';
 export class PowerMeterIndicatorWidgetSource extends IndicatorWidgetSource {
     private subDeviceId: string
 
-    constructor(deviceId: string, name: string, subDeviceId: string)  {
-        super(deviceId, name);
+    constructor(deviceClass: string, deviceId: string, name: string, subDeviceId: string)  {
+        super(deviceClass, deviceId, name);
         this.subDeviceId = subDeviceId;
     }
 

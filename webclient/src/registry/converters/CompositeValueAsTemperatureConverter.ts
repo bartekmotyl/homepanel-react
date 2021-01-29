@@ -5,8 +5,8 @@ import { AsTemperature } from '../genericConverters';
 export class CompositeValueAsTemperatureConverter extends DeviceBase implements  AsTemperature {
     private property : string;
 
-    constructor(deviceId: string, name: string, property: string  = "temperature")  {
-        super(deviceId, name);
+    constructor(deviceClass: string, deviceId: string, name: string, property: string  = "temperature")  {
+        super(deviceClass, deviceId, name);
         this.property = property;
     }
     getTemperature(device: Device): number | null {

@@ -10,6 +10,7 @@ export interface DeviceUpdate {
 export interface Device {
     getDeviceId(): string;
     getName(): string;
+    getClass(): string;
 }
 
 export interface ConnectedDevice extends Device {
@@ -23,16 +24,23 @@ export interface ConnectedDevice extends Device {
 export abstract class DeviceBase implements Device {
     protected deviceId: string;
     protected name: string;
+    protected deviceClass: string;
   
-    constructor(deviceId: string, name: string) {
+    constructor(deviceClass: string, deviceId: string, name: string) {
         this.deviceId = deviceId;
         this.name = name;
+        this.deviceClass = deviceClass;
+
+        console.log(`Constructing ${deviceClass}, id: ${deviceId}, name: ${name}` )
     }
     getDeviceId(): string {
         return this.deviceId;
     }
     getName(): string {
         return this.name;
+    }
+    getClass(): string {
+        return this.deviceClass;
     }
 }
 
@@ -42,8 +50,8 @@ export abstract class ConnectedDeviceBase extends DeviceBase implements Connecte
     protected data: any; 
     protected upToDate: boolean;
   
-    constructor(connectorId: string, deviceId: string, name: string) {
-        super(deviceId, name)
+    constructor(deviceClass: string, connectorId: string, deviceId: string, name: string) {
+        super(deviceClass, deviceId, name)
         this.connectorId = connectorId;
         this.upToDate = false;
     }

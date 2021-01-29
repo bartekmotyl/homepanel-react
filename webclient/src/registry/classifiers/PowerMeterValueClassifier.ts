@@ -2,8 +2,8 @@ import { ValueClass, ValueClassifier } from './ValueClassifier';
 
 export class PowerMeterValueClassifier extends ValueClassifier {
     private factor: number
-    constructor(deviceId: string, factor: number) {
-        super(deviceId)
+    constructor(deviceClass: string, deviceId: string, factor: number) {
+        super(deviceClass, deviceId)
         // 1 minute -> 60.0 
         // 60 minutes -> 1.0
         this.factor = factor;

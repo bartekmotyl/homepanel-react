@@ -19,7 +19,7 @@ export function ReloadWidget({ props }: WidgetProperties) {
                 </WidgetFontHeadlineIcon>
               </IconButton>
           </WidgetContent> 
-          <WidgetHeaderRow><WidgetFontCaption>Od nowa</WidgetFontCaption></WidgetHeaderRow>
+          <WidgetHeaderRow><WidgetFontCaption>Reload</WidgetFontCaption></WidgetHeaderRow>
       </WidgetContainerSquare>
     );
 }

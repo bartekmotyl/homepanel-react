@@ -6,8 +6,8 @@ import { AvailabilityChecker } from '../../devices/interfaces/generic/genericDev
 export class AvailabilityIndicatorWidgetSource extends IndicatorWidgetSource {
     private pingDevices: string[]
 
-    constructor(deviceId: string, name: string, pingDevices: string[])  {
-        super(deviceId, name);
+    constructor(deviceClass: string, deviceId: string, name: string, pingDevices: string[])  {
+        super(deviceClass, deviceId, name);
         this.pingDevices = pingDevices;
     }
 

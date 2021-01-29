@@ -12,8 +12,8 @@ export class TimerDevice extends ConnectedDeviceBase {
     private static Epoch = DateTime.fromMillis(0)
     private duration: Duration
 
-    constructor(connectorId: string, deviceId: string, name: string, durationISO: string) {
-        super(connectorId, deviceId, name)
+    constructor(deviceClass: string, connectorId: string, deviceId: string, name: string, durationISO: string) {
+        super(deviceClass, connectorId, deviceId, name)
         this.duration = Duration.fromISO(durationISO)
         this.data = { startedAt: null }
     }

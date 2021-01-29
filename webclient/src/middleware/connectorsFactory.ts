@@ -1,10 +1,12 @@
 import { TimersConnector } from './timers/timersConnector'
 import { HPWebSocketConnector } from './hpHeadless/hpHeadlessConnector'
+import { FHEMConnector } from './fhem/fhemConnector'
 import { IConnector } from './connectorsMiddleware';
 
 const knownTypes: any = {
     HPWebSocketConnector, 
-    TimersConnector
+    TimersConnector,
+    FHEMConnector,
 }
 
 

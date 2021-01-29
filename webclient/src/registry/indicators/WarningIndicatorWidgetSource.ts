@@ -9,8 +9,8 @@ export class WarningIndicatorWidgetSource extends IndicatorWidgetSource {
     private converterId : string
     private svgUrl? : string
 
-    constructor(deviceId: string, name: string, subDeviceId: string, converterId : string, svgUrl?: string)  {
-        super(deviceId, name);
+    constructor(deviceClass: string, deviceId: string, name: string, subDeviceId: string, converterId : string, svgUrl?: string)  {
+        super(deviceClass, deviceId, name);
         this.subDeviceId = subDeviceId;
         this.converterId = converterId;
         this.svgUrl = svgUrl

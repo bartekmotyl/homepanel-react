@@ -9,6 +9,8 @@ import { configureDevices } from './configuration/startup';
 import "typeface-lato";
 import { configureConnectors } from './configuration/connectorsConfig';
 
+
+
 (async () => {
     await new Promise(resolve => setTimeout(resolve, 1000));
     await configureDevices()

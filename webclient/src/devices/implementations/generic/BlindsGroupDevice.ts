@@ -6,8 +6,8 @@ import { store } from '../../../app/store';
 export class BlindsGroupDevice extends DeviceBase implements Blinds {
   protected blindsDevices: string[]
 
-  constructor(deviceId: string, name: string, blindsDevices: string[]) {
-    super(deviceId, name)
+  constructor(deviceClass: string, deviceId: string, name: string, blindsDevices: string[]) {
+    super(deviceClass, deviceId, name)
     this.blindsDevices = blindsDevices;
   }
 

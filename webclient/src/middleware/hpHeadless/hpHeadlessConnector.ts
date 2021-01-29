@@ -83,13 +83,6 @@ export class HPWebSocketConnector implements IConnector {
 
         return  (event: MessageEvent) => {
             debug && console.log(`Home panel websocket message received: ${event.data}`)
-        
-            // Sample data: 
-            // {"messageType":"deviceState","device":"weather-wind-meter",
-            // "data":{"mic":"CHECKSUM","channel":1,"wind_speed":0.6,"wind_direction":90,
-            // "model":"AlectoV1 Wind Sensor","time":0,"id":163,"battery":"OK","wind_gust":1.2,
-            // "readingDate":"N/A"},"timestamp":"2020-09-20 11:17 AM CEST"}
-        
             var payload = JSON.parse(event.data);
             if (payload.messageType === "deviceState") {
                 const deviceData: DeviceUpdate = {

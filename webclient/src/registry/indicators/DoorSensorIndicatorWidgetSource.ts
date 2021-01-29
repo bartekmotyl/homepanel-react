@@ -15,8 +15,8 @@ export class DoorSensorIndicatorWidgetSource extends IndicatorWidgetSource {
     private subDeviceId: string
     private variant: DoorSensorVariant 
 
-    constructor(deviceId: string, name: string, subDeviceId: string, variant?: DoorSensorVariant)  {
-        super(deviceId, name)
+    constructor(deviceClass: string, deviceId: string, name: string, subDeviceId: string, variant?: DoorSensorVariant)  {
+        super(deviceClass, deviceId, name)
         this.subDeviceId = subDeviceId
         this.variant = variant ?? DoorSensorVariant.Window
     }

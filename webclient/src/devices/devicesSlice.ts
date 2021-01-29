@@ -20,7 +20,7 @@ export const devicesSlice = createSlice({
     registerDevice: (state, action: PayloadAction<Device>) => {
       const deviceId = action.payload.getDeviceId();
       const path = `${deviceId}`;
-      debug && console.log(`Registering device: ${path}`);
+      debug && console.log(`Registering device: ${path} ${typeof(action.payload)}`);
       // Redux Toolkit allows us to write "mutating" logic in reducers. It
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
