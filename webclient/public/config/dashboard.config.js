@@ -48,17 +48,105 @@
         }
     }    
 
+
+    const floorPlanWidget = (src, temperatures, blinds, lights) => {
+        return {
+            'type': 'floorPlanWidget',
+            'properties': {
+                'src': src,
+                'temperatures': temperatures,
+                'blinds': blinds,  
+                'lights': lights,
+            }
+        }
+    }
+
+    const floorPlanElementLocation = (x, y) => {
+        return {
+            x, 
+            y, 
+        }        
+    }
+
+    const floorPlanTemperature = (location, deviceId, converterId, classifierId) => {
+        return {
+            location, 
+            deviceId, 
+            converterId, 
+            classifierId,
+        }
+    }
+
+    const floorPlanBlinds = (deviceId, x, y, groups, ) => {
+        return {
+            location: floorPlanElementLocation(x, y),
+            deviceId, 
+            groups, 
+        }
+    }
+
+    const floorPlanTemperatureSimpleSensor = (device, x, y, classifier, converter) => {
+        return floorPlanTemperature(
+            floorPlanElementLocation(x, y),
+            device, 
+            converter,
+            classifier ?? 'indoor-temperature-classifier',
+        )
+    } 
+
+    const floorPlanLight = (deviceId, x, y, switchable) => {
+        return {
+            location: floorPlanElementLocation(x, y),
+            deviceId, 
+            switchable, 
+        }
+    }   
+    
+    const siWidget = (deviceId, classifierId) => { 
+        return {
+            "type": "smallIndicatorWidget",
+            "properties": {
+                "deviceId": deviceId,
+                "classifierId": classifierId,
+            }
+        }
+    }    
+
     const leftSideTabs = tabsWidget({ width: "22rem", tabsVisible: true }, [
         page('Ref', [
         ]),
         page('Temperatures', [
+            siWidget('office-source-temperature', 'indoor-temperature-classifier'),            
+            siWidget('bedroom-source-temperature', 'indoor-temperature-classifier'),            
         ]),
     ])
     const rightSideTabs = tabsWidget({ width: "calc(100vw - 23rem)", tabsVisible: true }, [
-        page('Office', [
-            widget('switchWidget', 'lightOffice', {title: 'Office'}),
-            widget('blindsWidget', 'blindsOffice', {title: 'Office'}),         
-            widget('temperatureWidget', 'tempOffice', {title: 'Office'})           
+        page('1st Floor', [
+            floorPlanWidget('floorplans/floor-plan-demo.svg', [
+                floorPlanTemperatureSimpleSensor('tempOffice', 0.772, 0.693), 
+                floorPlanTemperatureSimpleSensor('tempBedroom', 0.037, 0.318), 
+                
+            ], [
+                floorPlanBlinds('blindsOffice', 0.800, 0.800, ['blinds-first-floor']),         
+                floorPlanBlinds('blindsBedroom', 0.075, 0.095, ['blinds-first-floor']),         
+            ], [
+                floorPlanLight('lightOffice', 0.664, 0.812, true),
+                floorPlanLight('lightBedroom', 0.145, 0.238, true),
+            ])
+        ]),        
+        page('Rooms', [
+            tabsWidget({ tabsVisible: true }, [
+                page('Bedroom', [
+                    widget('switchWidget', 'lightBedroom', {title: 'Bedroom'}),
+                    widget('blindsWidget', 'blindsBedroom', {title: 'Bedroom'}),         
+                    widget('temperatureWidget', 'tempBedroom', {title: 'Bedroom'})           
+                ]),
+                page('Office', [
+                    widget('switchWidget', 'lightOffice', {title: 'Office'}),
+                    widget('blindsWidget', 'blindsOffice', {title: 'Office'}),         
+                    widget('temperatureWidget', 'tempOffice', {title: 'Office'})           
+                ]),
+            ]),
         ]),
         page('Charts', [
             tabsWidget({ tabsVisible: true }, [

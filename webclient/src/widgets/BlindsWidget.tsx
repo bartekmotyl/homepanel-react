@@ -29,7 +29,7 @@ export function BlindsWidget({ props }: WidgetProperties) {
 
     const longPressUp = useLongPress(moveUp, moveStop, defaultOptions);
     const longPressDown = useLongPress(moveDown, moveStop, defaultOptions);
-
+    const title = props.title ?? device?.getName()
     return (
       <WidgetContainerRect onClick={handleClick}>
           <WidgetContent>
@@ -44,7 +44,7 @@ export function BlindsWidget({ props }: WidgetProperties) {
                 </WidgetFontHeadlineIcon>
               </StyledIconButton>
           </WidgetContent> 
-          <WidgetHeaderRow><WidgetFontCaption>{device?.getName()}</WidgetFontCaption></WidgetHeaderRow>
+          <WidgetHeaderRow><WidgetFontCaption>{title}</WidgetFontCaption></WidgetHeaderRow>
       </WidgetContainerRect>
     );
 }

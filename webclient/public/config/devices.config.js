@@ -18,8 +18,15 @@
         createDeviceTimer('timers', 'timer-20-minute', '20 minutes', 'PT20M'),
         createDeviceTimer('timers', 'timer-30-minute', '30 minutes', 'PT30M'),
         createDevice('TemperatureSensorDevice', ['fhem-1', 'tempOffice', 'Office']),
+        createDevice('TemperatureSensorDevice', ['fhem-1', 'tempBedroom', 'Bedroom']),
         createDevice('SwitchDevice', ['fhem-1', 'lightOffice', 'Office']),
-        createDevice('BlindsDevice', ['fhem-1', 'blindsOffice', 'Office']),           
+        createDevice('SwitchDevice', ['fhem-1', 'lightBedroom', 'Bedroom']),
+        createDevice('BlindsDevice', ['fhem-1', 'blindsOffice', 'Office']),      
+        createDevice('BlindsDevice', ['fhem-1', 'blindsBedroom', 'Bedroom']),      
+        //        
+        createDevice('TemperatureIndicatorWidgetSource', ['office-source-temperature', 'Office', 'tempOffice']),   
+        createDevice('TemperatureIndicatorWidgetSource', ['bedroom-source-temperature', 'Bedroom', 'tempBedroom']),   
+        createDevice('IndoorTemperatureValueClassifier', ['indoor-temperature-classifier']),      
     ]
 
     return devices

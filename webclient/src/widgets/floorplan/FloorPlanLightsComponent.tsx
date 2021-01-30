@@ -67,7 +67,7 @@ export const FloorPlanLightsComponent : React.FunctionComponent<FloorPlanLightsC
                         { getLightState(light) === true && (
                             <LightIconOn src="svg/small/093-lamp.svg" />
                         ) }
-                        { getLightState(light) === false && (
+                        { !getLightState(light) && (
                             <LightIconOff src="svg/small/092-lamp-1.svg" />
                         ) }
                         { /*

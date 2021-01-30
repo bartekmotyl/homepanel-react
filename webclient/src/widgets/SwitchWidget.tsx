@@ -14,7 +14,8 @@ export function SwitchWidget({ props }: WidgetProperties) {
     const device = devices.get(deviceId);
     const switchable =  device as Switch | undefined;;
     const state = switchable?.getState() ?? 'N/A';
-
+    const title = props.title ?? device?.getName()
+    
     const handleClick = () => {
       switchable?.toggle();
     }
@@ -29,7 +30,7 @@ export function SwitchWidget({ props }: WidgetProperties) {
                 </WidgetFontHeadlineIcon>
               </IconButton>
           </WidgetContent> 
-          <WidgetHeaderRow><WidgetFontCaption>{device?.getName()}</WidgetFontCaption></WidgetHeaderRow>
+          <WidgetHeaderRow><WidgetFontCaption>{title}</WidgetFontCaption></WidgetHeaderRow>
       </WidgetContainerSquare>
     );
 }
