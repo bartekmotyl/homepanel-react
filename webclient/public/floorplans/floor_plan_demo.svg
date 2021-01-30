@@ -1,0 +1,2692 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Layer_1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 171.9 205.4"
+   enable-background="new 0 0 171.9 205.4"
+   xml:space="preserve"
+   sodipodi:docname="floor_plan_demo.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"><metadata
+   id="metadata18254"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+   id="defs18252" /><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1920"
+   inkscape:window-height="1001"
+   id="namedview18250"
+   showgrid="false"
+   inkscape:zoom="2.8194764"
+   inkscape:cx="106.76798"
+   inkscape:cy="95.666081"
+   inkscape:window-x="-9"
+   inkscape:window-y="-9"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Layer_1" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M5.5,159.1h24.1 M5.5,157.6h24.1 M8.9,147.4H5.5 M55.1,147.4H26.4 M101,13.3v12.5 M47.2,25.7V4.5 M5.5,157.6v-8.8 M5.5,168.5v-9.5   M167.4,87.7V13.3"
+   id="path17589" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  95.2,113.1 70.4,113.1 70.4,116.1 "
+   id="polyline17591" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  93.7,114.7 71.9,114.7 71.9,116.1 "
+   id="polyline17593" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M70.4,126.3v7.9 M31.8,148.9v52.4 M29.6,159.1v44.4 M56.6,97.9h1.4 M14.3,96.4h43.8"
+   id="path17595" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  70.4,135.8 70.4,157.6 93,157.6 "
+   id="polyline17597" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M93,157.6v43.7 M93.7,156.2H71.9"
+   id="path17599" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  71.9,96.4 71.9,89.1 99.6,89.1 "
+   id="polyline17601" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="99.6"
+   y1="87.7"
+   x2="71.9"
+   y2="87.7"
+   id="line17603" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="93.7"
+   y1="129.9"
+   x2="85.7"
+   y2="129.9"
+   id="line17605" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M5.5,85.9v1.1 M5.5,62.1v1.1 M5.5,95v-6.6 M47.2,51.2H85 M14.3,52.6h56.2 M93.7,156.2v-41.5 M71.9,156.2v-29.9"
+   id="path17607" />
+<polyline
+   fill="none"
+   stroke="#4D4D4D"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  81.4,116.1 81.1,118.4 80.4,120.5 79.1,122.5 77.5,124 75.6,125.2 73.4,126.1 71.2,126.3 "
+   id="polyline17609" />
+<line
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="71.2"
+   y1="116.1"
+   x2="81.4"
+   y2="116.1"
+   id="line17611" />
+<polyline
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  81.4,116.5 71.8,116.5 71.8,116.1 "
+   id="polyline17613" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M71.9,126.3h-1.4 M71.9,116.1h-1.4"
+   id="path17615" />
+<rect
+   x="71.9"
+   y="143"
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   width="21.8"
+   height="13.2"
+   id="rect17617" />
+<polygon
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  92.4,153.7 92.4,145 84.8,143.5 80,143.5 73.2,145 73.2,153.7 80,155.7 84.8,155.7 "
+   id="polygon17619" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.24"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="93"
+   y1="114.7"
+   x2="93"
+   y2="129.9"
+   id="line17621" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="85.7"
+   y1="114.7"
+   x2="85.7"
+   y2="129.9"
+   id="line17623" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  90.5,138.7 90.5,139.4 90.6,139.7 91,140 92.9,140 93.2,139.7 93.4,139.4 93.4,133.5 93.2,133.1 92.9,133 91,133 90.6,133.1   90.5,133.5 90.5,134.2 87.4,134 86.5,133.9 85,134.1 83.9,134.7 83,135.5 82.8,136.5 83,137.3 83.9,138.3 85,138.8 86.5,139   87.4,138.9 90.5,138.7 90.5,134.2 "
+   id="polyline17625" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  87.4,134 89,134.7 89.9,135.5 90.1,136.5 89.9,137.3 89,138.3 87.4,138.9 "
+   id="polyline17627" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  90.8,122.6 89,122.5 89,122.1 90.8,122 "
+   id="polyline17629" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  90.8,119.9 90.2,119.3 89.6,119 88.9,118.9 88.2,119.2 87.6,119.8 87.1,120.8 86.9,121.7 86.9,122.8 87.1,123.9 87.6,124.7   88.2,125.5 88.9,125.7 89.6,125.7 90.2,125.3 90.8,124.6 90.8,122.6 "
+   id="polyline17631" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M91.7,121.1v2.3 M90.8,121.1v0.6 M90.8,123.4v-0.7 M90.8,119.9v2"
+   id="path17633" />
+<polygon
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  90.8,123.4 91,123.7 91.3,123.8 91.6,123.7 91.7,123.4 91.6,123.1 91.3,122.9 91,123.1 "
+   id="polygon17635" />
+<polygon
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  90.8,121.1 91,121.4 91.3,121.5 91.6,121.4 91.7,121.1 91.6,120.8 91.3,120.7 91,120.8 "
+   id="polygon17637" />
+<polygon
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  89.3,126.1 90.1,125.9 90.8,125.3 91.4,124.5 91.8,123.4 91.9,122.3 91.8,121.1 91.4,120.1 90.8,119.2 90.1,118.6 89.3,118.5   88.3,118.6 87.6,119.2 87,120.1 86.6,121.1 86.5,122.3 86.6,123.4 87,124.5 87.6,125.3 88.3,125.9 "
+   id="polygon17639" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="69"
+   y1="96.4"
+   x2="70.4"
+   y2="96.4"
+   id="line17641" />
+<polyline
+   fill="none"
+   stroke="#4D4D4D"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  69,86.2 66.8,86.3 64.8,87.1 62.9,88 61.2,89.3 59.9,91 58.9,92.9 58.2,95 58.1,97.1 "
+   id="polyline17643" />
+<line
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="69"
+   y1="97.1"
+   x2="69"
+   y2="86.2"
+   id="line17645" />
+<polyline
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  68.5,86.1 68.5,96.4 69,96.4 "
+   id="polyline17647" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M58.1,96.4v1.4 M69,96.4v1.4"
+   id="path17649" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="71.9"
+   y1="95.7"
+   x2="99.6"
+   y2="95.7"
+   id="line17651" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M101,96.4V36.7 M99.6,36.7v6.5 M99.6,44.6v21.2 M86.5,52.6v-8 M85,51.2v-8"
+   id="path17653" />
+<polyline
+   fill="none"
+   stroke="#4D4D4D"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  89.4,25.7 89.6,27.8 90.2,29.8 91.2,31.7 92.6,33.4 94.2,34.7 96.1,35.8 98.2,36.4 100.3,36.7 "
+   id="polyline17655" />
+<line
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="100.3"
+   y1="25.7"
+   x2="89.4"
+   y2="25.7"
+   id="line17657" />
+<polyline
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  89.4,26.1 99.6,26.1 99.6,25.6 "
+   id="polyline17659" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M86.5,44.6H88 M85,43.1h3 M99.6,25.7h1.4 M99.6,36.7h1.4"
+   id="path17661" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="85"
+   y1="43.1"
+   x2="47.2"
+   y2="43.1"
+   id="line17663" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.24"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="85"
+   y1="50.5"
+   x2="47.2"
+   y2="50.5"
+   id="line17665" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  78.1,48.3 78.2,46.5 78.6,46.5 78.7,48.3 "
+   id="polyline17667" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  80.8,48.3 81.4,47.7 81.7,47 81.8,46.3 81.5,45.7 80.9,45.1 79.9,44.6 79,44.3 77.9,44.3 76.8,44.6 76,45.1 75.2,45.7 75,46.3   75,47 75.4,47.7 76.1,48.3 78.1,48.3 "
+   id="polyline17669" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M79.6,49.1h-2.3 M79.6,48.3H79 M77.3,48.3H78 M80.8,48.3h-2"
+   id="path17671" />
+<polygon
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  77.3,48.3 77,48.4 76.9,48.8 77,49 77.3,49.1 77.6,49 77.8,48.8 77.6,48.4 "
+   id="polygon17673" />
+<polygon
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  79.6,48.3 79.3,48.4 79.2,48.8 79.3,49 79.6,49.1 79.9,49 80,48.8 79.9,48.4 "
+   id="polygon17675" />
+<polygon
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  74.6,46.6 74.8,47.5 75.4,48.3 76.2,48.9 77.3,49.3 78.4,49.4 79.6,49.3 80.6,48.9 81.5,48.3 82.1,47.5 82.2,46.6 82.1,45.8   81.5,45.1 80.6,44.5 79.6,44.1 78.4,44 77.3,44.1 76.2,44.5 75.4,45.1 74.8,45.8 "
+   id="polygon17677" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  53.3,48.3 53.5,46.5 53.9,46.5 54,48.3 "
+   id="polyline17679" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  55.9,48.3 56.6,47.7 57,47 57,46.3 56.6,45.7 56,45.1 55.2,44.6 54.1,44.3 53,44.3 52.1,44.6 51.1,45.1 50.5,45.7 50.2,46.3   50.3,47 50.6,47.7 51.2,48.3 53.4,48.3 "
+   id="polyline17681" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M54.8,49.1h-2.4 M54.8,48.3h-0.7 M52.4,48.3h0.7 M55.9,48.3h-2"
+   id="path17683" />
+<polygon
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  52.6,48.3 52.2,48.4 52.1,48.8 52.2,49 52.6,49.1 52.8,49 52.9,48.8 52.8,48.4 "
+   id="polygon17685" />
+<polygon
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  54.8,48.3 54.5,48.4 54.4,48.8 54.5,49 54.8,49.1 55.1,49 55.2,48.8 55.1,48.4 "
+   id="polygon17687" />
+<polygon
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  49.8,46.6 50,47.5 50.5,48.3 51.4,48.9 52.4,49.3 53.6,49.4 54.8,49.3 55.9,48.9 56.8,48.3 57.2,47.5 57.5,46.6 57.2,45.8   56.8,45.1 55.9,44.5 54.8,44.1 53.6,44 52.4,44.1 51.4,44.5 50.5,45.1 50,45.8 "
+   id="polygon17689" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M101,13.3h12.7 M167.4,100v-2.2 M167.4,114.7v-1.6 M167.4,129.9v-2.2 M167.4,161.9v-30.6 M95.2,203.5v-17.4 M70.4,96.4V78.9   M71.9,87.7v-8.8 M71.9,67.3h27.7 M5.5,133.9v13.6 M5.5,97.9v13.4"
+   id="path17691" />
+<path
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M140.8,13.3h0.7 M127,13.3h0.7"
+   id="path17693" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M71.9,65.8h27.7 M3.4,63.2V11.1 M3.4,111.3V85.9 M3.4,170v-36.1 M3.4,155.5v-0.1 M154.6,13.3h12.8"
+   id="path17695" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  45.6,13.3 5.5,13.3 5.5,51.2 45.6,51.2 45.6,36.7 "
+   id="polyline17697" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M98.2,43.1h1.4 M98.2,44.6h1.4"
+   id="path17699" />
+<polyline
+   fill="none"
+   stroke="#4D4D4D"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  98.2,54.1 95.9,53.8 93.7,53.1 91.8,51.9 90.1,50.2 88.9,48.3 88.2,46.1 88,43.9 "
+   id="polyline17701" />
+<line
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="98.2"
+   y1="43.9"
+   x2="98.2"
+   y2="54.1"
+   id="line17703" />
+<polyline
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  97.7,54.2 97.7,44.6 98.2,44.6 "
+   id="polyline17705" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M88,44.6v-1.4 M98.2,44.6v-1.4"
+   id="path17707" />
+<path
+   fill="none"
+   stroke="#5A5A5A"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M95.2,75.4v1.4 M95.2,73.4v1.4 M95.2,71.3v1.3 M95.2,69.3v1.3 M95.2,67.3v1.3"
+   id="path17709" />
+<line
+   fill="none"
+   stroke="#5A5A5A"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="95.2"
+   y1="77.5"
+   x2="95.2"
+   y2="78.9"
+   id="line17711" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="93.7"
+   y1="67.3"
+   x2="93.7"
+   y2="78.9"
+   id="line17713" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="99.6"
+   y1="24.2"
+   x2="99.6"
+   y2="25.7"
+   id="line17715" />
+<path
+   fill="none"
+   stroke="#5A5A5A"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M8.9,17.7H7.6 M10.9,17.7H9.6 M13,17.7h-1.3 M15,17.7h-1.3 M17,17.7h-1.3 M19.1,17.7h-1.3 M21.1,17.7h-1.3 M23.3,17.7h-1.4   M25.3,17.7h-1.4 M27.4,17.7h-1.4 M29.4,17.7H28 M31.4,17.7H30 M33.5,17.7h-1.3 M35.5,17.7h-1.3 M37.6,17.7h-1.3 M39.6,17.7h-1.3   M41.6,17.7h-1.3 M43.7,17.7h-1.3 M45.6,17.7h-1.2"
+   id="path17717" />
+<line
+   fill="none"
+   stroke="#5A5A5A"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="6.8"
+   y1="17.7"
+   x2="5.5"
+   y2="17.7"
+   id="line17719" />
+<path
+   fill="none"
+   stroke="#5A5A5A"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M8.9,46.9H7.6 M10.9,46.9H9.6 M13,46.9h-1.3 M15,46.9h-1.3 M17,46.9h-1.3 M19.1,46.9h-1.3 M21.1,46.9h-1.3 M23.3,46.9h-1.4   M25.3,46.9h-1.4 M27.4,46.9h-1.4 M29.4,46.9H28 M31.4,46.9H30 M33.5,46.9h-1.3 M35.5,46.9h-1.3 M37.6,46.9h-1.3 M39.6,46.9h-1.3   M41.6,46.9h-1.3 M43.7,46.9h-1.3 M45.6,46.9h-1.2"
+   id="path17721" />
+<line
+   fill="none"
+   stroke="#5A5A5A"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="6.8"
+   y1="46.9"
+   x2="5.5"
+   y2="46.9"
+   id="line17723" />
+<path
+   fill="none"
+   stroke="#5A5A5A"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M10,25.7v-1.3 M10,27.8v-1.3 M10,29.8v-1.3 M10,31.9v-1.3 M10,33.9v-1.3 M10,36.1v-1.4 M10,38.1v-1.4 M10,40.1v-1.4 M10,42.4v-1.7"
+   id="path17725" />
+<line
+   fill="none"
+   stroke="#5A5A5A"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="10"
+   y1="23.7"
+   x2="10"
+   y2="22"
+   id="line17727" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M5.5,22.4h5.9 M5.5,22h5.9 M45.6,19.1H5.5"
+   id="path17729" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  11.4,22 11.4,42.4 5.5,42.4 "
+   id="polyline17731" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M45.6,45.4H5.5 M11.4,42.1H5.5"
+   id="path17733" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M95.9,96.4h3.7 M71.9,96.4h3.6 M47.2,25.7h-1.6 M47.2,36.7h-1.6 M45.6,25.7V13.3 M47.2,36.7v14.5"
+   id="path17735" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M3.4,11.1h41.5 M99.6,89.1v7.3 M99.6,67.3v20.4 M29.6,157.6v-8.8 M475.6,100v-2.2 M475.6,114.7v-1.6 M475.6,129.9v-2.2 M475.6,134.2  v-2.9 M475.6,156.2V143 M475.6,205.7v-48.1 M457.4,97.9h18.1"
+   id="path17737" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="99.6"
+   y1="81.8"
+   x2="71.9"
+   y2="81.8"
+   id="line17739" />
+<path
+   fill="none"
+   stroke="#5A5A5A"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M75.1,83.2h-1.3 M77.2,83.2h-1.3 M79.2,83.2h-1.3 M81.2,83.2h-1.3 M83.4,83.2H82 M85.4,83.2H84 M87.5,83.2H86 M89.5,83.2h-1.4   M91.6,83.2h-1.4 M93.6,83.2h-1.3 M95.6,83.2h-1.3 M97.7,83.2h-1.3 M99.6,83.2h-1.2"
+   id="path17741" />
+<line
+   fill="none"
+   stroke="#5A5A5A"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="73.1"
+   y1="83.2"
+   x2="71.9"
+   y2="83.2"
+   id="line17743" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M70.4,68.7V52.6 M71.9,68.7v-1.4"
+   id="path17745" />
+<polyline
+   fill="none"
+   stroke="#4D4D4D"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  81.4,68.7 81.1,71 80.4,73.1 79.1,75.1 77.5,76.6 75.6,77.8 73.4,78.7 71.2,78.9 "
+   id="polyline17747" />
+<line
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="71.2"
+   y1="68.7"
+   x2="81.4"
+   y2="68.7"
+   id="line17749" />
+<polyline
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  81.4,69.1 71.8,69.1 71.8,68.7 "
+   id="polyline17751" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M71.9,78.9h-1.4 M71.9,68.7h-1.4"
+   id="path17753" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M55.1,97.9H5.5 M8.9,148.9H5.5 M29.6,148.9h-3.2 M169.6,127.7v34.9 M169.6,113.1v1.6 M169.6,11.1V100 M327.4,13.3v-2.2 M340.4,13.3  v-2.2"
+   id="path17755" />
+<path
+   fill="none"
+   stroke="#5A5A5A"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M26.2,153.2h1.3 M24.1,153.2h1.3 M22.1,153.2h1.3 M20,153.2h1.3 M17.9,153.2h1.4 M15.8,153.2h1.4 M13.8,153.2h1.4 M11.8,153.2h1.4   M9.7,153.2h1.4 M7.7,153.2H9 M5.5,153.2H7"
+   id="path17757" />
+<line
+   fill="none"
+   stroke="#5A5A5A"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="28.2"
+   y1="153.2"
+   x2="29.6"
+   y2="153.2"
+   id="line17759" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="5.5"
+   y1="151.7"
+   x2="29.6"
+   y2="151.7"
+   id="line17761" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  86.5,52.6 71.9,52.6 71.9,65.8 "
+   id="polyline17763" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  75.1,57.1 75.1,56.3 75,55.9 74.6,55.7 72.8,55.7 72.4,55.9 72.2,56.3 72.2,62.1 72.4,62.5 72.8,62.7 74.6,62.7 75,62.5 75.1,62.1   75.1,61.4 78.2,61.6 79.2,61.7 80.6,61.5 81.7,61 82.6,60.2 82.8,59.2 82.6,58.3 81.7,57.4 80.6,56.8 79.2,56.7 78.2,56.7   75.1,57.1 75.1,61.4 "
+   id="polyline17765" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  78.2,61.6 76.6,61 75.8,60.2 75.5,59.2 75.8,58.3 76.6,57.4 78.2,56.7 "
+   id="polyline17767" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M101.8,11.1h12 M44.9,11.1V2.3"
+   id="path17769" />
+<path
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M140.8,11.1h0.7 M127,11.1h0.7"
+   id="path17771" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="154.6"
+   y1="11.1"
+   x2="169.6"
+   y2="11.1"
+   id="line17773" />
+<polygon
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  74.8,15.4 74.9,14.3 74.6,13.1 74,12.1 72.7,10.6 71.3,9.5 69.4,8.7 67.4,8.1 64.9,7.7 62.4,7.5 59.9,7.7 57.4,8.1 55.4,8.7   53.6,9.5 52.1,10.6 50.8,12.1 50.2,13.1 49.9,14.3 50.2,15.7 50.8,16.7 52.1,18.2 53.6,19.3 55.4,20.1 57.4,20.7 59.9,21.1   62.4,21.2 64.9,21.1 67.4,20.7 69.4,20.1 71.3,19.3 72.7,18.2 73.9,17 "
+   id="polygon17775" />
+<polygon
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  73.6,12.4 72.7,11.3 71.6,10.5 69,9.3 67.1,8.7 62.3,8.2 57.5,8.7 55.6,9.3 53.9,10 52.3,11 51.1,12.3 50.5,13.3 50.4,14.3   50.6,15.5 51.1,16.5 52.4,17.7 53.9,18.7 55.7,19.5 57.5,20 62.3,20.5 67.1,20 67.6,19.9 69,19.5 71.6,18.3 73.4,16.6 74,15.2   74.2,14.3 74,13.4 "
+   id="polygon17777" />
+<polygon
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.24"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  66.6,18.5 68.6,17.6 70.1,16 70.4,14.3 70.1,12.8 68.6,11.2 66.6,10.1 65,9.9 64.7,9.8 60.7,9.4 56.8,9.8 53.9,10.9 52.6,11.7   51.6,12.7 51.1,13.5 51,14.3 51.1,15.3 51.6,16.1 52.6,17.1 53.9,17.9 56.8,19 60.7,19.4 64.7,19 65,18.9 "
+   id="polygon17779" />
+<polygon
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  50.2,17.1 51.5,18.7 53.2,19.9 55.1,20.8 57.1,21.4 59.8,21.9 62.4,22 65,21.9 67.7,21.4 69.7,20.8 71.6,19.9 73.3,18.7 74.6,17.1   75.4,15.8 75.5,14.3 75.4,13 74.6,11.7 73.3,10.1 71.6,8.9 69.7,8 67.7,7.4 65,6.9 62.4,6.7 59.8,6.9 57.1,7.4 55.1,8 53.2,8.9   51.5,10.1 50.2,11.7 49.6,13 49.3,14.3 49.6,15.8 "
+   id="polygon17781" />
+<polygon
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.24"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  53.4,14.3 53.3,14 52.8,13.7 52.3,14 52.2,14.3 52.3,14.8 52.8,15.1 53.3,14.8 "
+   id="polygon17783" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  116.4,186.1 116.4,183.8 119.3,183.8 "
+   id="polyline17785" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="116.4"
+   y1="186.1"
+   x2="121.4"
+   y2="186.1"
+   id="line17787" />
+<line
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="107.6"
+   y1="186.1"
+   x2="107.6"
+   y2="183.8"
+   id="line17789" />
+<rect
+   x="107.6"
+   y="184.6"
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   width="8.8"
+   height="0.7"
+   id="rect17791" />
+<line
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="106.9"
+   y1="186.1"
+   x2="106.9"
+   y2="183.8"
+   id="line17793" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="98.2"
+   y1="186.1"
+   x2="98.2"
+   y2="183.8"
+   id="line17795" />
+<rect
+   x="98.2"
+   y="184.6"
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   width="8.8"
+   height="0.7"
+   id="rect17797" />
+<path
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M106.9,186.1h0.7 M106.9,183.8h0.7"
+   id="path17799" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="95.2"
+   y1="186.1"
+   x2="98.2"
+   y2="186.1"
+   id="line17801" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="98.2"
+   y1="183.8"
+   x2="95.2"
+   y2="183.8"
+   id="line17803" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="79.6"
+   y1="203.5"
+   x2="79.6"
+   y2="201.3"
+   id="line17805" />
+<line
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="68.6"
+   y1="203.5"
+   x2="68.6"
+   y2="201.3"
+   id="line17807" />
+<rect
+   x="68.6"
+   y="202"
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   width="10.9"
+   height="0.7"
+   id="rect17809" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="79.6"
+   y1="201.3"
+   x2="93"
+   y2="201.3"
+   id="line17811" />
+<polyline
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  68.6,203.5 67.9,203.5 67.9,201.3 "
+   id="polyline17813" />
+<line
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="57"
+   y1="203.5"
+   x2="57"
+   y2="201.3"
+   id="line17815" />
+<rect
+   x="57"
+   y="202"
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   width="10.9"
+   height="0.7"
+   id="rect17817" />
+<line
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="67.9"
+   y1="201.3"
+   x2="68.6"
+   y2="201.3"
+   id="line17819" />
+<polyline
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  57,203.5 56.3,203.5 56.3,201.3 "
+   id="polyline17821" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="45.2"
+   y1="201.3"
+   x2="45.2"
+   y2="203.5"
+   id="line17823" />
+<rect
+   x="45.2"
+   y="202"
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   width="11"
+   height="0.7"
+   id="rect17825" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="45.2"
+   y1="203.5"
+   x2="29.6"
+   y2="203.5"
+   id="line17827" />
+<line
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="56.3"
+   y1="201.3"
+   x2="57"
+   y2="201.3"
+   id="line17829" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M353.9,35.2v-22 M95.2,203.5v-17.4 M93,157.6v43.7 M119.3,183.8v-53.9 M121.4,186.1v-54.7 M31.8,201.3h13.4 M95.2,203.5H79.6"
+   id="path17831" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M61.7,2.3h1.4 M44.9,2.3h3.7"
+   id="path17833" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  76.3,2.3 101.8,2.3 101.8,11.1 "
+   id="polyline17835" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  99.6,22.7 99.6,4.5 79.2,4.5 "
+   id="polyline17837" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M48.6,4.5h-1.4 M63.1,4.5h-1.4 M77.8,4.5h-1.4"
+   id="path17839" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.24"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M150.6,129.9v-15.2 M147,129.9v-15.2 M143.3,129.9v-15.2 M139.7,129.9v-15.2 M136,129.9v-15.2 M132.4,129.9v-15.2 M128.8,129.9  v-15.2 M125,129.9v-15.2 M150.6,97.9v15.2 M147,97.9v15.2 M143.3,97.9v15.2 M139.7,97.9v15.2 M136,97.9v15.2 M132.4,97.9v15.2   M128.8,97.9v15.2 M125,97.9v16"
+   id="path17841" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.24"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  125.8,113.1 151.3,113.1 151.3,114.7 124.3,114.7 "
+   id="polyline17843" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.24"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="151.3"
+   y1="113.8"
+   x2="125"
+   y2="113.8"
+   id="line17845" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M167.4,131.3h-46 M167.4,129.9h-48.1 M102.5,96.4H101 M124.3,96.4h-1.4 M165.1,96.4h-38.5 M122.9,97.9h44.5 M75.5,97.9H69   M102.5,97.9h-6.6"
+   id="path17847" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.24"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M95.2,131.3h24.1 M119.3,130.6H95.2 M119.3,129.9H95.2 M124.3,114.7V97.9 M125.8,97.9v15.2"
+   id="path17849" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.24"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  123.6,121.9 158.6,121.9 158.6,105.2 144.7,105.2 "
+   id="polyline17851" />
+<polyline
+   fill-rule="evenodd"
+   clip-rule="evenodd"
+   points="144.7,107.3 142.6,105.2 144.7,102.9 "
+   id="polyline17853" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.24"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="142.6"
+   y1="105.2"
+   x2="141.8"
+   y2="105.2"
+   id="line17855" />
+<polygon
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.24"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  125.8,121.9 125.6,121.4 125,121.1 124.6,121.4 124.3,121.9 124.6,122.5 125,122.6 125.6,122.5 "
+   id="polygon17857" />
+<polyline
+   fill="none"
+   stroke="#4D4D4D"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  122.9,86.9 120.6,87.2 118.4,87.9 116.5,89.1 115,90.8 113.8,92.7 112.9,94.9 112.7,97.1 112.4,94.9 111.7,92.7 110.5,90.8   108.8,89.1 106.9,87.9 104.8,87.2 102.5,86.9 "
+   id="polyline17859" />
+<polyline
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  122.9,96.4 122.5,96.4 122.5,86.9 "
+   id="polyline17861" />
+<path
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M122.9,97.1V86.9 M102.5,97.1V86.9"
+   id="path17863" />
+<polyline
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  103,86.9 103,96.4 102.5,96.4 "
+   id="polyline17865" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M122.9,96.4v1.4 M102.5,96.4v1.4"
+   id="path17867" />
+<polyline
+   fill-rule="evenodd"
+   clip-rule="evenodd"
+   points="47.2,24.2 47.2,24.3 77.8,24.2 "
+   id="polyline17869" />
+<polyline
+   fill-rule="evenodd"
+   clip-rule="evenodd"
+   points="47.2,24.3 77.8,24.2 77.8,24.3 "
+   id="polyline17871" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  77.8,4.5 77.8,6.1 79.2,6.1 79.2,4.5 "
+   id="polyline17873" />
+<polygon
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  77.8,21.3 77.8,24.2 80.6,24.2 80.6,22.7 79.2,22.7 79.2,21.3 "
+   id="polygon17875" />
+<rect
+   x="90.1"
+   y="22.7"
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   width="1.4"
+   height="1.4"
+   id="rect17877" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  99.6,24.2 98.2,24.2 98.2,22.7 99.6,22.7 "
+   id="polyline17879" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M79.2,22.7L99.6,4.5 M99.6,22.7L79.2,4.5 M91.6,22.7h6.6 M98.2,23.5h-6.6 M91.6,24.2h6.6 M90.1,24.2h-9.5 M80.6,22.7h9.5 M78.5,6.1  v15.2 M79.2,21.3V6.1 M77.8,6.1v15.2"
+   id="path17881" />
+<polygon
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  90.1,13.6 89.9,13.1 89.4,12.9 88.9,13.1 88.7,13.6 88.9,14.2 89.4,14.3 89.9,14.2 "
+   id="polygon17883" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  97.2,12.9 97.1,13 97,13.1 96.8,13.4 96.8,14 97,14.2 97.1,14.3 97.4,14.3 "
+   id="polyline17885" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="97.4"
+   y1="12.9"
+   x2="97.2"
+   y2="12.9"
+   id="line17887" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  97.9,13.5 97.8,13.6 97.8,13.7 97.9,13.7 97.9,13.9 "
+   id="polyline17889" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="97.9"
+   y1="13.7"
+   x2="97.9"
+   y2="13.6"
+   id="line17891" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  97.6,13 97.4,12.9 97.3,13 97.1,13.1 97.1,14.2 97.3,14.3 97.6,14.3 97.6,14.2 97.9,13.9 "
+   id="polyline17893" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M99.6,13.5h-1.7 M99.6,13.9h-1.7 M97.9,13.5L97.6,13"
+   id="path17895" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  88.7,6.9 88.7,7 88.9,7.1 89.2,7.3 89.6,7.3 89.9,7.1 90.1,7 90.1,6.8 "
+   id="polyline17897" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M89.3,6.2V6.1 M88.7,6.8v0.1"
+   id="path17899" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  89.2,6.2 89.3,6.3 89.5,6.3 89.5,6.2 "
+   id="polyline17901" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  88.8,6.5 88.7,6.7 88.7,6.9 88.9,7 89.2,7.1 89.4,7.1 89.6,7 89.9,7 90.1,6.9 90.1,6.7 90,6.5 89.5,6.2 "
+   id="polyline17903" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M89.2,4.5v1.7 M89.5,4.5v1.7 M89.2,6.2l-0.4,0.4"
+   id="path17905" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M99.6,78.5h-5.9 M99.6,78.9h-5.9"
+   id="path17907" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  119.2,121 118.4,121 118.4,122.9 119.4,122.9 119.8,122.7 119.9,122.5 120,122.1 120,121.9 119.9,121.6 119.8,121.3 119.4,121.1   119,121 "
+   id="polyline17909" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  120.7,122.9 120.7,121 120.8,121 122,122.9 122.2,122.9 122.2,121 "
+   id="polyline17911" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  74.3,150.3 74.4,150.3 74.5,150.1 74.6,149.8 74.6,149.3 74.5,149.1 74.4,148.9 74,148.9 "
+   id="polyline17913" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="74"
+   y1="150.3"
+   x2="74.3"
+   y2="150.3"
+   id="line17915" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="73.6"
+   y1="149.7"
+   x2="73.6"
+   y2="149.5"
+   id="line17917" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  73.9,150.2 73.9,150.3 74.2,150.3 74.3,150.1 74.4,149.8 74.4,149.3 74.3,149.1 74.2,148.9 73.9,148.9 73.9,149 73.6,149.5 "
+   id="polyline17919" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M71.9,149.8h1.7 M71.9,149.5h1.7 M73.6,149.8l0.4,0.4"
+   id="path17921" />
+<polyline
+   fill="none"
+   stroke="#4D4D4D"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  35.4,25.7 35.6,27.8 36.2,29.8 37.3,31.7 38.6,33.4 40.3,34.7 42.2,35.8 44.3,36.4 46.4,36.7 "
+   id="polyline17923" />
+<line
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="46.4"
+   y1="25.7"
+   x2="35.4"
+   y2="25.7"
+   id="line17925" />
+<polyline
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  35.4,26.1 45.7,26.1 45.7,25.6 "
+   id="polyline17927" />
+<polyline
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  95.4,97.6 95.2,97.3 88.4,104 "
+   id="polyline17929" />
+<path
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M95.9,97.1l-7.2,7.2 M75.5,97.1l7.3,7.2"
+   id="path17931" />
+<polyline
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  83,104 76.3,97.4 76,97.6 "
+   id="polyline17933" />
+<polyline
+   fill="none"
+   stroke="#4D4D4D"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  85.7,97.1 85.9,99.2 86.6,101.2 87.6,103 89,104.6 "
+   id="polyline17935" />
+<polyline
+   fill="none"
+   stroke="#4D4D4D"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  82.4,104.6 83.9,103 84.8,101.2 85.6,99.2 85.7,97.1 "
+   id="polyline17937" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M75.5,96.4v1.4 M95.9,96.4v1.4"
+   id="path17939" />
+<rect
+   x="168.1"
+   y="100"
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   width="0.7"
+   height="13.1"
+   id="rect17941" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M169.6,100h-2.2 M169.6,113.1h-2.2"
+   id="path17943" />
+<rect
+   x="168.1"
+   y="114.7"
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   width="0.7"
+   height="13.1"
+   id="rect17945" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M169.6,127.7h-2.2 M169.6,114.7h-2.2"
+   id="path17947" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M56.6,135.8v13.1 M69,134.2h1.4 M56.6,134.2h1.4 M58.1,135.8h-1.4 M70.4,135.8H69 M31.8,148.9h24.8 M55.1,110.2v37.2 M55.1,97.9v1.4   M56.6,110.2v24 M56.6,97.9v1.4 M95.2,113.1v70.7 M477.8,127.7h-2.3 M477.8,114.7h-2.3"
+   id="path17949" />
+<polyline
+   fill="none"
+   stroke="#4D4D4D"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  69,146 66.8,145.7 64.8,145.1 62.9,144.1 61.2,142.7 59.9,141.1 58.9,139.1 58.2,137.1 58.1,135.1 "
+   id="polyline17951" />
+<line
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="69"
+   y1="135.1"
+   x2="69"
+   y2="146"
+   id="line17953" />
+<polyline
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  68.5,146 68.5,135.7 69,135.7 "
+   id="polyline17955" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M58.1,135.8v-1.6 M69,135.8v-1.6"
+   id="path17957" />
+<polyline
+   fill="none"
+   stroke="#4D4D4D"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  44.9,99.3 45.1,101.5 45.7,103.5 46.8,105.4 48.1,107 49.8,108.4 51.7,109.4 53.8,110 55.8,110.2 "
+   id="polyline17959" />
+<line
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="55.8"
+   y1="99.3"
+   x2="44.9"
+   y2="99.3"
+   id="line17961" />
+<polyline
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  44.9,99.7 55.2,99.7 55.2,99.3 "
+   id="polyline17963" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M56.6,110.2h-1.6 M56.6,99.3h-1.6"
+   id="path17965" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  14.3,52.6 14.3,62.1 5.5,62.1 "
+   id="polyline17967" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  5.5,86.9 14.3,86.9 14.3,88.4 "
+   id="polyline17969" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M5.5,88.4h8.8 M14.3,95v1.4"
+   id="path17971" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="12.8"
+   y1="86.9"
+   x2="12.8"
+   y2="62.1"
+   id="line17973" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="5.5"
+   y1="95"
+   x2="14.3"
+   y2="95"
+   id="line17975" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="14.3"
+   y1="95"
+   x2="14.3"
+   y2="88.4"
+   id="line17977" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  124.3,96.4 124.3,87.7 126.6,87.7 126.6,96.4 "
+   id="polyline17979" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  165.1,96.4 165.1,87.7 167.4,87.7 "
+   id="polyline17981" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="126.6"
+   y1="87.7"
+   x2="165.1"
+   y2="87.7"
+   id="line17983" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.72"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M161.5,92h1.4 M159.5,92h1.4 M157.4,92h1.4 M155.4,92h1.4 M153.4,92h1.3 M151.3,92h1.3 M149.3,92h1.3 M147.2,92h1.3 M145.2,92h1.3   M143.2,92h1.3 M141.1,92h1.3 M139.1,92h1.3 M136.9,92h1.4 M134.9,92h1.4 M132.8,92h1.4 M130.8,92h1.4 M128.8,92h1.4 M126.6,92h1.4"
+   id="path17985" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.72"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="163.6"
+   y1="92"
+   x2="165.1"
+   y2="92"
+   id="line17987" />
+
+
+
+
+
+
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.24"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="101"
+   y1="87.7"
+   x2="124.3"
+   y2="87.7"
+   id="line18001" />
+
+
+
+
+
+
+
+
+<rect
+   x="48.6"
+   y="3.1"
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   width="13.1"
+   height="0.7"
+   id="rect18019" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M48.6,4.5V2.3 M61.7,4.5V2.3"
+   id="path18021" />
+<rect
+   x="63.1"
+   y="3.1"
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   width="13.2"
+   height="0.7"
+   id="rect18023" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M76.3,4.5V2.3 M63.1,4.5V2.3"
+   id="path18025" />
+<rect
+   x="127.7"
+   y="11.8"
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   width="13.1"
+   height="0.7"
+   id="rect18027" />
+<path
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M127.7,13.3v-2.2 M140.8,13.3v-2.2"
+   id="path18029" />
+<rect
+   x="141.5"
+   y="11.8"
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   width="13.1"
+   height="0.7"
+   id="rect18031" />
+<line
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="141.5"
+   y1="13.3"
+   x2="141.5"
+   y2="11.1"
+   id="line18033" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="154.6"
+   y1="13.3"
+   x2="154.6"
+   y2="11.1"
+   id="line18035" />
+<rect
+   x="113.8"
+   y="11.8"
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   width="13.2"
+   height="0.7"
+   id="rect18037" />
+<line
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="127"
+   y1="13.3"
+   x2="127"
+   y2="11.1"
+   id="line18039" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="113.8"
+   y1="13.3"
+   x2="113.8"
+   y2="11.1"
+   id="line18041" />
+<polyline
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.24"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  128,97.9 128,98.2 125.8,98.2 "
+   id="polyline18043" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="5.5"
+   y1="111.3"
+   x2="3.4"
+   y2="111.3"
+   id="line18045" />
+<line
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="5.5"
+   y1="122.2"
+   x2="3.4"
+   y2="122.2"
+   id="line18047" />
+<rect
+   x="4.1"
+   y="111.3"
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   width="0.7"
+   height="10.9"
+   id="rect18049" />
+<polyline
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  5.5,122.2 5.5,122.9 3.4,122.9 "
+   id="polyline18051" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="3.4"
+   y1="133.9"
+   x2="5.5"
+   y2="133.9"
+   id="line18053" />
+<rect
+   x="4.1"
+   y="122.9"
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   width="0.7"
+   height="10.9"
+   id="rect18055" />
+<line
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="3.4"
+   y1="122.9"
+   x2="3.4"
+   y2="122.2"
+   id="line18057" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="5.5"
+   y1="63.2"
+   x2="3.4"
+   y2="63.2"
+   id="line18059" />
+<line
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="5.5"
+   y1="74.1"
+   x2="3.4"
+   y2="74.1"
+   id="line18061" />
+<rect
+   x="4.1"
+   y="63.2"
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   width="0.7"
+   height="10.9"
+   id="rect18063" />
+<polyline
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  5.5,74.1 5.5,74.9 3.4,74.9 "
+   id="polyline18065" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="3.4"
+   y1="85.9"
+   x2="5.5"
+   y2="85.9"
+   id="line18067" />
+<rect
+   x="4.1"
+   y="74.9"
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   width="0.7"
+   height="10.9"
+   id="rect18069" />
+<line
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="3.4"
+   y1="74.9"
+   x2="3.4"
+   y2="74.1"
+   id="line18071" />
+<polyline
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  9.2,147.8 9.5,148 15.2,142.3 "
+   id="polyline18073" />
+<path
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M8.9,148.1l6.1-6.2 M26.4,148.1l-6.2-6.2"
+   id="path18075" />
+<polyline
+   fill="none"
+   stroke="#656565"
+   stroke-width="0.48"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  19.9,142.1 25.7,147.9 25.9,147.7 "
+   id="polyline18077" />
+<polyline
+   fill="none"
+   stroke="#4D4D4D"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  17.6,148.1 17.4,146.3 16.9,144.7 16,143.1 14.8,141.7 "
+   id="polyline18079" />
+<polyline
+   fill="none"
+   stroke="#4D4D4D"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   points="  20.4,141.7 19.2,143.1 18.4,144.7 17.8,146.3 17.6,148.1 "
+   id="polyline18081" />
+<path
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.96"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   d="  M26.4,148.9v-1.4 M8.9,148.9v-1.4"
+   id="path18083" />
+<line
+   fill="none"
+   stroke="#000000"
+   stroke-width="0.36"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   stroke-miterlimit="10"
+   x1="119.3"
+   y1="168.5"
+   x2="95.2"
+   y2="168.5"
+   id="line18085" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</svg>
