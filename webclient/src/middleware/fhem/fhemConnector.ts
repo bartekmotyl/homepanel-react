@@ -29,6 +29,8 @@ export class FHEMConnector implements IConnector {
         this.adapters.set('SwitchDevice', new SwitchDeviceAdapter())
         this.adapters.set('BlindsDevice', new BlindsDeviceAdapter())
         this.adapters.set('TemperatureSensorDevice', new TemperatureSensorDeviceAdapter())
+        this.adapters.set('DoorSensorDevice', new DoorSensorDeviceAdapter())
+        
     }
 
     public getId(): string {
@@ -198,3 +200,12 @@ class TemperatureSensorDeviceAdapter implements DeviceAdapter {
     }    
 }
 
+class DoorSensorDeviceAdapter implements DeviceAdapter {
+
+    public accept(store: MiddlewareAPI<Dispatch<AnyAction>, any>, args: string[]): any[] {
+        return [ { state: args[0] } ]
+    }
+    public processAction(store: MiddlewareAPI, device: Device, fhemCall: (cmd: string) => void, 
+            path: string[], payload: any): void {
+    }    
+}

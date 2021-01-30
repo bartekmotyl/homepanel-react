@@ -23,10 +23,12 @@
         createDevice('SwitchDevice', ['fhem-1', 'lightBedroom', 'Bedroom']),
         createDevice('BlindsDevice', ['fhem-1', 'blindsOffice', 'Office']),      
         createDevice('BlindsDevice', ['fhem-1', 'blindsBedroom', 'Bedroom']),      
+        createDevice('DoorSensorDevice', ['fhem-1', 'windowSensorOffice', 'Office (window)']),      
         //        
-        createDevice('TemperatureIndicatorWidgetSource', ['office-source-temperature', 'Office', 'tempOffice']),   
-        createDevice('TemperatureIndicatorWidgetSource', ['bedroom-source-temperature', 'Bedroom', 'tempBedroom']),   
-        createDevice('IndoorTemperatureValueClassifier', ['indoor-temperature-classifier']),      
+        createDevice('TemperatureIndicatorWidgetSource', ['tempOffice-source', 'Office', 'tempOffice']),   
+        createDevice('TemperatureIndicatorWidgetSource', ['tempBedroom-source', 'Bedroom', 'tempBedroom']),   
+        createDevice('IndoorTemperatureValueClassifier', ['indoor-temperature-classifier']),   
+        createDevice('DoorSensorIndicatorWidgetSource', ['windowSensorOffice-source', 'Office (window)', 'windowSensorOffice']),   
     ]
 
     return devices

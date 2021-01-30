@@ -41,10 +41,10 @@ export class TemperatureIndicatorWidgetSource extends IndicatorWidgetSource {
 
     public getText() : string {
         let value = this.getTemperature()
-        if(typeof value !== 'number') {
+        if(value && typeof value !== 'number') {
             return `${value}`
         }
-        const ret =  value ? value.toFixed(1) + "&deg;" : "";
+        const ret =  value ? value.toFixed(1) + "&deg;" : "N/A";
         return ret; 
     }
 

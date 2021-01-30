@@ -113,11 +113,12 @@
     }    
 
     const leftSideTabs = tabsWidget({ width: "22rem", tabsVisible: true }, [
-        page('Ref', [
+        page('Main', [
+            siWidget('windowSensorOffice-source'),            
         ]),
         page('Temperatures', [
-            siWidget('office-source-temperature', 'indoor-temperature-classifier'),            
-            siWidget('bedroom-source-temperature', 'indoor-temperature-classifier'),            
+            siWidget('tempOffice-source', 'indoor-temperature-classifier'),            
+            siWidget('tempBedroom-source', 'indoor-temperature-classifier'),            
         ]),
     ])
     const rightSideTabs = tabsWidget({ width: "calc(100vw - 23rem)", tabsVisible: true }, [
