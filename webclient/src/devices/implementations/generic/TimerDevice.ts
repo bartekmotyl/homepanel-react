@@ -6,7 +6,7 @@ import { ConnectedDeviceBase, Device, DeviceUpdate } from "../../Device";
 
 /** 
  * This is a special device to be used with Timers connector
- * I is required for LocalTimerWidget
+ * It is required for LocalTimerWidget
  */
 export class TimerDevice extends ConnectedDeviceBase {
     private static Epoch = DateTime.fromMillis(0)

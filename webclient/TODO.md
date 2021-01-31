@@ -1,3 +1,13 @@
+- cleanup unused dependencies 
+- how to deal with "local" customized setup - stored in different directory (ignored by git) and use env var?
+- better logo 
+- is the startup sequence done in proper places? (loading devices, connectors, widgets wtc)
+- functions in config javascript are copied from file to file (use common utils instead?)
+- constructing object by class name (e.g. widgetsFactory) - is there a better way other than 
+manually maintaining a list of available classes (i.e. automatically support all devices/widgets/connectors added in  certain folders)
+
+
+
 Configuration 
 - Widget title is not used (device name is shown instead?)
 
