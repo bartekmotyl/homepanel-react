@@ -17,14 +17,21 @@ import { ReloadWidget } from './ReloadWidget';
 import { IframeWidget } from './IframeWidget';
 import { LocalTimerWidget } from './LocalTimerWidget';
 import { LocalTimerWidgetSound } from './LocalTimerWidgetSound';
+import { SwitchWidgetColored } from "./SwitchWidgetColored";
+import { LabelWidget } from "./LabelWidget";
+import { GridWidget } from "./containers/GridWidget";
+import {GroupWidget} from "./containers/GroupWidget";
 
 //TODO: is it possible to fill this map automatically from all widgets available in this folder/subfolders?
 const widgetTypes = {
     'panelWidget': PanelWidget,
     'tabsWidget': TabsWidget,
+    'gridWidget': GridWidget,
     'containerWidget': ContainerWidget,
+    'groupWidget': GroupWidget,
     'temperatureWidget': TemperatureWidget,
     'switchWidget': SwitchWidget,
+    'switchWidgetColored': SwitchWidgetColored,
     'blindsWidget': BlindsWidget,
     'smallIndicatorWidget': SmallIndicatorWidget,
     'linkWidget': LinkWidget,
@@ -37,6 +44,7 @@ const widgetTypes = {
     'iframeWidget': IframeWidget,
     'localTimerWidget': LocalTimerWidget,
     'localTimerWidgetSound': LocalTimerWidgetSound,
+    'labelWidget': LabelWidget
 }
 
 type WidgetTypeKey = keyof typeof widgetTypes
