@@ -1,3 +1,7 @@
+/** 
+TODO: convert into IConnector implementation 
+*/
+
 import { MiddlewareAPI, Middleware } from 'redux';
 import { PayloadAction } from '@reduxjs/toolkit';
 import { DeviceUpdate } from '../../devices/Device';

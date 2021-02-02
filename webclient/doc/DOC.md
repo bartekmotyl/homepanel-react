@@ -76,17 +76,17 @@ TODO: configuration of connectors and devices should be dynamically loaded.
 
 # To do 
 I use homepanel-react on daily basis, 24/7 at my home and it works fine (10" android tablet with [Fully Kiosk Browser](https://play.google.com/store/apps/details?id=de.ozerov.fully)).
-But it does not mean the work is done - it is far from that :)
+But it does not mean the work is done - it is far from that :) 
 
 It is of course possible to extend it by new connectors, devices and widgets (I have lots of ideas already). On the other hand, there are plenty of places that would need to be improved/optimized, for example: 
 - UI & UX - I am not a designer, so widgets are not that pretty, I am aware of that :)
 - Improve performance of floor plan widgets (the app becomes significantly slow on a tablet when floor plan widget is activated)
 - Get rid of forced type-script casts here and there (`as any as X`)
-- Make configuration of devices and connectors dynamically loaded - 
 
+See more in TODO file 
 
 # History
-The whole *homepanel* story started when I installed in my house some elements of home automation based on [Loxone](https://www.loxone.com) and [Homematic](https://www.eq-3.com/products/homematic.html) controlled by [FHEM](https://fhem.de/). As these were separate systems there was no simple way to integrate them in a nice UI, preferably touch enale. I wanted to have a dashboard (panel) with active elements to control devices from these systems in a unified way. 
+The whole *homepanel* story started when I installed in my house some elements of home automation based on [Loxone](https://www.loxone.com) and [Homematic](https://www.eq-3.com/products/homematic.html) controlled by [FHEM](https://fhem.de/). As these were separate systems there was no simple way to integrate them in a nice UI, preferably touch enabled. I wanted to have a dashboard (panel) with active elements to control devices from these systems in a unified way. 
 At that time home-automation solutions that used touch panels were extremely expensive.
 On the other hand, simple android tablets were relatively cheap, so I decided to write my own solution as an android app with [libgdx](https://libgdx.badlogicgames.com/).
 The app was written in java and also used connectors, devices and widgets. 
