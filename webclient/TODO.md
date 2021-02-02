@@ -5,7 +5,7 @@
 - functions in config javascript are copied from file to file (use common utils instead?)
 - constructing object by class name (e.g. widgetsFactory) - is there a better way other than 
 manually maintaining a list of available classes (i.e. automatically support all devices/widgets/connectors added in  certain folders)
-
+- widgetUiCommons: change fixed sizes into rem 
 
 
 Configuration 

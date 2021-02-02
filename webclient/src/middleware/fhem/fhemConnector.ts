@@ -1,4 +1,4 @@
-import { MiddlewareAPI, Middleware, AnyAction, Dispatch } from 'redux';
+import { MiddlewareAPI, AnyAction, Dispatch } from 'redux';
 import { PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { RootState } from '../../app/store';
@@ -81,7 +81,7 @@ export class FHEMConnector implements IConnector {
 
         debug && console.log(`FHEM: doLongPoll ${longPollUrl}`)
     
-        const data: any = await axios.get(longPollUrl, {
+        await axios.get(longPollUrl, {
             headers: {
               'Authorization': `Basic ${token}`
             }, 
@@ -93,9 +93,9 @@ export class FHEMConnector implements IConnector {
                 const devices = (store.getState() as RootState).devices
                 const newEntries = newLines.map(l => {
                     const parts = l.replace('<br>', '').split(' ')
-                    const date = parts[0]
-                    const time = parts[1]
-                    const group = parts[2]
+                    //const _date = parts[0]
+                    //const _time = parts[1]
+                    //const _group = parts[2]
                     const device = parts[3]
                     const args = parts.slice(4)
                     if (!device || !devices.map.has(device)) {
