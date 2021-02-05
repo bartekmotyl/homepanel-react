@@ -3,14 +3,24 @@ import { PayloadAction } from '@reduxjs/toolkit';
 import { DeviceUpdate } from '../../devices/Device';
 import { IConnector } from '../connectorsMiddleware';
 
-const debug = false;
+const debug = true;
 
 export class HPWebSocketConnector implements IConnector {
     private connectorId: string 
-    private socket: WebSocket | null = null;
+    private socket: WebSocket | null = null
+    private config: any
+    private active: boolean = false
 
     public constructor(connectorId: string) {
         this.connectorId = connectorId
+        setInterval(() => { 
+            if (this.active) {
+                const isValid = this.socket && this.socket.readyState === WebSocket.OPEN
+                if (isValid) {
+                    this.socket?.send('ping') 
+                }
+            }
+        }, 60 * 1000)
     }
 
     public getId(): string {
@@ -18,24 +28,18 @@ export class HPWebSocketConnector implements IConnector {
     }
 
     public connect(store: MiddlewareAPI, config?: any) {
-        if (this.socket !== null) {
-            this.socket.close();
-        }
-        console.log(`Home panel websocket: connecting to: ${config}`)
-
-        // connect to the remote host
-        this.socket = new WebSocket(config);
-
-        // websocket handlers
-        this.socket.onmessage = this.onMessage(store);
-        this.socket.onclose = this.onClose(store);
-        this.socket.onopen = this.onOpen(store);
+        this.config = config
+        this.active = true
+        this.reconnect(store)
     }
+
     public disconnect() {
+        this.active = false
         if (this.socket !== null) {
-            this.socket.close();
+            this.socket.close()
         }
-        this.socket = null;
+        this.socket = null
+        this.config = null
     }
 
     public processAction(store: MiddlewareAPI, action: PayloadAction<any>): void {
@@ -56,6 +60,22 @@ export class HPWebSocketConnector implements IConnector {
         }
     
     }
+
+    private reconnect = (store: MiddlewareAPI) => {
+        if (this.socket && this.socket.readyState === WebSocket.OPEN) {
+            this.socket.close();
+        }
+        console.log(`Home panel websocket: connecting to: ${this.config}`)
+
+        // connect to the remote host
+        this.socket = new WebSocket(this.config);
+
+        // websocket handlers
+        this.socket.onmessage = this.onMessage(store);
+        this.socket.onclose = this.onClose(store);
+        this.socket.onopen = this.onOpen(store);        
+        this.socket.onerror = this.onError(store)
+    }
     
     private sendAction = (deviceId: string, action: string) => {
         console.log(`sending action: ${action} to ${deviceId}`)
@@ -75,12 +95,24 @@ export class HPWebSocketConnector implements IConnector {
     };
     
     private onClose(store: MiddlewareAPI) { 
-        return () => {
+        return (ev: Event) => {
+            debug && console.log(`Home panel websocket close: ${ev}`)  
+            if (this.active) {
+                this.reconnect(store)
+            }
         }
     };
+
+    private onError(store: MiddlewareAPI) { 
+        return (ev: Event) => {
+            debug && console.log(`Home panel websocket error: ${ev}. Reconnecting...`)  
+            setTimeout(() => { this.reconnect(store) }, 10*10000);
+            
+        }
+    };    
+
     
     private onMessage(store: MiddlewareAPI) {
-
         return  (event: MessageEvent) => {
             debug && console.log(`Home panel websocket message received: ${event.data}`)
             var payload = JSON.parse(event.data);
