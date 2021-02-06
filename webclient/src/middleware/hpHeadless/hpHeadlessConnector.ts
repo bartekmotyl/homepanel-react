@@ -3,7 +3,7 @@ import { PayloadAction } from '@reduxjs/toolkit';
 import { DeviceUpdate } from '../../devices/Device';
 import { IConnector } from '../connectorsMiddleware';
 
-const debug = true;
+const debug = false
 
 export class HPWebSocketConnector implements IConnector {
     private connectorId: string 
