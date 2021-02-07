@@ -27,8 +27,16 @@
         //        
         createDevice('TemperatureIndicatorWidgetSource', ['tempOffice-source', 'Office', 'tempOffice']),   
         createDevice('TemperatureIndicatorWidgetSource', ['tempBedroom-source', 'Bedroom', 'tempBedroom']),   
-        createDevice('IndoorTemperatureValueClassifier', ['indoor-temperature-classifier']),   
-        createDevice('DoorSensorIndicatorWidgetSource', ['windowSensorOffice-source', 'Office (window)', 'windowSensorOffice']),   
+        createDevice('DoorSensorIndicatorWidgetSource', ['windowSensorOffice-source', 'Office (window)', 'windowSensorOffice']),
+        createDevice('NumberRangeValueClassifier', [
+            'indoor-range-temperature-classifier', [ 
+                { value: 20.0, color: 'VeryLowTemperature'},
+                { value: 21.0, color: 'LowTemperature'},
+                { value: 22.0, color: 'StandardTemperature'},
+                { value: 23.0, color: 'HighTemperature'},
+                { value: null, color: 'VeryHighTemperature'},
+            ]
+        ]),           
     ]
 
     return devices

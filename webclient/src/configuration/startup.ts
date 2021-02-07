@@ -18,9 +18,7 @@ import { ThermostatAsTemperatureConverter } from '../registry/converters/Thermos
 import { CompositeValueAsNumberConverter } from '../registry/converters/CompositeValueAsNumberConverter';
 
 import { TemperatureIndicatorWidgetSource } from '../registry/indicators/TemperatureIndicatorWidgetSource';
-import { IndoorTemperatureValueClassifier } from '../registry/classifiers/IndoorTemperatureValueClassifier';
 import { PowerMeterIndicatorWidgetSource } from '../registry/indicators/PowerMeterIndicatorWidgetSource';
-import { PowerMeterValueClassifier } from '../registry/classifiers/PowerMeterValueClassifier';
 
 import { Device } from '../devices/Device';
 import { getDevicesConfig } from './devicesConfig';
@@ -28,14 +26,10 @@ import { DoorSensorIndicatorWidgetSource } from '../registry/indicators/DoorSens
 import { WaterMeterIndicatorWidgetSource } from '../registry/indicators/WaterMeterIndicatorWidgetSource';
 import { ThermostatIndicatorWidgetSource } from '../registry/indicators/ThermostatIndicatorWidgetSource';
 import { NumberIndicatorWidgetSource } from '../registry/indicators/NumberIndicatorWidgetSource';
-import { OutdoorTemperatureValueClassifier } from '../registry/classifiers/OutdoorTemperatureValueClassifier';
-import { HeatWaterTemperatureValueClassifier } from '../registry/classifiers/HeatWaterTemperatureValueClassifier';
-import { AirQualityPM2_5ValueClassifier } from '../registry/classifiers/AirQualityPM2_5ValueClassifier';
-import { AirQualityPM10ValueClassifier } from '../registry/classifiers/AirQualityPM10ValueClassifier';
 import { SimpleValueAsBooleanConverter } from '../registry/converters/SimpleValueAsBooleanConverter';
 import { WarningIndicatorWidgetSource } from '../registry/indicators/WarningIndicatorWidgetSource';
 import { AvailabilityIndicatorWidgetSource } from '../registry/indicators/AvailabilityIndicatorWidgetSource';
-
+import { NumberRangeValueClassifier } from '../registry/classifiers/NumberRangeValueClassifier'
 
 
 const knownTypes: any = {
@@ -63,12 +57,7 @@ const knownTypes: any = {
     NumberIndicatorWidgetSource,
     WarningIndicatorWidgetSource,
     AvailabilityIndicatorWidgetSource,
-    IndoorTemperatureValueClassifier,
-    OutdoorTemperatureValueClassifier,
-    PowerMeterValueClassifier,
-    HeatWaterTemperatureValueClassifier,
-    AirQualityPM2_5ValueClassifier,
-    AirQualityPM10ValueClassifier
+    NumberRangeValueClassifier,
 }
 
 export const configFolderPath = process.env.REACT_APP_CONFIG_FOLDER_PATH ?? 'config'

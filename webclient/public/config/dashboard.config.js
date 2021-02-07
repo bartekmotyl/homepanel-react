@@ -90,7 +90,7 @@
             floorPlanElementLocation(x, y),
             device, 
             converter,
-            classifier ?? 'indoor-temperature-classifier',
+            classifier ?? 'indoor-range-temperature-classifier',
         )
     } 
 
@@ -117,8 +117,8 @@
             siWidget('windowSensorOffice-source'),            
         ]),
         page('Temperatures', [
-            siWidget('tempOffice-source', 'indoor-temperature-classifier'),            
-            siWidget('tempBedroom-source', 'indoor-temperature-classifier'),            
+            siWidget('tempOffice-source', 'indoor-range-temperature-classifier'),            
+            siWidget('tempBedroom-source', 'indoor-range-temperature-classifier'),            
         ]),
     ])
     const rightSideTabs = tabsWidget({ width: "calc(100vw - 23rem)", tabsVisible: true }, [

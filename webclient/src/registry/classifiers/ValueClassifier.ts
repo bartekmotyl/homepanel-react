@@ -11,24 +11,7 @@ export abstract class ValueClassifier extends DeviceBase {
         return null
     }
 }
-/*
-export enum ValueClass {
-    Normal = "#90BE6D",
-    Information = "#F9C74F",
-    Warning = "#F8961E",
-    Error = "#F3722C",
-    Critical = "#F94144",
-    Disaster = "black",
 
-    VeryLowTemperature = "#577590",
-    LowTemperature = "#43AA8B",
-    StandardTemperature = "#90BE6D",
-    HighTemperature = "#F8961E",
-    VeryHighTemperature = "#F3722C",
- 
-    Undefined = "Gray",
-}
-*/
 
 export enum ValueClass {
     // https://htmlcolorcodes.com/
@@ -46,4 +29,13 @@ export enum ValueClass {
     VeryHighTemperature = "#ba4a00",
  
     Undefined = "#707b7c",
+}
+type ValueClassKeyType = keyof typeof ValueClass;
+
+export const getStandardValue = (name: string) => {
+    var found = Object.keys(ValueClass).find(key => key === name)
+    if (found) {
+        return ValueClass[found as ValueClassKeyType] 
+    }
+    return null 
 }
