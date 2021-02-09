@@ -1,6 +1,6 @@
 import { Device, DeviceBase } from '../../devices/Device';
 import { SimpleValue } from '../../devices/interfaces/generic/genericDevices';
-import { AsBoolean } from '../genericConverters';
+import { AsBoolean } from './genericConverters';
 
 export class SimpleValueAsBooleanConverter extends DeviceBase implements  AsBoolean {
     private trueValue : string;

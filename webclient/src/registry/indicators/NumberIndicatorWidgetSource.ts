@@ -1,20 +1,20 @@
 import { store } from '../../app/store';
 import { ConnectedDevice } from '../../devices/Device';
-import { AsNumber  } from '../genericConverters';
+import { AsNumber  } from '../converters/genericConverters';
 import { IndicatorWidgetSource } from './IndicatorWidgetSource';
 
 export class NumberIndicatorWidgetSource extends IndicatorWidgetSource {
     private converterId : string
-    private subDeviceId : string
+    private refDeviceId : string
 
-    constructor(deviceClass: string, deviceId: string, name: string, subDeviceId: string, converterId: string)  {
-        super(deviceClass, deviceId, name);
-        this.subDeviceId = subDeviceId;
+    constructor(sourceClass: string, sourceId: string, name: string, refDeviceId: string, converterId: string)  {
+        super(sourceClass, sourceId, name);
+        this.refDeviceId = refDeviceId;
         this.converterId = converterId;
     }
     
-    protected getSubDevice(): ConnectedDevice {
-        return store.getState().devices.map.get(this.subDeviceId)! as ConnectedDevice     
+    protected getRefDevice(): ConnectedDevice {
+        return store.getState().devices.map.get(this.refDeviceId)! as ConnectedDevice     
     }
 
     protected getConverter() {
@@ -22,7 +22,7 @@ export class NumberIndicatorWidgetSource extends IndicatorWidgetSource {
     }
 
     protected getNumber() : number | null {
-        let device = this.getSubDevice();
+        let device = this.getRefDevice();
         let converter = this.getConverter();
 
         if (!device) {
@@ -51,6 +51,6 @@ export class NumberIndicatorWidgetSource extends IndicatorWidgetSource {
     }
 
     public getIsUpToDate() : boolean { 
-        return  this.getSubDevice().isUpToDate()
+        return  this.getRefDevice().isUpToDate()
     }
 }

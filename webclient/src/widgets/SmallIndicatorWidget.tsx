@@ -43,7 +43,7 @@ export function SmallIndicatorWidget({ props }: WidgetProperties) {
       return  color || "#98a7b9"; 
     }
     
-    const svgUrl: string | null = typeof source.getMdIcon() === "string" ? source.getMdIcon() as string : null
+    const svgUrl: string | null = typeof source.getIcon() === "string" ? source.getIcon() as string : null
 
     return (
         <Box color={ getColor() }>

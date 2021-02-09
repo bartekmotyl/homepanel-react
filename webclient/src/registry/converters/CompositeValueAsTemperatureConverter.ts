@@ -1,6 +1,6 @@
 import { Device, DeviceBase } from '../../devices/Device';
 import { CompositeValue } from '../../devices/interfaces/generic/genericDevices';
-import { AsTemperature } from '../genericConverters';
+import { AsTemperature } from './genericConverters';
 
 export class CompositeValueAsTemperatureConverter extends DeviceBase implements  AsTemperature {
     private property : string;

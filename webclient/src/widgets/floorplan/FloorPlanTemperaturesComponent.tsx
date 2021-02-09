@@ -7,7 +7,7 @@ import { ValueClassifier } from "../../registry/classifiers/ValueClassifier";
 import { FloorPlanPoint, FloorPlanTemperature } from "./FloorPlanWidget";
 import SVG from 'react-inlinesvg';
 import { Temperature } from "../../devices/interfaces/generic/genericDevices";
-import { AsTemperature } from "../../registry/genericConverters";
+import { AsTemperature } from "../../registry/converters/genericConverters";
 
 export interface FloorPlanTemperaturesConfig {
     temperatures: FloorPlanTemperature[]

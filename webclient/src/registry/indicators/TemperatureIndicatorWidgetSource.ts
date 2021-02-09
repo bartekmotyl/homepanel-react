@@ -1,22 +1,22 @@
 import { store } from '../../app/store';
 import { ConnectedDevice } from '../../devices/Device';
 import { Temperature } from '../../devices/interfaces/generic/genericDevices';
-import { AsTemperature } from '../genericConverters';
+import { AsTemperature } from '../converters/genericConverters';
 import { IndicatorWidgetSource } from './IndicatorWidgetSource';
 
 
 export class TemperatureIndicatorWidgetSource extends IndicatorWidgetSource {
     private temperatureConverterId : string
-    private subDeviceId : string
+    private refDeviceId : string
 
-    constructor(deviceClass: string, deviceId: string, name: string, subDeviceId: string, temperatureConverterId: string)  {
-        super(deviceClass, deviceId, name);
-        this.subDeviceId = subDeviceId;
+    constructor(sourceClass: string, sourceId: string, name: string, refDeviceId: string, temperatureConverterId: string)  {
+        super(sourceClass, sourceId, name);
+        this.refDeviceId = refDeviceId;
         this.temperatureConverterId = temperatureConverterId;
     }
     
-    protected getSubDevice(): ConnectedDevice {
-        return store.getState().devices.map.get(this.subDeviceId)! as ConnectedDevice     
+    protected getRefDevice(): ConnectedDevice {
+        return store.getState().devices.map.get(this.refDeviceId)! as ConnectedDevice     
     }
 
     protected getTemperatureConverter() {
@@ -24,7 +24,7 @@ export class TemperatureIndicatorWidgetSource extends IndicatorWidgetSource {
     }
 
     protected getTemperature() : number | null {
-        let device = this.getSubDevice();
+        let device = this.getRefDevice();
         let converter = this.getTemperatureConverter();
 
         if (!device) {
@@ -57,6 +57,6 @@ export class TemperatureIndicatorWidgetSource extends IndicatorWidgetSource {
     }
 
     public getIsUpToDate() : boolean { 
-        return  this.getSubDevice().isUpToDate()
+        return  this.getRefDevice().isUpToDate()
     }
 }
