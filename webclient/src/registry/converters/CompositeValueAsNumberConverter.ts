@@ -1,6 +1,6 @@
 import { Device, DeviceBase } from '../../devices/Device';
 import { CompositeValue } from '../../devices/interfaces/generic/genericDevices';
-import { AsNumber } from '../genericConverters';
+import { AsNumber } from './genericConverters';
 
 export class CompositeValueAsNumberConverter extends DeviceBase implements  AsNumber {
     private property : string;

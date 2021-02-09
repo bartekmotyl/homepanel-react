@@ -12,23 +12,23 @@ enum DoorSensorVariant {
 }
 
 export class DoorSensorIndicatorWidgetSource extends IndicatorWidgetSource {
-    private subDeviceId: string
+    private refDeviceId: string
     private variant: DoorSensorVariant 
 
-    constructor(deviceClass: string, deviceId: string, name: string, subDeviceId: string, variant?: DoorSensorVariant)  {
-        super(deviceClass, deviceId, name)
-        this.subDeviceId = subDeviceId
+    constructor(sourceClass: string, sourceId: string, name: string, refDeviceId: string, variant?: DoorSensorVariant)  {
+        super(sourceClass, sourceId, name)
+        this.refDeviceId = refDeviceId
         this.variant = variant ?? DoorSensorVariant.Window
     }
 
-    private getDevice(): ConnectedDevice {
-        return store.getState().devices.map.get(this.subDeviceId)! as ConnectedDevice
+    private getRefDevice(): ConnectedDevice {
+        return store.getState().devices.map.get(this.refDeviceId)! as ConnectedDevice
     }
     private getDoorSensor(): DoorSensor {
-        return this.getDevice() as any as DoorSensor;     
+        return this.getRefDevice() as any as DoorSensor;     
     }
 
-    public getMdIcon() : string {
+    public getIcon() : string {
         const isClosed = this.getDoorSensor().isClosed()
         switch(this.variant) {
             default:
@@ -44,7 +44,7 @@ export class DoorSensorIndicatorWidgetSource extends IndicatorWidgetSource {
     }    
 
     public getIsUpToDate() : boolean { 
-        return  this.getDevice().isUpToDate()
+        return  this.getRefDevice().isUpToDate()
     }
 
 }

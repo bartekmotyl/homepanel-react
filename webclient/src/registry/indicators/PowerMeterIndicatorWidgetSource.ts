@@ -4,23 +4,23 @@ import { IndicatorWidgetSource } from './IndicatorWidgetSource';
 import { ConnectedDevice } from '../../devices/Device';
 
 export class PowerMeterIndicatorWidgetSource extends IndicatorWidgetSource {
-    private subDeviceId: string
+    private refDeviceId: string
 
-    constructor(deviceClass: string, deviceId: string, name: string, subDeviceId: string)  {
-        super(deviceClass, deviceId, name);
-        this.subDeviceId = subDeviceId;
+    constructor(sourceClass: string, sourceId: string, name: string, refDeviceId: string)  {
+        super(sourceClass, sourceId, name);
+        this.refDeviceId = refDeviceId;
     }
 
-    private getDevice(): ConnectedDevice {
-        return store.getState().devices.map.get(this.subDeviceId)! as ConnectedDevice
+    private getRefDevice(): ConnectedDevice {
+        return store.getState().devices.map.get(this.refDeviceId)! as ConnectedDevice
     }
 
     private getCompositeValue(): CompositeValue {
-        return this.getDevice() as any as CompositeValue;     
+        return this.getRefDevice() as any as CompositeValue;     
     }
 
 
-    public getMdIcon() : string {
+    public getIcon() : string {
         return "svg/small/014-plug.svg"
     }
 
@@ -45,6 +45,6 @@ export class PowerMeterIndicatorWidgetSource extends IndicatorWidgetSource {
     }
 
     public getIsUpToDate() : boolean { 
-        return  this.getDevice().isUpToDate()
+        return  this.getRefDevice().isUpToDate()
     }
 }

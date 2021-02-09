@@ -16,7 +16,7 @@ export abstract class IndicatorWidgetSource extends DeviceBase {
     getText() : string | null { 
         return null 
     }
-    getMdIcon() : string |  null {
+    getIcon() : string |  null {
         return null
     }
     getExtraText1() : string | null {

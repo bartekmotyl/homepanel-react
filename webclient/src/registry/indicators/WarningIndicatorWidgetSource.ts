@@ -2,22 +2,22 @@ import { store } from '../../app/store';
 import { IndicatorWidgetSource } from './IndicatorWidgetSource';
 import { ValueClass } from '../classifiers/ValueClassifier';
 import { ConnectedDevice } from '../../devices/Device';
-import { AsBoolean } from '../genericConverters';
+import { AsBoolean } from '../converters/genericConverters';
 
 export class WarningIndicatorWidgetSource extends IndicatorWidgetSource {
-    private subDeviceId: string
+    private refDeviceId: string
     private converterId : string
     private svgUrl? : string
 
-    constructor(deviceClass: string, deviceId: string, name: string, subDeviceId: string, converterId : string, svgUrl?: string)  {
-        super(deviceClass, deviceId, name);
-        this.subDeviceId = subDeviceId;
+    constructor(sourceClass: string, sourceId: string, name: string, refDeviceId: string, converterId : string, svgUrl?: string)  {
+        super(sourceClass, sourceId, name);
+        this.refDeviceId = refDeviceId;
         this.converterId = converterId;
         this.svgUrl = svgUrl
     }
 
-    private getDevice(): ConnectedDevice {
-        return store.getState().devices.map.get(this.subDeviceId)! as ConnectedDevice
+    private getRefDevice(): ConnectedDevice {
+        return store.getState().devices.map.get(this.refDeviceId)! as ConnectedDevice
     }
 
     protected getConverter() {
@@ -26,7 +26,7 @@ export class WarningIndicatorWidgetSource extends IndicatorWidgetSource {
 
 
     protected getBoolean() : boolean | null {
-        let device = this.getDevice();
+        let device = this.getRefDevice();
         let converter = this.getConverter();
         if (!device) {
             return null;
@@ -38,7 +38,7 @@ export class WarningIndicatorWidgetSource extends IndicatorWidgetSource {
         return value;
     }
 
-    public getMdIcon() : string {
+    public getIcon() : string {
         return this.svgUrl ?? "svg/small/905-warning.svg"
     }
 
@@ -50,7 +50,7 @@ export class WarningIndicatorWidgetSource extends IndicatorWidgetSource {
     }    
 
     public getIsUpToDate() : boolean { 
-        const dev = this.getDevice();
+        const dev = this.getRefDevice();
         return dev.isUpToDate()
     }
 
