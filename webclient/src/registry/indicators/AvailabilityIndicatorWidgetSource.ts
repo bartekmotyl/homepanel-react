@@ -3,6 +3,11 @@ import { IndicatorWidgetSource } from './IndicatorWidgetSource';
 import { ValueClass } from '../classifiers/ValueClassifier';
 import { AvailabilityChecker } from '../../devices/interfaces/generic/genericDevices';
 
+/**
+ * AvailabilityIndicatorWidgetSource takes array of AvailabilityChecker and shows warning icon 
+ * if any of them returns "not available". Can be used e.g. with PingDevice. 
+ * This source does not require to be combined with value classifier as it returns proper color on its own.
+ */
 export class AvailabilityIndicatorWidgetSource extends IndicatorWidgetSource {
     private refDeviceIds: string[]
 

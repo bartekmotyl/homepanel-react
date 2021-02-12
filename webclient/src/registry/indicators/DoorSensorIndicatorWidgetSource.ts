@@ -11,6 +11,12 @@ enum DoorSensorVariant {
     Fence,
 }
 
+/**
+ * DoorSensorIndicatorWidgetSource takes a reference to DoorSensor device 
+ * and an open/closed icon depending on DoorSensor state. 
+ * Icon type depends on variant. 
+ * This source does not require to be combined with value classifier as it returns proper color on its own.
+ */
 export class DoorSensorIndicatorWidgetSource extends IndicatorWidgetSource {
     private refDeviceId: string
     private variant: DoorSensorVariant 
