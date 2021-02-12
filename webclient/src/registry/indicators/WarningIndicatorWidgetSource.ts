@@ -4,6 +4,14 @@ import { ValueClass } from '../classifiers/ValueClassifier';
 import { ConnectedDevice } from '../../devices/Device';
 import { AsBoolean } from '../converters/genericConverters';
 
+/**
+ * This indicator source helps to build a simple warning indictor. 
+ * It gets reference to a device (any) and a converter that extracts 
+ * a bool value (status) from that device (AsBoolean)  
+ * As long as value is true, then indicator is "ok" (color 'Normal') 
+ * but as soon as value becomes false then indicator becomes 'Warning' 
+ * This source does not require to be combined with value classifier as it returns proper color on its own.
+ */
 export class WarningIndicatorWidgetSource extends IndicatorWidgetSource {
     private refDeviceId: string
     private converterId : string

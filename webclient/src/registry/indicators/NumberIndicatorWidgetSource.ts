@@ -3,6 +3,12 @@ import { ConnectedDevice } from '../../devices/Device';
 import { AsNumber  } from '../converters/genericConverters';
 import { IndicatorWidgetSource } from './IndicatorWidgetSource';
 
+/**
+ * NumberIndicatorWidgetSource takes a reference to a device (any) 
+ * and also takes reference to AsNumber converter. 
+ * Value provided by this source is obtained from referenced device and converted by given converter to a number. 
+ * This source requires to be combined with a value classifier as it does not return any colors.
+*/
 export class NumberIndicatorWidgetSource extends IndicatorWidgetSource {
     private converterId : string
     private refDeviceId : string
@@ -35,7 +41,7 @@ export class NumberIndicatorWidgetSource extends IndicatorWidgetSource {
 
     public getText() : string {
         let value = this.getNumber()
-        if(typeof value !== 'number') {
+        if (typeof value !== 'number') {
             return `${value}`
         }
         const ret =  value ? value.toFixed(1) : "";
