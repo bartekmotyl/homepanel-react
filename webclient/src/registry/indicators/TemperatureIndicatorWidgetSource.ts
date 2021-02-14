@@ -5,7 +5,7 @@ import { AsTemperature } from '../converters/genericConverters';
 import { IndicatorWidgetSource } from './IndicatorWidgetSource';
 
 /**
- * NumberIndicatorWidgetSource takes a reference to a device (any) 
+ * TemperatureIndicatorWidgetSource takes a reference to a device (any) 
  * and also takes reference to AsTemperature converter. 
  * Value provided by this source is obtained from referenced device and converted by given converter to a number (temperature). 
  * This source requires to be combined with a value classifier as it does not return any colors.

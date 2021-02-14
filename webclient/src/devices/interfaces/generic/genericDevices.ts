@@ -1,85 +1,99 @@
 export interface Temperature {
-  getTemperature(): number | null;
+  getTemperature(): number | null
 }
 
 export interface Humidity {
-  getHumidity(): number | null;
+  getHumidity(): number | null
 }
 
 export interface Light {
-  getState(): boolean | null;
+  getState(): boolean | null
 }
 
 export interface Switch extends Light {
-  toggle(): void;
-  off(): void;
-  on(): void;
+  toggle(): void
+  off(): void
+  on(): void
 }
 
 export interface TimedSwitch extends Switch {
-  onForTime(seconds: number): void;
+  onForTime(seconds: number): void
 }
 
 export interface PushButton {
-  push(): void;
-  longPress(): void;
+  push(): void
+  longPress(): void
 }
 
 export interface BatteryOperated {
-  getBattery(): number | null;
-  isBatteryOk(): boolean | null;
+  getBattery(): number | null
+  isBatteryOk(): boolean | null
 }
 
 export interface Gauge {
-  getGaugeValue(): number | null;
+  getGaugeValue(): number | null
 }
 
 export interface Counter {
-  getCounterValue(): number | null;
+  getCounterValue(): number | null
 }
 
 export interface ProximitySensor {
-  getProximityState(): boolean | null;
+  getProximityState(): boolean | null
 }
 
 export interface DoorSensor {
-  isClosed(): boolean | null;
+  isClosed(): boolean | null
 }
 
 export interface Blinds {
-  up(): void;
-  down(): void;
-  stepUp(): void;
-  stepDown(): void;
-  stop(): void;
+  up(): void
+  down(): void
+  stepUp(): void
+  stepDown(): void
+  stop(): void
 }
 
 export interface PositionableBlinds extends Blinds {
-  setPosition(position: number): void;
-  getPosition(): number | null;
+  setPosition(position: number): void
+  getPosition(): number | null
 }
 
 export interface Dimmer {
-  more(): void;
-  less(): void;
-  on(): void;
-  off(): void;
+  more(): void
+  less(): void
+  on(): void
+  off(): void
 }
 
 export interface CompositeValue {
-  getValue(property: string): any;
+  getValue(property: string): any
 }  
 
 export interface SimpleValue {
-  getValue(): any;
+  getValue(): any
 }  
 
 export interface RadiatorThermostatInfo  {
-  getCurrentTemperature() :number | null;
-  getDesiredTemperature() : number | null;
-  getValvePosition(): number | null;
+  getCurrentTemperature() :number | null
+  getDesiredTemperature() : number | null
+  getValvePosition(): number | null
 }
 
 export interface AvailabilityChecker {
-  isAvailable(): boolean | null;
+  isAvailable(): boolean | null
 }
+
+
+export enum MediaMeterVariant {
+    Power = 'Power', 
+    Water = 'Water', 
+    Gas = 'Gas',
+}
+
+export interface MediaMeter {
+    getTotalValue(): number | null
+    getMinuteValue(): number | null
+    getVariant(): MediaMeterVariant
+}
+  

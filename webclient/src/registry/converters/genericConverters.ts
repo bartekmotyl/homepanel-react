@@ -11,3 +11,4 @@ export interface AsNumber {
 export interface AsBoolean {
     getBoolean(device: Device): boolean | null;
 }
+

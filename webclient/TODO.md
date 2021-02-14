@@ -28,7 +28,6 @@ Configuration
 - simple indicator widget: 
   - make classifiers configurable (including colors?)
   - cleanup type handling in sources / converters and classifiers 
-  - make sources more generic (e.g. PowerMeterIndicatorWidgetSource)
   - configurable icons for sources 
   - better concept of "subdevices" (when source uses more than one device)
   - do sources / converters and classifiers  really need to be devices? maybe a separate storage for them ?

@@ -36,7 +36,7 @@ export function SmallIndicatorWidget({ props }: WidgetProperties) {
       let value = source.getValue()
       
       
-      if (value && classifier)  {
+      if ((value || value === 0) && classifier)  {
         color = classifier.classify(value);
       } 
   
