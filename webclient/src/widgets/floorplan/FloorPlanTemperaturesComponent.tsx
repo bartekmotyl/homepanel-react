@@ -1,13 +1,14 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import styled from "styled-components";
-import { Device } from "../../devices/Device";
-import { selectDevices } from "../../devices/devicesSlice";
-import { ValueClassifier } from "../../registry/classifiers/ValueClassifier";
-import { FloorPlanPoint, FloorPlanTemperature } from "./FloorPlanWidget";
-import SVG from 'react-inlinesvg';
-import { Temperature } from "../../devices/interfaces/generic/genericDevices";
-import { AsTemperature } from "../../registry/converters/genericConverters";
+import React from "react"
+import { useSelector } from "react-redux"
+import styled from "styled-components"
+import { Device } from "../../devices/Device"
+import { selectDevices } from "../../devices/devicesSlice"
+import { ValueClassifier } from "../../registry/classifiers/ValueClassifier"
+import { FloorPlanPoint, FloorPlanTemperature } from "./FloorPlanWidget"
+import SVG from 'react-inlinesvg'
+import { Temperature } from "../../devices/interfaces/generic/genericDevices"
+import { AsTemperature } from "../../registry/converters/genericConverters"
+import { asInterface } from "../../utils/cast"
 
 export interface FloorPlanTemperaturesConfig {
     temperatures: FloorPlanTemperature[]
@@ -24,27 +25,27 @@ export const FloorPlanTemperaturesComponent : React.FunctionComponent<FloorPlanT
         return {
             x: props.offsetX + point.x * props.referenceWidth,
             y: props.offsetY + point.y * props.referenceHeight,
-        };
+        }
     }
 
     const getTemperatureLocation = (i: number) => {
         return offsetPoint(temperatures[i].location)
     }
 
-    const devices = useSelector(selectDevices);
+    const devices = useSelector(selectDevices)
 
-    const getDevice = (id: string): Device | null => {
-        return (devices.get(id) as any) as Device;
+    const getDevice = (id: string): Device | undefined => {
+        return devices.get(id)
     }    
 
     const getTemperatureValue = (temp: FloorPlanTemperature) => {
         const device = getDevice(temp.deviceId)!
-        const converter = temp.converterId ? getDevice(temp.converterId) as any as AsTemperature : undefined
+        const converter = temp.converterId ? asInterface<AsTemperature>(temp.converterId, getDevice(temp.converterId)) : undefined
 
         if (converter) {
             return converter.getTemperature(device)
         } else {
-            const tempDevice = device as any as Temperature
+            const tempDevice = asInterface<Temperature>(temp.deviceId, device)
             return tempDevice.getTemperature()
         }
     }
@@ -57,9 +58,9 @@ export const FloorPlanTemperaturesComponent : React.FunctionComponent<FloorPlanT
         const classifier = temp.classifierId ? getDevice(temp.classifierId) as ValueClassifier : undefined
         let color = "#707b7c"
         if (value && classifier && typeof value === 'number') {
-            color = classifier.classify(value.toFixed())!;
+            color = classifier.classify(value.toFixed())!
         }
-        return color || "#98a7b9";
+        return color || "#98a7b9"
     }    
 
     return (

@@ -6,11 +6,12 @@ import useLongPress from "../hooks/useLongpress";
 import { useSelector } from 'react-redux';
 import { selectDevices } from '../devices/devicesSlice';
 import { TimerDevice } from '../devices/implementations/generic/TimerDevice';
+import { asInterface } from '../utils/cast';
 
 export function LocalTimerWidget({ props }: WidgetProperties) {
     
     const devices = useSelector(selectDevices)
-    const timer = (devices.get(props.deviceId) as any) as TimerDevice;
+    const timer = asInterface<TimerDevice>(props.deviceId, devices.get(props.deviceId))
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [audio, state, controls, ref] = useAudio({

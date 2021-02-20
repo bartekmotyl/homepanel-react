@@ -15,7 +15,6 @@ export class NumberRangeValueClassifier extends ValueClassifier {
     }
 
     public classify(value: string): string | ValueClass {
-        console.log(`NumberRangeValueClassifier`, value, this.ranges)
         let val = Number(value);
         if (value === undefined || value === null || isNaN(val)) {
             return ValueClass.Undefined

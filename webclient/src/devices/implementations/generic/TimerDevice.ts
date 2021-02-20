@@ -1,7 +1,7 @@
-import { clone } from "lodash";
-import { DateTime, Duration } from "luxon";
-import { store } from "../../../app/store";
-import { ConnectedDeviceBase, Device, DeviceUpdate } from "../../Device";
+import { clone } from "lodash"
+import { DateTime, Duration } from "luxon"
+import { store } from "../../../app/store"
+import { ConnectedDeviceBase, Device, DeviceUpdate } from "../../Device"
 
 
 /** 

@@ -1,7 +1,8 @@
-import { store } from '../../app/store';
-import { ConnectedDevice } from '../../devices/Device';
-import { AsNumber  } from '../converters/genericConverters';
-import { IndicatorWidgetSource } from './IndicatorWidgetSource';
+import { store } from '../../app/store'
+import { ConnectedDevice } from '../../devices/Device'
+import { asInterface } from '../../utils/cast'
+import { AsNumber  } from '../converters/genericConverters'
+import { IndicatorWidgetSource } from './IndicatorWidgetSource'
 
 /**
  * NumberIndicatorWidgetSource takes a reference to a device (any) 
@@ -14,9 +15,9 @@ export class NumberIndicatorWidgetSource extends IndicatorWidgetSource {
     private refDeviceId : string
 
     constructor(sourceClass: string, sourceId: string, name: string, refDeviceId: string, converterId: string)  {
-        super(sourceClass, sourceId, name);
-        this.refDeviceId = refDeviceId;
-        this.converterId = converterId;
+        super(sourceClass, sourceId, name)
+        this.refDeviceId = refDeviceId
+        this.converterId = converterId
     }
     
     protected getRefDevice(): ConnectedDevice {
@@ -24,19 +25,19 @@ export class NumberIndicatorWidgetSource extends IndicatorWidgetSource {
     }
 
     protected getConverter() {
-        return store.getState().devices.map.get(this.converterId)! as any as AsNumber;
+        return asInterface<AsNumber>(this.converterId, store.getState().devices.map.get(this.converterId))
     }
 
     protected getNumber() : number | null {
-        let device = this.getRefDevice();
-        let converter = this.getConverter();
+        let device = this.getRefDevice()
+        let converter = this.getConverter()
 
         if (!device) {
-            return null;
+            return null
         }
 
         let value = converter.getNumber(device); 
-        return value;
+        return value
     }
 
     public getText() : string {
@@ -44,14 +45,14 @@ export class NumberIndicatorWidgetSource extends IndicatorWidgetSource {
         if (typeof value !== 'number') {
             return `${value}`
         }
-        const ret =  value ? value.toFixed(1) : "";
+        const ret =  value ? value.toFixed(1) : ""
         return ret; 
     }
 
     public getValue() : string | null{
         let value = this.getNumber()
         if (value !== null)
-            return value.toFixed(1);
+            return value.toFixed(1)
         else
             return  null; 
     }

@@ -1,3 +1,4 @@
+import { toNumber } from "../../../utils/conversionUtils"
 import { ConnectedDeviceBase } from "../../Device";
 import {Temperature, TextRepresentation} from "../../interfaces/generic/genericDevices";
 
@@ -11,7 +12,7 @@ export class TemperatureSensorDevice extends ConnectedDeviceBase implements Temp
   }
 
   getTemperature(): number | null {
-    return this.data===undefined ? null : this.data[this.attributeName]
+    return toNumber(this.data===undefined ? null : this.data[this.attributeName])
   }
 
   getStateAsText(): string | null {

@@ -1,3 +1,4 @@
+import { toNumber } from "../../../utils/conversionUtils"
 import { ConnectedDeviceBase } from "../../Device"
 import { MediaMeter, MediaMeterVariant } from "../../interfaces/generic/genericDevices"
 
@@ -14,15 +15,15 @@ export class MediaMeterDevice extends ConnectedDeviceBase implements  MediaMeter
       }
 
     getTotalValue(): number | null {
-        const val = Number(this.data?.total)
-        if (isNaN(val)) {
+        const val = toNumber(this.data?.total)
+        if (val == null) {
             return null
         }        
         return this.data?.total
     }
     getMinuteValue(): number | null {
-        const val = Number(this.data?.minute)
-        if (isNaN(val)) {
+        const val = toNumber(this.data?.minute)
+        if (val == null) {
             return null
         }
         return this.data?.minute * this.scaleMinute

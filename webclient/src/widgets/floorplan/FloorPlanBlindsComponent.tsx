@@ -10,6 +10,7 @@ import useLongPress from "../../hooks/useLongpress";
 import { useTimeoutFn } from "react-use";
 import { CgArrowDownR, CgArrowUpR } from "react-icons/cg";
 import { BsBoundingBox } from "react-icons/bs";
+import { asInterface } from "../../utils/cast";
 
 export interface FloorPlanBlindsConfig {
     blinds: FloorPlanBlinds[]
@@ -35,8 +36,8 @@ export const FloorPlanBlindsComponent : React.FunctionComponent<FloorPlanBlindsC
 
     const devices = useSelector(selectDevices);
 
-    const getDevice = (id: string): Device | null => {
-        return (devices.get(id) as any) as Device;
+    const getDevice = (id: string): Device | undefined => {
+        return devices.get(id)
     }    
 
     const getBlindsIndexFromLongPressEvent = (target: any): number => {
@@ -59,7 +60,7 @@ export const FloorPlanBlindsComponent : React.FunctionComponent<FloorPlanBlindsC
             devices = blinds.filter( b=>b.groups?.includes(currentBlindsGroup)).map(b=>b.deviceId)
         }      
         devices.forEach(deviceId=>{
-            const blinds = getDevice(deviceId) as any as Blinds
+            const blinds = asInterface<Blinds>(deviceId, getDevice(deviceId))
             if (blinds) {
                 action(blinds)
             }

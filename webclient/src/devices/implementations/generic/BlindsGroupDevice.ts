@@ -1,19 +1,19 @@
-
-import {  DeviceBase } from "../../Device";
-import { Blinds } from "../../interfaces/generic/genericDevices";
-import { store } from '../../../app/store';
+import {  DeviceBase } from "../../Device"
+import { Blinds } from "../../interfaces/generic/genericDevices"
+import { store } from '../../../app/store'
+import { asInterface } from "../../../utils/cast"
 
 export class BlindsGroupDevice extends DeviceBase implements Blinds {
   protected blindsDevices: string[]
 
   constructor(deviceClass: string, deviceId: string, name: string, blindsDevices: string[]) {
     super(deviceClass, deviceId, name)
-    this.blindsDevices = blindsDevices;
+    this.blindsDevices = blindsDevices
   }
 
   getBlindsDevices() : Blinds[] {
     return this.blindsDevices.map(deviceId =>  
-      store.getState().devices.map.get(deviceId)! as any as Blinds);
+        asInterface<Blinds>(deviceId, store.getState().devices.map.get(deviceId))!)
   }
 
 

@@ -71,11 +71,11 @@ export interface Dimmer {
 }
 
 export interface CompositeValue {
-  getValue(property: string): any
+  getValue(property: string): any | null
 }  
 
 export interface SimpleValue {
-  getValue(): any
+  getValue(): any | null
 }  
 
 export interface RadiatorThermostatInfo  {

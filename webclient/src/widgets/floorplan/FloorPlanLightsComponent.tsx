@@ -1,11 +1,12 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import styled from "styled-components";
-import { Device } from "../../devices/Device";
-import { selectDevices } from "../../devices/devicesSlice";
-import { FloorPlanLight, FloorPlanPoint } from "./FloorPlanWidget";
-import SVG from 'react-inlinesvg';
-import { Light, Switch } from "../../devices/interfaces/generic/genericDevices";
+import React from "react"
+import { useSelector } from "react-redux"
+import styled from "styled-components"
+import { Device } from "../../devices/Device"
+import { selectDevices } from "../../devices/devicesSlice"
+import { FloorPlanLight, FloorPlanPoint } from "./FloorPlanWidget"
+import SVG from 'react-inlinesvg'
+import { Light, Switch } from "../../devices/interfaces/generic/genericDevices"
+import { asInterface } from "../../utils/cast"
 
 export interface FloorPlanLightsConfig {
     lights: FloorPlanLight[]
@@ -22,21 +23,21 @@ export const FloorPlanLightsComponent : React.FunctionComponent<FloorPlanLightsC
         return {
             x: props.offsetX + point.x * props.referenceWidth,
             y: props.offsetY + point.y * props.referenceHeight,
-        };
+        }
     }
 
     const getLightLocation = (i: number) => {
         return offsetPoint(lights[i].location)
     }
 
-    const devices = useSelector(selectDevices);
+    const devices = useSelector(selectDevices)
 
-    const getDevice = (id: string): Device | null => {
-        return (devices.get(id) as any) as Device;
+    const getDevice = (id: string): Device | undefined => {
+        return devices.get(id)
     }    
 
     const getLightState = (light: FloorPlanLight) => {
-        const devLight = getDevice(light.deviceId)! as any as Light
+        const devLight = asInterface<Light>(light.deviceId, getDevice(light.deviceId))
         return devLight.getState()
     }
 
@@ -48,7 +49,7 @@ export const FloorPlanLightsComponent : React.FunctionComponent<FloorPlanLightsC
 
     const lightClicked = (light: FloorPlanLight) => {
         if (light.switchable) {
-            const devSwitch = getDevice(light.deviceId)! as any as Switch
+            const devSwitch = asInterface<Switch>(light.deviceId, getDevice(light.deviceId))
             devSwitch.toggle()
         }
     }
