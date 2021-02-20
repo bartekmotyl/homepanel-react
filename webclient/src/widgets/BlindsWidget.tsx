@@ -9,12 +9,13 @@ import { IconButton } from '@material-ui/core';
 import useLongPress from '../hooks/useLongpress';
 import { WidgetProperties } from './widgets';
 import { WidgetContainerRect, WidgetContent, WidgetFontCaption, WidgetFontHeadlineIcon, WidgetHeaderRow } from './widgetUiCommons';
+import { asInterface } from '../utils/cast';
 
 export function BlindsWidget({ props }: WidgetProperties) {
     const deviceId = props.deviceId;
     const devices = useSelector(selectDevices);
     const device = devices.get(deviceId);
-    const blinds =  device as Blinds | undefined;;
+    const blinds =  asInterface<Blinds>(deviceId, device)
 
     const handleClick = () => {
     }

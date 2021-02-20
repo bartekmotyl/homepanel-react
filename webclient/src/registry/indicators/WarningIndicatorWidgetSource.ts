@@ -1,8 +1,9 @@
-import { store } from '../../app/store';
-import { IndicatorWidgetSource } from './IndicatorWidgetSource';
-import { ValueClass } from '../classifiers/ValueClassifier';
-import { ConnectedDevice } from '../../devices/Device';
-import { AsBoolean } from '../converters/genericConverters';
+import { store } from '../../app/store'
+import { IndicatorWidgetSource } from './IndicatorWidgetSource'
+import { ValueClass } from '../classifiers/ValueClassifier'
+import { ConnectedDevice } from '../../devices/Device'
+import { AsBoolean } from '../converters/genericConverters'
+import { asInterface } from '../../utils/cast'
 
 /**
  * This indicator source helps to build a simple warning indictor. 
@@ -18,9 +19,9 @@ export class WarningIndicatorWidgetSource extends IndicatorWidgetSource {
     private svgUrl? : string
 
     constructor(sourceClass: string, sourceId: string, name: string, refDeviceId: string, converterId : string, svgUrl?: string)  {
-        super(sourceClass, sourceId, name);
-        this.refDeviceId = refDeviceId;
-        this.converterId = converterId;
+        super(sourceClass, sourceId, name)
+        this.refDeviceId = refDeviceId
+        this.converterId = converterId
         this.svgUrl = svgUrl
     }
 
@@ -29,21 +30,21 @@ export class WarningIndicatorWidgetSource extends IndicatorWidgetSource {
     }
 
     protected getConverter() {
-        return store.getState().devices.map.get(this.converterId)! as any as AsBoolean;
+        return asInterface<AsBoolean>(this.converterId, store.getState().devices.map.get(this.converterId))
     }
 
 
     protected getBoolean() : boolean | null {
-        let device = this.getRefDevice();
-        let converter = this.getConverter();
+        let device = this.getRefDevice()
+        let converter = this.getConverter()
         if (!device) {
-            return null;
+            return null
         }
         if (!converter) {
             return null; 
         }
         let value = converter.getBoolean(device); 
-        return value;
+        return value
     }
 
     public getIcon() : string {
@@ -52,13 +53,13 @@ export class WarningIndicatorWidgetSource extends IndicatorWidgetSource {
 
     public getColor() : string | null{
         if (this.getBoolean())
-            return ValueClass.Normal;
+            return ValueClass.Normal
         else 
             return ValueClass.Warning; 
     }    
 
     public getIsUpToDate() : boolean { 
-        const dev = this.getRefDevice();
+        const dev = this.getRefDevice()
         return dev.isUpToDate()
     }
 

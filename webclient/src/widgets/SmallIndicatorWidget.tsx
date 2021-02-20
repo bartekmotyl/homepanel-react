@@ -1,25 +1,26 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import styled from 'styled-components';
-import { IndicatorWidgetSource } from '../registry/indicators/IndicatorWidgetSource';
-import { ValueClass, ValueClassifier } from '../registry/classifiers/ValueClassifier';
-import { WidgetProperties } from './widgets';
-import { selectDevices } from '../devices/devicesSlice';
-import { Icon } from '@material-ui/core';
-import SVG from "react-inlinesvg";
+import React from 'react'
+import { useSelector } from 'react-redux'
+import styled from 'styled-components'
+import { IndicatorWidgetSource } from '../registry/indicators/IndicatorWidgetSource'
+import { ValueClass, ValueClassifier } from '../registry/classifiers/ValueClassifier'
+import { WidgetProperties } from './widgets'
+import { selectDevices } from '../devices/devicesSlice'
+import { Icon } from '@material-ui/core'
+import SVG from "react-inlinesvg"
+import { asInterface } from '../utils/cast'
 
 export function SmallIndicatorWidget({ props }: WidgetProperties) {
-    const deviceId = props.deviceId;
-    const devices = useSelector(selectDevices);
-    const classifierId = props.classifierId;
+    const deviceId = props.deviceId as string
+    const devices = useSelector(selectDevices)
+    const classifierId = props.classifierId
 
     // in case of SmallIndicatorWidget the deviceId is in fact a key in registry
-    const source = devices.get(deviceId) as any as IndicatorWidgetSource;
+    const source = asInterface<IndicatorWidgetSource>(deviceId, devices.get(deviceId))
     
     const getValueClassifier = () : ValueClassifier | null => {
       if (classifierId === null)
-        return null; 
-      return (devices.get(classifierId) as any) as ValueClassifier;
+        return null
+      return asInterface<ValueClassifier>(classifierId, devices.get(classifierId))
     }
   
   
@@ -28,7 +29,7 @@ export function SmallIndicatorWidget({ props }: WidgetProperties) {
         return ValueClass.Undefined
       }
 
-      let color = source.getColor();
+      let color = source.getColor()
       if (color)
         return color; 
   

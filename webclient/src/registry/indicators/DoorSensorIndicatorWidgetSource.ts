@@ -1,8 +1,9 @@
-import { store } from '../../app/store';
-import { DoorSensor } from '../../devices/interfaces/generic/genericDevices';
-import { IndicatorWidgetSource } from './IndicatorWidgetSource';
-import { ValueClass } from '../classifiers/ValueClassifier';
-import { ConnectedDevice } from '../../devices/Device';
+import { store } from '../../app/store'
+import { DoorSensor } from '../../devices/interfaces/generic/genericDevices'
+import { IndicatorWidgetSource } from './IndicatorWidgetSource'
+import { ValueClass } from '../classifiers/ValueClassifier'
+import { ConnectedDevice } from '../../devices/Device'
+import { asInterface } from '../../utils/cast'
 
 enum DoorSensorVariant {
     Door, 
@@ -31,7 +32,7 @@ export class DoorSensorIndicatorWidgetSource extends IndicatorWidgetSource {
         return store.getState().devices.map.get(this.refDeviceId)! as ConnectedDevice
     }
     private getDoorSensor(): DoorSensor {
-        return this.getRefDevice() as any as DoorSensor;     
+        return asInterface<DoorSensor>(this.refDeviceId, this.getRefDevice())
     }
 
     public getIcon() : string {
@@ -44,9 +45,9 @@ export class DoorSensorIndicatorWidgetSource extends IndicatorWidgetSource {
 
     public getColor() : string | null{
         if (this.getDoorSensor().isClosed())
-            return ValueClass.Normal;
+            return ValueClass.Normal
         else 
-            return ValueClass.Error; 
+            return ValueClass.Error
     }    
 
     public getIsUpToDate() : boolean { 

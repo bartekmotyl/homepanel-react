@@ -81,7 +81,6 @@ But it does not mean the work is done - it is far from that :)
 It is of course possible to extend it by new connectors, devices and widgets (I have lots of ideas already). On the other hand, there are plenty of places that would need to be improved/optimized, for example: 
 - UI & UX - I am not a designer, so widgets are not that pretty, I am aware of that :)
 - Improve performance of floor plan widgets (the app becomes significantly slow on a tablet when floor plan widget is activated)
-- Get rid of forced type-script casts here and there (`as any as X`)
 
 See more in TODO file 
 

@@ -2,6 +2,7 @@ import { store } from '../../app/store'
 import { MediaMeter, MediaMeterVariant } from '../../devices/interfaces/generic/genericDevices'
 import { IndicatorWidgetSource } from './IndicatorWidgetSource'
 import { ConnectedDevice } from '../../devices/Device'
+import { asInterface } from '../../utils/cast'
 
 
 
@@ -20,7 +21,7 @@ export class MediaMeterIndicatorWidgetSource extends IndicatorWidgetSource {
     }
 
     private getMediaMeter(): MediaMeter {
-        return this.getRefDevice() as any as MediaMeter   
+        return asInterface<MediaMeter>(this.refDeviceId, this.getRefDevice())   
     }
 
 

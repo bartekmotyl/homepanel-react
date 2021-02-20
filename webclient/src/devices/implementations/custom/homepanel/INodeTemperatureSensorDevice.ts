@@ -1,12 +1,13 @@
-import { ConnectedDeviceBase } from "../../../Device";
-import { BatteryOperated, Temperature } from "../../../interfaces/generic/genericDevices";
+import { toNumber } from "../../../../utils/conversionUtils"
+import { ConnectedDeviceBase } from "../../../Device"
+import { BatteryOperated, Temperature } from "../../../interfaces/generic/genericDevices"
 
 export class INodeTemperatureSensorDevice extends ConnectedDeviceBase implements  Temperature, BatteryOperated {
   getTemperature(): number | null {
-    return this.data?.temperature
+    return toNumber(this.data?.temperature)
   }
   getBattery(): number | null {
-    return this.data?.batteryVoltage
+    return toNumber(this.data?.batteryVoltage)
   }
   isBatteryOk(): boolean | null {
     return null
