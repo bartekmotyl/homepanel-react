@@ -42,6 +42,9 @@ export class NumberIndicatorWidgetSource extends IndicatorWidgetSource {
 
     public getText() : string {
         let value = this.getNumber()
+        if (value === null || value === undefined) {
+            return "N/A"
+        }
         if (typeof value !== 'number') {
             return `${value}`
         }
