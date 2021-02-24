@@ -18,7 +18,7 @@ export class TimerDevice extends ConnectedDeviceBase {
         this.data = { startedAt: null }
     }
 
-    protected acceptDataIntneral(update: DeviceUpdate): Device {
+    protected acceptDataInternal(update: DeviceUpdate): Device {
         const cloned = clone(this)
         cloned.data = {
             ...this.data,
