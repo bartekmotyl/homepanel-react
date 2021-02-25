@@ -40,7 +40,8 @@ export class FHEMConnector implements IConnector {
     public connect(store: MiddlewareAPI, config?: any) {
         this.fhemConfig = config as FHEMConfig
         debug && console.log(`FHEMConnector: connecting to: ${this.fhemConfig.url}`)
-        setTimeout(() => { this.startLongPoll(store, this.connectorId, this.fhemConfig!) }, 0);
+        
+        setTimeout(() => { this.retrieveCurrentReadings(store) }, 0)
     }
 
     public disconnect() {
@@ -134,6 +135,53 @@ export class FHEMConnector implements IConnector {
         });
     }
 
+        
+    private async retrieveCurrentReadings(store: MiddlewareAPI) {
+        debug && console.log(`FHEM: doLongPoll ${this.connectorId}`)
+        const token =  Buffer.from(`${this.fhemConfig!.user}:${this.fhemConfig!.password}`, 'utf8').toString('base64')
+    
+        const currentReadingsUrl = `${this.fhemConfig!.url}/fhem?XHR=1&cmd=jsonlist2`
+    
+        debug && console.log(`FHEM: retrieveCurrentReadings: ${currentReadingsUrl}`)
+    
+        const currentReadings = await axios.get(currentReadingsUrl, {
+            headers: {
+              'Authorization': `Basic ${token}`
+            },   
+        })      
+        
+        const devices = (store.getState() as RootState).devices
+
+        currentReadings.data.Results.forEach((r: any) => {
+            if (r?.Readings?.state) {
+                const devName = r.Name
+                const state = r?.Readings?.state
+
+                if (devices.map.has(devName)) {
+                    const dev = devices.map.get(devName)!
+                    const clazz = dev.getClass() 
+                    const adapter = this.adapters.get(clazz)
+                    if (adapter) {
+                        const updateDataArr = adapter.accept(store, [state.Value])
+                        if (updateDataArr) {
+                            updateDataArr.forEach(data => {
+                                const deviceData: DeviceUpdate = {
+                                    deviceId: devName,
+                                    data: data,
+                                    timestamp: new Date(),
+                                    upToDate: true,
+                                }
+                                debug && console.log(`dispatching status update:`,deviceData )
+                                store.dispatch({ type: 'devices/deviceUpdate', payload: deviceData });
+                            })
+                        }
+                    }
+                }
+            }
+        })
+        setTimeout(() => { this.startLongPoll(store, this.connectorId, this.fhemConfig!) }, 0)
+    }
+
 }
 
 
@@ -168,7 +216,8 @@ class SwitchDeviceAdapter implements DeviceAdapter {
             const cmd = `set ${device.getDeviceId()} toggle`
             fhemCall(cmd)
         }
-    }    
+    }
+
 }
 
 

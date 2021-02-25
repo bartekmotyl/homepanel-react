@@ -152,10 +152,10 @@
         page('Charts', [
             tabsWidget({ tabsVisible: true }, [
                 page('CERN', [
-                    widget('iframeWidget', 'nodev-grafana-iframe2', { url: 'https://monit-grafana-open.cern.ch/d/000000505/perfsonar-e2e-performance?orgId=16'}),
+                    widget('iframeWidget', 'nodev-grafana-iframe2', { url: 'https://monit-grafana-open.cern.ch/d/000000288/lhcopn?viewPanel=3&orgId=16'}),
                 ]),
                 page('Wiki', [
-                    widget('iframeWidget', 'nodev-grafana-iframe1', { url: 'https://grafana.wikimedia.org/d/000000208/edit-count?orgId=1&refresh=5m'}),
+                    widget('iframeWidget', 'nodev-grafana-iframe1', { url: 'https://grafana.wikimedia.org/d/000000208/edit-count?viewPanel=8&orgId=1&refresh=5m'}),
                 ]),
             ])
         ]),
