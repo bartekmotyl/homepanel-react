@@ -24,10 +24,15 @@
         createDevice('BlindsDevice', ['fhem-1', 'blindsOffice', 'Office']),      
         createDevice('BlindsDevice', ['fhem-1', 'blindsBedroom', 'Bedroom']),      
         createDevice('DoorSensorDevice', ['fhem-1', 'windowSensorOffice', 'Office (window)']),      
+        createDevice('MediaMeterDevice', ['fhem-1', 'PowerMeter', 'Power', 'Power', 60.0]),        
+        createDevice('MediaMeterDevice', ['fhem-1', 'WaterMeter', 'Water', 'Water', 1.0]),        
         //        
         createDevice('TemperatureIndicatorWidgetSource', ['tempOffice-source', 'Office', 'tempOffice']),   
         createDevice('TemperatureIndicatorWidgetSource', ['tempBedroom-source', 'Bedroom', 'tempBedroom']),   
         createDevice('DoorSensorIndicatorWidgetSource', ['windowSensorOffice-source', 'Office (window)', 'windowSensorOffice']),
+        createDevice('MediaMeterIndicatorWidgetSource', ['PowerMeter-source', 'Power', 'PowerMeter', 'W']),
+        createDevice('MediaMeterIndicatorWidgetSource', ['WaterMeter-source', 'Water', 'WaterMeter', 'l']),
+
         createDevice('NumberRangeValueClassifier', [
             'indoor-range-temperature-classifier', [ 
                 { value: 20.0, color: 'VeryLowTemperature'},
@@ -36,7 +41,25 @@
                 { value: 23.0, color: 'HighTemperature'},
                 { value: null, color: 'VeryHighTemperature'},
             ]
-        ]),           
+        ]),       
+        createDevice('NumberRangeValueClassifier', [
+            'power-meter-range-classifier-minute', [ 
+                { value: 500, color: 'Normal'},
+                { value: 2000, color: 'Information'},
+                { value: 4000, color: 'Warning'},
+                { value: null, color: 'Error'},
+            ]
+        ]), 
+        createDevice('NumberRangeValueClassifier', [
+            'water-meter-range-value-classifier', [ 
+                { value: 1, color: 'Normal'},
+                { value: 2, color: 'Information'},
+                { value: 4, color: 'Warning'},
+                { value: 6, color: 'Error'},
+                { value: 10, color: 'Critical'},
+                { value: null, color: 'Disaster'},
+            ]
+        ]),                     
     ]
 
     return devices

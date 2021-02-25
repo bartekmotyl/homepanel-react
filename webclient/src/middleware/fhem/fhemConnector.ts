@@ -30,6 +30,7 @@ export class FHEMConnector implements IConnector {
         this.adapters.set('BlindsDevice', new BlindsDeviceAdapter())
         this.adapters.set('TemperatureSensorDevice', new TemperatureSensorDeviceAdapter())
         this.adapters.set('DoorSensorDevice', new DoorSensorDeviceAdapter())
+        this.adapters.set('MediaMeterDevice', new MediaMeterDeviceAdapter())
         
     }
 
@@ -248,6 +249,22 @@ class TemperatureSensorDeviceAdapter implements DeviceAdapter {
             path: string[], payload: any): void {
     }    
 }
+
+
+class MediaMeterDeviceAdapter implements DeviceAdapter {
+
+    public accept(store: MiddlewareAPI<Dispatch<AnyAction>, any>, args: string[]): any[] {
+        const json = JSON.parse(args.join(''))
+
+        return [ { total: Number(json.total), minute: Number(json.minute) } ]
+    }
+    public processAction(store: MiddlewareAPI, device: Device, fhemCall: (cmd: string) => void, 
+            path: string[], payload: any): void {
+    }    
+}
+
+
+
 
 class DoorSensorDeviceAdapter implements DeviceAdapter {
 
