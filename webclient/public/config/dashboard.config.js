@@ -114,7 +114,9 @@
 
     const leftSideTabs = tabsWidget({ width: "22rem", tabsVisible: true }, [
         page('Main', [
-            siWidget('windowSensorOffice-source'),            
+            siWidget('windowSensorOffice-source'),       
+            siWidget('PowerMeter-source', 'power-meter-range-classifier-minute'),                 
+            siWidget('WaterMeter-source', 'water-meter-range-value-classifier'),                 
         ]),
         page('Temperatures', [
             siWidget('tempOffice-source', 'indoor-range-temperature-classifier'),            
