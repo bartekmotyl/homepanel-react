@@ -1,6 +1,6 @@
 import { toNumber } from "../../../utils/conversionUtils"
-import { ConnectedDeviceBase } from "../../Device";
-import {Temperature, TextRepresentation} from "../../interfaces/generic/genericDevices";
+import { ConnectedDeviceBase } from "../../Device"
+import {Temperature, TextRepresentation} from "../../interfaces/generic/genericDevices"
 
 export class TemperatureSensorDevice extends ConnectedDeviceBase implements Temperature, TextRepresentation {
   protected attributeName: string;
