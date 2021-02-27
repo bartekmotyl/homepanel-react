@@ -1,4 +1,5 @@
 mock/fhem/fhem
 webclient/public/config/custom
+webclient/.idea
 webclient/.eslintcache
 webclient/.idea
