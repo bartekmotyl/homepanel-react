@@ -35,6 +35,7 @@ import { AirQualityPM10ValueClassifier } from '../registry/classifiers/AirQualit
 import { SimpleValueAsBooleanConverter } from '../registry/converters/SimpleValueAsBooleanConverter';
 import { WarningIndicatorWidgetSource } from '../registry/indicators/WarningIndicatorWidgetSource';
 import { AvailabilityIndicatorWidgetSource } from '../registry/indicators/AvailabilityIndicatorWidgetSource';
+import {GenericSensorDevice} from "../devices/implementations/generic/GenericSensorDevice";
 
 
 
@@ -46,6 +47,7 @@ const knownTypes: any = {
     CompositeValueDevice,
     SimpleValueDevice,
     TemperatureSensorDevice,
+    GenericSensorDevice,
     DoorSensorDevice,
     HPRadiatorThermostatDevice,
     PingDevice,

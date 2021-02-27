@@ -6,10 +6,7 @@ import { FaTint } from 'react-icons/fa';
 import { WidgetContainerSquare, WidgetContent, WidgetFontCaption, WidgetFontHeadlineIcon, WidgetHeaderRow } from './widgetUiCommons';
 import { IconButton } from '@material-ui/core';
 import { WidgetProperties  } from './widgets';
-import Button from "@material-ui/core/Button";
 import styled from "styled-components";
-import AutorenewIcon from '@material-ui/icons/Autorenew';
-import SVG from "react-inlinesvg";
 import {BrightnessAutoOutlined, HotTubOutlined} from "@material-ui/icons";
 
 export function SwitchWidgetColored({ props }: WidgetProperties) {

@@ -10,6 +10,10 @@ export interface Light {
   getState(): boolean | null;
 }
 
+export interface TextRepresentation {
+  getStateAsText(): string | null;
+}
+
 export interface Switch extends Light {
   toggle(): void;
   off(): void;

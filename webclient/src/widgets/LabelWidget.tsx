@@ -4,19 +4,19 @@ import styled from 'styled-components';
 import { WidgetProperties } from './widgets';
 import {useSelector} from "react-redux";
 import {selectDevices} from "../devices/devicesSlice";
+import {TextRepresentation} from "../devices/interfaces/generic/genericDevices";
 
 export function LabelWidget({ props }: WidgetProperties) {
     const deviceId = props.deviceId;
-    const style = props.style;
     const devices = useSelector(selectDevices);
     const device = devices.get(deviceId);
-    const value =  'N/A';
+    const textDevice =  device as TextRepresentation | undefined;
+    const value =  textDevice?.getStateAsText() ?? 'N/A';
     const title = props.title ?? device?.getName()
-
-
+    const suffix =  props.suffix ?? ""
 
     return (
-      <Box>{title}: {value}</Box>
+      <Box>{title}: {value}{suffix}</Box>
     )
 }
 
