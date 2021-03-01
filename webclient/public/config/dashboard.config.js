@@ -174,7 +174,7 @@
         page('Extra', [
             tabsWidget({ tabsVisible: true }, [
                 page('Timers', [
-                    widget('localTimerWidget', 'timer-1-minute', {title: '1 minut3'}),
+                    widget('localTimerWidget', 'timer-1-minute', {title: '1 minute'}),
                     widget('localTimerWidget', 'timer-2-minute', {title: '2 minutes'}),
                     widget('localTimerWidget', 'timer-5-minute', {title: '5 minutes'}),
                     widget('localTimerWidget', 'timer-10-minute', {title: '10 minutes'}),
