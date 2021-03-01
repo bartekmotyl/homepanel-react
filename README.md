@@ -120,3 +120,7 @@ The following needs to be done:
 - The default configuration of homepanel-react uses FHEM connector that connects to FHEM inside the docker container. 
 - Make some changes in the FHEM web interface and monitor how the changes are automatically reflected in  homepanel-react. 
 - Some values (e.g. temperatures) are randomly changed by a timer - note how the values change in homepanel-react automatically. 
+
+## License 
+
+GNU GENERAL PUBLIC LICENSE
