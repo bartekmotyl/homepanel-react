@@ -28,7 +28,7 @@
     "@types/react-swipeable": "^5.2.0",
     "@types/styled-components": "^5.1.4",
     "@types/testing-library__react": "^10.2.0",
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "axios-request-handler": "^1.0.4",
     "babel-plugin-styled-components": "^1.11.1",
     "immutable": "^4.0.0-rc.12",
