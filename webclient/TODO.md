@@ -1,3 +1,5 @@
+Unsorted and unedited braindump of todos/ideas:  
+
 - cleanup unused dependencies 
 - how to deal with "local" customized setup - stored in different directory (ignored by git) and use env var?
 - better logo 
@@ -10,15 +12,9 @@ manually maintaining a list of available classes (i.e. automatically support all
 
 Configuration 
 - Widget title is not used (device name is shown instead?)
-
-
-
 - review all classes and fix formatting (4 tabs)
 - private properties in classes 
 - use properties instead of getters?
-
-
-
 
 
 - how to deal with unavailability of a device (data)? should it be covered by connector or rather 
