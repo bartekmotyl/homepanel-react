@@ -86,6 +86,7 @@ Some examples:
 - Improve UI & UX - I am not a designer, so widgets are not that pretty, I am aware of that :)
 - Improve performance of floor plan widgets (the app becomes significantly slow on a tablet when floor plan widget is activated)
 - Cleanup the code 
+- Resolve CORS issues 
 
 See more in reported tickets.   
 
@@ -103,7 +104,7 @@ The android app (UI) worked, and still works, pretty well with lots of features 
 - Compatibility issues with different versions of android 
 - Development cycle is pretty long. Although libgdx allows to test code on desktop, there were many cases when application proven to work on desktop was not running fine once deployed on tablet.
 - Every change to configuration requires recompilation/redeployment  
-- Resolve CORS issues 
+
 
 To address these issues I decided to write homepanel-react - a webapp version of homepanel app. As I already had homepanel-headless running (covering all devices I need), I just exposed everything via websocket interface to be consumed by a connector in homepanel-react.
 
