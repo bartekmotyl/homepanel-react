@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import { getWidgetFunction } from '../widgetsFactory';
-import { WidgetConfiguration, WidgetProperties } from '../widgets';
-import { DashboardTab, DashboardTabs } from './DashboardTabs';
-import styled from 'styled-components';
-import { useSwipeable } from 'react-swipeable';
+import React, { useState } from 'react'
+import { getWidgetFunction } from '../widgetsFactory'
+import { WidgetConfiguration, WidgetProperties } from '../widgets'
+import { DashboardTab, DashboardTabs } from './DashboardTabs'
+import styled from 'styled-components'
+import { useSwipeable } from 'react-swipeable'
+import { ErrorBoundary } from 'react-error-boundary'
+import { ErrorFallbackWidget  } from '../OnErrorWidget'
 
 interface PageConfiguration {
     title: string,
@@ -37,7 +39,9 @@ export function TabsWidget({ props }: WidgetProperties) {
                             { page.widgets.map((el, widgetIndex) => { 
                                 const Widget = getWidgetFunction(el)
                                 return (
-                                    <Widget props={el.properties} key={`widget_${pageIndex}_${widgetIndex}`}/>
+                                    <ErrorBoundary key={`tabs_eb_${pageIndex}_${widgetIndex}`} FallbackComponent={ErrorFallbackWidget}>
+                                        <Widget props={el.properties} key={`widget_${pageIndex}_${widgetIndex}`}/>
+                                    </ErrorBoundary>
                                 )
                             })}
                         </DashboardTabStyled>

@@ -2,6 +2,8 @@ import React from 'react';
 import { getWidgetFunction } from '../widgetsFactory';
 import { WidgetConfiguration, WidgetProperties } from '../widgets';
 import styled from 'styled-components';
+import { ErrorBoundary } from 'react-error-boundary';
+import { ErrorFallbackWidget } from '../OnErrorWidget';
 
 export function ContainerWidget({ props }: WidgetProperties) {
     let widgets = (props.widgets ?? []) as WidgetConfiguration[]
@@ -10,7 +12,9 @@ export function ContainerWidget({ props }: WidgetProperties) {
             { widgets.map((el, index) => { 
                 const Widget = getWidgetFunction(el)
                 return (
-                    <Widget props={el.properties} key={`container_el_${index}`}/>
+                    <ErrorBoundary key={`container_el_eb_${index}`} FallbackComponent={ErrorFallbackWidget}>
+                        <Widget props={el.properties} key={`container_el_${index}`}/>
+                    </ErrorBoundary>
                 )
             })}
         </ContainerStyled>
