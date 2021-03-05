@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import { getWidgetFunction } from '../widgetsFactory';
-import { WidgetConfiguration, WidgetProperties } from '../widgets';
-import { DashboardTab, DashboardTabs } from './DashboardTabs';
-import styled from 'styled-components';
-import { useSwipeable } from 'react-swipeable';
+import React, { useState } from 'react'
+import { getWidgetFunction } from '../widgetsFactory'
+import { WidgetConfiguration, WidgetProperties } from '../widgets'
+import { DashboardTab, DashboardTabs } from './DashboardTabs'
+import styled from 'styled-components'
+import { useSwipeable } from 'react-swipeable'
+import {ErrorBoundary, FallbackProps} from 'react-error-boundary'
+import { OnErrorWidget } from '../OnErrorWidget'
 
 interface PageConfiguration {
     title: string,
@@ -28,6 +30,18 @@ export function TabsWidget({ props }: WidgetProperties) {
         },
     })
 
+    const FallbackWidget = (props: FallbackProps) => {
+        return (
+          <OnErrorWidget/>
+        )
+      }    
+  
+    const myErrorHandler = (error: Error, info: {componentStack: string}) => {
+    // Do something with the error
+    // E.g. log to an error logging client here
+    }
+
+      
     return (
         <ContainerStyled {...handlers} width={props.width ?? '100%'}>
             <DashboardTabsStyled tabsVisible={props.tabsVisible} selectedTab={selectedTab}>
@@ -36,8 +50,11 @@ export function TabsWidget({ props }: WidgetProperties) {
                         <DashboardTabStyled label={page.title} key={`page_${pageIndex}`}>
                             { page.widgets.map((el, widgetIndex) => { 
                                 const Widget = getWidgetFunction(el)
+                                console.log(`Rendering widget: ${el.type} ${el.properties}`)
                                 return (
-                                    <Widget props={el.properties} key={`widget_${pageIndex}_${widgetIndex}`}/>
+                                    <ErrorBoundary key={`eb_widget_${pageIndex}_${widgetIndex}`} FallbackComponent={FallbackWidget} onError={myErrorHandler}>
+                                        <Widget props={el.properties} key={`widget_${pageIndex}_${widgetIndex}`}/>
+                                    </ErrorBoundary>
                                 )
                             })}
                         </DashboardTabStyled>
