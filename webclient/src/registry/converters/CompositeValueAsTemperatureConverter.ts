@@ -1,6 +1,7 @@
 import { Device, DeviceBase } from '../../devices/Device'
 import { CompositeValue } from '../../devices/interfaces/generic/genericDevices'
 import { asInterface } from '../../utils/cast'
+import { toNumber } from '../../utils/conversionUtils'
 import { AsTemperature } from './genericConverters'
 
 export class CompositeValueAsTemperatureConverter extends DeviceBase implements  AsTemperature {
@@ -12,6 +13,6 @@ export class CompositeValueAsTemperatureConverter extends DeviceBase implements 
     }
     getTemperature(device: Device): number | null {
         let value = asInterface<CompositeValue>(this.deviceId, device).getValue(this.property)
-        return value || null
+        return toNumber(value)
     }
 }

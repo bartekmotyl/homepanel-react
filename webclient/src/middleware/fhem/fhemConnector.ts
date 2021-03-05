@@ -5,7 +5,7 @@ import { RootState } from '../../app/store';
 import { IConnector } from '../connectorsMiddleware';
 import { Device, DeviceUpdate } from '../../devices/Device';
 
-const debug = true;
+const debug = false;
 
 
 interface FHEMConfig {
