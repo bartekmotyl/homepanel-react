@@ -2,16 +2,21 @@ import React from 'react';
 import { getWidgetFunction } from '../widgetsFactory';
 import { WidgetConfiguration, WidgetProperties } from '../widgets';
 import styled from 'styled-components';
+import { ErrorBoundary } from 'react-error-boundary'
+import { ErrorFallbackWidget  } from '../OnErrorWidget'
 
 export function PanelWidget({ props }: WidgetProperties) {
     let widgets = props.widgets as WidgetConfiguration[]
+
     return (
         <PanelFlow>
             { widgets.map((el, index) => { 
                 const Widget = getWidgetFunction(el)
                 return (
                     <PanelElement key={`PanelElement_${index}`} >
-                        <Widget props={el.properties}/>
+                        <ErrorBoundary key={`panel_eb_${index}`} FallbackComponent={ErrorFallbackWidget}>
+                            <Widget props={el.properties}/>
+                        </ErrorBoundary>
                     </PanelElement>
                 )
             })}

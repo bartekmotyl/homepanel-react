@@ -2,6 +2,8 @@ import React from 'react';
 import { getWidgetFunction } from '../widgetsFactory';
 import { WidgetConfiguration, WidgetProperties } from '../widgets';
 import styled from 'styled-components';
+import { ErrorFallbackWidget } from '../OnErrorWidget';
+import { ErrorBoundary } from 'react-error-boundary';
 
 export function SideBySideWidget({ props }: WidgetProperties) {
     let widgets = props.widgets as WidgetConfiguration[]
@@ -11,7 +13,9 @@ export function SideBySideWidget({ props }: WidgetProperties) {
                 const Widget = getWidgetFunction(el)
                 return (
                     <PanelElement key={`PanelElement_${index}`} >
-                        <Widget props={el.properties}/>
+                        <ErrorBoundary key={`sidebyside_eb_${index}`} FallbackComponent={ErrorFallbackWidget}>
+                            <Widget props={el.properties}/>
+                        </ErrorBoundary>
                     </PanelElement>
                 )
             })}
