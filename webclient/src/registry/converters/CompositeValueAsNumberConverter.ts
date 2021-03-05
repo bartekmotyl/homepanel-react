@@ -1,6 +1,7 @@
 import { Device, DeviceBase } from '../../devices/Device'
 import { CompositeValue } from '../../devices/interfaces/generic/genericDevices'
 import { asInterface } from '../../utils/cast'
+import { toNumber } from '../../utils/conversionUtils'
 import { AsNumber } from './genericConverters'
 
 export class CompositeValueAsNumberConverter extends DeviceBase implements  AsNumber {
@@ -12,6 +13,6 @@ export class CompositeValueAsNumberConverter extends DeviceBase implements  AsNu
     }
     getNumber(device: Device): number | null {
         let value = asInterface<CompositeValue>(this.deviceId, device).getValue(this.property)
-        return value || null
+        return toNumber(value)
     }
 }
