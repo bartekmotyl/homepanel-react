@@ -45,7 +45,7 @@
             widget('temperatureWidget', 'tempSydney'),
             widget('temperatureWidget', 'tempNewYork'),
             widget('temperatureWidget', 'tempLosAngeles'),
-            widget('temperatureWidget', 'tempTokyoa'),
+            widget('temperatureWidget', 'tempTokyo'),
         ]),
     ])
 
