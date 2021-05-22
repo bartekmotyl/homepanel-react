@@ -28,6 +28,8 @@ import { WarningIndicatorWidgetSource } from '../registry/indicators/WarningIndi
 import { AvailabilityIndicatorWidgetSource } from '../registry/indicators/AvailabilityIndicatorWidgetSource'
 import { NumberRangeValueClassifier } from '../registry/classifiers/NumberRangeValueClassifier'
 import { MediaMeterIndicatorWidgetSource } from '../registry/indicators/MediaMeterIndicatorWidgetSource'
+import { WindSensorDevice } from '../devices/implementations/generic/WindSensorDevice'
+import { WindIndicatorWidgetSource } from '../registry/indicators/WindIndicatorWidgetSource'
 
 
 const knownTypes: any = {
@@ -44,6 +46,7 @@ const knownTypes: any = {
     BlindsGroupDevice,
     TimerDevice,
     MediaMeterDevice,
+    WindSensorDevice,
     CompositeValueAsTemperatureConverter,
     CompositeValueAsNumberConverter,
     ThermostatAsTemperatureConverter,
@@ -56,6 +59,7 @@ const knownTypes: any = {
     AvailabilityIndicatorWidgetSource,
     NumberRangeValueClassifier,
     MediaMeterIndicatorWidgetSource,
+    WindIndicatorWidgetSource,
 }
 const windowUrl = window.location.search
 const params = new URLSearchParams(windowUrl)

@@ -1,18 +1,23 @@
-import { MiddlewareAPI } from 'redux';
-import { PayloadAction } from '@reduxjs/toolkit';
-import { DeviceUpdate } from '../../devices/Device';
-import { IConnector } from '../connectorsMiddleware';
+import { MiddlewareAPI } from 'redux'
+import { AnyAction, Dispatch, PayloadAction } from '@reduxjs/toolkit'
+import { DeviceUpdate } from '../../devices/Device'
+import { IConnector } from '../connectorsMiddleware'
+import { RootState } from '../../app/store'
 
 const debug = false
 
 export class HPWebSocketConnector implements IConnector {
     private connectorId: string 
+    private adapters: Map<string, DeviceAdapter> = new Map<string, DeviceAdapter>()
     private socket: WebSocket | null = null
     private config: any
     private active: boolean = false
 
     public constructor(connectorId: string) {
         this.connectorId = connectorId
+
+        this.adapters.set('WindSensorDevice', new WindSensorDeviceAdapter())
+
         setInterval(() => { 
             if (this.active) {
                 const isValid = this.socket && this.socket.readyState === WebSocket.OPEN
@@ -46,16 +51,16 @@ export class HPWebSocketConnector implements IConnector {
 
         switch (action.type) {
             case `connector/${this.connectorId}/device/switch/toggle`:
-                this.sendAction(action.payload.deviceId, 'toggle');
+                this.sendAction(action.payload.deviceId, 'toggle')
                 break;
             case `connector/${this.connectorId}/device/blinds/up`:
-                this.sendAction(action.payload.deviceId, 'moveUp');
+                this.sendAction(action.payload.deviceId, 'moveUp')
                 break;
             case `connector/${this.connectorId}/device/blinds/down`:
-                this.sendAction(action.payload.deviceId, 'moveDown');
+                this.sendAction(action.payload.deviceId, 'moveDown')
                 break;
             case `connector/${this.connectorId}/device/blinds/stop`:
-                this.sendAction(action.payload.deviceId, 'stopMove');
+                this.sendAction(action.payload.deviceId, 'stopMove')
                 break;
         }
     
@@ -63,17 +68,17 @@ export class HPWebSocketConnector implements IConnector {
 
     private reconnect = (store: MiddlewareAPI) => {
         if (this.socket && this.socket.readyState === WebSocket.OPEN) {
-            this.socket.close();
+            this.socket.close()
         }
         console.log(`Home panel websocket: connecting to: ${this.config}`)
 
         // connect to the remote host
-        this.socket = new WebSocket(this.config);
+        this.socket = new WebSocket(this.config)
 
         // websocket handlers
         this.socket.onmessage = this.onMessage(store);
-        this.socket.onclose = this.onClose(store);
-        this.socket.onopen = this.onOpen(store);        
+        this.socket.onclose = this.onClose(store)
+        this.socket.onopen = this.onOpen(store)       
         this.socket.onerror = this.onError(store)
     }
     
@@ -106,7 +111,7 @@ export class HPWebSocketConnector implements IConnector {
     private onError(store: MiddlewareAPI) { 
         return (ev: Event) => {
             debug && console.log(`Home panel websocket error: ${ev}. Reconnecting...`)  
-            setTimeout(() => { this.reconnect(store) }, 10*10000);
+            setTimeout(() => { this.reconnect(store) }, 10*10000)
             
         }
     };    
@@ -117,14 +122,44 @@ export class HPWebSocketConnector implements IConnector {
             debug && console.log(`Home panel websocket message received: ${event.data}`)
             var payload = JSON.parse(event.data);
             if (payload.messageType === "deviceState") {
+                
                 const deviceData: DeviceUpdate = {
                     deviceId: payload.device,
                     data: payload.data,
                     timestamp: payload.timestamp,
                     upToDate: payload.activeAttributes.length > 0,
                 }
+
+                const devices = (store.getState() as RootState).devices
+                if (devices.map.has(payload.device)) {
+                    const dev = devices.map.get(payload.device)!
+                    const clazz = dev.getClass() 
+                    const adapter = this.adapters.get(clazz)
+                    if (adapter) {
+                        const adaptedUpdate = adapter.accept(store, payload)
+                        if (adaptedUpdate) {
+                            deviceData.data = adaptedUpdate
+                        }
+                    }
+                }
                 store.dispatch({ type: 'devices/deviceUpdate', payload: deviceData });
             }
         }
-    };    
-};
+    }    
+}
+
+
+interface DeviceAdapter {
+    accept(store: MiddlewareAPI, payload: any): any
+}
+
+
+class WindSensorDeviceAdapter implements DeviceAdapter {
+    public accept(store: MiddlewareAPI<Dispatch<AnyAction>, any>, payload: any): any {
+        const converted = { 
+            windSpeedMeterSecond: payload.data.wind_avg_m_s,
+            maxWindSpeedMeterSecond: payload.data.wind_max_m_s,
+         }
+         return converted
+    }
+}

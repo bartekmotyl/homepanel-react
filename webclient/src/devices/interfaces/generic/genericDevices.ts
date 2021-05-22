@@ -97,3 +97,8 @@ export interface MediaMeter {
     getVariant(): MediaMeterVariant
 }
   
+
+export interface WindSensor {
+    getWindSpeedMetersSecond(): number | null
+    getMaxWindSpeedMetersSecond(): number | null
+}
