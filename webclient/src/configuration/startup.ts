@@ -57,8 +57,12 @@ const knownTypes: any = {
     NumberRangeValueClassifier,
     MediaMeterIndicatorWidgetSource,
 }
+const windowUrl = window.location.search
+const params = new URLSearchParams(windowUrl)
 
-export const configFolderPath = process.env.REACT_APP_CONFIG_FOLDER_PATH ?? 'config'
+console.log(`params['config']: ${params.get('config')}`)
+
+export const configFolderPath = params.get('config') ?? process.env.REACT_APP_CONFIG_FOLDER_PATH ?? 'config'
 
 const createDeviceDynamically = (deviceClass: string, args: any) => {
     if (knownTypes[deviceClass] === undefined || knownTypes[deviceClass] === null) {
@@ -67,7 +71,10 @@ const createDeviceDynamically = (deviceClass: string, args: any) => {
     return new knownTypes[deviceClass](...[deviceClass, ...args]);    
 }
 
+
+
 export const configureDevices = async () => {
+
 
     const configDevices = await getDevicesConfig()
     const dynamicDevices = configDevices.map(devCfg => createDeviceDynamically(devCfg.deviceClass, devCfg.args) as Device)
