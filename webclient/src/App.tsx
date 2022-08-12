@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
 import { GlobalStyle } from './styles/global-styles';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import { ContainerWidget } from './widgets/containers/ContainerWidget';
 import { getDashboardConfig, minimalWidgetConfiguration } from './configuration/dashboardConfig';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import useAsync from 'react-use/lib/useAsync';
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary: {
       main: "#383C45",
