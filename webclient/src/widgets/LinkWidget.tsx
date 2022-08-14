@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import { WidgetContainerSquare, WidgetContent, WidgetFontCaption, WidgetFontHeadlineIcon, WidgetHeaderRow } from './widgetUiCommons';
-import { IconButton } from '@material-ui/core';
+import { IconButton } from '@mui/material';
 import { WidgetProperties  } from './widgets';
 
 export function LinkWidget({ props }: WidgetProperties) {

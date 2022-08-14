@@ -5,7 +5,7 @@ import { Device } from "../../devices/Device";
 import { selectDevices } from "../../devices/devicesSlice";
 import { FloorPlanBlinds, FloorPlanPoint } from "./FloorPlanWidget";
 import { Blinds } from "../../devices/interfaces/generic/genericDevices";
-import { IconButton } from '@material-ui/core';
+import { IconButton } from '@mui/material';
 import useLongPress from "../../hooks/useLongpress";
 import { useTimeoutFn } from "react-use";
 import { CgArrowDownR, CgArrowUpR } from "react-icons/cg";

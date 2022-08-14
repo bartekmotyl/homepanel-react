@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Blinds } from '../devices/interfaces/generic/genericDevices';
 import { CgArrowUpR } from 'react-icons/cg';
 import { CgArrowDownR } from 'react-icons/cg';
-import { IconButton } from '@material-ui/core';
+import { IconButton } from '@mui/material';
 import useLongPress from '../hooks/useLongpress';
 import { WidgetProperties } from './widgets';
 import { WidgetContainerRect, WidgetContent, WidgetFontCaption, WidgetFontHeadlineIcon, WidgetHeaderRow } from './widgetUiCommons';

@@ -5,7 +5,7 @@ import { IndicatorWidgetSource } from '../registry/indicators/IndicatorWidgetSou
 import { ValueClass, ValueClassifier } from '../registry/classifiers/ValueClassifier'
 import { WidgetProperties } from './widgets'
 import { selectDevices } from '../devices/devicesSlice'
-import { Icon } from '@material-ui/core'
+import { Icon } from '@mui/material'
 import SVG from "react-inlinesvg"
 import { asInterface } from '../utils/cast'
 
@@ -50,9 +50,9 @@ export function SmallIndicatorWidget({ props }: WidgetProperties) {
         <Box color={ getColor() }>
               <MainContent>
                 { svgUrl &&
-                  <Icon>
+                  <div>
                     <StyledSVG src={svgUrl}/>
-                  </Icon>
+                  </div>
                 }
                 { source.getText() && 
                   <ContentText>

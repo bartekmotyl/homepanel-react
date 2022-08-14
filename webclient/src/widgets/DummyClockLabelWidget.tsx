@@ -2,19 +2,20 @@ import React, { useState } from 'react';
 import { useInterval } from 'react-use';
 import styled from 'styled-components';
 import { WidgetProperties } from './widgets';
-import Moment from 'react-moment';
+import { DateTime } from 'luxon';
 
 export function DummyClockLabelWidget({ props }: WidgetProperties) {
-    const [time, setTime] = useState<number>()
+    const [time, setTime] = useState<string>('ddd')
 
     useInterval(
       () => {
-        setTime(Date.now())
+        const timeStr = DateTime.now().toLocaleString(DateTime.TIME_24_WITH_SECONDS)
+        console.log(timeStr)
+        setTime(timeStr)
       }, 500)
 
-
     return (
-      <Box><Moment date={time} format='HH:mm:ss' /></Box>
+      <Box>{time}</Box>
     )
 }
 

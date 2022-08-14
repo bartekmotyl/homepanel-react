@@ -1,7 +1,7 @@
 import React from 'react';
 import { AiOutlineReload } from 'react-icons/ai';
 import { WidgetContainerSquare, WidgetContent, WidgetFontCaption, WidgetFontHeadlineIcon, WidgetHeaderRow } from './widgetUiCommons';
-import { IconButton } from '@material-ui/core';
+import { IconButton } from '@mui/material';
 import { WidgetProperties  } from './widgets';
 
 export function ReloadWidget({ props }: WidgetProperties) {

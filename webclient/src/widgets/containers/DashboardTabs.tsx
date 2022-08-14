@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React, { ReactElement } from "react";
-import Tabs from '@material-ui/core/Tabs';
-import { Tab } from "@material-ui/core";
+import Tabs from '@mui/material/Tabs';
+import { Tab } from "@mui/material";
 
 interface DashboardTabsProps {
     tabsVisible: boolean,
@@ -33,28 +33,24 @@ export const DashboardTabs : React.FunctionComponent<DashboardTabsProps> = props
 const OuterContainer = styled.div`
     bleed: initial;
     height: 100%;
-    background-color: #2E2F34;
 `; 
+
 const StyledTabs = styled(Tabs)`
-    color: #DADEE7;
 `;
 
 const StyledTab = styled(Tab)` 
   && { 
     min-width: 1rem;
-    background-color: #2E2F34; 
-    ${props => props.selected && `
-         background-color: #383C45;
-         color: #F8FCFF;
-    `}
-    }
+}
 `; 
+
+
+
 
 interface DashboardTabProps {
     label : string,
     children: ReactElement | ReactElement[],
 }
-
 export const DashboardTab : React.FunctionComponent<DashboardTabProps> = props => {
     return (
         <Content>

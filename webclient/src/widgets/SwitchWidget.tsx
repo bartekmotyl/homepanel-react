@@ -5,7 +5,7 @@ import { Switch } from '../devices/interfaces/generic/genericDevices'
 import { FaLightbulb } from 'react-icons/fa'
 import { FaRegLightbulb } from 'react-icons/fa'
 import { WidgetContainerSquare, WidgetContent, WidgetFontCaption, WidgetFontHeadlineIcon, WidgetHeaderRow } from './widgetUiCommons'
-import { IconButton } from '@material-ui/core'
+import { IconButton } from '@mui/material'
 import { WidgetProperties  } from './widgets'
 import { asInterface } from '../utils/cast'
 
