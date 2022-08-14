@@ -37,7 +37,7 @@ function App() {
         <ThemeProvider theme={theme}>
           <Router>
             <Routes>
-              <Route path="/" element={<ContainerWidget props={state.value?.properties ?? minimalWidgetConfiguration}/>}>
+              <Route path="/*" element={<ContainerWidget props={state.value?.properties ?? minimalWidgetConfiguration}/>}>
                 
               </Route>
             </Routes>
