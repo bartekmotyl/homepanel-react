@@ -1,12 +1,15 @@
 import React from 'react';
-import { getWidgetFunction } from '../widgetsFactory';
+//import { getWidgetFunction } from '../widgetsFactory';
 import { WidgetConfiguration, WidgetProperties } from '../widgets';
-import styled from 'styled-components';
-import Ticker from 'react-ticker';
+//import styled from 'styled-components';
+//import Ticker from 'react-ticker';
 
 export function TickerWidget({ props }: WidgetProperties) {
-    let widgets = (props.widgets ?? []) as WidgetConfiguration[]
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    let _widgets = (props.widgets ?? []) as WidgetConfiguration[]
     console.log('width: ', props.width)
+    return (<div></div>);
+    /*
     return (
         <ContainerStyled width={props.width ?? '100vw'}>
             <Ticker mode="chain" speed={props.speed ?? 5}>
@@ -20,8 +23,11 @@ export function TickerWidget({ props }: WidgetProperties) {
             </Ticker>
         </ContainerStyled>
     );
+    */
 }
+/*
 const ContainerStyled = styled.div<{ width: string }>`
     width: ${props =>  `${props.width}`};
     background-color: #2E2F34;
 `;
+*/
