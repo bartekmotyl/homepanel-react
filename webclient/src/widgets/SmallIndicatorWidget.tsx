@@ -9,6 +9,44 @@ import { selectDevices } from '../devices/devicesSlice'
 import SVG from "react-inlinesvg"
 import { asInterface } from '../utils/cast'
 
+type SmallIndicatorWidgetInternalProperties = {
+  color: string,
+  svgUrl: string | null,
+  text: string | null,
+  name: string,
+  extraText1: string,
+  extraText2: string,
+  extraText3: string,
+  extraText4: string,
+}
+
+function SmallIndicatorWidgetInternal(props: SmallIndicatorWidgetInternalProperties) {
+  return (
+    <Box color={ props.color }>
+          <MainContent>
+            { props.svgUrl &&
+              <div>
+                <StyledSVG src={props.svgUrl}/>
+              </div>
+            }
+            { props.text && 
+              <ContentText>
+                <div dangerouslySetInnerHTML={ {__html: props.text! }}/>
+              </ContentText>
+            }
+            <Title dangerouslySetInnerHTML={ {__html: props.name }} />
+
+          </MainContent>
+          <AdditionalInfoNE dangerouslySetInnerHTML={ {__html: props.extraText1}} />
+          <AdditionalInfoNW dangerouslySetInnerHTML={ {__html: props.extraText2}} />
+          <AdditionalInfoSE dangerouslySetInnerHTML={ {__html: props.extraText3}} />
+          <AdditionalInfoSW dangerouslySetInnerHTML={ {__html: props.extraText4}} />              
+    </Box>
+  );
+}
+
+const SmallIndicatorWidgetInternalMemo = React.memo(SmallIndicatorWidgetInternal)
+
 export function SmallIndicatorWidget({ props }: WidgetProperties) {
     const deviceId = props.deviceId as string
     const devices = useSelector(selectDevices)
@@ -47,26 +85,9 @@ export function SmallIndicatorWidget({ props }: WidgetProperties) {
     const svgUrl: string | null = typeof source.getIcon() === "string" ? source.getIcon() as string : null
 
     return (
-        <Box color={ getColor() }>
-              <MainContent>
-                { svgUrl &&
-                  <div>
-                    <StyledSVG src={svgUrl}/>
-                  </div>
-                }
-                { source.getText() && 
-                  <ContentText>
-                    <div dangerouslySetInnerHTML={ {__html: source.getText()! }}/>
-                  </ContentText>
-                }
-                <Title dangerouslySetInnerHTML={ {__html: source.getName() }} />
-
-              </MainContent>
-              <AdditionalInfoNE dangerouslySetInnerHTML={ {__html: source.getExtraText1() ?? "" }} />
-              <AdditionalInfoNW dangerouslySetInnerHTML={ {__html: source.getExtraText2() ?? "" }} />
-              <AdditionalInfoSE dangerouslySetInnerHTML={ {__html: source.getExtraText3() ?? "" }} />
-              <AdditionalInfoSW dangerouslySetInnerHTML={ {__html: source.getExtraText4() ?? "" }} />              
-        </Box>
+        <SmallIndicatorWidgetInternalMemo color={getColor()} name={source.getName()} text={source.getText()} svgUrl={svgUrl}
+          extraText1={source.getExtraText1() ?? ""} extraText2={source.getExtraText2() ?? ""} 
+          extraText3={source.getExtraText3() ?? ""} extraText4={source.getExtraText4() ?? ""} />            
     );
 }
 
