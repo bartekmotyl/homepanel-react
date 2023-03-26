@@ -10,29 +10,17 @@ import { ErrorFallbackWidget  } from '../OnErrorWidget'
 interface PageConfiguration {
     title: string,
     tabsVisible: boolean, 
-    widgets: WidgetConfiguration[];
+    widgets: WidgetConfiguration[],
+    autoFocusTabIndex?: number,
 }
 
 export function TabsWidget({ props }: WidgetProperties) {
     
     let pages = props.pages as PageConfiguration[]
 
-    const [selectedTab, setSelectedTab] = useState(0);
-
-    const handlers = useSwipeable({
-        onSwipedLeft: (eventData) => {
-            setSelectedTab(Math.min(selectedTab + 1, pages.length-1))
-            console.log("User swiped left!", eventData) 
-        },
-        onSwipedRight: (eventData) => { 
-            setSelectedTab(Math.max(selectedTab - 1, 0))
-            console.log("User swiped right!", eventData)
-        },
-    })
-
     return (
-        <ContainerStyled {...handlers} width={props.width ?? '100%'}>
-            <DashboardTabsStyled tabsVisible={props.tabsVisible} selectedTab={selectedTab}>
+        <ContainerStyled width={props.width ?? '100%'}>
+            <DashboardTabsStyled tabsVisible={props.tabsVisible} autoFocusTabIndex={props.autoFocusTabIndex}>
                 { pages.map((page, pageIndex) => { 
                     return ( 
                         <DashboardTabStyled label={page.title} key={`page_${pageIndex}`}>

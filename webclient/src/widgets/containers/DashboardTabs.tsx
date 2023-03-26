@@ -2,30 +2,36 @@ import styled from "styled-components";
 import React, { ReactElement } from "react";
 import Tabs from '@mui/material/Tabs';
 import { Tab } from "@mui/material";
+import { useTimeout } from "react-use";
 
 interface DashboardTabsProps {
     tabsVisible: boolean,
-    selectedTab: number,
-    children: ReactElement<DashboardTabProps> []
+    children: ReactElement<DashboardTabProps> [],
+    autoFocusTabIndex?: number,
 }
 
 export const DashboardTabs : React.FunctionComponent<DashboardTabsProps> = props => {
-    const [value, setValue] = React.useState(0);
+    const [selectedTabIndex, setSelectedTabIndex] = React.useState(props.autoFocusTabIndex ?? 0)
+    const autoFocusTabSwitchTimeout = 60000
+
     const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
-        setValue(newValue);
-    };
+        setSelectedTabIndex(newValue)
+        if (props.autoFocusTabIndex) {
+            setTimeout(() => setSelectedTabIndex(props.autoFocusTabIndex!), autoFocusTabSwitchTimeout)
+        }
+    }
 
     return (
         <OuterContainer>
             { props.tabsVisible && 
-                <StyledTabs value={value} onChange={handleChange} variant="scrollable"> 
+                <StyledTabs value={selectedTabIndex} onChange={handleChange} variant="scrollable"> 
                     { props.children && props.children.map((el, index) => { 
                         return <StyledTab value={index} label={el.props.label} key={index}/>
                         }) 
                     } 
                 </StyledTabs>
             }
-            { props.children[props.tabsVisible ? value : props.selectedTab] }
+            { props.children[selectedTabIndex] }
        </OuterContainer>
     );
 }

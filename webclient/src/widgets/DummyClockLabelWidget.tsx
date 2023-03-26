@@ -10,7 +10,7 @@ export function DummyClockLabelWidget({ props }: WidgetProperties) {
     useInterval(
       () => {
         const timeStr = DateTime.now().toLocaleString(DateTime.TIME_24_WITH_SECONDS)
-        console.log(timeStr)
+        //console.log(timeStr)
         setTime(timeStr)
       }, 500)
 
