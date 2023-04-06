@@ -7170,6 +7170,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"home-assistant-js-websocket@npm:^8.0.1":
+  version: 8.0.1
+  resolution: "home-assistant-js-websocket@npm:8.0.1"
+  checksum: e8b2204d58b2b1fbdf26ca1ad196fcc02ec5d18e6d867179f27246a9f2d4fe5f91de9dbbe7b82806c19dcb0af0e2b77fb48d393668b5c8c0844c201a16832023
+  languageName: node
+  linkType: hard
+
 "homepanel-react@workspace:.":
   version: 0.0.0-use.local
   resolution: "homepanel-react@workspace:."
@@ -7206,6 +7213,7 @@ __metadata:
     eslint: ^8.22.0
     eslint-config-react-app: ^7.0.1
     eslint-plugin-flowtype: ^8.0.3
+    home-assistant-js-websocket: ^8.0.1
     immutable: ^4.1.0
     lodash: ^4.17.21
     luxon: ^3.0.1

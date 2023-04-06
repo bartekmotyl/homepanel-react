@@ -16,6 +16,7 @@
     "@testing-library/user-event": "^14.4.3",
     "axios": "^0.27.2",
     "babel-plugin-styled-components": "^2.0.7",
+    "home-assistant-js-websocket": "^8.0.1",
     "immutable": "^4.1.0",
     "lodash": "^4.17.21",
     "luxon": "^3.0.1",
