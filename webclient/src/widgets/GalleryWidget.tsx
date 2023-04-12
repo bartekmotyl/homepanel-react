@@ -57,7 +57,7 @@ export function GalleryWidget({ props }: WidgetProperties) {
       setIsLoading(false)
   }, [groups, hash, selectedGroup]);
     
-  const handleClick = () => {
+  const handleDoubleClick: React.MouseEventHandler<HTMLImageElement> = (event) => {
     setHash(Date.now())
   }    
 
@@ -69,6 +69,9 @@ export function GalleryWidget({ props }: WidgetProperties) {
     return date.toFormat("yyyy/MM/dd")
   }
   const handlers = useSwipeable({
+    onTap: (_eventData) => {
+      setHash(Date.now())
+    },
     onSwipedLeft: (_eventData) => {
       if (groups.length > 0) {
         setSelectedGroup((selectedGroup + (groups.length + 1) - 1) % (groups.length + 1))
@@ -82,13 +85,13 @@ export function GalleryWidget({ props }: WidgetProperties) {
 })
   
   const ms = props.ms || 10 * 60 * 1000;
-  useInterval(handleClick, ms)
+  useInterval(handleDoubleClick, ms)
 
   return (
     <StyledImageContainer {...handlers} >
       <BoxGroup>{currentGroupName ?? ''}</BoxGroup>
       <BoxDate>{exifDate()}</BoxDate>
-      <StyledImage src={`data:image/jpeg;base64, ${currentPhoto?.data ?? ''}`} alt='' onClick={handleClick} isLoading={isLoading}/>
+      <StyledImage src={`data:image/jpeg;base64, ${currentPhoto?.data ?? ''}`} alt='' onDoubleClick={handleDoubleClick} isLoading={isLoading}/>
     </StyledImageContainer>
   )
 }
