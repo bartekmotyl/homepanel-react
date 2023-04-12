@@ -30,6 +30,11 @@ import { NumberRangeValueClassifier } from "../registry/classifiers/NumberRangeV
 import { MediaMeterIndicatorWidgetSource } from "../registry/indicators/MediaMeterIndicatorWidgetSource"
 import { WindSensorDevice } from "../devices/implementations/generic/WindSensorDevice"
 import { WindIndicatorWidgetSource } from "../registry/indicators/WindIndicatorWidgetSource"
+import { HATemperatureSensorDevice } from "../devices/implementations/custom/ha/HATemperatureSensorDevice"
+import { HACoverDevice } from "../devices/implementations/custom/ha/HACoverDevice"
+import { HABinarySensorDevice } from "../devices/implementations/custom/ha/HABinarySensorDevice"
+import { HASensorDevice } from "../devices/implementations/custom/ha/HASensorDevice"
+import { HASwitchDevice } from "../devices/implementations/custom/ha/HASwitchDevice"
 
 const knownTypes: any = {
   XiaomiTemperatureSensorDevice,
@@ -59,6 +64,11 @@ const knownTypes: any = {
   NumberRangeValueClassifier,
   MediaMeterIndicatorWidgetSource,
   WindIndicatorWidgetSource,
+  HATemperatureSensorDevice,
+  HABinarySensorDevice,
+  HACoverDevice,
+  HASensorDevice,
+  HASwitchDevice,
 }
 const windowUrl = window.location.search
 const params = new URLSearchParams(windowUrl)

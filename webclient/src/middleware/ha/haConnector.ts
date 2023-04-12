@@ -10,6 +10,7 @@ import {
   createLongLivedTokenAuth,
   HassEntities,
   HassEntity,
+  MessageBase,
 } from "home-assistant-js-websocket"
 
 const debug = true
@@ -32,12 +33,15 @@ export class HAWebSocketConnector implements IConnector {
 
   public constructor(connectorId: string) {
     this.connectorId = connectorId
-
+    /*
     this.adapters.set("DoorSensorDevice", new DoorSensorDeviceAdapter())
     this.adapters.set(
       "TemperatureSensorDevice",
       new TemperatureSensorDeviceAdapter()
     )
+    this.adapters.set("MediaMeterDevice", new MediaMeterDeviceAdapter())
+    this.adapters.set("SwitchDevice", new SwitchDeviceAdapter())
+    */
     /*
     setInterval(() => {
       if (this.active) {
@@ -69,10 +73,16 @@ export class HAWebSocketConnector implements IConnector {
     this.config = undefined
   }
 
-  public processAction(
-    store: MiddlewareAPI,
-    action: PayloadAction<any>
-  ): void {}
+  public processAction(store: MiddlewareAPI, action: PayloadAction<any>): void {
+    const parts = action.type.split("/")
+    if (parts[0] === "connector" && parts[1] === this.connectorId) {
+      const deviceId = action.payload.deviceId
+      const devices = (store.getState() as RootState).devices
+      const _dev = devices.map.get(deviceId)!
+      const cmd = action.payload.command as MessageBase
+      this.connection?.sendMessage(cmd)
+    }
+  }
 
   private reconnect = async (store: MiddlewareAPI) => {
     const auth = createLongLivedTokenAuth(
@@ -93,21 +103,24 @@ export class HAWebSocketConnector implements IConnector {
           const dev = devices.map.get(deviceId)!
           const clazz = dev.getClass()
           const adapter = this.adapters.get(clazz)
+          const updateData = {
+            entity: entity,
+          }
+          const deviceData: DeviceUpdate = {
+            deviceId: deviceId,
+            data: updateData,
+            timestamp: new Date(entity.last_updated),
+            upToDate: true,
+          }
           if (adapter) {
-            const updateData = adapter.accept(store, entity)
-            if (updateData) {
-              const deviceData: DeviceUpdate = {
-                deviceId: deviceId,
-                data: updateData,
-                timestamp: new Date(entity.last_updated),
-                upToDate: true,
-              }
-              debug && console.log(`dispatching status update:`, deviceData)
-              store.dispatch({
-                type: "devices/deviceUpdate",
-                payload: deviceData,
-              })
-            }
+            deviceData.data = adapter.accept(store, entity)
+          }
+          if (updateData) {
+            debug && console.log(`dispatching status update:`, deviceData)
+            store.dispatch({
+              type: "devices/deviceUpdate",
+              payload: deviceData,
+            })
           }
         }
       })
@@ -118,15 +131,18 @@ export class HAWebSocketConnector implements IConnector {
 interface DeviceAdapter {
   accept(store: MiddlewareAPI, payload: HassEntity): any
 }
+/*
 
-class DoorSensorDeviceAdapter implements DeviceAdapter {
+
+class MediaMeterDeviceAdapter implements DeviceAdapter {
   public accept(store: MiddlewareAPI, payload: HassEntity): any {
-    return { state: payload.state === "on" ? "open" : "closed" }
+    return { minute: payload.state }
   }
 }
 
-class TemperatureSensorDeviceAdapter implements DeviceAdapter {
+class SwitchDeviceAdapter implements DeviceAdapter {
   public accept(store: MiddlewareAPI, payload: HassEntity): any {
-    return { temperature: payload.state }
+    return { state: payload.state === "on" }
   }
 }
+*/
