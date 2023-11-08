@@ -35,6 +35,7 @@ import { HACoverDevice } from "../devices/implementations/custom/ha/HACoverDevic
 import { HABinarySensorDevice } from "../devices/implementations/custom/ha/HABinarySensorDevice"
 import { HASensorDevice } from "../devices/implementations/custom/ha/HASensorDevice"
 import { HASwitchDevice } from "../devices/implementations/custom/ha/HASwitchDevice"
+import { HPDummyTemperatureSensorDevice } from "../devices/implementations/custom/homepanel/HPDummyTemperatureSensorDevice"
 
 const knownTypes: any = {
   XiaomiTemperatureSensorDevice,
@@ -69,6 +70,7 @@ const knownTypes: any = {
   HACoverDevice,
   HASensorDevice,
   HASwitchDevice,
+  HPDummyTemperatureSensorDevice,
 }
 const windowUrl = window.location.search
 const params = new URLSearchParams(windowUrl)
