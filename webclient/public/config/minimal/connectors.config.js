@@ -7,7 +7,8 @@
             {lat: '40.71274', lon: '-74.005974', deviceId: 'tempNewYork' },
             {lat: '34.05', lon: '-118.25', deviceId: 'tempLosAngeles' },
             {lat: '35.689722', lon: '139.692222', deviceId: 'tempTokyo' },
-        ]},  
+        ]},
+        
     ]
     return configConnectors
 }())

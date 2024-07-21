@@ -114,18 +114,23 @@
 
     const leftSideTabs = tabsWidget({ width: "22rem", tabsVisible: true }, [
         page('Main', [
-            siWidget('windowSensorOffice-source'),  
-            siWidget('binary_sensor.lumi_lumi_sensor_magnet_aq2_opening_2-source'),        
-            siWidget('PowerMeter-source', 'power-meter-range-classifier-minute'),                 
-            siWidget('WaterMeter-source', 'water-meter-range-value-classifier'),           
-            siWidget('sensor.lumi_lumi_sensor_ht_temperature-source', 'indoor-range-temperature-classifier')      
+            siWidget('sensor.power_consumption-source', 'power-meter-range-classifier-minute'),       
+            siWidget('cover.kitchen_window-source'),  
+            siWidget('cover.hall_window-source'),  
+            siWidget('cover.living_room_window-source'),  
+            siWidget('cover.garage_door-source'),  
+            siWidget('cover.pergola_roof-source'),  
+            //siWidget('PowerMeter-source', 'power-meter-range-classifier-minute'),                 
+            //siWidget('WaterMeter-source', 'water-meter-range-value-classifier'),           
+            //siWidget('sensor.lumi_lumi_sensor_ht_temperature-source', 'indoor-range-temperature-classifier')      
         ]),
         page('Temperatures', [
-            siWidget('tempOffice-source', 'indoor-range-temperature-classifier'),            
+            siWidget('sensor.outside_temperature-source', 'outdoor-range-temperature-classifier'),            
             siWidget('tempBedroom-source', 'indoor-range-temperature-classifier'),            
         ]),
     ])
     const rightSideTabs = tabsWidget({ width: "calc(100vw - 23rem)", tabsVisible: true }, [
+        /*
         page('1st Floor', [
             floorPlanWidget('floorplans/floor-plan-demo.svg', [
                 floorPlanTemperatureSimpleSensor('tempOffice', 0.772, 0.693), 
@@ -138,19 +143,25 @@
                 floorPlanLight('lightOffice', 0.664, 0.812, true),
                 floorPlanLight('lightBedroom', 0.145, 0.238, true),
             ])
-        ]),        
+        ]),
+        */     
+          
         page('Rooms', [
             tabsWidget({ tabsVisible: true }, [
                 page('Bedroom', [
-                    widget('switchWidget', 'lightBedroom', {title: 'Bedroom'}),
-                    widget('blindsWidget', 'blindsBedroom', {title: 'Bedroom'}),         
-                    widget('temperatureWidget', 'tempBedroom', {title: 'Bedroom'})           
+                    widget('switchWidget', 'light.bed_light', {title: 'Bed light'}),
+                    widget('switchWidget', 'switch.decorative_lights', {title: 'Decorative'}),
+                    
+                    //widget('blindsWidget', 'blindsBedroom', {title: 'Bedroom'}),         
+                    //widget('temperatureWidget', 'tempBedroom', {title: 'Bedroom'})           
                 ]),
+                /*
                 page('Office', [
                     widget('switchWidget', 'lightOffice', {title: 'Office'}),
                     widget('blindsWidget', 'blindsOffice', {title: 'Office'}),         
                     widget('temperatureWidget', 'tempOffice', {title: 'Office'})           
                 ]),
+                */
             ]),
         ]),
         page('Charts', [

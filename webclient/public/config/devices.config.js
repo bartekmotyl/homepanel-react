@@ -11,6 +11,9 @@
     }
     
     const devices = [
+
+        createDevice('PushButtonDevice',['ha', 'lumi.sensor_magnet.aq2', 'Dummy Push']),
+
         createDeviceTimer('timers', 'timer-1-minute', '1 minute', 'PT1M'),
         createDeviceTimer('timers', 'timer-2-minute', '2 minutes', 'PT2M'),
         createDeviceTimer('timers', 'timer-5-minute', '5 minutes', 'PT5M'),
@@ -19,6 +22,9 @@
         createDeviceTimer('timers', 'timer-30-minute', '30 minutes', 'PT30M'),
         createDevice('TemperatureSensorDevice', ['fhem-1', 'tempOffice', 'Office']),
         createDevice('TemperatureSensorDevice', ['fhem-1', 'tempBedroom', 'Bedroom']),
+        createDevice('TemperatureSensorDevice', ['ha', 'sensor.lumi_lumi_sensor_ht_temperature', 'Dummy']),
+
+        
         createDevice('SwitchDevice', ['fhem-1', 'lightOffice', 'Office']),
         createDevice('SwitchDevice', ['fhem-1', 'lightBedroom', 'Bedroom']),
         createDevice('BlindsDevice', ['fhem-1', 'blindsOffice', 'Office']),      
@@ -26,12 +32,19 @@
         createDevice('DoorSensorDevice', ['fhem-1', 'windowSensorOffice', 'Office (window)']),      
         createDevice('MediaMeterDevice', ['fhem-1', 'PowerMeter', 'Power', 'Power', 60.0]),        
         createDevice('MediaMeterDevice', ['fhem-1', 'WaterMeter', 'Water', 'Water', 1.0]),        
+
+        createDevice('DoorSensorDevice', ['ha', 'binary_sensor.lumi_lumi_sensor_magnet_aq2_opening_2', 'Heating room (door)']),    
+
         //        
         createDevice('TemperatureIndicatorWidgetSource', ['tempOffice-source', 'Office', 'tempOffice']),   
         createDevice('TemperatureIndicatorWidgetSource', ['tempBedroom-source', 'Bedroom', 'tempBedroom']),   
         createDevice('DoorSensorIndicatorWidgetSource', ['windowSensorOffice-source', 'Office (window)', 'windowSensorOffice']),
         createDevice('MediaMeterIndicatorWidgetSource', ['PowerMeter-source', 'Power', 'PowerMeter', 'W']),
         createDevice('MediaMeterIndicatorWidgetSource', ['WaterMeter-source', 'Water', 'WaterMeter', 'l']),
+
+        createDevice('TemperatureIndicatorWidgetSource', ['sensor.lumi_lumi_sensor_ht_temperature-source', 'Dummy', 'sensor.lumi_lumi_sensor_ht_temperature']),   
+        
+        createDevice('DoorSensorIndicatorWidgetSource', ['binary_sensor.lumi_lumi_sensor_magnet_aq2_opening_2-source', 'Heating room (door)', 'binary_sensor.lumi_lumi_sensor_magnet_aq2_opening_2']),
 
         createDevice('NumberRangeValueClassifier', [
             'indoor-range-temperature-classifier', [ 
