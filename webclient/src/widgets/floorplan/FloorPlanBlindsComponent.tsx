@@ -81,7 +81,7 @@ export const FloorPlanBlindsComponent : React.FunctionComponent<FloorPlanBlindsC
     const longPressUp = useLongPress(moveUp, moveStop, defaultOptionsLongPress);
     const longPressDown = useLongPress(moveDown, moveStop, defaultOptionsLongPress);
 
-    const blindsGroupClick = (event: any, index: number) => {
+    const blindsGroupClick = (event: unknown, index: number) => {
         //console.log(`blindsGroupClick: ${index}`)
         let groupIndex = -1
         const groups = blinds[index].groups
@@ -126,7 +126,7 @@ export const FloorPlanBlindsComponent : React.FunctionComponent<FloorPlanBlindsC
                                 <CgArrowDownR/>
                             </ButtonIconBlinds>
                         </BlindsButton>                        
-                        <BlindsGroupButton $referenceWidth={props.referenceWidth} color='secondary' onClick={(ev) => blindsGroupClick(ev, index)}>
+                        <BlindsGroupButton $referenceWidth={props.referenceWidth} color='secondary' onClick={(ev: unknown) => blindsGroupClick(ev, index)}>
                             <ButtonIconBlindsGroup $referenceWidth={props.referenceWidth}>
                                 <BsBoundingBox/>
                             </ButtonIconBlindsGroup>

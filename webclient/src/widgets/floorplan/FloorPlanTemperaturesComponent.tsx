@@ -86,6 +86,7 @@ export const FloorPlanTemperaturesComponent : React.FunctionComponent<FloorPlanT
 }
 
 
+
 const TemperatureBox = styled.div`
     position: absolute;
 `
