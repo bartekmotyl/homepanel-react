@@ -14,6 +14,7 @@ export abstract class ValueClassifier extends DeviceBase {
 
 export enum ValueClass {
   // https://htmlcolorcodes.com/
+  // https://tailwindcolor.com/
   Normal = "#28b463",
   Information = "#d4ac0d",
   Warning = "#d68910",
