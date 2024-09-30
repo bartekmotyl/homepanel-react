@@ -24,6 +24,7 @@ import { DoorSensorIndicatorWidgetSource } from "../registry/indicators/DoorSens
 import { ThermostatIndicatorWidgetSource } from "../registry/indicators/ThermostatIndicatorWidgetSource"
 import { NumberIndicatorWidgetSource } from "../registry/indicators/NumberIndicatorWidgetSource"
 import { SimpleValueAsBooleanConverter } from "../registry/converters/SimpleValueAsBooleanConverter"
+import { SimpleValueAsNumberConverter } from "../registry/converters/SimpleValueAsNumberConverter"
 import { WarningIndicatorWidgetSource } from "../registry/indicators/WarningIndicatorWidgetSource"
 import { AvailabilityIndicatorWidgetSource } from "../registry/indicators/AvailabilityIndicatorWidgetSource"
 import { NumberRangeValueClassifier } from "../registry/classifiers/NumberRangeValueClassifier"
@@ -56,6 +57,7 @@ const knownTypes: any = {
   CompositeValueAsNumberConverter,
   ThermostatAsTemperatureConverter,
   SimpleValueAsBooleanConverter,
+  SimpleValueAsNumberConverter,
   TemperatureIndicatorWidgetSource,
   DoorSensorIndicatorWidgetSource,
   ThermostatIndicatorWidgetSource,
