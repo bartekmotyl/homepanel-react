@@ -10,7 +10,7 @@ export class MediaMeterIndicatorWidgetSource extends IndicatorWidgetSource {
     private refDeviceId: string
     private unitMinute?: string
 
-    constructor(sourceClass: string, sourceId: string, name: string, refDeviceId: string, unitMinute?: string)  {
+    constructor(sourceClass: string, sourceId: string, name: string, refDeviceId: string, unitMinute?: string) {
         super(sourceClass, sourceId, name)
         this.refDeviceId = refDeviceId
         this.unitMinute = unitMinute
@@ -21,11 +21,11 @@ export class MediaMeterIndicatorWidgetSource extends IndicatorWidgetSource {
     }
 
     private getMediaMeter(): MediaMeter {
-        return asInterface<MediaMeter>(this.refDeviceId, this.getRefDevice())   
+        return asInterface<MediaMeter>(this.refDeviceId, this.getRefDevice())
     }
 
 
-    public getIcon() : string {
+    public getIcon(): string {
         const mm = this.getMediaMeter()
         switch (mm.getVariant()) {
             case MediaMeterVariant.Power:
@@ -37,19 +37,20 @@ export class MediaMeterIndicatorWidgetSource extends IndicatorWidgetSource {
         }
     }
 
-    public getExtraText1() : string {
+    public getExtraText1(): string {
         const mm = this.getMediaMeter()
-        let value =  mm.getTotalValue()
-        let val = Number(value);
+        let value = mm.getTotalValue()
+        let val = Number(value)
         if (value === undefined || value === null || isNaN(val)) {
             return "N/A"
-        } 
+        }
 
-        return value.toFixed()    }
+        return value.toFixed()
+    }
 
     public getValue(): number | null {
         const mm = this.getMediaMeter()
-        let value = mm.getMinuteValue() 
+        let value = mm !== undefined ? Math.floor(mm.getMinuteValue()!) : mm
         return value
     }
 
@@ -61,16 +62,16 @@ export class MediaMeterIndicatorWidgetSource extends IndicatorWidgetSource {
                 return 'l'
             case MediaMeterVariant.Gas:
                 return 'm3'
-        }        
+        }
     }
 
     public getName(): string {
         const unit = this.unitMinute ?? this.getDefaultUnitMinute()
-        let value = this.getValue() 
+        let value = this.getValue()
         return `${super.getName()}<br/>${value === null ? '?' : value} ${unit}`
     }
 
-    public getIsUpToDate() : boolean { 
-        return  this.getRefDevice().isUpToDate()
+    public getIsUpToDate(): boolean {
+        return this.getRefDevice().isUpToDate()
     }
 }
